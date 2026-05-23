@@ -1,9 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check } from "lucide-react";
+import { Check, ArrowUpRight } from "lucide-react";
 import jurgenBank from "@/assets/jurgen-portret-bank.png";
 import jurgenMariska from "@/assets/jurgen-mariska.jpg";
-import { FadeIn } from "@/components/FadeIn";
+import { Reveal } from "@/components/Reveal";
+import { Parallax } from "@/components/Parallax";
 import { ChannelCards } from "@/components/ChannelCards";
+import { BezelFrame } from "@/components/BezelCard";
+import { CTALink } from "@/components/CTAButton";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,204 +52,356 @@ const reassure = [
 function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="mx-auto max-w-6xl px-6 pt-16 pb-24 lg:px-10 lg:pt-24 lg:pb-32">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <FadeIn>
-            <h1 className="text-4xl font-semibold leading-[1.15] tracking-tight text-foreground sm:text-5xl lg:text-[3.4rem]">
-              Onderneem met je brein, niet ertegen.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/80">
-              Business coaching voor ondernemers met een ADHD-, autisme- of AuDHD-brein.
-              Een op een, op het kanaal waarop jij het beste denkt. Of dat nu bellen,
-              videobellen, chatten of mailen is.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                Plan een gratis kennismaking
-              </Link>
-              <Link
-                to="/traject"
-                className="inline-flex items-center justify-center rounded-xl border border-border bg-background px-6 py-3.5 text-base font-medium text-foreground transition-colors hover:bg-secondary"
-              >
-                Bekijk het traject
-              </Link>
-            </div>
-          </FadeIn>
-          <FadeIn delay={120}>
-            <div className="overflow-hidden rounded-2xl bg-secondary shadow-[0_8px_30px_rgba(31,58,82,0.08)]">
-              <img
-                src={jurgenBank}
-                alt="Jurgen, oprichter van Gewoon Anders, zit ontspannen op een bank in een lichte huiselijke kamer."
-                className="h-full w-full object-cover"
-                loading="eager"
-              />
-            </div>
-          </FadeIn>
+      {/* Hero — Editorial split */}
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-20 -right-32 h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl float-gentle" />
+          <div className="absolute top-40 -left-24 h-[320px] w-[320px] rounded-full bg-highlight/40 blur-3xl" />
+        </div>
+
+        <div className="relative mx-auto grid max-w-[1240px] gap-12 px-6 pb-24 pt-14 lg:grid-cols-12 lg:gap-12 lg:px-10 lg:pb-32 lg:pt-20">
+          <div className="lg:col-span-7 lg:pr-6 xl:pr-12">
+            <Reveal>
+              <span className="eyebrow">1-op-1 business coaching</span>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="display-xl mt-6 text-[2.6rem] sm:text-[3.2rem] lg:text-[4.4rem] xl:text-[5rem]">
+                Onderneem met<br />
+                je brein,<br />
+                <span className="text-primary">niet ertegen.</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-7 max-w-xl text-[18px] leading-relaxed text-foreground/75 lg:text-[19px]">
+                Business coaching voor ondernemers met een ADHD-, autisme- of
+                AuDHD-brein. Een op een, op het kanaal waarop jij het beste denkt.
+                Of dat nu bellen, videobellen, chatten of mailen is.
+              </p>
+            </Reveal>
+            <Reveal delay={240}>
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <CTALink to="/over-mij" variant="secondary" size="lg">
+                  Lees mijn verhaal
+                </CTALink>
+                <CTALink to="/traject" variant="ghost" size="lg" showArrow={false}>
+                  Bekijk het traject
+                </CTALink>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="lg:col-span-5">
+            <Reveal variant="right" delay={120}>
+              <Parallax speed={0.12}>
+                <BezelFrame className="rotate-[0.6deg]">
+                  <div className="overflow-hidden bezel-inner">
+                    <img
+                      src={jurgenBank}
+                      alt="Jurgen, oprichter van Gewoon Anders, zit ontspannen op een bank in een lichte huiselijke kamer."
+                      className="h-full w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02]"
+                      loading="eager"
+                    />
+                  </div>
+                </BezelFrame>
+              </Parallax>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* Herkenning */}
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-4xl px-6 py-24 lg:px-10 lg:py-28">
-          <FadeIn>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Misschien herken je dit als ondernemer.
-            </h2>
-          </FadeIn>
-          <ul className="mt-12 space-y-5">
-            {recognise.map((line, i) => (
-              <FadeIn key={i} as="li" delay={i * 60}>
-                <div className="flex gap-4 rounded-xl bg-background/70 p-5">
-                  <Check
-                    className="mt-1 shrink-0 text-primary"
-                    size={22}
-                    strokeWidth={1.8}
-                    aria-hidden
-                  />
-                  <p className="text-[17px] leading-relaxed text-foreground/85">{line}</p>
+      <section className="relative bg-secondary">
+        <div className="mx-auto max-w-[1240px] px-6 py-24 lg:px-10 lg:py-32">
+          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <Reveal>
+                <span className="eyebrow">Herkenning</span>
+              </Reveal>
+              <Reveal delay={60}>
+                <h2 className="display-lg mt-5 text-3xl sm:text-4xl lg:text-[2.6rem]">
+                  Misschien herken je dit als ondernemer.
+                </h2>
+              </Reveal>
+              <Reveal delay={140}>
+                <p className="mt-6 text-[17px] leading-relaxed text-foreground/75">
+                  Dit ligt niet aan jou en niet aan een gebrek aan discipline. Het ligt
+                  aan een manier van ondernemen die voor een ander brein is ontworpen.
+                  Bij Gewoon Anders bouw je een bedrijf dat past bij het brein dat je
+                  hebt.
+                </p>
+              </Reveal>
+            </div>
+            <ul className="space-y-4 lg:col-span-7">
+              {recognise.map((line, i) => (
+                <Reveal key={i} as="li" delay={i * 70}>
+                  <div className="group relative flex gap-5 rounded-2xl bg-background/70 p-6 ring-1 ring-foreground/5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-background hover:shadow-ambient">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110">
+                      <Check size={18} strokeWidth={2} aria-hidden />
+                    </span>
+                    <p className="text-[17px] leading-relaxed text-foreground/85">{line}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Masking — kern */}
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute -right-32 top-1/2 h-[480px] w-[480px] -translate-y-1/2 rounded-full bg-primary/8 blur-3xl" />
+        <div className="relative mx-auto grid max-w-[1240px] gap-14 px-6 py-28 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-36">
+          <div className="lg:col-span-7">
+            <Reveal>
+              <span className="eyebrow">Het stuk dat vaak onbenoemd blijft</span>
+            </Reveal>
+            <Reveal delay={80}>
+              <h2 className="display-lg mt-6 text-3xl sm:text-4xl lg:text-[2.8rem]">
+                Masking kost je waarschijnlijk meer dan je denkt.
+              </h2>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-7 text-[17px] leading-relaxed text-foreground/75 lg:text-[18px]">
+                Voor veel autistische en AuDHD-ondernemers is masking de stille post die
+                elk klantgesprek, elke pitch, elke netwerkafspraak afroomt. Je bent niet
+                ineens iemand anders. Je past je toon iets aan, je houdt iets binnen, je
+                maakt oogcontact dat je niet zou maken. Voor je het weet ben je een dag
+                onbruikbaar na een gesprek dat goed ging.
+              </p>
+            </Reveal>
+            <Reveal delay={220}>
+              <p className="mt-5 text-[17px] leading-relaxed text-foreground/75 lg:text-[18px]">
+                Het is geen reden om iemand anders te worden. Het is wel een goede reden
+                om je werk anders in te richten. Zodat je het minder hoeft.
+              </p>
+            </Reveal>
+            <Reveal delay={300}>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <CTALink to="/themas/masking" variant="primary" size="lg">
+                  Lees over masking
+                </CTALink>
+                <CTALink to="/downloads" variant="secondary" size="lg">
+                  Doe de Masking-check
+                </CTALink>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="lg:col-span-5">
+            <Reveal variant="right" delay={120}>
+              <div className="space-y-4">
+                <div className="rounded-3xl border border-foreground/8 bg-card p-7 transition-all duration-500 hover:-translate-y-0.5 hover:shadow-ambient">
+                  <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+                    In klantgesprekken
+                  </p>
+                  <p className="mt-3 text-[17px] leading-relaxed text-foreground/85">
+                    Je past je toon en snelheid aan op de ander. Soms zo precies dat je
+                    de jouwe even kwijt bent.
+                  </p>
                 </div>
-              </FadeIn>
-            ))}
-          </ul>
-          <FadeIn>
-            <p className="mt-12 max-w-2xl text-[17px] leading-relaxed text-foreground/80">
-              Dit ligt niet aan jou en niet aan een gebrek aan discipline. Het ligt aan
-              een manier van ondernemen die voor een ander brein is ontworpen. Bij Gewoon
-              Anders bouw je een bedrijf dat past bij het brein dat je hebt.
-            </p>
-          </FadeIn>
+                <div className="rounded-3xl border border-foreground/8 bg-card p-7 transition-all duration-500 hover:-translate-y-0.5 hover:shadow-ambient lg:ml-10">
+                  <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+                    Bij prijsgesprekken
+                  </p>
+                  <p className="mt-3 text-[17px] leading-relaxed text-foreground/85">
+                    Je voelt aarzeling van de ander en haalt liever je prijs naar
+                    beneden dan dat je het ongemak voelt.
+                  </p>
+                </div>
+                <div className="rounded-3xl border border-foreground/8 bg-card p-7 transition-all duration-500 hover:-translate-y-0.5 hover:shadow-ambient">
+                  <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+                    Op netwerk-events
+                  </p>
+                  <p className="mt-3 text-[17px] leading-relaxed text-foreground/85">
+                    Je doet alsof je het leuk vindt, op pure wilskracht. Daarna ben je
+                    twee dagen onbruikbaar.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* Tweezijdig verhaal */}
-      <section className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-32">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <FadeIn>
-            <div>
-              <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+      <section className="relative bg-secondary">
+        <div className="mx-auto grid max-w-[1240px] items-center gap-14 px-6 py-24 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-32">
+          <div className="lg:col-span-5">
+            <Reveal>
+              <Parallax speed={0.1}>
+                <BezelFrame>
+                  <img
+                    src={jurgenMariska}
+                    alt="Jurgen en zijn vrouw Mariska samen bij zonsondergang aan zee."
+                    className="h-full w-full object-cover"
+                  />
+                </BezelFrame>
+              </Parallax>
+            </Reveal>
+          </div>
+          <div className="lg:col-span-7">
+            <Reveal>
+              <span className="eyebrow">Twee kanten van neurodivergentie</span>
+            </Reveal>
+            <Reveal delay={80}>
+              <h2 className="display-lg mt-6 text-3xl sm:text-4xl lg:text-[2.6rem]">
                 Ik ken dit van twee kanten.
               </h2>
-              <p className="mt-6 text-[17px] leading-relaxed text-foreground/80">
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-7 text-[17px] leading-relaxed text-foreground/75">
                 Ik ben zelf neurodivergent, en ik run al jaren meerdere bedrijven. Maar
                 ik ken neurodivergentie ook van heel dichtbij op een andere manier. Ik
-                ben al ruim achttien jaar samen met mijn vrouw, die pas op latere leeftijd
-                ontdekte dat ze AuDHD heeft. Ik heb van dichtbij gezien wat het met
-                iemand doet om jarenlang niet te weten waarom je anders bent. Om jezelf
-                steeds aan te passen. Om niet geloofd te worden.
+                ben al ruim achttien jaar samen met mijn vrouw, die pas op latere
+                leeftijd ontdekte dat ze AuDHD heeft. Ik heb van dichtbij gezien wat het
+                met iemand doet om jarenlang niet te weten waarom je anders bent. Om
+                jezelf steeds aan te passen. Om niet geloofd te worden.
               </p>
-              <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
+            </Reveal>
+            <Reveal delay={220}>
+              <p className="mt-5 text-[17px] leading-relaxed text-foreground/75">
                 Daarom snap ik niet alleen hoe het voelt vanbinnen, maar ook wat de
                 mensen om je heen vaak niet zien. Die twee kanten neem ik mee in elke
                 begeleiding.
               </p>
-            </div>
-          </FadeIn>
-          <FadeIn delay={120}>
-            <div className="overflow-hidden rounded-2xl bg-secondary shadow-[0_8px_30px_rgba(31,58,82,0.08)]">
-              <img
-                src={jurgenMariska}
-                alt="Jurgen en zijn vrouw Mariska samen bij zonsondergang aan zee."
-                className="h-full w-full object-cover"
-              />
-            </div>
-          </FadeIn>
+            </Reveal>
+            <Reveal delay={300}>
+              <Link
+                to="/over-mij"
+                className="mt-8 inline-flex items-center gap-2 text-[15px] font-semibold text-primary link-underline"
+              >
+                Lees mijn verhaal
+                <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* Kanaal */}
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-5xl px-6 py-24 lg:px-10 lg:py-28">
-          <FadeIn>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Jij kiest hoe we praten.
-            </h2>
-            <p className="mt-6 max-w-2xl text-[17px] leading-relaxed text-foreground/80">
-              Niet iedereen denkt het beste in een videocall. Sommige mensen denken
-              scherper zonder beeld, of in geschreven tekst, of als ze de tijd krijgen om
-              hun gedachten te ordenen. Daarom kies je bij Gewoon Anders per sessie zelf
-              hoe we contact hebben.
-            </p>
-          </FadeIn>
-          <FadeIn delay={100}>
-            <div className="mt-12">
-              <ChannelCards />
+      <section className="relative overflow-hidden">
+        <div className="mx-auto max-w-[1240px] px-6 py-28 lg:px-10 lg:py-36">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            <div className="lg:col-span-5">
+              <Reveal>
+                <span className="eyebrow">Vier kanalen, gelijkwaardig</span>
+              </Reveal>
+              <Reveal delay={80}>
+                <h2 className="display-lg mt-6 text-3xl sm:text-4xl lg:text-[2.6rem]">
+                  Jij kiest hoe we praten.
+                </h2>
+              </Reveal>
+              <Reveal delay={160}>
+                <p className="mt-7 text-[17px] leading-relaxed text-foreground/75">
+                  Niet iedereen denkt het beste in een videocall. Sommige mensen denken
+                  scherper zonder beeld, of in geschreven tekst, of als ze de tijd
+                  krijgen om hun gedachten te ordenen. Daarom kies je bij Gewoon Anders
+                  per sessie zelf hoe we contact hebben.
+                </p>
+              </Reveal>
+              <Reveal delay={240}>
+                <p className="mt-5 text-[17px] leading-relaxed text-foreground/75">
+                  Allemaal gelijkwaardig. De ene week anders dan de andere. Zoals je
+                  brein nu eenmaal werkt.
+                </p>
+              </Reveal>
             </div>
-          </FadeIn>
-          <FadeIn>
-            <p className="mt-10 max-w-2xl text-[17px] leading-relaxed text-foreground/80">
-              Allemaal gelijkwaardig. De ene week anders dan de andere. Zoals je brein nu
-              eenmaal werkt.
-            </p>
-          </FadeIn>
+            <div className="lg:col-span-7">
+              <Reveal delay={120}>
+                <ChannelCards />
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Traject korte uitleg */}
-      <section className="bg-highlight">
-        <div className="mx-auto max-w-4xl px-6 py-24 lg:px-10 lg:py-28">
-          <FadeIn>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Het traject: Anders Ondernemen.
-            </h2>
-            <p className="mt-6 text-[17px] leading-relaxed text-foreground/80">
-              In acht sessies bouw je een bedrijf dat werkt met jouw brein. We kijken
-              naar hoe je werkt, waar je energie heen gaat, welke structuur bij je past,
-              hoe je grenzen stelt naar klanten, en welke richting echt van jou is. Een
-              op een, in jouw tempo, op het kanaal dat voor jou werkt.
-            </p>
-            <Link
-              to="/traject"
-              className="mt-10 inline-flex items-center justify-center rounded-xl border border-foreground/15 bg-background px-6 py-3.5 text-base font-medium text-foreground hover:bg-secondary"
-            >
-              Bekijk het hele traject
-            </Link>
-          </FadeIn>
+      <section className="relative">
+        <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
+          <div className="relative overflow-hidden rounded-[2rem] bg-foreground p-10 sm:p-14 lg:p-20">
+            <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-primary/20 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-32 -left-24 h-[360px] w-[360px] rounded-full bg-primary/15 blur-3xl" />
+            <div className="relative max-w-3xl">
+              <Reveal>
+                <span className="eyebrow border-background/20 bg-background/10 text-background/90">
+                  Het traject
+                </span>
+              </Reveal>
+              <Reveal delay={80}>
+                <h2 className="display-lg mt-6 text-3xl text-background sm:text-4xl lg:text-[2.6rem]">
+                  Anders Ondernemen.
+                </h2>
+              </Reveal>
+              <Reveal delay={140}>
+                <p className="mt-6 text-[17px] leading-relaxed text-background/80 lg:text-[18px]">
+                  In acht sessies bouw je een bedrijf dat werkt met jouw brein. We kijken
+                  naar hoe je werkt, waar je energie heen gaat, welke structuur bij je
+                  past, hoe je grenzen stelt naar klanten, en welke richting echt van
+                  jou is. Een op een, in jouw tempo, op het kanaal dat voor jou werkt.
+                </p>
+              </Reveal>
+              <Reveal delay={220}>
+                <div className="mt-10">
+                  <CTALink to="/traject" variant="secondary" size="lg" className="!bg-background/10 !border-background/20 !text-background hover:!bg-background/15">
+                    Bekijk het hele traject
+                  </CTALink>
+                </div>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Geruststelling */}
-      <section className="mx-auto max-w-6xl px-6 py-24 lg:px-10 lg:py-28">
-        <FadeIn>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Wat je van tevoren mag weten.
-          </h2>
-        </FadeIn>
-        <ul className="mt-12 grid gap-6 md:grid-cols-3">
-          {reassure.map((r, i) => (
-            <FadeIn key={r.h} as="li" delay={i * 80}>
-              <article className="h-full rounded-xl border border-border bg-card p-7 shadow-[0_1px_2px_rgba(31,58,82,0.04)]">
-                <h3 className="text-lg font-semibold text-foreground">{r.h}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-foreground/75">
-                  {r.p}
-                </p>
-              </article>
-            </FadeIn>
-          ))}
-        </ul>
+      <section className="relative">
+        <div className="mx-auto max-w-[1240px] px-6 py-28 lg:px-10 lg:py-36">
+          <Reveal>
+            <span className="eyebrow">Wat je van tevoren mag weten</span>
+          </Reveal>
+          <Reveal delay={80}>
+            <h2 className="display-lg mt-6 max-w-2xl text-3xl sm:text-4xl lg:text-[2.4rem]">
+              Drie dingen die ik vooraf wil zeggen.
+            </h2>
+          </Reveal>
+          <ul className="mt-14 grid gap-5 md:grid-cols-3">
+            {reassure.map((r, i) => (
+              <Reveal key={r.h} as="li" delay={i * 90}>
+                <article className="group relative h-full rounded-3xl border border-foreground/8 bg-card p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-ambient-lg">
+                  <span className="absolute right-7 top-7 text-[12px] font-mono text-foreground/30">
+                    0{i + 1}
+                  </span>
+                  <h3 className="text-lg font-semibold text-foreground">{r.h}</h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-foreground/70">
+                    {r.p}
+                  </p>
+                </article>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
       </section>
 
       {/* Slot */}
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10 lg:py-28">
-          <FadeIn>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+      <section className="relative bg-secondary">
+        <div className="mx-auto max-w-3xl px-6 py-28 text-center lg:px-10">
+          <Reveal>
+            <h2 className="display-lg text-3xl sm:text-4xl lg:text-[2.6rem]">
               Benieuwd of dit bij je past?
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-foreground/80">
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-foreground/75">
               Plan een gratis kennismaking van een half uur. Op het kanaal dat jij wil.
               Geen verplichtingen. Daarna beslis jij rustig of je verder wil.
             </p>
-            <Link
-              to="/contact"
-              className="mt-10 inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground hover:bg-primary/90"
-            >
-              Plan een gratis kennismaking
-            </Link>
-          </FadeIn>
+          </Reveal>
+          <Reveal delay={180}>
+            <div className="mt-10 flex justify-center">
+              <CTALink to="/contact" variant="primary" size="lg">
+                Plan een kennismaking
+              </CTALink>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>

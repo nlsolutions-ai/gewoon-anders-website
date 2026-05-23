@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -147,16 +148,72 @@ function ContactPage() {
         )}
 
         <FadeIn>
-          <p className="mt-10 text-[15px] leading-relaxed text-foreground/75">
-            Liever direct mailen? Dat kan ook, via{" "}
+          <div className="mt-10 grid gap-3 sm:grid-cols-2">
             <a
-              href="mailto:hallo@gewoonanders.nl"
-              className="text-primary underline-offset-4 hover:underline"
+              href="mailto:info@northernlights.solutions"
+              className="magnet group flex items-center gap-4 rounded-2xl border border-foreground/8 bg-card p-5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-ambient"
             >
-              hallo@gewoonanders.nl
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-foreground/5 text-foreground/70 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              </span>
+              <span className="min-w-0">
+                <span className="block text-[12px] font-semibold uppercase tracking-[0.16em] text-foreground/55">
+                  E-mail
+                </span>
+                <span className="mt-0.5 block truncate text-[15px] font-medium text-foreground">
+                  info@northernlights.solutions
+                </span>
+              </span>
             </a>
-            .
+
+            <a
+              href="https://wa.me/31639479021"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="magnet group flex items-center gap-4 rounded-2xl border border-foreground/8 bg-card p-5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-ambient"
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#25D366]/10 transition-colors group-hover:bg-[#25D366]/15">
+                <WhatsAppIcon size={20} />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-[12px] font-semibold uppercase tracking-[0.16em] text-foreground/55">
+                  WhatsApp Business
+                </span>
+                <span className="mt-0.5 block truncate text-[15px] font-medium text-foreground">
+                  +31 6 39 47 90 21
+                </span>
+              </span>
+            </a>
+          </div>
+          <p className="mt-4 text-[14px] leading-relaxed text-foreground/65">
+            Ik reageer op mail en WhatsApp binnen twee werkdagen, op vaste momenten. Geen 24/7 beschikbaarheid.
           </p>
+        </FadeIn>
+
+        <FadeIn>
+          <div className="mt-12 rounded-2xl border border-border bg-card/60 p-6 text-[14px] leading-relaxed text-foreground/70">
+            <p className="font-semibold text-foreground">Bedrijfsgegevens</p>
+            <p className="mt-2">
+              Gewoon Anders is een onderdeel van NorthernLights Solutions.
+            </p>
+            <p className="mt-1">Ondernemingsnummer: 1037.471.022</p>
+            <p>Btw-nummer: BE1037471022</p>
+            <p>Gevestigd in België</p>
+          </div>
         </FadeIn>
       </section>
     </>

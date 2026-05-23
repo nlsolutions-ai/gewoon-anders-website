@@ -11,22 +11,23 @@ import {
 import appCss from "../styles.css?url";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Pagina niet gevonden</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+          De pagina die je zoekt bestaat niet of is verplaatst.
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            Naar de homepage
           </Link>
         </div>
       </div>
@@ -42,10 +43,10 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+          Deze pagina laadt niet
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          Er ging iets mis. Probeer te verversen of ga terug naar de homepage.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -55,13 +56,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
+            Opnieuw proberen
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Go home
+            Naar homepage
           </a>
         </div>
       </div>
@@ -90,6 +91,45 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "icon", href: "/logo.png", type: "image/png" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Gewoon Anders",
+          description:
+            "Business coaching voor ondernemers met een ADHD-, autisme- of AuDHD-brein. Een op een, op het kanaal waarop jij het beste denkt.",
+          url: "/",
+          logo: "/logo.png",
+          areaServed: "NL",
+          knowsAbout: [
+            "ADHD bij ondernemers",
+            "Autisme bij ondernemers",
+            "AuDHD",
+            "Masking",
+            "Overprikkeling",
+            "Executive functies",
+            "Demand avoidance",
+            "Burn-out preventie",
+            "Neurodivergent ondernemerschap",
+          ],
+          founder: {
+            "@type": "Person",
+            name: "Jurgen",
+            jobTitle: "Business coach voor neurodivergente ondernemers",
+            knowsAbout: [
+              "Neurodivergent ondernemerschap",
+              "ADHD",
+              "Autisme",
+              "AuDHD",
+              "Masking",
+            ],
+          },
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -100,7 +140,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="nl">
       <head>
         <HeadContent />
       </head>
@@ -123,6 +163,7 @@ function RootComponent() {
       >
         Naar inhoud
       </a>
+      <ScrollProgress />
       <SiteNav />
       <main id="main">
         <Outlet />

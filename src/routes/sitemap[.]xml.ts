@@ -1,17 +1,78 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { posts } from "@/lib/blog-data";
 
 const BASE_URL = "";
 
-const entries = [
+const themaSlugs = [
+  "masking",
+  "overprikkeling",
+  "energie-burnout",
+  "executive-functies",
+  "demand-avoidance",
+  "prijzen-onderhandelen",
+  "zichtbaarheid-netwerken",
+];
+
+const voorWieSlugs = [
+  "adhd-ondernemers",
+  "autistische-ondernemers",
+  "audhd-ondernemers",
+  "laat-ontdekt",
+];
+
+const freebieSlugs = [
+  "energiescan",
+  "prijzen-spiekbriefje",
+  "masking-check",
+  "mijn-week-mijn-brein",
+];
+
+type Entry = { path: string; priority: string; changefreq: string };
+
+const baseEntries: Entry[] = [
   { path: "/", priority: "1.0", changefreq: "weekly" },
   { path: "/traject", priority: "0.9", changefreq: "monthly" },
-  { path: "/over-mij", priority: "0.8", changefreq: "monthly" },
   { path: "/werkwijze", priority: "0.8", changefreq: "monthly" },
+  { path: "/over-mij", priority: "0.8", changefreq: "monthly" },
   { path: "/faq", priority: "0.7", changefreq: "monthly" },
   { path: "/contact", priority: "0.9", changefreq: "monthly" },
+  { path: "/downloads", priority: "0.8", changefreq: "monthly" },
+  { path: "/blog", priority: "0.8", changefreq: "weekly" },
   { path: "/privacy", priority: "0.3", changefreq: "yearly" },
   { path: "/voorwaarden", priority: "0.3", changefreq: "yearly" },
+];
+
+const themaEntries: Entry[] = themaSlugs.map((s) => ({
+  path: `/themas/${s}`,
+  priority: "0.7",
+  changefreq: "monthly",
+}));
+
+const voorWieEntries: Entry[] = voorWieSlugs.map((s) => ({
+  path: `/voor-wie/${s}`,
+  priority: "0.7",
+  changefreq: "monthly",
+}));
+
+const freebieEntries: Entry[] = freebieSlugs.map((s) => ({
+  path: `/downloads/${s}`,
+  priority: "0.6",
+  changefreq: "monthly",
+}));
+
+const blogEntries: Entry[] = posts.map((p) => ({
+  path: `/blog/${p.slug}`,
+  priority: "0.6",
+  changefreq: "monthly",
+}));
+
+const entries: Entry[] = [
+  ...baseEntries,
+  ...themaEntries,
+  ...voorWieEntries,
+  ...freebieEntries,
+  ...blogEntries,
 ];
 
 export const Route = createFileRoute("/sitemap.xml")({

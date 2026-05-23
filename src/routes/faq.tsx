@@ -15,54 +15,186 @@ export const Route = createFileRoute("/faq")({
       {
         name: "description",
         content:
-          "Antwoorden op de meestgestelde vragen over coaching voor neurodivergente ondernemers bij Gewoon Anders.",
+          "Antwoorden op de meestgestelde vragen over coaching voor neurodivergente ondernemers: diagnose, kanalen, prijs, werkwijze, en wat we doen als het schuurt.",
       },
       { property: "og:title", content: "Veelgestelde vragen - Gewoon Anders" },
-      { property: "og:description", content: "Antwoorden op veelgestelde vragen." },
       { property: "og:url", content: "/faq" },
     ],
     links: [{ rel: "canonical", href: "/faq" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqsForSchema(),
+        }),
+      },
+    ],
   }),
   component: FaqPage,
 });
 
-const faqs = [
-  { q: "Moet ik een diagnose hebben om mee te doen?", a: "Nee. Het gaat om hoe jouw brein werkt in je bedrijf, niet om een officiele diagnose. Veel mensen die ik begeleid hebben een vermoeden, of zijn pas laat gediagnosticeerd. Dat is allemaal welkom." },
-  { q: "Ik vind videobellen lastig. Kan dat anders?", a: "Ja. Je kiest per sessie zelf hoe we contact hebben: videobellen, bellen zonder beeld, live chatten of een mailsessie. Je hoeft nooit een kanaal te gebruiken dat niet bij je past." },
-  { q: "Is dit therapie?", a: "Nee. Dit is zakelijke coaching. Het is praktisch en op de toekomst gericht. Ik stel geen diagnoses en geef geen therapie. Heb je een zorgvraag, dan denk ik met je mee over de juiste plek." },
-  { q: "Hoe werkt een mailsessie precies?", a: "Jij schrijft een uitgewerkte mail over je situatie en je vraag. Ik stuur binnen drie werkdagen een uitgewerkte reactie terug, met inzichten en concrete stappen. Samen telt dat als een volledige sessie." },
-  { q: "Wat als ik een sessie moeilijk vind of stil val?", a: "Dat is geen probleem. We gaan in jouw tempo. Je hoeft nooit meer te delen dan je wil, en je mag altijd zeggen dat iets te veel is." },
-  { q: "Is de coaching aftrekbaar van de belasting?", a: "Voor ondernemers is zakelijke coaching meestal aftrekbaar als bedrijfskosten. Vraag dit na bij je boekhouder voor jouw specifieke situatie." },
-  { q: "Hoe lang duurt het hele traject?", a: "Het volledige traject bestaat uit acht sessies, verspreid over ongeveer vier maanden. Het tempo bepalen we samen, dus het kan ook rustiger." },
-  { q: "Wat gebeurt er bij de gratis kennismaking?", a: "We hebben een gesprek van dertig minuten op het kanaal dat jij kiest. Je vertelt waar je tegenaan loopt, ik vertel hoe ik werk, en we kijken of het klikt. Je zit daarna nergens aan vast." },
+type FaqItem = { q: string; a: string };
+type FaqGroup = { group: string; items: FaqItem[] };
+
+const groups: FaqGroup[] = [
+  {
+    group: "Of dit bij je past",
+    items: [
+      {
+        q: "Moet ik een diagnose hebben om mee te doen?",
+        a: "Nee. Het gaat om hoe jouw brein werkt in je bedrijf, niet om een officieel papiertje. Veel mensen die ik begeleid hebben een vermoeden, of zijn pas later in hun leven gediagnosticeerd. Dat is allemaal welkom.",
+      },
+      {
+        q: "Ik weet niet zeker of ik wel neurodivergent ben. Kan ik dan toch komen?",
+        a: "Ja. Als je veel van wat op deze site staat herkent en je voelt dat je werk je meer kost dan logisch zou moeten zijn, is dat een prima reden om eens te praten. We hoeven niet eerst zeker te weten wat het is.",
+      },
+      {
+        q: "Is dit therapie?",
+        a: "Nee. Dit is zakelijke coaching. We werken aan je bedrijf en hoe je werk inricht. Ik stel geen diagnoses en geef geen therapie. Bij een zorgvraag denk ik met je mee over een goede plek, ik verwijs warm door.",
+      },
+      {
+        q: "Voor wie is dit traject niet bedoeld?",
+        a: "Niet voor wie op dit moment in een crisis zit, of voor wie eerst zorg nodig heeft. Niet voor wie alleen een tactisch marketingvraagstuk heeft zonder dat het brein een rol speelt. En niet voor wie op zoek is naar groei-coaching die je in een hoger tempo wil duwen. Bij een gratis kennismaking kijken we samen of het past.",
+      },
+    ],
+  },
+  {
+    group: "De kanalen",
+    items: [
+      {
+        q: "Ik vind videobellen lastig. Kan dat anders?",
+        a: "Ja. Je kiest per sessie zelf hoe we contact hebben: videobellen, bellen zonder beeld, live chatten of een mailsessie. Je hoeft nooit een kanaal te gebruiken dat niet bij je past.",
+      },
+      {
+        q: "Hoe werkt een mailsessie precies?",
+        a: "Jij schrijft een uitgewerkte mail over je situatie en je vraag. Ik lees die rustig en stuur binnen drie werkdagen een uitgewerkte reactie terug, met inzichten en concrete stappen. Samen telt dat als een sessie. Het is geen heen-en-weer van korte berichtjes.",
+      },
+      {
+        q: "Kan ik elke sessie wisselen van kanaal?",
+        a: "Ja. Je beslist per sessie, uiterlijk bij het inplannen. De ene week voelt videobellen prima, de andere week is bellen zonder beeld beter. Dat hoeft niet vooraf vast.",
+      },
+      {
+        q: "Mag ik tussen sessies door contact opnemen?",
+        a: "Voor korte vragen kun je op vaste momenten mailen, ik reageer dan binnen een paar werkdagen. Voor langere uitwisselingen plannen we een mailsessie of een ander kanaal. Geen 24/7 beschikbaarheid en geen crisisdienst.",
+      },
+    ],
+  },
+  {
+    group: "Het traject",
+    items: [
+      {
+        q: "Hoe lang duurt het hele traject?",
+        a: "Het volledige traject bestaat uit acht sessies, verspreid over ongeveer vier maanden. Het tempo bepalen we samen. Het mag rustiger als dat beter past.",
+      },
+      {
+        q: "Wat als ik na het traject nog losse sessies wil?",
+        a: "Dat kan. Losse vervolgsessies kosten 175 euro per stuk en kun je inplannen wanneer je voelt dat je wil bijsturen. Geen abonnement, geen verplichting.",
+      },
+      {
+        q: "Wat als ik niet aan acht sessies toekom?",
+        a: "Er is een verkorte variant van vier sessies, voor een afgebakende vraag. Dat heet Anders Ondernemen Kort en kost 795 euro. Voor sommige mensen is dat genoeg om een blokkade los te trekken.",
+      },
+      {
+        q: "Wat als ik halverwege wil stoppen?",
+        a: "Dat mag. Je betaalt dan voor wat je hebt afgenomen. We bespreken vooraf hoe afronden eruitziet, zodat er geen vervelend gevoel achterblijft.",
+      },
+      {
+        q: "Krijg ik huiswerk?",
+        a: "Soms. Per pijler is er een kort, rustig werkblad. Geen lange opdrachten. Als een werkblad op dat moment niet past, slaan we het over. Doelen halen is geen doel op zich.",
+      },
+    ],
+  },
+  {
+    group: "Prijs en geld",
+    items: [
+      {
+        q: "Wat kost het traject?",
+        a: "Het volledige traject Anders Ondernemen kost 1.450 euro voor acht sessies. Gespreid betalen kan in vier maandelijkse termijnen van 395 euro. De korte variant is 795 euro.",
+      },
+      {
+        q: "Is de coaching aftrekbaar van de belasting?",
+        a: "Voor ondernemers is zakelijke coaching meestal aftrekbaar als bedrijfskosten. Vraag dit na bij je boekhouder voor jouw specifieke situatie. Geen belastingadvies van mij.",
+      },
+      {
+        q: "Wat krijg ik voor die prijs?",
+        a: "Acht sessies van zestig minuten op het kanaal dat jij per keer kiest. Een werkblad per pijler. Een begrensd mailkanaal voor korte vragen tussendoor. Aan het eind een eigen Anders Ondernemen Plan.",
+      },
+      {
+        q: "Wat zit er niet bij?",
+        a: "Geen 24/7 beschikbaarheid, geen crisisdienst, geen onbeperkt mailen tussen sessies. Geen marketing- of administratie-uitvoering. Geen diagnose of therapie.",
+      },
+    ],
+  },
+  {
+    group: "In de praktijk",
+    items: [
+      {
+        q: "Wat gebeurt er bij de gratis kennismaking?",
+        a: "We hebben een gesprek van dertig minuten op het kanaal dat jij kiest. Je vertelt waar je tegenaan loopt, ik vertel hoe ik werk, en we kijken of het klikt. Je zit daarna nergens aan vast.",
+      },
+      {
+        q: "Wat als ik een sessie moeilijk vind of stil val?",
+        a: "Dat is geen probleem. We gaan in jouw tempo. Je hoeft nooit meer te delen dan je wil, en je mag altijd zeggen dat iets te veel is.",
+      },
+      {
+        q: "Wat als ik een sessie wil verzetten?",
+        a: "Tot 24 uur van tevoren kun je kosteloos verzetten. Daarbinnen reken ik de sessie als gedaan, behalve als er iets dringends speelt. Dat lossen we dan in overleg op.",
+      },
+      {
+        q: "Werk je ook met ondernemers zonder personeel?",
+        a: "Ja. De meeste mensen die ik begeleid zijn zzp'er of hebben een klein bedrijf. Het traject werkt ook voor ondernemers met een team, mits je vraag in jouw rol als ondernemer ligt en niet in HR.",
+      },
+      {
+        q: "Wat doe je met privacy?",
+        a: "Wat je in een sessie zegt blijft tussen ons. Ik leg geen verklaringen of dossiers aan. Voor administratie sla ik alleen het nodige op: naam, contact, factuurgegevens. Lees ook de privacyverklaring.",
+      },
+    ],
+  },
 ];
+
+function faqsForSchema() {
+  return groups.flatMap((g) =>
+    g.items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  );
+}
 
 function FaqPage() {
   return (
     <>
       <PageHeader
         title="Veelgestelde vragen."
-        intro="Hieronder beantwoord ik de vragen die het vaakst gesteld worden. Staat jouw vraag er niet bij, stel hem dan gerust via de contactpagina."
+        intro="Hieronder beantwoord ik de vragen die mensen het vaakst stellen. Geordend per onderwerp. Staat jouw vraag er niet bij, stuur me dan een mail of stel hem in een gratis kennismaking."
       />
       <section className="mx-auto max-w-3xl px-6 pb-24 lg:px-10">
-        <FadeIn>
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((f, i) => (
-              <AccordionItem
-                key={i}
-                value={`item-${i}`}
-                className="border-b border-border"
-              >
-                <AccordionTrigger className="py-6 text-left text-[17px] font-semibold text-foreground hover:no-underline">
-                  {f.q}
-                </AccordionTrigger>
-                <AccordionContent className="pb-6 text-[16px] leading-relaxed text-foreground/80">
-                  {f.a}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </FadeIn>
+        {groups.map((group, gi) => (
+          <FadeIn key={group.group} delay={gi * 80}>
+            <div className="mt-10 first:mt-0">
+              <h2 className="text-2xl font-semibold text-foreground">{group.group}</h2>
+              <Accordion type="single" collapsible className="mt-4 w-full">
+                {group.items.map((f, i) => (
+                  <AccordionItem
+                    key={i}
+                    value={`item-${gi}-${i}`}
+                    className="border-b border-border"
+                  >
+                    <AccordionTrigger className="py-5 text-left text-[17px] font-semibold text-foreground hover:no-underline">
+                      {f.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-5 text-[16px] leading-relaxed text-foreground/80">
+                      {f.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </FadeIn>
+        ))}
       </section>
     </>
   );

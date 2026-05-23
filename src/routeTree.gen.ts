@@ -16,8 +16,24 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OverMijRouteImport } from './routes/over-mij'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DownloadsIndexRouteImport } from './routes/downloads/index'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as VoorWieLaatOntdektRouteImport } from './routes/voor-wie/laat-ontdekt'
+import { Route as VoorWieAutistischeOndernemersRouteImport } from './routes/voor-wie/autistische-ondernemers'
+import { Route as VoorWieAudhdOndernemersRouteImport } from './routes/voor-wie/audhd-ondernemers'
+import { Route as VoorWieAdhdOndernemersRouteImport } from './routes/voor-wie/adhd-ondernemers'
+import { Route as ThemasZichtbaarheidNetwerkenRouteImport } from './routes/themas/zichtbaarheid-netwerken'
+import { Route as ThemasPrijzenOnderhandelenRouteImport } from './routes/themas/prijzen-onderhandelen'
+import { Route as ThemasOverprikkelingRouteImport } from './routes/themas/overprikkeling'
+import { Route as ThemasMaskingRouteImport } from './routes/themas/masking'
+import { Route as ThemasExecutiveFunctiesRouteImport } from './routes/themas/executive-functies'
+import { Route as ThemasEnergieBurnoutRouteImport } from './routes/themas/energie-burnout'
+import { Route as ThemasDemandAvoidanceRouteImport } from './routes/themas/demand-avoidance'
+import { Route as DownloadsSlugRouteImport } from './routes/downloads/$slug'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 
 const WerkwijzeRoute = WerkwijzeRouteImport.update({
   id: '/werkwijze',
@@ -54,6 +70,11 @@ const FaqRoute = FaqRouteImport.update({
   path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -64,10 +85,89 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DownloadsIndexRoute = DownloadsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DownloadsRoute,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoorWieLaatOntdektRoute = VoorWieLaatOntdektRouteImport.update({
+  id: '/voor-wie/laat-ontdekt',
+  path: '/voor-wie/laat-ontdekt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoorWieAutistischeOndernemersRoute =
+  VoorWieAutistischeOndernemersRouteImport.update({
+    id: '/voor-wie/autistische-ondernemers',
+    path: '/voor-wie/autistische-ondernemers',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const VoorWieAudhdOndernemersRoute = VoorWieAudhdOndernemersRouteImport.update({
+  id: '/voor-wie/audhd-ondernemers',
+  path: '/voor-wie/audhd-ondernemers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoorWieAdhdOndernemersRoute = VoorWieAdhdOndernemersRouteImport.update({
+  id: '/voor-wie/adhd-ondernemers',
+  path: '/voor-wie/adhd-ondernemers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasZichtbaarheidNetwerkenRoute =
+  ThemasZichtbaarheidNetwerkenRouteImport.update({
+    id: '/themas/zichtbaarheid-netwerken',
+    path: '/themas/zichtbaarheid-netwerken',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ThemasPrijzenOnderhandelenRoute =
+  ThemasPrijzenOnderhandelenRouteImport.update({
+    id: '/themas/prijzen-onderhandelen',
+    path: '/themas/prijzen-onderhandelen',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ThemasOverprikkelingRoute = ThemasOverprikkelingRouteImport.update({
+  id: '/themas/overprikkeling',
+  path: '/themas/overprikkeling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasMaskingRoute = ThemasMaskingRouteImport.update({
+  id: '/themas/masking',
+  path: '/themas/masking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasExecutiveFunctiesRoute = ThemasExecutiveFunctiesRouteImport.update({
+  id: '/themas/executive-functies',
+  path: '/themas/executive-functies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasEnergieBurnoutRoute = ThemasEnergieBurnoutRouteImport.update({
+  id: '/themas/energie-burnout',
+  path: '/themas/energie-burnout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasDemandAvoidanceRoute = ThemasDemandAvoidanceRouteImport.update({
+  id: '/themas/demand-avoidance',
+  path: '/themas/demand-avoidance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadsSlugRoute = DownloadsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DownloadsRoute,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRouteWithChildren
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
@@ -75,6 +175,21 @@ export interface FileRoutesByFullPath {
   '/traject': typeof TrajectRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/downloads/$slug': typeof DownloadsSlugRoute
+  '/themas/demand-avoidance': typeof ThemasDemandAvoidanceRoute
+  '/themas/energie-burnout': typeof ThemasEnergieBurnoutRoute
+  '/themas/executive-functies': typeof ThemasExecutiveFunctiesRoute
+  '/themas/masking': typeof ThemasMaskingRoute
+  '/themas/overprikkeling': typeof ThemasOverprikkelingRoute
+  '/themas/prijzen-onderhandelen': typeof ThemasPrijzenOnderhandelenRoute
+  '/themas/zichtbaarheid-netwerken': typeof ThemasZichtbaarheidNetwerkenRoute
+  '/voor-wie/adhd-ondernemers': typeof VoorWieAdhdOndernemersRoute
+  '/voor-wie/audhd-ondernemers': typeof VoorWieAudhdOndernemersRoute
+  '/voor-wie/autistische-ondernemers': typeof VoorWieAutistischeOndernemersRoute
+  '/voor-wie/laat-ontdekt': typeof VoorWieLaatOntdektRoute
+  '/blog/': typeof BlogIndexRoute
+  '/downloads/': typeof DownloadsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,11 +201,27 @@ export interface FileRoutesByTo {
   '/traject': typeof TrajectRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/downloads/$slug': typeof DownloadsSlugRoute
+  '/themas/demand-avoidance': typeof ThemasDemandAvoidanceRoute
+  '/themas/energie-burnout': typeof ThemasEnergieBurnoutRoute
+  '/themas/executive-functies': typeof ThemasExecutiveFunctiesRoute
+  '/themas/masking': typeof ThemasMaskingRoute
+  '/themas/overprikkeling': typeof ThemasOverprikkelingRoute
+  '/themas/prijzen-onderhandelen': typeof ThemasPrijzenOnderhandelenRoute
+  '/themas/zichtbaarheid-netwerken': typeof ThemasZichtbaarheidNetwerkenRoute
+  '/voor-wie/adhd-ondernemers': typeof VoorWieAdhdOndernemersRoute
+  '/voor-wie/audhd-ondernemers': typeof VoorWieAudhdOndernemersRoute
+  '/voor-wie/autistische-ondernemers': typeof VoorWieAutistischeOndernemersRoute
+  '/voor-wie/laat-ontdekt': typeof VoorWieLaatOntdektRoute
+  '/blog': typeof BlogIndexRoute
+  '/downloads': typeof DownloadsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/downloads': typeof DownloadsRouteWithChildren
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
@@ -98,12 +229,28 @@ export interface FileRoutesById {
   '/traject': typeof TrajectRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/downloads/$slug': typeof DownloadsSlugRoute
+  '/themas/demand-avoidance': typeof ThemasDemandAvoidanceRoute
+  '/themas/energie-burnout': typeof ThemasEnergieBurnoutRoute
+  '/themas/executive-functies': typeof ThemasExecutiveFunctiesRoute
+  '/themas/masking': typeof ThemasMaskingRoute
+  '/themas/overprikkeling': typeof ThemasOverprikkelingRoute
+  '/themas/prijzen-onderhandelen': typeof ThemasPrijzenOnderhandelenRoute
+  '/themas/zichtbaarheid-netwerken': typeof ThemasZichtbaarheidNetwerkenRoute
+  '/voor-wie/adhd-ondernemers': typeof VoorWieAdhdOndernemersRoute
+  '/voor-wie/audhd-ondernemers': typeof VoorWieAudhdOndernemersRoute
+  '/voor-wie/autistische-ondernemers': typeof VoorWieAutistischeOndernemersRoute
+  '/voor-wie/laat-ontdekt': typeof VoorWieLaatOntdektRoute
+  '/blog/': typeof BlogIndexRoute
+  '/downloads/': typeof DownloadsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/contact'
+    | '/downloads'
     | '/faq'
     | '/over-mij'
     | '/privacy'
@@ -111,6 +258,21 @@ export interface FileRouteTypes {
     | '/traject'
     | '/voorwaarden'
     | '/werkwijze'
+    | '/blog/$slug'
+    | '/downloads/$slug'
+    | '/themas/demand-avoidance'
+    | '/themas/energie-burnout'
+    | '/themas/executive-functies'
+    | '/themas/masking'
+    | '/themas/overprikkeling'
+    | '/themas/prijzen-onderhandelen'
+    | '/themas/zichtbaarheid-netwerken'
+    | '/voor-wie/adhd-ondernemers'
+    | '/voor-wie/audhd-ondernemers'
+    | '/voor-wie/autistische-ondernemers'
+    | '/voor-wie/laat-ontdekt'
+    | '/blog/'
+    | '/downloads/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,10 +284,26 @@ export interface FileRouteTypes {
     | '/traject'
     | '/voorwaarden'
     | '/werkwijze'
+    | '/blog/$slug'
+    | '/downloads/$slug'
+    | '/themas/demand-avoidance'
+    | '/themas/energie-burnout'
+    | '/themas/executive-functies'
+    | '/themas/masking'
+    | '/themas/overprikkeling'
+    | '/themas/prijzen-onderhandelen'
+    | '/themas/zichtbaarheid-netwerken'
+    | '/voor-wie/adhd-ondernemers'
+    | '/voor-wie/audhd-ondernemers'
+    | '/voor-wie/autistische-ondernemers'
+    | '/voor-wie/laat-ontdekt'
+    | '/blog'
+    | '/downloads'
   id:
     | '__root__'
     | '/'
     | '/contact'
+    | '/downloads'
     | '/faq'
     | '/over-mij'
     | '/privacy'
@@ -133,11 +311,27 @@ export interface FileRouteTypes {
     | '/traject'
     | '/voorwaarden'
     | '/werkwijze'
+    | '/blog/$slug'
+    | '/downloads/$slug'
+    | '/themas/demand-avoidance'
+    | '/themas/energie-burnout'
+    | '/themas/executive-functies'
+    | '/themas/masking'
+    | '/themas/overprikkeling'
+    | '/themas/prijzen-onderhandelen'
+    | '/themas/zichtbaarheid-netwerken'
+    | '/voor-wie/adhd-ondernemers'
+    | '/voor-wie/audhd-ondernemers'
+    | '/voor-wie/autistische-ondernemers'
+    | '/voor-wie/laat-ontdekt'
+    | '/blog/'
+    | '/downloads/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
+  DownloadsRoute: typeof DownloadsRouteWithChildren
   FaqRoute: typeof FaqRoute
   OverMijRoute: typeof OverMijRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -145,6 +339,19 @@ export interface RootRouteChildren {
   TrajectRoute: typeof TrajectRoute
   VoorwaardenRoute: typeof VoorwaardenRoute
   WerkwijzeRoute: typeof WerkwijzeRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  ThemasDemandAvoidanceRoute: typeof ThemasDemandAvoidanceRoute
+  ThemasEnergieBurnoutRoute: typeof ThemasEnergieBurnoutRoute
+  ThemasExecutiveFunctiesRoute: typeof ThemasExecutiveFunctiesRoute
+  ThemasMaskingRoute: typeof ThemasMaskingRoute
+  ThemasOverprikkelingRoute: typeof ThemasOverprikkelingRoute
+  ThemasPrijzenOnderhandelenRoute: typeof ThemasPrijzenOnderhandelenRoute
+  ThemasZichtbaarheidNetwerkenRoute: typeof ThemasZichtbaarheidNetwerkenRoute
+  VoorWieAdhdOndernemersRoute: typeof VoorWieAdhdOndernemersRoute
+  VoorWieAudhdOndernemersRoute: typeof VoorWieAudhdOndernemersRoute
+  VoorWieAutistischeOndernemersRoute: typeof VoorWieAutistischeOndernemersRoute
+  VoorWieLaatOntdektRoute: typeof VoorWieLaatOntdektRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -198,6 +405,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -212,12 +426,132 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/downloads/': {
+      id: '/downloads/'
+      path: '/'
+      fullPath: '/downloads/'
+      preLoaderRoute: typeof DownloadsIndexRouteImport
+      parentRoute: typeof DownloadsRoute
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voor-wie/laat-ontdekt': {
+      id: '/voor-wie/laat-ontdekt'
+      path: '/voor-wie/laat-ontdekt'
+      fullPath: '/voor-wie/laat-ontdekt'
+      preLoaderRoute: typeof VoorWieLaatOntdektRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voor-wie/autistische-ondernemers': {
+      id: '/voor-wie/autistische-ondernemers'
+      path: '/voor-wie/autistische-ondernemers'
+      fullPath: '/voor-wie/autistische-ondernemers'
+      preLoaderRoute: typeof VoorWieAutistischeOndernemersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voor-wie/audhd-ondernemers': {
+      id: '/voor-wie/audhd-ondernemers'
+      path: '/voor-wie/audhd-ondernemers'
+      fullPath: '/voor-wie/audhd-ondernemers'
+      preLoaderRoute: typeof VoorWieAudhdOndernemersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voor-wie/adhd-ondernemers': {
+      id: '/voor-wie/adhd-ondernemers'
+      path: '/voor-wie/adhd-ondernemers'
+      fullPath: '/voor-wie/adhd-ondernemers'
+      preLoaderRoute: typeof VoorWieAdhdOndernemersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/zichtbaarheid-netwerken': {
+      id: '/themas/zichtbaarheid-netwerken'
+      path: '/themas/zichtbaarheid-netwerken'
+      fullPath: '/themas/zichtbaarheid-netwerken'
+      preLoaderRoute: typeof ThemasZichtbaarheidNetwerkenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/prijzen-onderhandelen': {
+      id: '/themas/prijzen-onderhandelen'
+      path: '/themas/prijzen-onderhandelen'
+      fullPath: '/themas/prijzen-onderhandelen'
+      preLoaderRoute: typeof ThemasPrijzenOnderhandelenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/overprikkeling': {
+      id: '/themas/overprikkeling'
+      path: '/themas/overprikkeling'
+      fullPath: '/themas/overprikkeling'
+      preLoaderRoute: typeof ThemasOverprikkelingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/masking': {
+      id: '/themas/masking'
+      path: '/themas/masking'
+      fullPath: '/themas/masking'
+      preLoaderRoute: typeof ThemasMaskingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/executive-functies': {
+      id: '/themas/executive-functies'
+      path: '/themas/executive-functies'
+      fullPath: '/themas/executive-functies'
+      preLoaderRoute: typeof ThemasExecutiveFunctiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/energie-burnout': {
+      id: '/themas/energie-burnout'
+      path: '/themas/energie-burnout'
+      fullPath: '/themas/energie-burnout'
+      preLoaderRoute: typeof ThemasEnergieBurnoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/demand-avoidance': {
+      id: '/themas/demand-avoidance'
+      path: '/themas/demand-avoidance'
+      fullPath: '/themas/demand-avoidance'
+      preLoaderRoute: typeof ThemasDemandAvoidanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/downloads/$slug': {
+      id: '/downloads/$slug'
+      path: '/$slug'
+      fullPath: '/downloads/$slug'
+      preLoaderRoute: typeof DownloadsSlugRouteImport
+      parentRoute: typeof DownloadsRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
+
+interface DownloadsRouteChildren {
+  DownloadsSlugRoute: typeof DownloadsSlugRoute
+  DownloadsIndexRoute: typeof DownloadsIndexRoute
+}
+
+const DownloadsRouteChildren: DownloadsRouteChildren = {
+  DownloadsSlugRoute: DownloadsSlugRoute,
+  DownloadsIndexRoute: DownloadsIndexRoute,
+}
+
+const DownloadsRouteWithChildren = DownloadsRoute._addFileChildren(
+  DownloadsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
+  DownloadsRoute: DownloadsRouteWithChildren,
   FaqRoute: FaqRoute,
   OverMijRoute: OverMijRoute,
   PrivacyRoute: PrivacyRoute,
@@ -225,7 +559,30 @@ const rootRouteChildren: RootRouteChildren = {
   TrajectRoute: TrajectRoute,
   VoorwaardenRoute: VoorwaardenRoute,
   WerkwijzeRoute: WerkwijzeRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  ThemasDemandAvoidanceRoute: ThemasDemandAvoidanceRoute,
+  ThemasEnergieBurnoutRoute: ThemasEnergieBurnoutRoute,
+  ThemasExecutiveFunctiesRoute: ThemasExecutiveFunctiesRoute,
+  ThemasMaskingRoute: ThemasMaskingRoute,
+  ThemasOverprikkelingRoute: ThemasOverprikkelingRoute,
+  ThemasPrijzenOnderhandelenRoute: ThemasPrijzenOnderhandelenRoute,
+  ThemasZichtbaarheidNetwerkenRoute: ThemasZichtbaarheidNetwerkenRoute,
+  VoorWieAdhdOndernemersRoute: VoorWieAdhdOndernemersRoute,
+  VoorWieAudhdOndernemersRoute: VoorWieAudhdOndernemersRoute,
+  VoorWieAutistischeOndernemersRoute: VoorWieAutistischeOndernemersRoute,
+  VoorWieLaatOntdektRoute: VoorWieLaatOntdektRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
