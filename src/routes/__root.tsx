@@ -72,20 +72,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Gewoon Anders - Business coaching voor neurodivergente ondernemers" },
+      {
+        name: "description",
+        content:
+          "Rustige 1-op-1 business coaching voor ondernemers met een ADHD-, autisme- of AuDHD-brein. Jij kiest per sessie het kanaal: bellen, video, chatten of mailen.",
+      },
+      { name: "author", content: "Gewoon Anders" },
+      { property: "og:title", content: "Gewoon Anders" },
+      { property: "og:description", content: "Business coaching voor neurodivergente ondernemers." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { property: "og:site_name", content: "Gewoon Anders" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
     ],
   }),
   shellComponent: RootShell,
@@ -113,7 +115,17 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+      >
+        Naar inhoud
+      </a>
+      <SiteNav />
+      <main id="main">
+        <Outlet />
+      </main>
+      <SiteFooter />
     </QueryClientProvider>
   );
 }
