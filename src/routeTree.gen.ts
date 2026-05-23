@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WerkwijzeRouteImport } from './routes/werkwijze'
 import { Route as VoorwaardenRouteImport } from './routes/voorwaarden'
 import { Route as TrajectRouteImport } from './routes/traject'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OverMijRouteImport } from './routes/over-mij'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -31,6 +32,11 @@ const VoorwaardenRoute = VoorwaardenRouteImport.update({
 const TrajectRoute = TrajectRouteImport.update({
   id: '/traject',
   path: '/traject',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/traject': typeof TrajectRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/traject': typeof TrajectRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/traject': typeof TrajectRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/over-mij'
     | '/privacy'
+    | '/sitemap.xml'
     | '/traject'
     | '/voorwaarden'
     | '/werkwijze'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/over-mij'
     | '/privacy'
+    | '/sitemap.xml'
     | '/traject'
     | '/voorwaarden'
     | '/werkwijze'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/over-mij'
     | '/privacy'
+    | '/sitemap.xml'
     | '/traject'
     | '/voorwaarden'
     | '/werkwijze'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   OverMijRoute: typeof OverMijRoute
   PrivacyRoute: typeof PrivacyRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TrajectRoute: typeof TrajectRoute
   VoorwaardenRoute: typeof VoorwaardenRoute
   WerkwijzeRoute: typeof WerkwijzeRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/traject'
       fullPath: '/traject'
       preLoaderRoute: typeof TrajectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   OverMijRoute: OverMijRoute,
   PrivacyRoute: PrivacyRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TrajectRoute: TrajectRoute,
   VoorwaardenRoute: VoorwaardenRoute,
   WerkwijzeRoute: WerkwijzeRoute,
