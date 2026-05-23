@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import jurgenBank from "@/assets/jurgen-portret-bank.png";
+import jurgenMariska from "@/assets/jurgen-mariska.jpg";
 import { FadeIn } from "@/components/FadeIn";
 import { ChannelCards } from "@/components/ChannelCards";
 
@@ -145,11 +146,12 @@ function HomePage() {
             </div>
           </FadeIn>
           <FadeIn delay={120}>
-            <div
-              className="flex min-h-[260px] items-center justify-center rounded-2xl bg-highlight p-10 text-center text-sm text-foreground/55"
-              aria-hidden
-            >
-              <span>Ruimte voor een rustig sfeerbeeld.</span>
+            <div className="overflow-hidden rounded-2xl bg-secondary shadow-[0_8px_30px_rgba(31,58,82,0.08)]">
+              <img
+                src={jurgenMariska}
+                alt="Jurgen en zijn vrouw Mariska samen bij zonsondergang aan zee."
+                className="h-full w-full object-cover"
+              />
             </div>
           </FadeIn>
         </div>
