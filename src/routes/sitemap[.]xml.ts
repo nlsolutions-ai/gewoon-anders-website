@@ -38,7 +38,7 @@ const baseEntries: Entry[] = [
   { path: "/faq", priority: "0.7", changefreq: "monthly" },
   { path: "/contact", priority: "0.9", changefreq: "monthly" },
   { path: "/downloads", priority: "0.8", changefreq: "monthly" },
-  { path: "/blog", priority: "0.8", changefreq: "weekly" },
+  { path: "/informatie", priority: "0.8", changefreq: "weekly" },
   { path: "/privacy", priority: "0.3", changefreq: "yearly" },
   { path: "/voorwaarden", priority: "0.3", changefreq: "yearly" },
 ];
@@ -62,7 +62,7 @@ const freebieEntries: Entry[] = freebieSlugs.map((s) => ({
 }));
 
 const blogEntries: Entry[] = posts.map((p) => ({
-  path: `/blog/${p.slug}`,
+  path: `/informatie/${p.slug}`,
   priority: "0.6",
   changefreq: "monthly",
 }));

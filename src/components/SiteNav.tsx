@@ -30,7 +30,7 @@ const items: NavItem[] = [
   { to: "/traject", label: "Het traject" },
   { to: "/werkwijze", label: "Werkwijze" },
   { to: "/downloads", label: "Downloads" },
-  { to: "/blog", label: "Blog" },
+  { to: "/informatie", label: "Informatie" },
 ];
 
 export function SiteNav() {

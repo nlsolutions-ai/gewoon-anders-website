@@ -3,7 +3,7 @@ import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
 import { getPost, posts, type Block } from "@/lib/blog-data";
 
-export const Route = createFileRoute("/blog/$slug")({
+export const Route = createFileRoute("/informatie/$slug")({
   loader: ({ params }) => {
     const post = getPost(params.slug);
     if (!post) throw notFound();
@@ -19,10 +19,10 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: p.title },
         { property: "og:description", content: p.description },
         { property: "og:type", content: "article" },
-        { property: "og:url", content: `/blog/${p.slug}` },
+        { property: "og:url", content: `/informatie/${p.slug}` },
         { property: "article:section", content: p.category },
       ],
-      links: [{ rel: "canonical", href: `/blog/${p.slug}` }],
+      links: [{ rel: "canonical", href: `/informatie/${p.slug}` }],
       scripts: [
         {
           type: "application/ld+json",
@@ -43,13 +43,13 @@ export const Route = createFileRoute("/blog/$slug")({
               name: "Gewoon Anders",
               logo: { "@type": "ImageObject", url: "/logo.png" },
             },
-            mainEntityOfPage: { "@type": "WebPage", "@id": `/blog/${p.slug}` },
+            mainEntityOfPage: { "@type": "WebPage", "@id": `/informatie/${p.slug}` },
           }),
         },
       ],
     };
   },
-  component: BlogPostPage,
+  component: InformatiePostPage,
 });
 
 function renderBlock(block: Block, i: number) {
@@ -105,7 +105,7 @@ function renderBlock(block: Block, i: number) {
   }
 }
 
-function BlogPostPage() {
+function InformatiePostPage() {
   const { post } = Route.useLoaderData();
   const related = posts.filter((p) => p.category === post.category && p.slug !== post.slug).slice(0, 2);
 
@@ -132,7 +132,7 @@ function BlogPostPage() {
                 {related.map((r) => (
                   <li key={r.slug}>
                     <Link
-                      to="/blog/$slug"
+                      to="/informatie/$slug"
                       params={{ slug: r.slug }}
                       className="group block h-full rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
                     >
@@ -172,7 +172,7 @@ function BlogPostPage() {
                 Plan een kennismaking
               </Link>
               <Link
-                to="/blog"
+                to="/informatie"
                 className="inline-flex items-center justify-center rounded-xl border border-foreground/15 bg-background px-6 py-3.5 text-base font-medium text-foreground hover:bg-secondary"
               >
                 Alle artikelen

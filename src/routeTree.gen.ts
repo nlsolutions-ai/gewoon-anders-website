@@ -19,8 +19,8 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as InformatieIndexRouteImport } from './routes/informatie/index'
 import { Route as DownloadsIndexRouteImport } from './routes/downloads/index'
-import { Route as BlogIndexRouteImport } from './routes/blog/index'
 import { Route as VoorWieLaatOntdektRouteImport } from './routes/voor-wie/laat-ontdekt'
 import { Route as VoorWieAutistischeOndernemersRouteImport } from './routes/voor-wie/autistische-ondernemers'
 import { Route as VoorWieAudhdOndernemersRouteImport } from './routes/voor-wie/audhd-ondernemers'
@@ -32,8 +32,8 @@ import { Route as ThemasMaskingRouteImport } from './routes/themas/masking'
 import { Route as ThemasExecutiveFunctiesRouteImport } from './routes/themas/executive-functies'
 import { Route as ThemasEnergieBurnoutRouteImport } from './routes/themas/energie-burnout'
 import { Route as ThemasDemandAvoidanceRouteImport } from './routes/themas/demand-avoidance'
+import { Route as InformatieSlugRouteImport } from './routes/informatie/$slug'
 import { Route as DownloadsSlugRouteImport } from './routes/downloads/$slug'
-import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 
 const WerkwijzeRoute = WerkwijzeRouteImport.update({
   id: '/werkwijze',
@@ -85,15 +85,15 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InformatieIndexRoute = InformatieIndexRouteImport.update({
+  id: '/informatie/',
+  path: '/informatie/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DownloadsIndexRoute = DownloadsIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => DownloadsRoute,
-} as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
-  getParentRoute: () => rootRouteImport,
 } as any)
 const VoorWieLaatOntdektRoute = VoorWieLaatOntdektRouteImport.update({
   id: '/voor-wie/laat-ontdekt',
@@ -153,15 +153,15 @@ const ThemasDemandAvoidanceRoute = ThemasDemandAvoidanceRouteImport.update({
   path: '/themas/demand-avoidance',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InformatieSlugRoute = InformatieSlugRouteImport.update({
+  id: '/informatie/$slug',
+  path: '/informatie/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DownloadsSlugRoute = DownloadsSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => DownloadsRoute,
-} as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -175,8 +175,8 @@ export interface FileRoutesByFullPath {
   '/traject': typeof TrajectRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/downloads/$slug': typeof DownloadsSlugRoute
+  '/informatie/$slug': typeof InformatieSlugRoute
   '/themas/demand-avoidance': typeof ThemasDemandAvoidanceRoute
   '/themas/energie-burnout': typeof ThemasEnergieBurnoutRoute
   '/themas/executive-functies': typeof ThemasExecutiveFunctiesRoute
@@ -188,8 +188,8 @@ export interface FileRoutesByFullPath {
   '/voor-wie/audhd-ondernemers': typeof VoorWieAudhdOndernemersRoute
   '/voor-wie/autistische-ondernemers': typeof VoorWieAutistischeOndernemersRoute
   '/voor-wie/laat-ontdekt': typeof VoorWieLaatOntdektRoute
-  '/blog/': typeof BlogIndexRoute
   '/downloads/': typeof DownloadsIndexRoute
+  '/informatie/': typeof InformatieIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -201,8 +201,8 @@ export interface FileRoutesByTo {
   '/traject': typeof TrajectRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/downloads/$slug': typeof DownloadsSlugRoute
+  '/informatie/$slug': typeof InformatieSlugRoute
   '/themas/demand-avoidance': typeof ThemasDemandAvoidanceRoute
   '/themas/energie-burnout': typeof ThemasEnergieBurnoutRoute
   '/themas/executive-functies': typeof ThemasExecutiveFunctiesRoute
@@ -214,8 +214,8 @@ export interface FileRoutesByTo {
   '/voor-wie/audhd-ondernemers': typeof VoorWieAudhdOndernemersRoute
   '/voor-wie/autistische-ondernemers': typeof VoorWieAutistischeOndernemersRoute
   '/voor-wie/laat-ontdekt': typeof VoorWieLaatOntdektRoute
-  '/blog': typeof BlogIndexRoute
   '/downloads': typeof DownloadsIndexRoute
+  '/informatie': typeof InformatieIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -229,8 +229,8 @@ export interface FileRoutesById {
   '/traject': typeof TrajectRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
-  '/blog/$slug': typeof BlogSlugRoute
   '/downloads/$slug': typeof DownloadsSlugRoute
+  '/informatie/$slug': typeof InformatieSlugRoute
   '/themas/demand-avoidance': typeof ThemasDemandAvoidanceRoute
   '/themas/energie-burnout': typeof ThemasEnergieBurnoutRoute
   '/themas/executive-functies': typeof ThemasExecutiveFunctiesRoute
@@ -242,8 +242,8 @@ export interface FileRoutesById {
   '/voor-wie/audhd-ondernemers': typeof VoorWieAudhdOndernemersRoute
   '/voor-wie/autistische-ondernemers': typeof VoorWieAutistischeOndernemersRoute
   '/voor-wie/laat-ontdekt': typeof VoorWieLaatOntdektRoute
-  '/blog/': typeof BlogIndexRoute
   '/downloads/': typeof DownloadsIndexRoute
+  '/informatie/': typeof InformatieIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -258,8 +258,8 @@ export interface FileRouteTypes {
     | '/traject'
     | '/voorwaarden'
     | '/werkwijze'
-    | '/blog/$slug'
     | '/downloads/$slug'
+    | '/informatie/$slug'
     | '/themas/demand-avoidance'
     | '/themas/energie-burnout'
     | '/themas/executive-functies'
@@ -271,8 +271,8 @@ export interface FileRouteTypes {
     | '/voor-wie/audhd-ondernemers'
     | '/voor-wie/autistische-ondernemers'
     | '/voor-wie/laat-ontdekt'
-    | '/blog/'
     | '/downloads/'
+    | '/informatie/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -284,8 +284,8 @@ export interface FileRouteTypes {
     | '/traject'
     | '/voorwaarden'
     | '/werkwijze'
-    | '/blog/$slug'
     | '/downloads/$slug'
+    | '/informatie/$slug'
     | '/themas/demand-avoidance'
     | '/themas/energie-burnout'
     | '/themas/executive-functies'
@@ -297,8 +297,8 @@ export interface FileRouteTypes {
     | '/voor-wie/audhd-ondernemers'
     | '/voor-wie/autistische-ondernemers'
     | '/voor-wie/laat-ontdekt'
-    | '/blog'
     | '/downloads'
+    | '/informatie'
   id:
     | '__root__'
     | '/'
@@ -311,8 +311,8 @@ export interface FileRouteTypes {
     | '/traject'
     | '/voorwaarden'
     | '/werkwijze'
-    | '/blog/$slug'
     | '/downloads/$slug'
+    | '/informatie/$slug'
     | '/themas/demand-avoidance'
     | '/themas/energie-burnout'
     | '/themas/executive-functies'
@@ -324,8 +324,8 @@ export interface FileRouteTypes {
     | '/voor-wie/audhd-ondernemers'
     | '/voor-wie/autistische-ondernemers'
     | '/voor-wie/laat-ontdekt'
-    | '/blog/'
     | '/downloads/'
+    | '/informatie/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -339,7 +339,7 @@ export interface RootRouteChildren {
   TrajectRoute: typeof TrajectRoute
   VoorwaardenRoute: typeof VoorwaardenRoute
   WerkwijzeRoute: typeof WerkwijzeRoute
-  BlogSlugRoute: typeof BlogSlugRoute
+  InformatieSlugRoute: typeof InformatieSlugRoute
   ThemasDemandAvoidanceRoute: typeof ThemasDemandAvoidanceRoute
   ThemasEnergieBurnoutRoute: typeof ThemasEnergieBurnoutRoute
   ThemasExecutiveFunctiesRoute: typeof ThemasExecutiveFunctiesRoute
@@ -351,7 +351,7 @@ export interface RootRouteChildren {
   VoorWieAudhdOndernemersRoute: typeof VoorWieAudhdOndernemersRoute
   VoorWieAutistischeOndernemersRoute: typeof VoorWieAutistischeOndernemersRoute
   VoorWieLaatOntdektRoute: typeof VoorWieLaatOntdektRoute
-  BlogIndexRoute: typeof BlogIndexRoute
+  InformatieIndexRoute: typeof InformatieIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -426,19 +426,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/informatie/': {
+      id: '/informatie/'
+      path: '/informatie'
+      fullPath: '/informatie/'
+      preLoaderRoute: typeof InformatieIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/downloads/': {
       id: '/downloads/'
       path: '/'
       fullPath: '/downloads/'
       preLoaderRoute: typeof DownloadsIndexRouteImport
       parentRoute: typeof DownloadsRoute
-    }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
-      parentRoute: typeof rootRouteImport
     }
     '/voor-wie/laat-ontdekt': {
       id: '/voor-wie/laat-ontdekt'
@@ -517,19 +517,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ThemasDemandAvoidanceRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/informatie/$slug': {
+      id: '/informatie/$slug'
+      path: '/informatie/$slug'
+      fullPath: '/informatie/$slug'
+      preLoaderRoute: typeof InformatieSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/downloads/$slug': {
       id: '/downloads/$slug'
       path: '/$slug'
       fullPath: '/downloads/$slug'
       preLoaderRoute: typeof DownloadsSlugRouteImport
       parentRoute: typeof DownloadsRoute
-    }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
     }
   }
 }
@@ -559,7 +559,7 @@ const rootRouteChildren: RootRouteChildren = {
   TrajectRoute: TrajectRoute,
   VoorwaardenRoute: VoorwaardenRoute,
   WerkwijzeRoute: WerkwijzeRoute,
-  BlogSlugRoute: BlogSlugRoute,
+  InformatieSlugRoute: InformatieSlugRoute,
   ThemasDemandAvoidanceRoute: ThemasDemandAvoidanceRoute,
   ThemasEnergieBurnoutRoute: ThemasEnergieBurnoutRoute,
   ThemasExecutiveFunctiesRoute: ThemasExecutiveFunctiesRoute,
@@ -571,7 +571,7 @@ const rootRouteChildren: RootRouteChildren = {
   VoorWieAudhdOndernemersRoute: VoorWieAudhdOndernemersRoute,
   VoorWieAutistischeOndernemersRoute: VoorWieAutistischeOndernemersRoute,
   VoorWieLaatOntdektRoute: VoorWieLaatOntdektRoute,
-  BlogIndexRoute: BlogIndexRoute,
+  InformatieIndexRoute: InformatieIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

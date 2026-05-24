@@ -4,21 +4,21 @@ import { Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
 import { posts } from "@/lib/blog-data";
 
-export const Route = createFileRoute("/blog/")({
+export const Route = createFileRoute("/informatie/")({
   head: () => ({
     meta: [
-      { title: "Blog - Gewoon Anders" },
+      { title: "Informatie - Gewoon Anders" },
       {
         name: "description",
         content:
           "Artikelen over ondernemen met een neurodivergent brein. Over masking, overprikkeling, energie, executive functies, prijzen, grenzen en werkwijze.",
       },
-      { property: "og:title", content: "Blog - Gewoon Anders" },
-      { property: "og:url", content: "/blog" },
+      { property: "og:title", content: "Informatie - Gewoon Anders" },
+      { property: "og:url", content: "/informatie" },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: "/informatie" }],
   }),
-  component: BlogIndex,
+  component: InformatieIndex,
 });
 
 const categoryOrder = ["Masking", "Energie", "Brein", "Grenzen", "Werkwijze"];
@@ -32,7 +32,7 @@ const categoryDesc: Record<string, string> = {
   Werkwijze: "Hoe ik werk en waarom. Coaching of therapie. Mailsessies. Eén op een vs een groep.",
 };
 
-function BlogIndex() {
+function InformatieIndex() {
   return (
     <>
       <PageHeader
@@ -68,7 +68,7 @@ function BlogIndex() {
                   {items.map((p, i) => (
                     <Reveal key={p.slug} as="li" delay={gi * 40 + i * 80}>
                       <Link
-                        to="/blog/$slug"
+                        to="/informatie/$slug"
                         params={{ slug: p.slug }}
                         className="group relative block overflow-hidden rounded-3xl border border-foreground/8 bg-card p-7 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-ambient-lg sm:p-8"
                       >

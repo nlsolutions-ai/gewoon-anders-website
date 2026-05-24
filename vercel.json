@@ -3,5 +3,17 @@
   "outputDirectory": "dist/client",
   "framework": null,
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/blog",
+      "destination": "/informatie",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug",
+      "destination": "/informatie/:slug",
+      "permanent": true
+    }
+  ]
 }
