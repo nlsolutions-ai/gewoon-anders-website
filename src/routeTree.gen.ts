@@ -11,10 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WerkwijzeRouteImport } from './routes/werkwijze'
 import { Route as VoorwaardenRouteImport } from './routes/voorwaarden'
+import { Route as VerhalenRouteImport } from './routes/verhalen'
 import { Route as TrajectRouteImport } from './routes/traject'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OverMijRouteImport } from './routes/over-mij'
+import { Route as MaskingCheckRouteImport } from './routes/masking-check'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EnergiescanRouteImport } from './routes/energiescan'
 import { Route as DownloadsRouteImport } from './routes/downloads'
@@ -46,6 +48,11 @@ const VoorwaardenRoute = VoorwaardenRouteImport.update({
   path: '/voorwaarden',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VerhalenRoute = VerhalenRouteImport.update({
+  id: '/verhalen',
+  path: '/verhalen',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TrajectRoute = TrajectRouteImport.update({
   id: '/traject',
   path: '/traject',
@@ -64,6 +71,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const OverMijRoute = OverMijRouteImport.update({
   id: '/over-mij',
   path: '/over-mij',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaskingCheckRoute = MaskingCheckRouteImport.update({
+  id: '/masking-check',
+  path: '/masking-check',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -176,10 +188,12 @@ export interface FileRoutesByFullPath {
   '/downloads': typeof DownloadsRouteWithChildren
   '/energiescan': typeof EnergiescanRoute
   '/faq': typeof FaqRoute
+  '/masking-check': typeof MaskingCheckRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/traject': typeof TrajectRoute
+  '/verhalen': typeof VerhalenRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
   '/downloads/$slug': typeof DownloadsSlugRoute
@@ -203,10 +217,12 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/energiescan': typeof EnergiescanRoute
   '/faq': typeof FaqRoute
+  '/masking-check': typeof MaskingCheckRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/traject': typeof TrajectRoute
+  '/verhalen': typeof VerhalenRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
   '/downloads/$slug': typeof DownloadsSlugRoute
@@ -232,10 +248,12 @@ export interface FileRoutesById {
   '/downloads': typeof DownloadsRouteWithChildren
   '/energiescan': typeof EnergiescanRoute
   '/faq': typeof FaqRoute
+  '/masking-check': typeof MaskingCheckRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/traject': typeof TrajectRoute
+  '/verhalen': typeof VerhalenRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/werkwijze': typeof WerkwijzeRoute
   '/downloads/$slug': typeof DownloadsSlugRoute
@@ -262,10 +280,12 @@ export interface FileRouteTypes {
     | '/downloads'
     | '/energiescan'
     | '/faq'
+    | '/masking-check'
     | '/over-mij'
     | '/privacy'
     | '/sitemap.xml'
     | '/traject'
+    | '/verhalen'
     | '/voorwaarden'
     | '/werkwijze'
     | '/downloads/$slug'
@@ -289,10 +309,12 @@ export interface FileRouteTypes {
     | '/contact'
     | '/energiescan'
     | '/faq'
+    | '/masking-check'
     | '/over-mij'
     | '/privacy'
     | '/sitemap.xml'
     | '/traject'
+    | '/verhalen'
     | '/voorwaarden'
     | '/werkwijze'
     | '/downloads/$slug'
@@ -317,10 +339,12 @@ export interface FileRouteTypes {
     | '/downloads'
     | '/energiescan'
     | '/faq'
+    | '/masking-check'
     | '/over-mij'
     | '/privacy'
     | '/sitemap.xml'
     | '/traject'
+    | '/verhalen'
     | '/voorwaarden'
     | '/werkwijze'
     | '/downloads/$slug'
@@ -346,10 +370,12 @@ export interface RootRouteChildren {
   DownloadsRoute: typeof DownloadsRouteWithChildren
   EnergiescanRoute: typeof EnergiescanRoute
   FaqRoute: typeof FaqRoute
+  MaskingCheckRoute: typeof MaskingCheckRoute
   OverMijRoute: typeof OverMijRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TrajectRoute: typeof TrajectRoute
+  VerhalenRoute: typeof VerhalenRoute
   VoorwaardenRoute: typeof VoorwaardenRoute
   WerkwijzeRoute: typeof WerkwijzeRoute
   InformatieSlugRoute: typeof InformatieSlugRoute
@@ -383,6 +409,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VoorwaardenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/verhalen': {
+      id: '/verhalen'
+      path: '/verhalen'
+      fullPath: '/verhalen'
+      preLoaderRoute: typeof VerhalenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/traject': {
       id: '/traject'
       path: '/traject'
@@ -409,6 +442,13 @@ declare module '@tanstack/react-router' {
       path: '/over-mij'
       fullPath: '/over-mij'
       preLoaderRoute: typeof OverMijRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/masking-check': {
+      id: '/masking-check'
+      path: '/masking-check'
+      fullPath: '/masking-check'
+      preLoaderRoute: typeof MaskingCheckRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -574,10 +614,12 @@ const rootRouteChildren: RootRouteChildren = {
   DownloadsRoute: DownloadsRouteWithChildren,
   EnergiescanRoute: EnergiescanRoute,
   FaqRoute: FaqRoute,
+  MaskingCheckRoute: MaskingCheckRoute,
   OverMijRoute: OverMijRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TrajectRoute: TrajectRoute,
+  VerhalenRoute: VerhalenRoute,
   VoorwaardenRoute: VoorwaardenRoute,
   WerkwijzeRoute: WerkwijzeRoute,
   InformatieSlugRoute: InformatieSlugRoute,

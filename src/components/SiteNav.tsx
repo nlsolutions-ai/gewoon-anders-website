@@ -29,6 +29,7 @@ const items: NavItem[] = [
   { label: "Thema's", children: themas },
   { to: "/traject", label: "Het traject" },
   { to: "/werkwijze", label: "Werkwijze" },
+  { to: "/verhalen", label: "Verhalen" },
   { to: "/downloads", label: "Downloads" },
   { to: "/informatie", label: "Informatie" },
 ];

@@ -53,12 +53,14 @@ const downloads: Download[] = [
     slug: "masking-check",
     title: "De Masking-check",
     short:
-      "Twaalf herkenbare situaties uit het ondernemen. Per situatie noteer je of je daar nog maskeert, en wat het je kost.",
-    nut: "Maakt onzichtbaar werk zichtbaar. Vaak een eerste stap.",
+      "Twaalf herkenbare situaties uit het ondernemen. Per situatie kies je hoe vaak je je hierin herkent. Aan het eind zie je waar het je het meest kost.",
+    nut: "Direct online te doen. Geen e-mail nodig. Top 3 zwaarste posten in beeld.",
     bestFor: "Wie vermoedt dat veel kleine dingen samen te veel kosten.",
     number: "02",
     size: "tall",
     accent: "highlight",
+    to: "/masking-check",
+    ctaLabel: "Doe de check",
   },
   {
     slug: "prijzen-spiekbriefje",

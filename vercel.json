@@ -19,6 +19,11 @@
       "source": "/downloads/energiescan",
       "destination": "/energiescan",
       "permanent": true
+    },
+    {
+      "source": "/downloads/masking-check",
+      "destination": "/masking-check",
+      "permanent": true
     }
   ]
 }

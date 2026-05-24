@@ -79,9 +79,6 @@ export function SiteFooter() {
               Business coaching voor ondernemers met een ADHD-, autisme- of AuDHD-brein.
               Een op een, op het kanaal waarop jij het beste denkt.
             </p>
-            <p className="mt-6 max-w-sm text-[13px] leading-relaxed text-foreground/55">
-              Gewoon Anders biedt coaching, geen zorg. Geen diagnose, geen behandeling.
-            </p>
             <div className="mt-6 max-w-sm text-[13px] leading-relaxed text-foreground/60">
               <p>Gewoon Anders is een onderdeel van NorthernLights Solutions.</p>
               <p className="mt-1">
