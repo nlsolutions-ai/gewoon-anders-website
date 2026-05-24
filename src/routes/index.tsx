@@ -47,6 +47,10 @@ const reassure = [
     h: "Je weet vooraf wat het kost.",
     p: "Heldere prijzen, geen verrassingen, geen verkooppraatjes.",
   },
+  {
+    h: "Het gaat om wie jij bent.",
+    p: "Geen standaardprogramma dat voor iedereen hetzelfde is. We kijken naar wat neurodiversiteit voor jou betekent, en wat succes voor jou is. Dat is voor iedereen uniek, daar draait het programma om.",
+  },
 ];
 
 function HomePage() {
@@ -360,10 +364,10 @@ function HomePage() {
           </Reveal>
           <Reveal delay={80}>
             <h2 className="display-lg mt-6 max-w-2xl text-3xl sm:text-4xl lg:text-[2.4rem]">
-              Drie dingen die ik vooraf wil zeggen.
+              Vier dingen die ik vooraf wil zeggen.
             </h2>
           </Reveal>
-          <ul className="mt-14 grid gap-5 md:grid-cols-3">
+          <ul className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {reassure.map((r, i) => (
               <Reveal key={r.h} as="li" delay={i * 90}>
                 <article className="group relative h-full rounded-3xl border border-foreground/8 bg-card p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-ambient-lg">
