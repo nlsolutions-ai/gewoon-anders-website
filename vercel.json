@@ -14,6 +14,11 @@
       "source": "/blog/:slug",
       "destination": "/informatie/:slug",
       "permanent": true
+    },
+    {
+      "source": "/downloads/energiescan",
+      "destination": "/energiescan",
+      "permanent": true
     }
   ]
 }

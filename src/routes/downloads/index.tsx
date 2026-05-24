@@ -29,6 +29,10 @@ type Download = {
   number: string;
   size: "wide" | "tall" | "regular";
   accent: "primary" | "highlight" | "secondary";
+  /** Optional override: link to a custom route instead of /downloads/[slug] */
+  to?: string;
+  /** Optional override: alternative CTA label */
+  ctaLabel?: string;
 };
 
 const downloads: Download[] = [
@@ -36,12 +40,14 @@ const downloads: Download[] = [
     slug: "energiescan",
     title: "De Ondernemers-energiescan",
     short:
-      "In tien minuten weet je waar in je bedrijf de energie weglekt en waar je kracht zit. Achttien stellingen, vijf pijlers.",
-    nut: "Uitslag per pijler, in gewone taal. Geen score, geen diagnose.",
+      "In tien minuten weet je waar in je bedrijf de energie weglekt en waar je kracht zit. Achttien stellingen, vijf gebieden, een rustige uitslag.",
+    nut: "Direct online te doen. Geen e-mail nodig. Uitslag per gebied in gewone taal.",
     bestFor: "Wie voelt dat er iets niet klopt en wil zien waar precies.",
     number: "01",
     size: "wide",
     accent: "primary",
+    to: "/energiescan",
+    ctaLabel: "Doe de scan",
   },
   {
     slug: "masking-check",
@@ -139,10 +145,13 @@ function DownloadCard({ d }: { d: Download }) {
   const mutedTextClass = d.accent === "primary" ? "text-background/60" : "text-foreground/60";
   const iconBg = d.accent === "primary" ? "bg-background/10" : "bg-foreground/5";
 
+  const linkProps = d.to
+    ? { to: d.to }
+    : { to: "/downloads/$slug" as const, params: { slug: d.slug } };
+
   return (
     <Link
-      to="/downloads/$slug"
-      params={{ slug: d.slug }}
+      {...(linkProps as any)}
       className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-foreground/8 p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-ambient-lg ${bgClass}`}
     >
       {d.accent === "primary" && (
@@ -153,7 +162,7 @@ function DownloadCard({ d }: { d: Download }) {
       )}
       <div className="relative flex items-start justify-between">
         <span className={`text-[12px] font-semibold uppercase tracking-[0.18em] ${eyebrowClass}`}>
-          Werkblad {d.number}
+          {d.to ? `Scan ${d.number}` : `Werkblad ${d.number}`}
         </span>
         <span
           className={`flex h-9 w-9 items-center justify-center rounded-full ${iconBg} transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[2px] group-hover:-translate-y-[1px]`}
@@ -182,6 +191,15 @@ function DownloadCard({ d }: { d: Download }) {
           </p>
           <p className={`mt-1 ${mutedTextClass}`}>{d.bestFor}</p>
         </div>
+        {d.ctaLabel && (
+          <p
+            className={`pt-1 text-[13px] font-semibold ${
+              d.accent === "primary" ? "text-background" : "text-primary"
+            }`}
+          >
+            {d.ctaLabel} →
+          </p>
+        )}
       </div>
     </Link>
   );

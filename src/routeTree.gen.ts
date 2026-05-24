@@ -16,6 +16,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OverMijRouteImport } from './routes/over-mij'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as EnergiescanRouteImport } from './routes/energiescan'
 import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
@@ -68,6 +69,11 @@ const OverMijRoute = OverMijRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnergiescanRoute = EnergiescanRouteImport.update({
+  id: '/energiescan',
+  path: '/energiescan',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DownloadsRoute = DownloadsRouteImport.update({
@@ -168,6 +174,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/downloads': typeof DownloadsRouteWithChildren
+  '/energiescan': typeof EnergiescanRoute
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
@@ -194,6 +201,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
+  '/energiescan': typeof EnergiescanRoute
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
@@ -222,6 +230,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/downloads': typeof DownloadsRouteWithChildren
+  '/energiescan': typeof EnergiescanRoute
   '/faq': typeof FaqRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
@@ -251,6 +260,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/downloads'
+    | '/energiescan'
     | '/faq'
     | '/over-mij'
     | '/privacy'
@@ -277,6 +287,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/contact'
+    | '/energiescan'
     | '/faq'
     | '/over-mij'
     | '/privacy'
@@ -304,6 +315,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/downloads'
+    | '/energiescan'
     | '/faq'
     | '/over-mij'
     | '/privacy'
@@ -332,6 +344,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   DownloadsRoute: typeof DownloadsRouteWithChildren
+  EnergiescanRoute: typeof EnergiescanRoute
   FaqRoute: typeof FaqRoute
   OverMijRoute: typeof OverMijRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -403,6 +416,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/energiescan': {
+      id: '/energiescan'
+      path: '/energiescan'
+      fullPath: '/energiescan'
+      preLoaderRoute: typeof EnergiescanRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/downloads': {
@@ -552,6 +572,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   DownloadsRoute: DownloadsRouteWithChildren,
+  EnergiescanRoute: EnergiescanRoute,
   FaqRoute: FaqRoute,
   OverMijRoute: OverMijRoute,
   PrivacyRoute: PrivacyRoute,
