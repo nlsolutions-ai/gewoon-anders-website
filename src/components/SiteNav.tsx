@@ -85,25 +85,25 @@ export function SiteNav() {
 
   return (
     <>
-      <div className="pointer-events-none fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:pt-5">
+      <div className="pointer-events-none fixed inset-x-0 top-0 z-40 px-3 pt-2 sm:pt-3">
         <nav
           ref={navRef}
           aria-label="Hoofdnavigatie"
-          className={`pointer-events-auto mx-auto flex max-w-[1320px] items-center justify-between gap-3 rounded-full border border-foreground/8 bg-background/70 px-2 py-2 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] supports-[backdrop-filter]:bg-background/60 ${
+          className={`pointer-events-auto mx-auto flex max-w-[1320px] items-center justify-between gap-3 rounded-full border border-foreground/8 bg-background/70 px-2 py-0.5 backdrop-blur-xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] supports-[backdrop-filter]:bg-background/60 ${
             scrolled ? "shadow-ambient" : "shadow-none"
           }`}
         >
           <Link
             to="/"
             aria-label="Gewoon Anders, terug naar home"
-            className="magnet flex items-center rounded-full pl-2 pr-3 py-1"
+            className="magnet flex items-center rounded-full pl-2 pr-3 py-0"
           >
             <img
               src="/logo.png"
               alt="Gewoon Anders"
-              className="h-36 w-auto sm:h-40 lg:h-48"
-              width={960}
-              height={192}
+              className="h-20 w-auto sm:h-24 lg:h-28"
+              width={560}
+              height={112}
             />
           </Link>
 
@@ -307,7 +307,7 @@ export function SiteNav() {
       </div>
 
       {/* Spacer so floating nav doesn't overlap content */}
-      <div className="h-44 sm:h-48 lg:h-56" aria-hidden />
+      <div className="h-24 sm:h-28 lg:h-32" aria-hidden />
     </>
   );
 }
