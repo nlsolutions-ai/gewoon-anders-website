@@ -101,9 +101,9 @@ export function SiteNav() {
             <img
               src="/logo.png"
               alt="Gewoon Anders"
-              className="h-20 w-auto sm:h-24 lg:h-28"
-              width={560}
-              height={112}
+              className="h-12 w-auto sm:h-14 lg:h-16"
+              width={1000}
+              height={250}
             />
           </Link>
 
@@ -307,7 +307,7 @@ export function SiteNav() {
       </div>
 
       {/* Spacer so floating nav doesn't overlap content */}
-      <div className="h-24 sm:h-28 lg:h-32" aria-hidden />
+      <div className="h-16 sm:h-20 lg:h-24" aria-hidden />
     </>
   );
 }

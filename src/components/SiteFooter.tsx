@@ -70,9 +70,9 @@ export function SiteFooter() {
               <img
                 src="/logo.png"
                 alt="Gewoon Anders - business coaching"
-                className="h-40 w-auto lg:h-44"
-                width={880}
-                height={176}
+                className="h-20 w-auto lg:h-24"
+                width={1000}
+                height={250}
               />
             </Link>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-foreground/70">
