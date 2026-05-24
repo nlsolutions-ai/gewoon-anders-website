@@ -33,9 +33,7 @@ export function ChannelCards() {
       {channels.map(({ icon: Icon, title, text, when }, i) => (
         <li
           key={title}
-          className={`group relative overflow-hidden rounded-3xl border border-foreground/8 bg-card p-7 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-ambient ${
-            i === 1 || i === 2 ? "sm:translate-y-4" : ""
-          }`}
+          className="group relative overflow-hidden rounded-3xl border border-foreground/8 bg-card p-7 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 hover:shadow-ambient"
         >
           <div className="flex items-center justify-between">
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[-4deg]">
