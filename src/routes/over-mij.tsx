@@ -114,18 +114,6 @@ function OverMijPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
-        <FadeIn>
-          <div className="rounded-2xl bg-highlight p-8">
-            <h2 className="text-xl font-semibold text-foreground">Belangrijk om te weten</h2>
-            <p className="mt-4 text-[16px] leading-relaxed text-foreground/80">
-              Ik ben coach, geen behandelaar. Ik stel geen diagnoses en ik geef geen
-              therapie. Wat ik wel doe: ik help je praktisch verder vanuit ervaring en
-              begrip. Heb je zorg nodig, dan denk ik met je mee over de juiste plek.
-            </p>
-          </div>
-        </FadeIn>
-      </section>
 
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">

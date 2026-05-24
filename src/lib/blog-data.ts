@@ -101,7 +101,7 @@ export const posts: Post[] = [
   },
   {
     slug: "stoppen-met-maskeren-in-je-bedrijf",
-    title: "Stoppen met maskeren in je bedrijf — hoe doe je dat zonder klanten te verliezen",
+    title: "Stoppen met maskeren in je bedrijf: hoe doe je dat zonder klanten te verliezen",
     description:
       "Praktische stappen om minder te maskeren in je werk, met respect voor het feit dat klanten en relaties belangrijk blijven. Geen alles-of-niets.",
     excerpt:

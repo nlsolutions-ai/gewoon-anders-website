@@ -113,20 +113,48 @@ function DownloadsPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 pb-24 lg:px-10">
-        <Reveal>
-          <div className="rounded-3xl border border-foreground/8 bg-highlight p-8 lg:p-10">
-            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
-              Wat ik met je e-mailadres doe
-            </p>
-            <p className="mt-4 text-[16px] leading-relaxed text-foreground/80">
-              Je krijgt het werkblad in je inbox. Daarna stuur ik je nog hooguit een paar
-              mails over hoe ik werk en wat in de buurt komt van het thema waar je voor
-              tekende. Niet meer. Je kunt op elk moment uitschrijven met één klik. Ik
-              verkoop niets door.
-            </p>
-          </div>
-        </Reveal>
+      <section className="mx-auto max-w-[1240px] px-6 pb-24 lg:px-10">
+        <div className="grid gap-5 lg:grid-cols-5 lg:gap-6">
+          <Reveal className="lg:col-span-3">
+            <div className="flex h-full flex-col rounded-3xl bg-foreground p-8 text-background lg:p-10">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-background/60">
+                Liever direct sparring
+              </p>
+              <h2 className="display-lg mt-3 text-[1.8rem] sm:text-[2rem]">
+                Plan vrijblijvend een kennismaking.
+              </h2>
+              <p className="mt-4 text-[16px] leading-relaxed text-background/80">
+                Een werkblad is fijn voor zelf nadenken. Soms helpt het meer om iemand mee
+                te laten kijken. Een kennismaking duurt een half uur, op het kanaal dat jij
+                wil. Geen verkoopgesprek, geen verplichting. Je vertelt waar je tegenaan
+                loopt, ik vertel hoe ik werk, en je beslist daarna zelf wat je doet.
+              </p>
+              <div className="mt-auto pt-7">
+                <Link
+                  to="/contact"
+                  className="magnet group inline-flex items-center gap-3 rounded-full bg-background pl-6 pr-2 py-2 text-[15px] font-medium text-foreground"
+                >
+                  <span>Plan een kennismaking</span>
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-foreground/8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[2px] group-hover:-translate-y-[1px]">
+                    <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
+                  </span>
+                </Link>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal className="lg:col-span-2" delay={80}>
+            <div className="flex h-full flex-col rounded-3xl border border-foreground/8 bg-highlight p-8 lg:p-10">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+                Over je e-mailadres
+              </p>
+              <p className="mt-4 text-[15px] leading-relaxed text-foreground/80">
+                Je krijgt het werkblad in je inbox. Daarna hooguit een paar mails over hoe
+                ik werk. Niet meer. Uitschrijven met één klik. Ik verkoop niets door.
+              </p>
+            </div>
+          </Reveal>
+        </div>
       </section>
     </>
   );

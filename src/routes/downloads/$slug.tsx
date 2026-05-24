@@ -1,4 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
 
@@ -347,23 +348,43 @@ function FreebiePage() {
         </FadeIn>
       </section>
 
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-3xl px-6 py-16 text-center lg:px-10">
-          <FadeIn>
-            <Link
-              to="/downloads"
-              className="mr-3 inline-flex items-center justify-center rounded-xl border border-foreground/15 bg-background px-5 py-3 text-[15px] font-medium text-foreground hover:bg-secondary"
-            >
-              Terug naar downloads
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-[15px] font-medium text-primary-foreground hover:bg-primary/90"
-            >
-              Plan een kennismaking
-            </Link>
-          </FadeIn>
-        </div>
+      <section className="mx-auto max-w-3xl px-6 pb-24 lg:px-10">
+        <FadeIn>
+          <div className="relative overflow-hidden rounded-3xl bg-foreground p-8 text-background lg:p-10">
+            <div className="pointer-events-none absolute -top-24 -right-24 h-[280px] w-[280px] rounded-full bg-primary/25 blur-3xl" />
+            <div className="relative">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-background/60">
+                Liever even samen kijken
+              </p>
+              <h2 className="display-lg mt-3 text-[1.6rem] sm:text-[1.9rem]">
+                Plan vrijblijvend een kennismaking.
+              </h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-background/80">
+                Werkblad doorgenomen en wil je het bespreken? Een kennismaking duurt een
+                half uur, op het kanaal dat jij wil. Geen verkoopgesprek, geen
+                verplichting. Je vertelt waar je tegenaan loopt, ik luister en denk mee.
+                Daarna beslis jij of je verder wil.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Link
+                  to="/contact"
+                  className="magnet group inline-flex items-center gap-3 rounded-full bg-background pl-5 pr-1.5 py-1.5 text-[14px] font-medium text-foreground"
+                >
+                  <span>Plan een kennismaking</span>
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[2px] group-hover:-translate-y-[1px]">
+                    <ArrowUpRight size={14} strokeWidth={1.8} aria-hidden />
+                  </span>
+                </Link>
+                <Link
+                  to="/downloads"
+                  className="magnet inline-flex items-center gap-2 rounded-full border border-background/20 bg-background/5 px-4 py-2 text-[14px] font-medium text-background hover:bg-background/10"
+                >
+                  Andere werkbladen
+                </Link>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
       </section>
     </>
   );

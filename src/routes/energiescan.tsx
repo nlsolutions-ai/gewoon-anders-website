@@ -13,7 +13,7 @@ import {
 export const Route = createFileRoute("/energiescan")({
   head: () => ({
     meta: [
-      { title: "Ondernemers-energiescan — Gewoon Anders" },
+      { title: "Ondernemers-energiescan - Gewoon Anders" },
       {
         name: "description",
         content:
@@ -246,7 +246,7 @@ function Question({
         />
       </div>
 
-      {/* Statement — keyed so React remounts and fade animates */}
+      {/* Statement, keyed so React remounts and fade animates */}
       <div key={index} className="reveal is-visible mt-14">
         <h2 className="display-lg text-[1.8rem] leading-tight sm:text-[2.2rem] lg:text-[2.6rem]">
           {statement}
@@ -352,7 +352,7 @@ function Results({
       </h1>
       <p className="mt-6 text-[17px] leading-relaxed text-foreground/75">
         Vijf gebieden, vijf scores. Onder elk gebied lees je in gewone taal wat je
-        antwoorden waarschijnlijk betekenen. Een hoge score is geen verwijt — het is een
+        antwoorden waarschijnlijk betekenen. Een hoge score is geen verwijt. Het is een
         plek waar verandering het meeste oplevert.
       </p>
 
@@ -383,15 +383,17 @@ function Results({
           af te stemmen op hun brein.
         </p>
         <p className="mt-4 text-[16px] leading-relaxed text-foreground/80">
-          Wil je hier samen mee aan de slag? Plan een gratis kennismaking van een half uur,
-          op het kanaal dat jij wil. Je zit nergens aan vast.
+          Wil je samen rustig naar jouw uitslag kijken? Plan vrijblijvend een kennismaking
+          van een half uur, op het kanaal dat jij wil. Geen verkoopgesprek, geen
+          verplichting. Een rustig gesprek waarin we kijken of het klikt. Daarna beslis
+          jij of je verder wil.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
             to="/contact"
             className="magnet group inline-flex items-center gap-3 rounded-full bg-primary pl-6 pr-2 py-2 text-[15px] font-medium text-primary-foreground hover:bg-primary/95"
           >
-            <span>Plan een kennismaking</span>
+            <span>Plan vrijblijvend een kennismaking</span>
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/15 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[2px] group-hover:-translate-y-[1px]">
               <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
             </span>
@@ -405,7 +407,7 @@ function Results({
         </div>
       </div>
 
-      <div className="mt-10 flex flex-wrap items-center gap-4">
+      <div className="mt-10">
         <button
           type="button"
           onClick={onReset}
@@ -414,10 +416,6 @@ function Results({
           <RotateCcw size={14} strokeWidth={1.8} aria-hidden />
           Opnieuw doen
         </button>
-        <p className="text-[13px] text-foreground/45">
-          Deze scan is een hulpmiddel om over je werk na te denken. Het is geen diagnose
-          en geen zorg.
-        </p>
       </div>
     </section>
   );
