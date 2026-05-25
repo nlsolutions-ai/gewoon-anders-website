@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WerkwijzeRouteImport } from './routes/werkwijze'
+import { Route as WelkomKortRouteImport } from './routes/welkom-kort'
 import { Route as WelkomRouteImport } from './routes/welkom'
 import { Route as VoorwaardenRouteImport } from './routes/voorwaarden'
 import { Route as VerhalenRouteImport } from './routes/verhalen'
@@ -43,6 +44,11 @@ import { Route as DownloadsSlugRouteImport } from './routes/downloads/$slug'
 const WerkwijzeRoute = WerkwijzeRouteImport.update({
   id: '/werkwijze',
   path: '/werkwijze',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelkomKortRoute = WelkomKortRouteImport.update({
+  id: '/welkom-kort',
+  path: '/welkom-kort',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WelkomRoute = WelkomRouteImport.update({
@@ -209,6 +215,7 @@ export interface FileRoutesByFullPath {
   '/verhalen': typeof VerhalenRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/welkom': typeof WelkomRoute
+  '/welkom-kort': typeof WelkomKortRoute
   '/werkwijze': typeof WerkwijzeRoute
   '/downloads/$slug': typeof DownloadsSlugRoute
   '/informatie/$slug': typeof InformatieSlugRoute
@@ -240,6 +247,7 @@ export interface FileRoutesByTo {
   '/verhalen': typeof VerhalenRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/welkom': typeof WelkomRoute
+  '/welkom-kort': typeof WelkomKortRoute
   '/werkwijze': typeof WerkwijzeRoute
   '/downloads/$slug': typeof DownloadsSlugRoute
   '/informatie/$slug': typeof InformatieSlugRoute
@@ -273,6 +281,7 @@ export interface FileRoutesById {
   '/verhalen': typeof VerhalenRoute
   '/voorwaarden': typeof VoorwaardenRoute
   '/welkom': typeof WelkomRoute
+  '/welkom-kort': typeof WelkomKortRoute
   '/werkwijze': typeof WerkwijzeRoute
   '/downloads/$slug': typeof DownloadsSlugRoute
   '/informatie/$slug': typeof InformatieSlugRoute
@@ -307,6 +316,7 @@ export interface FileRouteTypes {
     | '/verhalen'
     | '/voorwaarden'
     | '/welkom'
+    | '/welkom-kort'
     | '/werkwijze'
     | '/downloads/$slug'
     | '/informatie/$slug'
@@ -338,6 +348,7 @@ export interface FileRouteTypes {
     | '/verhalen'
     | '/voorwaarden'
     | '/welkom'
+    | '/welkom-kort'
     | '/werkwijze'
     | '/downloads/$slug'
     | '/informatie/$slug'
@@ -370,6 +381,7 @@ export interface FileRouteTypes {
     | '/verhalen'
     | '/voorwaarden'
     | '/welkom'
+    | '/welkom-kort'
     | '/werkwijze'
     | '/downloads/$slug'
     | '/informatie/$slug'
@@ -403,6 +415,7 @@ export interface RootRouteChildren {
   VerhalenRoute: typeof VerhalenRoute
   VoorwaardenRoute: typeof VoorwaardenRoute
   WelkomRoute: typeof WelkomRoute
+  WelkomKortRoute: typeof WelkomKortRoute
   WerkwijzeRoute: typeof WerkwijzeRoute
   InformatieSlugRoute: typeof InformatieSlugRoute
   ThemasDemandAvoidanceRoute: typeof ThemasDemandAvoidanceRoute
@@ -426,6 +439,13 @@ declare module '@tanstack/react-router' {
       path: '/werkwijze'
       fullPath: '/werkwijze'
       preLoaderRoute: typeof WerkwijzeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welkom-kort': {
+      id: '/welkom-kort'
+      path: '/welkom-kort'
+      fullPath: '/welkom-kort'
+      preLoaderRoute: typeof WelkomKortRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/welkom': {
@@ -663,6 +683,7 @@ const rootRouteChildren: RootRouteChildren = {
   VerhalenRoute: VerhalenRoute,
   VoorwaardenRoute: VoorwaardenRoute,
   WelkomRoute: WelkomRoute,
+  WelkomKortRoute: WelkomKortRoute,
   WerkwijzeRoute: WerkwijzeRoute,
   InformatieSlugRoute: InformatieSlugRoute,
   ThemasDemandAvoidanceRoute: ThemasDemandAvoidanceRoute,
