@@ -43,8 +43,8 @@ const stories: Story[] = [
     initials: "EV",
     avatarBg: "bg-primary/15",
     avatarText: "text-primary",
-    quote: "Ik dacht dat ik een planner moest worden. Ik ben juist gestopt met plannen op de manier die niet bij me past.",
-    body: "Voor we begonnen had ik vier verschillende apps en een whiteboard. Niets hield het langer vol dan drie weken. We hebben twee sessies besteed aan kijken naar wat wel werkte. Bleek dat ik in pieken werk. Nu plan ik die pieken in plaats van een gemiddelde dag. Mijn ochtenden zijn vrij, ik werk vier middagen door, vrijdag is licht. Eerlijk: ik dacht dat dit niet kon als ondernemer. Het kan dus wel.",
+    quote: "Ik dacht dat ik beter moest leren plannen. Ik ben juist gestopt met de manier van plannen die niet bij me paste.",
+    body: "Toen we begonnen had ik vier verschillende apps en een whiteboard. Niets hield het langer vol dan drie weken. We hebben twee sessies besteed aan kijken wat wél werkte. Bleek dat ik in pieken werk, niet in een rechte lijn. Nu plan ik die pieken in plaats van een gemiddelde dag. Mijn ochtenden zijn vrij, ik werk vier middagen door, vrijdag is licht. Ik dacht echt dat dit niet kon als ondernemer. Het kan dus wel.",
     channel: "Vooral mailsessies",
     changed: "Werkweek opnieuw ingericht",
   },
@@ -56,8 +56,8 @@ const stories: Story[] = [
     initials: "SA",
     avatarBg: "bg-highlight",
     avatarText: "text-foreground",
-    quote: "Het verschil zit niet in wat ik anders doe. Het zit erin dat ik weet waarom dingen me kostten.",
-    body: "Mijn werk ging op zich prima, maar ik was elke vrijdag op. Toen ik na onze derde sessie merkte dat ik na een Zoom-meeting twee uur niet meer functioneerde, was dat geen mysterie meer. Ik heb mijn klantcontact teruggebracht tot één videocall per week, de rest is mail en chat. Ik factureer hetzelfde, ik werk minder, ik ben minder leeg. Klanten merken er niets van behalve dat ik prettiger antwoord.",
+    quote: "Ik doe nog steeds dezelfde dingen. Ik snap nu alleen waarom het me vroeger zo leegtrok.",
+    body: "Mijn werk ging op zich prima, maar ik was elke vrijdag op. Na onze derde sessie merkte ik dat ik na een Zoom-meeting twee uur niet meer kon functioneren. Vanaf dat moment was het geen mysterie meer. Ik heb mijn klantcontact teruggebracht naar één videocall per week, de rest gaat via mail en chat. Ik factureer hetzelfde, werk minder uren, en aan het eind van de dag is er nog iets van mij over. Klanten merken er niks van, behalve dat ik prettiger antwoord.",
     channel: "Mix van mail en bellen zonder beeld",
     changed: "Klantcontact verkleind",
   },
@@ -69,8 +69,8 @@ const stories: Story[] = [
     initials: "MA",
     avatarBg: "bg-foreground text-background",
     avatarText: "text-background",
-    quote: "Hij vraagt niet wat ik wil veranderen. Hij vraagt wat ik wil houden.",
-    body: "Ik kwam met het idee dat ik 'eindelijk een normale ondernemer wilde worden'. Jurgen vroeg gewoon waarom. Daar had ik geen goed antwoord op. Vier maanden later weet ik dat ik geen tweede medewerker wil, geen abonnementsmodel en geen tien-klanten-tegelijk. Ik heb nu drie vaste klanten, een wachtlijst van vier, en mijn weekend is van mij. Het is precies het bedrijf dat ik altijd al wilde, alleen wist ik dat zelf niet.",
+    quote: "Hij vroeg niet wat ik wilde veranderen. Hij vroeg wat ik wilde houden.",
+    body: "Ik kwam binnen met het idee dat ik eindelijk een normale ondernemer wilde worden. Jurgen vroeg gewoon waarom. Daar had ik geen goed antwoord op. Vier maanden later weet ik dat ik geen tweede medewerker wil, geen abonnementsmodel, en geen tien klanten tegelijk. Ik heb nu drie vaste klanten, een wachtlijst van vier, en mijn weekend is van mij. Het is precies het bedrijf dat ik altijd al wilde. Ik wist het zelf alleen niet.",
     channel: "Videobellen",
     changed: "Bedrijfsrichting helder",
   },
@@ -82,8 +82,8 @@ const stories: Story[] = [
     initials: "MK",
     avatarBg: "bg-secondary",
     avatarText: "text-foreground",
-    quote: "Ik was bang dat het te laat was om mijn werk anders in te richten. Het was juist net op tijd.",
-    body: "Toen ik begon, dacht ik dat ik op een burn-out af stuurde. Ik was al twee keer eerder uitgevallen, deze keer wilde ik het voor zijn. We zijn niet bij de uitputting begonnen, maar bij prijs. Mijn tarief was te laag, mijn beschikbaarheid te ruim, mijn aanbod te breed. Drie keuzes later werk ik met minder klanten, ik verdien meer, en de zaterdag is geen herstelmoment meer maar een dag.",
+    quote: "Ik was bang dat het te laat was om mijn werk anders in te richten. Het was juist nog net op tijd.",
+    body: "Toen ik begon dacht ik dat ik op een burn-out afstevende. Ik was al twee keer eerder uitgevallen, en deze keer wilde ik het voor zijn. We zijn niet bij de uitputting begonnen, maar bij mijn tarief. Dat was te laag, mijn beschikbaarheid te ruim, en mijn aanbod te breed. Een paar maanden later werk ik met minder klanten, verdien ik meer, en is de zaterdag voor het eerst in jaren gewoon weer een vrije dag.",
     channel: "Bellen zonder beeld",
     changed: "Tarief en grenzen herzien",
   },
@@ -95,8 +95,8 @@ const stories: Story[] = [
     initials: "LO",
     avatarBg: "bg-primary/15",
     avatarText: "text-primary",
-    quote: "Ik dacht dat ik mijn praktijk moest aanpassen aan mij. Hij liet me zien dat ik ook mijn manier van werken kon aanpassen.",
-    body: "In de zorg leer je dat structuur belangrijk is. Maar de structuren die ik geleerd had, waren niet voor mijn brein gemaakt. Ik plande te veel op een dag, deed te veel intakes achter elkaar. Het advies was niet 'minder werken'. Het was 'andere structuur'. Mijn cliënten zien me nu in blokken van drie, met twee dagen tussen elke blok om te verwerken. Ik ben nog steeds vol, ik ben niet meer leeg.",
+    quote: "Ik dacht dat ik mezelf moest aanpassen aan mijn vak. Hij liet me zien dat het andersom ook kan.",
+    body: "In de zorg leer je dat structuur belangrijk is. Maar de structuren die ik geleerd had, waren niet gemaakt voor mijn brein. Ik plande te veel op één dag en deed te veel intakes achter elkaar. Het advies was niet om minder te werken, maar om het anders in te delen. Mijn cliënten zien me nu in blokken van drie afspraken op één dag, met twee dagen ertussen om alles te verwerken. Ik ben nog steeds vol, maar niet meer leeg.",
     channel: "Wisselend, soms chat",
     changed: "Andere werkindeling",
   },
@@ -123,8 +123,8 @@ function VerhalenPage() {
           <Reveal delay={140}>
             <p className="mt-7 max-w-2xl text-[17px] leading-relaxed text-foreground/75 lg:text-[18px]">
               Vijf onderneemsters vertellen wat er in hun werk veranderde tijdens en na
-              Anders Ondernemen. Geen mooie woorden, wel concrete dingen die anders gingen
-              werken.
+              Anders Ondernemen. Geen mooie verhalen, wel concrete dingen die nu anders
+              gaan.
             </p>
           </Reveal>
         </div>
@@ -161,9 +161,9 @@ function VerhalenPage() {
 
         <Reveal delay={120}>
           <p className="mt-10 max-w-2xl text-[13px] leading-relaxed text-foreground/55">
-            Verhalen zijn met instemming gedeeld. Namen, leeftijden en beroepen zijn
-            aangepast om de privacy van de deelnemers te beschermen. De kern van wat zij
-            in het traject hebben ervaren staat ongewijzigd.
+            Deze verhalen zijn met toestemming gedeeld. Namen, leeftijden en beroepen
+            zijn aangepast om de privacy van de deelnemers te beschermen. Wat zij in het
+            traject hebben ervaren staat ongewijzigd.
           </p>
         </Reveal>
       </section>
