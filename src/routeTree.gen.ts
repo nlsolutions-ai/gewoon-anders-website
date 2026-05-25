@@ -14,6 +14,7 @@ import { Route as VoorwaardenRouteImport } from './routes/voorwaarden'
 import { Route as VerhalenRouteImport } from './routes/verhalen'
 import { Route as TrajectRouteImport } from './routes/traject'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SessieRouteImport } from './routes/sessie'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as OverMijRouteImport } from './routes/over-mij'
 import { Route as MaskingCheckRouteImport } from './routes/masking-check'
@@ -61,6 +62,11 @@ const TrajectRoute = TrajectRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SessieRoute = SessieRouteImport.update({
+  id: '/sessie',
+  path: '/sessie',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -191,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/masking-check': typeof MaskingCheckRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
+  '/sessie': typeof SessieRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/traject': typeof TrajectRoute
   '/verhalen': typeof VerhalenRoute
@@ -220,6 +227,7 @@ export interface FileRoutesByTo {
   '/masking-check': typeof MaskingCheckRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
+  '/sessie': typeof SessieRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/traject': typeof TrajectRoute
   '/verhalen': typeof VerhalenRoute
@@ -251,6 +259,7 @@ export interface FileRoutesById {
   '/masking-check': typeof MaskingCheckRoute
   '/over-mij': typeof OverMijRoute
   '/privacy': typeof PrivacyRoute
+  '/sessie': typeof SessieRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/traject': typeof TrajectRoute
   '/verhalen': typeof VerhalenRoute
@@ -283,6 +292,7 @@ export interface FileRouteTypes {
     | '/masking-check'
     | '/over-mij'
     | '/privacy'
+    | '/sessie'
     | '/sitemap.xml'
     | '/traject'
     | '/verhalen'
@@ -312,6 +322,7 @@ export interface FileRouteTypes {
     | '/masking-check'
     | '/over-mij'
     | '/privacy'
+    | '/sessie'
     | '/sitemap.xml'
     | '/traject'
     | '/verhalen'
@@ -342,6 +353,7 @@ export interface FileRouteTypes {
     | '/masking-check'
     | '/over-mij'
     | '/privacy'
+    | '/sessie'
     | '/sitemap.xml'
     | '/traject'
     | '/verhalen'
@@ -373,6 +385,7 @@ export interface RootRouteChildren {
   MaskingCheckRoute: typeof MaskingCheckRoute
   OverMijRoute: typeof OverMijRoute
   PrivacyRoute: typeof PrivacyRoute
+  SessieRoute: typeof SessieRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TrajectRoute: typeof TrajectRoute
   VerhalenRoute: typeof VerhalenRoute
@@ -428,6 +441,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sessie': {
+      id: '/sessie'
+      path: '/sessie'
+      fullPath: '/sessie'
+      preLoaderRoute: typeof SessieRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -617,6 +637,7 @@ const rootRouteChildren: RootRouteChildren = {
   MaskingCheckRoute: MaskingCheckRoute,
   OverMijRoute: OverMijRoute,
   PrivacyRoute: PrivacyRoute,
+  SessieRoute: SessieRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TrajectRoute: TrajectRoute,
   VerhalenRoute: VerhalenRoute,
