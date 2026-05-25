@@ -1170,6 +1170,221 @@ export const posts: Post[] = [
       },
     ],
   },
+  {
+    slug: "eindeloos-voorbereiden-nooit-starten",
+    title: "Eindeloos voorbereiden, nooit starten: het patroon onder \"perfectionisme\"",
+    description:
+      "Waarom je iets soms maandenlang klaar hebt liggen en de stap naar buiten niet kunt zetten. Hoe dat voelt, wat eronder zit, en waarom standaard advies dit vaak erger maakt.",
+    excerpt:
+      "Het ligt klaar. Soms al maanden. En toch krijg je jezelf niet aan de start. Vaak heet dat perfectionisme. Vaak is het iets anders.",
+    category: "Brein",
+    readingTime: "9 min",
+    content: [
+      {
+        kind: "p",
+        text: "Een ondernemer die ik begeleid had een aanbod. Acht weken werk erin gestopt. Sales-pagina af, prijzen vastgesteld, e-mailflow geschreven. Eén klik en het zou online staan. Zes maanden lang heeft hij die klik niet gegeven. Niet uit luiheid. Niet omdat het niet af was. Hij wist het ook niet precies. Het voelde als een muur en hij wist niet uit welke kant hij erop moest klimmen.",
+      },
+      {
+        kind: "p",
+        text: "Dit patroon kom ik vaak tegen. Vooral, maar niet alleen, bij ondernemers met een autistisch of AuDHD-brein. Iets ligt klaar. Een nieuw aanbod, een lancering, een eerste video, een blogpost die je al lang wil schrijven. Soms een hele bedrijfsswitch. Je hebt erover gedacht, vaak heel uitgebreid. Je hebt het zelfs grotendeels gemaakt. Maar starten — er werkelijk mee naar buiten gaan — lukt niet.",
+      },
+      {
+        kind: "p",
+        text: "Veel mensen noemen dat perfectionisme. Soms klopt dat. Vaak is het iets anders. In dit stuk schets ik wat ik in coaching vaak terugzie. In een tweede stuk dat hierop volgt geef ik handvatten om de drempel concreet lager te maken.",
+      },
+      { kind: "h2", text: "Wat het niet is" },
+      {
+        kind: "p",
+        text: "Eerst maar even wat het niet is, want het wordt vaak met andere dingen verward.",
+      },
+      {
+        kind: "p",
+        text: "Het is geen luiheid. Iemand die maandenlang met een idee bezig blijft, eraan blijft sleutelen, en er 's nachts van wakker ligt, is niet lui. Het is ook geen gebrek aan discipline. Discipline werkt op rechte lijnen. Hier zit geen rechte lijn.",
+      },
+      {
+        kind: "p",
+        text: "Het is niet hetzelfde als demand avoidance, al lijkt het er soms op. Bij demand avoidance gaat het om de eis. Hoe meer iets moet, hoe minder het vanzelf gaat. Ook eigen eisen tellen mee. Dit patroon werkt anders. Hier gaat het niet over de eis, hier gaat het over de uitkomst.",
+      },
+      {
+        kind: "p",
+        text: "En het is niet zuiver perfectionisme. Perfectionisme zegt: het moet beter. Dit zegt iets stillers: het moet eerst veiliger.",
+      },
+      { kind: "h2", text: "Wat het wel is" },
+      {
+        kind: "p",
+        text: "Voor veel mensen die dit herkennen zit er angst onder. Angst voor de uitkomst. Niet voor de hoeveelheid werk, niet voor het maken zelf. Voor wat er gebeurt zodra het buiten is.",
+      },
+      {
+        kind: "p",
+        text: "Zolang iets binnen blijft, kun je het bijsturen. Je kunt er nog over nadenken. Je kunt het herzien. Je kunt nog beslissen om iets anders te doen. Op het moment dat je de knop indrukt, valt al die regie weg. Wat dan komt, komt. Iemand vindt er iets van. Iemand zegt niks, ook een uitkomst. Iemand wijst je af, of erger, niemand merkt het op.",
+      },
+      {
+        kind: "p",
+        text: "Voor veel breinen is dat moment, het moment waarop je de regie loslaat, de eigenlijke drempel. Niet het werk ervoor. Niet de inhoud. De stap waarin het uit jouw hand gaat.",
+      },
+      { kind: "h2", text: "Waarom autistische en AuDHD-breinen hier vaker tegenaan lopen" },
+      {
+        kind: "p",
+        text: "Een autistisch brein houdt vaak van voorspelbaarheid. Niet als grilletje, als wezenlijke behoefte. Je werkt prettig als je vooraf weet wat er komt. Op het moment dat je iets publiceert, weet je dat niet meer. Iemand kan kritisch reageren. Iemand kan iets vragen waarvan je niet weet hoe je het beantwoordt. Iemand kan stil blijven en je weet niet waarom.",
+      },
+      {
+        kind: "p",
+        text: "Dat is niet één keer ongemak. Dat is een onbekend aantal onbekende dingen tegelijk. Je systeem reageert daar terecht voorzichtig op.",
+      },
+      {
+        kind: "p",
+        text: "Bij ADHD-breinen ligt het iets anders. Daar is het vaak het uitstellen van een spannend moment dat je executive functies overvraagt. Initiatie nemen op iets waar emotie aan zit, is een van de zwaarste taken die er is. Combineer dat met een autistisch deel dat de onzekerheid niet draagt, en je hebt AuDHD: een brein dat tegelijk wil en niet kan.",
+      },
+      { kind: "h2", text: "Hoe het zich uit in een bedrijf" },
+      {
+        kind: "ul",
+        items: [
+          "Een aanbod dat schrijfwerk-technisch al twee maanden klaar is, maar dat nog niet live staat.",
+          "Een website-vernieuwing die in een mapje op je laptop ligt, in plaats van online.",
+          "Een nieuwsbrief die je elke vrijdag wil sturen en die je elke vrijdag uitstelt naar volgende week.",
+          "Een diensttak waarvan je weet dat hij past, maar die je nog niet eens aan vaste klanten benoemt.",
+          "Een tarievenverhoging die je rationeel onderbouwd hebt maar die je niet doorvoert.",
+          "Een blogpost over een onderwerp waar je veel over weet, die al een jaar als concept ergens staat.",
+        ],
+      },
+      {
+        kind: "p",
+        text: "Wat hier vaak terugkomt: het is bijna nooit het allerkleinste. Het is bijna altijd iets waar je hart in zit. Iets wat persoonlijk genoeg is om je zenuwachtig te maken, en groot genoeg om jouw bedrijf te verschuiven als het zou landen.",
+      },
+      { kind: "h2", text: "Waarom standaard advies dit erger maakt" },
+      {
+        kind: "p",
+        text: "\"Done is better than perfect.\" \"Just ship it.\" \"Begin gewoon.\" Het zijn bedoeld-bemoedigende zinnen. Voor mensen voor wie de drempel laag is, werken ze prima. Voor mensen die hier vastzitten, voegen ze iets toe wat juist averechts werkt. Je krijgt er bovenop wat je zelf al voelt: je doet het niet, en dat is niet goed.",
+      },
+      {
+        kind: "p",
+        text: "Een externe deadline werkt soms één keer. Daarna voelt het systeem dat ook de deadline een eis is, met een onzekere uitkomst, en doet het dezelfde reflex. Een coach die je gaat aansporen werkt zelden langdurig. Mindset-werk werkt soms aan de oppervlakte, maar laat de onderliggende angst onaangeroerd.",
+      },
+      {
+        kind: "p",
+        text: "Wat wel werkt is geen aansporing. Het is het weghalen van de permanentie van de stap. Daar gaat het tweede stuk over.",
+      },
+      { kind: "h2", text: "Eerst herkennen, dan pas handelen" },
+      {
+        kind: "p",
+        text: "Voor wie dit leest en denkt: ja, dat is precies wat ik doe — herkenning is op zichzelf al iets. Veel mensen leven jaren met dit patroon zonder dat ze het een naam geven. Ze leggen het uit als luiheid, als gebrek aan ambitie, als gewoon nog niet helemaal klaar. Als je herkent dat het iets anders is, kun je er iets anders mee.",
+      },
+      {
+        kind: "p",
+        text: "Je hoeft hier geen oplossing voor in vier stappen. Voor sommige mensen is een rustig gesprek waarin het patroon benoemd wordt al meer dan ze in jaren coaching hebben gehad. Voor anderen volgt daarna werk om het concreet te verzetten. Voor weer anderen is dit een laag die in therapie thuishoort, omdat er eerdere ervaringen onder zitten die zwaarder wegen dan een coach kan dragen. Alle drie zijn een goede uitkomst.",
+      },
+      {
+        kind: "p",
+        text: "Het tweede stuk in deze reeks gaat over wat in coaching meestal helpt om de drempel concreet kleiner te maken. Niet door je in beweging te duwen, wel door wat je naar buiten brengt anders in te richten zodat de stap zelf minder weegt.",
+      },
+      {
+        kind: "link-row",
+        text: "Vervolg: een aanbod dat al maanden klaarligt, hoe krijg je het de deur uit?",
+        href: "/informatie/aanbod-de-deur-uit",
+      },
+    ],
+  },
+  {
+    slug: "aanbod-de-deur-uit",
+    title: "Een aanbod dat al maanden klaarligt: hoe krijg je het toch de deur uit?",
+    description:
+      "Vijf concrete manieren om iets dat al lang klaarligt naar buiten te brengen, zonder dat je jezelf in beweging hoeft te duwen. Voor wie weet dat de drempel niet bij het werk ligt, maar bij de stap.",
+    excerpt:
+      "De stap zelf weegt vaak meer dan het werk ervoor. Vijf manieren om die stap lichter te maken, zonder dat je een andere persoon hoeft te worden.",
+    category: "Brein",
+    readingTime: "8 min",
+    content: [
+      {
+        kind: "p",
+        text: "In het eerste stuk in deze reeks schreef ik over het patroon: iets ligt klaar, je krijgt het niet de deur uit, en het is geen luiheid en geen pure perfectionisme. Onder de oppervlakte zit angst voor de uitkomst, vooral voor het moment waarop je de regie kwijtraakt. In dit stuk geef ik vijf dingen die ik in coaching vaak werkbaar zie. Niet om je te dwingen, wel om de stap te verkleinen.",
+      },
+      {
+        kind: "p",
+        text: "Welke werkt voor jou? Dat weet je vaak pas als je er een paar probeert. Je hoeft ze niet allemaal te doen. Eén die past kan al genoeg zijn om los te trekken wat al lang vastzit.",
+      },
+      { kind: "h2", text: "1. Noem het tijdelijk, niet definitief" },
+      {
+        kind: "p",
+        text: "Wat je vasthoudt is meestal niet de inhoud, maar de permanentie. Zodra je iets publiceert, voelt het alsof het er voor altijd staat. In de praktijk klopt dat zelden. Je mag het volgende week aanpassen. Of weghalen. Of helemaal vervangen.",
+      },
+      {
+        kind: "p",
+        text: "Zet er expliciet bij dat het een eerste versie is. \"Dit is versie 1.0, ik kijk over een maand wat ik aanpas.\" \"Dit is een bèta-aanbod, ik schaaf eraan met de eerste vijf klanten.\" \"Voorlopig staat het zo, ik luister hoe het valt.\" Voor de buitenwereld verandert er niks. Voor jouw brein verandert alles. Je hebt jezelf een uitweg gegeven die geen falen heet, maar bijschaven.",
+      },
+      { kind: "h2", text: "2. Eén persoon, niet publiek" },
+      {
+        kind: "p",
+        text: "Veel mensen denken in alles-of-niets. Of het staat live voor de hele wereld, of het ligt in een mapje. Tussen die twee zit ruimte.",
+      },
+      {
+        kind: "p",
+        text: "Stuur je aanbod naar één bestaande klant met de vraag of het bij haar past. Laat je nieuwsbrief eerst lezen door één vakgenoot. Plaats je nieuwe pagina op een unlisted URL en deel hem met drie mensen die je vertrouwt. Niet om feedback te krijgen, ook al kun je dat zeggen. Om jezelf te laten oefenen met het uit handen geven, in een setting waar de impact klein is.",
+      },
+      {
+        kind: "p",
+        text: "Voor sommige mensen is dat de hele oplossing. Eén keer iets uit handen gegeven, zonder ramp, en de volgende stap is ineens makkelijker. Voor anderen is het de eerste in een reeks van vijf vergelijkbare stappen. Beide is goed.",
+      },
+      { kind: "h2", text: "3. Spreek vooraf bijsturen af" },
+      {
+        kind: "p",
+        text: "Een van de zwaarste dingen aan publiek gaan is het idee dat het nu vastligt. Maak met jezelf, op papier, een afspraak om het over een week of twee weken te herzien. Niet als reactie op wat er gebeurt, maar standaard. Dan loslaten wordt geen einde, maar een tussenstap.",
+      },
+      {
+        kind: "p",
+        text: "Schrijf op wat je over twee weken gaat checken. Hoe vaak het is gelezen. Welke reacties er kwamen. Of je er zelf nog achter staat. Daarna mag je aanpassen. Dat is niet zwak, dat is hoe iteratie werkt. Veel dingen die door andere ondernemers \"gewoon online gezet\" zijn, zijn intussen drie keer herzien zonder dat iemand het in de gaten had.",
+      },
+      { kind: "h2", text: "4. Verklein wat naar buiten gaat" },
+      {
+        kind: "p",
+        text: "Je hoeft niet een heel aanbod tegelijk te lanceren. Een hele website. Een complete dienst. Je kunt er een stukje uitknippen en alleen dát naar buiten brengen.",
+      },
+      {
+        kind: "p",
+        text: "Eén pagina over de aanpak, in plaats van het hele aanbod. Eén losse dienst, in plaats van het hele pakket. Eén voorbeeld-case, in plaats van een sales-pagina. Daarmee oefen je de stap, zonder dat de hele lading meedoet. En vaak merk je dat het kleinere stuk al voldoende reactie oplevert om het grotere stuk daarna lichter te maken.",
+      },
+      { kind: "h2", text: "5. Onderschat wie er meekijkt" },
+      {
+        kind: "p",
+        text: "Veel ondernemers leven in het idee dat hun lancering live volgt door iedereen die ze ooit hebben gekend. In de praktijk is dat zelden zo. Je oude collega zit in een ander leven. Je vakgenoten kijken naar hun eigen werk. Je vroegere klanten lezen je nieuwsbrief vaak diagonaal of helemaal niet. Vrijwel iedereen is bezig met zichzelf.",
+      },
+      {
+        kind: "p",
+        text: "Reken voor jezelf eens uit hoeveel mensen er werkelijk meekijken in de eerste uren na publicatie. Vaak is dat onder de tien. Soms drie. Daar zit een groep die positief zal reageren, een groep die niets zegt, en hooguit één die kritisch is. Daar tegenover staat het werk dat al maanden klaarligt en niets uitricht zolang het binnen blijft.",
+      },
+      { kind: "h2", text: "Wat niet werkt" },
+      {
+        kind: "p",
+        text: "Een paar dingen die hier zelden helpen, voor de volledigheid.",
+      },
+      {
+        kind: "ul",
+        items: [
+          "Een harde deadline van jezelf opleggen. Werkt vaak één keer, en daarna voelt het systeem dat ook dat een eis is.",
+          "Iemand laten beloven dat je het doet. Voor sommige breinen werkt accountability, voor dit patroon werkt het vaak averechts: er komt nog een verwachting bij om aan te voldoen.",
+          "Mindset-werk. \"Geloof in jezelf.\" \"Voel je waarde.\" Op een dag waarop je goed in je vel zit klinkt het redelijk. Op de dag dat je het echt nodig hebt, glijdt het van je af.",
+          "Wachten tot het voelt zoals het moet voelen. Dat moment komt zelden. Voor sommige mensen komt het pas ná de stap, niet ervoor.",
+        ],
+      },
+      { kind: "h2", text: "En als geen van deze vijf genoeg is" },
+      {
+        kind: "p",
+        text: "Soms zit er iets diepers onder. Een eerdere ervaring waarin je hard werd beoordeeld op iets wat van jou kwam. Een sfeer thuis waarin afwijzing erbij hoorde. Een werkomgeving die te lang niet veilig was om in zichtbaar te zijn. Dat is geen materiaal voor een blogpost van acht minuten. Dat is werk dat een goede therapeut kan begeleiden, vaak naast coaching, soms eerst.",
+      },
+      {
+        kind: "p",
+        text: "Als je merkt dat de vijf hierboven oppervlakkig blijven en het patroon niet beweegt, is dat geen falen. Het is informatie. Er zit iets onder dat een ander gesprek nodig heeft. Daar denk ik graag in een kennismaking even mee.",
+      },
+      {
+        kind: "p",
+        text: "Voor de meeste mensen die ik begeleid is het overigens minder zwaar dan dat. Eén kleine, tijdelijke stap, in een setting waar de uitkomst beheersbaar is. Daarna een paar weken zien hoe het valt. En dan weer een stap. Niet door discipline. Wel door de stap zelf telkens iets lichter te maken dan ervoor.",
+      },
+      {
+        kind: "link-row",
+        text: "Lees ook: demand avoidance bij ondernemers",
+        href: "/themas/demand-avoidance",
+      },
+    ],
+  },
 ];
 
 export function getPost(slug: string): Post | undefined {
