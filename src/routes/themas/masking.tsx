@@ -148,7 +148,7 @@ function MaskingPage() {
           <h2 className="text-2xl font-semibold text-foreground">Wat we hiermee doen in het traject</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Stoppen met maskeren is geen schakelaar. Bij een paar dingen kan het wel, bij
-            andere is dat onhandig of onveilig. In het traject Anders Ondernemen kijken we
+            andere is dat onhandig of onveilig. In het traject Gewoon Anders Ondernemen kijken we
             per situatie. Waar in je bedrijf doe je het? Waar kost het je meer dan het je
             oplevert? Waar zou een kleine, concrete andere keuze al genoeg zijn?
           </p>

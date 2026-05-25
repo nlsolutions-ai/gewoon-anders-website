@@ -73,7 +73,7 @@ function VoorwaardenPage() {
 
           <Block title="3. Hoe een traject werkt">
             <p>
-              Een volledig traject Anders Ondernemen bestaat uit acht sessies van zestig
+              Een volledig traject Gewoon Anders Ondernemen bestaat uit acht sessies van zestig
               minuten, verspreid over ongeveer vier maanden. Een verkorte variant (Anders
               Ondernemen Kort) bestaat uit vier sessies. Per sessie kies je het kanaal:
               videobellen, bellen zonder beeld, live chatten of een mailsessie.
@@ -111,12 +111,12 @@ function VoorwaardenPage() {
 
           <Block title="5. Prijzen en betaling">
             <ul className="ml-5 list-disc space-y-2">
-              <li>Anders Ondernemen, acht sessies: 1.450 euro.</li>
+              <li>Gewoon Anders Ondernemen, acht sessies: 1.450 euro.</li>
               <li>
                 Gespreid betalen: vier maandelijkse termijnen van 395 euro, totaal 1.580
                 euro.
               </li>
-              <li>Anders Ondernemen Kort, vier sessies: 795 euro.</li>
+              <li>Gewoon Anders Ondernemen Kort, vier sessies: 795 euro.</li>
               <li>Losse vervolgsessie na een traject: 175 euro per sessie.</li>
             </ul>
             <p>
@@ -252,13 +252,13 @@ function VoorwaardenPage() {
           <Block title="12. Intellectueel eigendom">
             <p>
               Werkmateriaal dat ik ter beschikking stel (werkbladen, oefeningen, freebies,
-              blogartikelen, het Anders Ondernemen Plan) is auteursrechtelijk beschermd.
+              blogartikelen, het Gewoon Anders Ondernemen Plan) is auteursrechtelijk beschermd.
               Je mag het gebruiken in je eigen bedrijfsvoering. Doorverkopen, publiceren
               of verspreiden onder eigen naam is niet toegestaan zonder schriftelijke
               toestemming.
             </p>
             <p>
-              Het uiteindelijke Anders Ondernemen Plan dat we samen vormgeven, is van
+              Het uiteindelijke Gewoon Anders Ondernemen Plan dat we samen vormgeven, is van
               jou. Je mag er vrij mee verder werken, ook na het traject.
             </p>
           </Block>

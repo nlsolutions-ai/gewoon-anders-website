@@ -90,7 +90,7 @@ export const posts: Post[] = [
       },
       {
         kind: "p",
-        text: "Bij Anders Ondernemen werken we hier in pijler twee mee. We meten één week wat klantcontact je kost en herontwerpen daarna je werkweek zodat het blijft kloppen. Dat is meestal genoeg. Geen vakantie nodig. Geen burn-outpreventie-cursus. Gewoon een week die rekent met wat jij nodig hebt.",
+        text: "Bij Gewoon Anders Ondernemen werken we hier in pijler twee mee. We meten één week wat klantcontact je kost en herontwerpen daarna je werkweek zodat het blijft kloppen. Dat is meestal genoeg. Geen vakantie nodig. Geen burn-outpreventie-cursus. Gewoon een week die rekent met wat jij nodig hebt.",
       },
       {
         kind: "link-row",
@@ -1085,7 +1085,7 @@ export const posts: Post[] = [
       { kind: "h2", text: "Hoe het in een traject past" },
       {
         kind: "p",
-        text: "In het traject Anders Ondernemen kies je per sessie het kanaal. Dat mag wisselen. Sessie één videobellen, sessie twee mail, sessie drie bellen zonder beeld. Geen vorm is een mindere keuze. Voor veel mensen die ik begeleid is een mix het meest comfortabel. Mailsessies voor de denkstappen, videocalls voor de stappen waarin het gesprek een rol speelt.",
+        text: "In het traject Gewoon Anders Ondernemen kies je per sessie het kanaal. Dat mag wisselen. Sessie één videobellen, sessie twee mail, sessie drie bellen zonder beeld. Geen vorm is een mindere keuze. Voor veel mensen die ik begeleid is een mix het meest comfortabel. Mailsessies voor de denkstappen, videocalls voor de stappen waarin het gesprek een rol speelt.",
       },
       {
         kind: "p",
@@ -1161,7 +1161,7 @@ export const posts: Post[] = [
       },
       {
         kind: "p",
-        text: "Bij Anders Ondernemen gaat het over je bedrijf. Over je brein in dat bedrijf. Niet over wat eerder is gebeurd of wat onverwerkt is. Als dat aan de orde komt, en het komt soms aan de orde, benoemen we het en ik help je iemand vinden die daarbij past.",
+        text: "Bij Gewoon Anders Ondernemen gaat het over je bedrijf. Over je brein in dat bedrijf. Niet over wat eerder is gebeurd of wat onverwerkt is. Als dat aan de orde komt, en het komt soms aan de orde, benoemen we het en ik help je iemand vinden die daarbij past.",
       },
       {
         kind: "link-row",

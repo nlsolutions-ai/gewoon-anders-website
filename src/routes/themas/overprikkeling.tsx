@@ -113,7 +113,7 @@ function OverprikkelingPage() {
             <p className="text-[17px] leading-relaxed text-foreground/80">
               In het traject{" "}
               <Link to="/traject" className="text-primary underline-offset-2 hover:underline">
-                Anders Ondernemen
+                Gewoon Anders Ondernemen
               </Link>{" "}
               kijken we per pijler waar je energie naartoe gaat. Wil je eerst zelf
               meten waar het lekt?{" "}

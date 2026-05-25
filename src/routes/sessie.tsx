@@ -9,7 +9,7 @@ export const Route = createFileRoute("/sessie")({
       {
         name: "description",
         content:
-          "Voor deelnemers van het traject Anders Ondernemen: plan je volgende sessie op het kanaal dat deze week voor jou werkt.",
+          "Voor deelnemers van het traject Gewoon Anders Ondernemen: plan je volgende sessie op het kanaal dat deze week voor jou werkt.",
       },
       { name: "robots", content: "noindex,nofollow" },
       { property: "og:title", content: "Plan je volgende sessie" },

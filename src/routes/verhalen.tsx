@@ -9,7 +9,7 @@ export const Route = createFileRoute("/verhalen")({
       {
         name: "description",
         content:
-          "Vijf onderneemsters vertellen hoe het traject Anders Ondernemen hun werk veranderde. Geen mooie woorden, wel eerlijke verhalen over wat anders werd.",
+          "Vijf onderneemsters vertellen hoe het traject Gewoon Anders Ondernemen hun werk veranderde. Geen mooie woorden, wel eerlijke verhalen over wat anders werd.",
       },
       { property: "og:title", content: "Verhalen van deelnemers" },
       { property: "og:url", content: "/verhalen" },
@@ -123,7 +123,7 @@ function VerhalenPage() {
           <Reveal delay={140}>
             <p className="mt-7 max-w-2xl text-[17px] leading-relaxed text-foreground/75 lg:text-[18px]">
               Vijf onderneemsters vertellen wat er in hun werk veranderde tijdens en na
-              Anders Ondernemen. Geen mooie verhalen, wel concrete dingen die nu anders
+              Gewoon Anders Ondernemen. Geen mooie verhalen, wel concrete dingen die nu anders
               gaan.
             </p>
           </Reveal>

@@ -94,7 +94,7 @@ const groups: FaqGroup[] = [
       },
       {
         q: "Wat als ik niet aan acht sessies toekom?",
-        a: "Er is een verkorte variant van vier sessies, voor een afgebakende vraag. Dat heet Anders Ondernemen Kort en kost 795 euro. Voor sommige mensen is dat genoeg om een blokkade los te trekken.",
+        a: "Er is een verkorte variant van vier sessies, voor een afgebakende vraag. Dat heet Gewoon Anders Ondernemen Kort en kost 795 euro. Voor sommige mensen is dat genoeg om een blokkade los te trekken.",
       },
       {
         q: "Wat als ik halverwege wil stoppen?",
@@ -111,7 +111,7 @@ const groups: FaqGroup[] = [
     items: [
       {
         q: "Wat kost het traject?",
-        a: "Het volledige traject Anders Ondernemen kost 1.450 euro voor acht sessies. Gespreid betalen kan in vier maandelijkse termijnen van 395 euro. De korte variant is 795 euro.",
+        a: "Het volledige traject Gewoon Anders Ondernemen kost 1.450 euro voor acht sessies. Gespreid betalen kan in vier maandelijkse termijnen van 395 euro. De korte variant is 795 euro.",
       },
       {
         q: "Is de coaching aftrekbaar van de belasting?",
@@ -119,7 +119,7 @@ const groups: FaqGroup[] = [
       },
       {
         q: "Wat krijg ik voor die prijs?",
-        a: "Acht sessies van zestig minuten op het kanaal dat jij per keer kiest. Een werkblad per pijler. Een begrensd mailkanaal voor korte vragen tussendoor. Aan het eind een eigen Anders Ondernemen Plan.",
+        a: "Acht sessies van zestig minuten op het kanaal dat jij per keer kiest. Een werkblad per pijler. Een begrensd mailkanaal voor korte vragen tussendoor. Aan het eind een eigen Gewoon Anders Ondernemen Plan.",
       },
       {
         q: "Wat zit er niet bij?",

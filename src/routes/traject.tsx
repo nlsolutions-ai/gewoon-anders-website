@@ -6,13 +6,13 @@ import { PageHeader } from "@/components/PageHeader";
 export const Route = createFileRoute("/traject")({
   head: () => ({
     meta: [
-      { title: "Het traject Anders Ondernemen - Gewoon Anders" },
+      { title: "Gewoon Anders Ondernemen, het 1-op-1 traject" },
       {
         name: "description",
         content:
           "Acht 1-op-1 sessies over ongeveer vier maanden. Vrije kanaalkeuze per sessie. Heldere prijzen, zonder verrassingen.",
       },
-      { property: "og:title", content: "Het traject Anders Ondernemen" },
+      { property: "og:title", content: "Het traject Gewoon Anders Ondernemen" },
       { property: "og:description", content: "Acht 1-op-1 sessies, vrije kanaalkeuze." },
       { property: "og:url", content: "/traject" },
     ],
@@ -34,9 +34,9 @@ const sessions = [
 
 const prices = [
   { t: "Gratis kennismaking", d: "Een vrijblijvend gesprek van dertig minuten op het kanaal dat jij kiest.", p: "Gratis" },
-  { t: "Anders Ondernemen, het volledige traject", d: "Acht sessies over ongeveer vier maanden, met vrije kanaalkeuze en werkmateriaal.", p: "1.450 euro" },
+  { t: "Gewoon Anders Ondernemen, het volledige traject", d: "Acht sessies over ongeveer vier maanden, met vrije kanaalkeuze en werkmateriaal.", p: "1.450 euro" },
   { t: "Gespreid betalen", d: "Hetzelfde traject, verspreid over vier maandelijkse termijnen.", p: "Vier keer 395 euro" },
-  { t: "Anders Ondernemen Kort", d: "Een verkorte variant van vier sessies, voor een afgebakende vraag.", p: "795 euro" },
+  { t: "Gewoon Anders Ondernemen Kort", d: "Een verkorte variant van vier sessies, voor een afgebakende vraag.", p: "795 euro" },
   { t: "Losse vervolgsessie", d: "Voor wie na het traject af en toe wil bijsturen.", p: "175 euro per sessie" },
 ];
 
@@ -44,7 +44,7 @@ function TrajectPage() {
   return (
     <>
       <PageHeader
-        title="Anders Ondernemen: het 1-op-1 traject."
+        title="Gewoon Anders Ondernemen: het 1-op-1 traject."
         intro="In acht sessies bouwen we samen aan een bedrijf dat werkt met jouw brein. Geen vage theorie om indruk mee te maken. Wel praktische begeleiding die past bij hoe jij denkt en werkt. Een op een, volledig online, in jouw tempo."
       />
 

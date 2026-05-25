@@ -299,7 +299,7 @@ const freebies: Record<string, Freebie> = {
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           In het traject{" "}
           <Link to="/traject" className="text-primary underline-offset-2 hover:underline">
-            Anders Ondernemen
+            Gewoon Anders Ondernemen
           </Link>{" "}
           is pijler twee hier helemaal aan gewijd. Wil je het zelf eerst proberen, dan
           kan dat met dit werkblad.

@@ -335,7 +335,7 @@ function HomePage() {
               </Reveal>
               <Reveal delay={80}>
                 <h2 className="display-lg mt-6 text-3xl text-background sm:text-4xl lg:text-[2.6rem]">
-                  Anders Ondernemen.
+                  Gewoon Anders Ondernemen.
                 </h2>
               </Reveal>
               <Reveal delay={140}>

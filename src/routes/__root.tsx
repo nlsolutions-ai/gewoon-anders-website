@@ -247,7 +247,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 "@type": "Offer",
                 itemOffered: {
                   "@type": "Service",
-                  name: "Anders Ondernemen",
+                  name: "Gewoon Anders Ondernemen",
                   description:
                     "Het volledige 1-op-1 coachingtraject. Acht sessies van zestig minuten, verspreid over circa vier maanden. Vrije kanaalkeuze per sessie.",
                   serviceType: "Business coaching",
@@ -262,7 +262,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 "@type": "Offer",
                 itemOffered: {
                   "@type": "Service",
-                  name: "Anders Ondernemen Kort",
+                  name: "Gewoon Anders Ondernemen Kort",
                   description:
                     "Verkort 1-op-1 coachingtraject van vier sessies, voor een afgebakende vraag.",
                   serviceType: "Business coaching",
