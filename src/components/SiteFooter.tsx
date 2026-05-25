@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail } from "lucide-react";
+import { Mail, Instagram } from "lucide-react";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 const explore = [
@@ -70,6 +70,17 @@ export function SiteFooter() {
                   >
                     <WhatsAppIcon size={14} />
                     <span className="link-underline">WhatsApp +31 6 39 47 90 21</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://instagram.com/gewoonanders.nu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-foreground/80 hover:text-foreground"
+                  >
+                    <Instagram size={14} strokeWidth={1.8} aria-hidden />
+                    <span className="link-underline">@gewoonanders.nu</span>
                   </a>
                 </li>
               </ul>
