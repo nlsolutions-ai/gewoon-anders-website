@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowUpRight } from "lucide-react";
 import mockupVolledig from "@/assets/mockup-volledig.png";
 import mockupKort from "@/assets/mockup-kort.png";
 import { FadeIn } from "@/components/FadeIn";
 import { ChannelCards } from "@/components/ChannelCards";
 import { PageHeader } from "@/components/PageHeader";
+
+const CHECKOUT_VOLLEDIG = "https://checkout.northernlights.solutions/checkout/gewoon-anders-ondernemen";
+const CHECKOUT_KORT = "https://checkout.northernlights.solutions/checkout/gewoon-anders-ondernemen-kort";
 
 export const Route = createFileRoute("/traject")({
   head: () => ({
@@ -34,12 +38,43 @@ const sessions = [
   { n: 8, t: "Je eigen plan", d: "Je rondt je persoonlijke plan af: hoe je verder bouwt na het traject." },
 ];
 
-const prices = [
-  { t: "Gratis kennismaking", d: "Een vrijblijvend gesprek van dertig minuten op het kanaal dat jij kiest.", p: "Gratis" },
-  { t: "Gewoon Anders Ondernemen, het volledige traject", d: "Acht sessies over ongeveer vier maanden, met vrije kanaalkeuze en werkmateriaal.", p: "1.450 euro" },
-  { t: "Gespreid betalen", d: "Hetzelfde traject, verspreid over vier maandelijkse termijnen.", p: "Vier keer 395 euro" },
-  { t: "Gewoon Anders Ondernemen Kort", d: "Een verkorte variant van vier sessies, voor een afgebakende vraag.", p: "795 euro" },
-  { t: "Losse vervolgsessie", d: "Voor wie na het traject af en toe wil bijsturen.", p: "175 euro per sessie" },
+type Price = {
+  t: string;
+  d: string;
+  p: string;
+  cta?: { label: string; href: string; internal?: boolean };
+};
+
+const prices: Price[] = [
+  {
+    t: "Gratis kennismaking",
+    d: "Een vrijblijvend gesprek van dertig minuten op het kanaal dat jij kiest.",
+    p: "Gratis",
+    cta: { label: "Plan kennismaking", href: "/contact", internal: true },
+  },
+  {
+    t: "Gewoon Anders Ondernemen, het volledige traject",
+    d: "Acht sessies over ongeveer vier maanden, met vrije kanaalkeuze en werkmateriaal.",
+    p: "1.450 euro",
+    cta: { label: "Boek nu", href: CHECKOUT_VOLLEDIG },
+  },
+  {
+    t: "Gespreid betalen",
+    d: "Hetzelfde traject, verspreid over vier maandelijkse termijnen. Kies je betaaloptie in de checkout.",
+    p: "Vier keer 395 euro",
+    cta: { label: "Boek nu", href: CHECKOUT_VOLLEDIG },
+  },
+  {
+    t: "Gewoon Anders Ondernemen Kort",
+    d: "Een verkorte variant van vier sessies, voor een afgebakende vraag.",
+    p: "795 euro",
+    cta: { label: "Boek nu", href: CHECKOUT_KORT },
+  },
+  {
+    t: "Losse vervolgsessie",
+    d: "Voor wie na het traject af en toe wil bijsturen. Beschikbaar voor oud-deelnemers.",
+    p: "175 euro per sessie",
+  },
 ];
 
 function TrajectPage() {
@@ -135,7 +170,7 @@ function TrajectPage() {
                   height={933}
                 />
               </div>
-              <div className="mt-2">
+              <div className="mt-2 flex flex-1 flex-col">
                 <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-primary">
                   Acht sessies · vier maanden
                 </p>
@@ -147,6 +182,29 @@ function TrajectPage() {
                   per pijler, en aan het eind je eigen routekaart voor de
                   komende maanden.
                 </p>
+                <div className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span className="text-2xl font-semibold tabular-nums text-foreground">
+                    €&thinsp;1.450
+                  </span>
+                  <span className="text-[14px] text-foreground/65">
+                    incl. btw · of 4 × €&thinsp;395
+                  </span>
+                </div>
+                <div className="mt-5 flex flex-wrap items-center gap-3">
+                  <a
+                    href={CHECKOUT_VOLLEDIG}
+                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-[15px] font-medium text-primary-foreground hover:bg-primary/90"
+                  >
+                    Direct boeken
+                    <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
+                  </a>
+                  <Link
+                    to="/contact"
+                    className="text-[14px] font-medium text-primary link-underline"
+                  >
+                    Eerst kennismaken
+                  </Link>
+                </div>
               </div>
             </article>
           </FadeIn>
@@ -163,7 +221,7 @@ function TrajectPage() {
                   height={933}
                 />
               </div>
-              <div className="mt-2">
+              <div className="mt-2 flex flex-1 flex-col">
                 <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-primary">
                   Vier sessies · twee maanden
                 </p>
@@ -175,6 +233,29 @@ function TrajectPage() {
                   1-op-1 sessies, een werkboek en een routekaart die je
                   meteen kunt gebruiken.
                 </p>
+                <div className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span className="text-2xl font-semibold tabular-nums text-foreground">
+                    €&thinsp;795
+                  </span>
+                  <span className="text-[14px] text-foreground/65">
+                    incl. btw · of 2 × €&thinsp;445
+                  </span>
+                </div>
+                <div className="mt-5 flex flex-wrap items-center gap-3">
+                  <a
+                    href={CHECKOUT_KORT}
+                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-[15px] font-medium text-primary-foreground hover:bg-primary/90"
+                  >
+                    Direct boeken
+                    <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
+                  </a>
+                  <Link
+                    to="/contact"
+                    className="text-[14px] font-medium text-primary link-underline"
+                  >
+                    Eerst kennismaken
+                  </Link>
+                </div>
               </div>
             </article>
           </FadeIn>
@@ -191,14 +272,34 @@ function TrajectPage() {
         <ul className="mt-10 space-y-4">
           {prices.map((pr, i) => (
             <FadeIn key={pr.t} as="li" delay={i * 50}>
-              <article className="grid gap-4 rounded-xl border border-border bg-card p-6 sm:grid-cols-[1fr_auto] sm:items-center sm:p-7">
-                <div>
+              <article className="grid gap-4 rounded-xl border border-border bg-card p-6 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-6 sm:p-7">
+                <div className="min-w-0">
                   <h3 className="text-lg font-semibold text-foreground">{pr.t}</h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-foreground/75">
                     {pr.d}
                   </p>
                 </div>
-                <p className="text-lg font-semibold text-primary sm:text-right">{pr.p}</p>
+                <div className="flex flex-wrap items-center gap-4 sm:flex-col sm:items-end sm:gap-3">
+                  <p className="text-lg font-semibold text-primary">{pr.p}</p>
+                  {pr.cta && (
+                    pr.cta.internal ? (
+                      <Link
+                        to={pr.cta.href}
+                        className="inline-flex items-center gap-2 rounded-lg border border-foreground/15 bg-background px-4 py-2 text-[14px] font-medium text-foreground hover:bg-secondary"
+                      >
+                        {pr.cta.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={pr.cta.href}
+                        className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-[14px] font-medium text-primary-foreground hover:bg-primary/90"
+                      >
+                        {pr.cta.label}
+                        <ArrowUpRight size={14} strokeWidth={1.8} aria-hidden />
+                      </a>
+                    )
+                  )}
+                </div>
               </article>
             </FadeIn>
           ))}
@@ -216,18 +317,28 @@ function TrajectPage() {
         <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <FadeIn>
             <h2 className="text-3xl font-semibold tracking-tight text-foreground">
-              Wil je weten of dit traject bij je past?
+              Klaar om te beginnen?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-foreground/80">
-              Plan vrijblijvend een kennismaking. We kijken samen rustig of het klikt.
-              Je zit nergens aan vast.
+              Boek het traject direct als je weet dat dit bij je past. Of plan eerst
+              een vrijblijvende kennismaking als je nog wil voelen of het klikt. Beide
+              kan, beide is goed.
             </p>
-            <Link
-              to="/contact"
-              className="mt-10 inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground hover:bg-primary/90"
-            >
-              Plan een kennismaking
-            </Link>
+            <div className="mt-10 flex flex-wrap justify-center gap-3">
+              <a
+                href={CHECKOUT_VOLLEDIG}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground hover:bg-primary/90"
+              >
+                Boek het volledige traject
+                <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
+              </a>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center rounded-xl border border-foreground/15 bg-background px-6 py-3.5 text-base font-medium text-foreground hover:bg-background/80"
+              >
+                Plan een kennismaking
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>
