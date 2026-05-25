@@ -130,8 +130,8 @@ function TrajectPage() {
         </ul>
         <FadeIn>
           <p className="mt-8 text-[15px] leading-relaxed text-foreground/75">
-            Voor ondernemers is zakelijke coaching meestal aftrekbaar als bedrijfskosten.
-            Vraag dit na bij je boekhouder.
+            Alle bedragen zijn inclusief btw. Voor ondernemers is zakelijke coaching
+            meestal aftrekbaar als bedrijfskosten. Vraag dit na bij je boekhouder.
           </p>
         </FadeIn>
       </section>

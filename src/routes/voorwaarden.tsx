@@ -111,19 +111,20 @@ function VoorwaardenPage() {
 
           <Block title="5. Prijzen en betaling">
             <ul className="ml-5 list-disc space-y-2">
-              <li>Gewoon Anders Ondernemen, acht sessies: 1.450 euro.</li>
+              <li>Gewoon Anders Ondernemen, acht sessies: 1.450 euro inclusief btw.</li>
               <li>
-                Gespreid betalen: vier maandelijkse termijnen van 395 euro, totaal 1.580
-                euro.
+                Gespreid betalen: vier maandelijkse termijnen van 395 euro inclusief btw,
+                totaal 1.580 euro inclusief btw.
               </li>
-              <li>Gewoon Anders Ondernemen Kort, vier sessies: 795 euro.</li>
-              <li>Losse vervolgsessie na een traject: 175 euro per sessie.</li>
+              <li>Gewoon Anders Ondernemen Kort, vier sessies: 795 euro inclusief btw.</li>
+              <li>Losse vervolgsessie na een traject: 175 euro inclusief btw per sessie.</li>
             </ul>
             <p>
-              Prijzen zijn weergegeven in euro. Voor ondernemers gevestigd in België geldt
-              het Belgische btw-regime. Voor ondernemers in andere EU-lidstaten of
-              daarbuiten worden facturen opgesteld volgens de geldende regels rond
-              intracommunautaire of internationale dienstverlening.
+              Alle bedragen op deze site en in offertes zijn inclusief btw. Voor
+              ondernemers gevestigd in België geldt het Belgische btw-regime. Voor
+              ondernemers in andere EU-lidstaten of daarbuiten worden facturen opgesteld
+              volgens de geldende regels rond intracommunautaire of internationale
+              dienstverlening; in dat geval kan de btw-behandeling op de factuur afwijken.
             </p>
             <p>
               De factuur volgt na de eerste sessie of bij gespreid betalen per termijn.

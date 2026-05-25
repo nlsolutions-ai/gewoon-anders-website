@@ -90,11 +90,11 @@ const groups: FaqGroup[] = [
       },
       {
         q: "Wat als ik na het traject nog losse sessies wil?",
-        a: "Dat kan. Losse vervolgsessies kosten 175 euro per stuk en kun je inplannen wanneer je voelt dat je wil bijsturen. Geen abonnement, geen verplichting.",
+        a: "Dat kan. Losse vervolgsessies kosten 175 euro inclusief btw per stuk en kun je inplannen wanneer je voelt dat je wil bijsturen. Geen abonnement, geen verplichting.",
       },
       {
         q: "Wat als ik niet aan acht sessies toekom?",
-        a: "Er is een verkorte variant van vier sessies, voor een afgebakende vraag. Dat heet Gewoon Anders Ondernemen Kort en kost 795 euro. Voor sommige mensen is dat genoeg om een blokkade los te trekken.",
+        a: "Er is een verkorte variant van vier sessies, voor een afgebakende vraag. Dat heet Gewoon Anders Ondernemen Kort en kost 795 euro inclusief btw. Voor sommige mensen is dat genoeg om een blokkade los te trekken.",
       },
       {
         q: "Wat als ik halverwege wil stoppen?",
@@ -111,7 +111,7 @@ const groups: FaqGroup[] = [
     items: [
       {
         q: "Wat kost het traject?",
-        a: "Het volledige traject Gewoon Anders Ondernemen kost 1.450 euro voor acht sessies. Gespreid betalen kan in vier maandelijkse termijnen van 395 euro. De korte variant is 795 euro.",
+        a: "Het volledige traject Gewoon Anders Ondernemen kost 1.450 euro inclusief btw voor acht sessies. Gespreid betalen kan in vier maandelijkse termijnen van 395 euro inclusief btw. De korte variant is 795 euro inclusief btw. Alle bedragen op de site zijn inclusief btw.",
       },
       {
         q: "Is de coaching aftrekbaar van de belasting?",
