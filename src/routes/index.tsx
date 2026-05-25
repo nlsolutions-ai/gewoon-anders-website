@@ -30,6 +30,7 @@ const recognise = [
   "Je bent goed in je vak, maar de rest van het ondernemen put je uit.",
   "Na een klantgesprek ben je leeg, terwijl het gesprek goed ging.",
   "Je hebt elke planningsmethode geprobeerd, en geen enkele houdt stand.",
+  "Je bereidt iets maandenlang voor, en toch krijg je jezelf niet aan de start.",
   "Je vraagt een te lage prijs, omdat onderhandelen te veel van je vraagt.",
   "Iedereen zegt dat je moet groeien, maar dat voelt niet als jouw doel.",
 ];

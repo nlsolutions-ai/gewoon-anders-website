@@ -63,7 +63,11 @@ function ExecFunctiesPage() {
             <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
               Er zit ook iets anders in de weg. Voor sommige breinen geldt dat hoe meer
               een taak voelt als moeten, hoe minder hij vanzelf gaat. Dat heeft een naam:
-              demand avoidance. Lees daarover meer op de pagina{" "}
+              demand avoidance. En er bestaat een variant waarin starten niet zwaar is
+              omdat het moet, maar omdat het eng is. Je hebt iets klaar, soms al
+              maandenlang, en de stap naar buiten blijft uit. Bang dat het niet wordt
+              wat je hoopt, of dat de uitkomst niet meer bij te sturen is zodra het
+              publiek is. Allebei terug te lezen op de pagina{" "}
               <Link to="/themas/demand-avoidance" className="text-primary underline-offset-2 hover:underline">
                 Demand avoidance
               </Link>

@@ -62,14 +62,50 @@ function DemandAvoidancePage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Waarom standaard advies dit erger maakt</h2>
+          <h2 className="text-2xl font-semibold text-foreground">Wanneer het niet alleen demand avoidance is</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            "Maak een planning en houd je eraan" werkt averechts. "Beloof het iemand,
-            dan moet je wel" werkt soms een keer, en daarna nooit meer. "Tweak je
-            mindset" maakt mensen vooral kwaad op zichzelf. Wat helpt is dingen niet als
-            opdracht inrichten.
+            Soms ligt er nog iets anders onder. Je hebt iets klaar. Een aanbod, een
+            website, een lancering, een eerste video. Soms al weken of maanden. Je
+            voorbereiding is uitgebreid, vaak ruim genoeg. En toch krijg je jezelf niet
+            aan de start.
+          </p>
+          <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
+            Bij demand avoidance gaat het om de eis: het moet, dus het kan niet meer. Hier
+            gaat het om iets anders. De uitkomst. Wat als het niet wordt wat je hoopte.
+            Wat als iemand er iets van vindt. Wat als blijkt dat het toch niet goed is. Zo
+            lang je voorbereidt, kun je nog bijsturen. Zodra je de knop indrukt, is het
+            uit jouw hand.
+          </p>
+          <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
+            Veel ondernemers herkennen dat. Het wordt vaak verkocht als perfectionisme.
+            Dat dekt het zelden volledig. Onder die laag zit meestal angst voor het
+            oordeel, of voor het feit dat de uitkomst niet bij te sturen is zodra hij er
+            is. Dat is geen karaktertrek om af te leren. Het is iets dat ruimte mag
+            krijgen, en waar je omheen kunt bouwen.
+          </p>
+          <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
+            Wat in trajecten vaak helpt: maak van starten een kleinere stap dan voltooien.
+            Zet iets in een bèta-versie naar buiten, in plaats van een definitieve. Laat
+            één persoon meekijken voor je publiek wordt. Spreek vooraf met jezelf af dat
+            je het over twee weken bijstuurt, ongeacht hoe het valt. Dat haalt de
+            permanentie van de stap eraf. Niet de uitkomst is verkleind, wel het gewicht
+            dat je aan de start hangt.
           </p>
         </FadeIn>
+      </section>
+
+      <section className="bg-secondary">
+        <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
+          <FadeIn>
+            <h2 className="text-2xl font-semibold text-foreground">Waarom standaard advies dit erger maakt</h2>
+            <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
+              "Maak een planning en houd je eraan" werkt averechts. "Beloof het iemand,
+              dan moet je wel" werkt soms een keer, en daarna nooit meer. "Tweak je
+              mindset" maakt mensen vooral kwaad op zichzelf. Wat helpt is dingen niet
+              als opdracht inrichten.
+            </p>
+          </FadeIn>
+        </div>
       </section>
 
       <section className="bg-highlight">
