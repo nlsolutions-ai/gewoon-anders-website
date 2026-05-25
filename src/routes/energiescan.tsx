@@ -12,6 +12,28 @@ import {
 import { OptInForm } from "@/components/OptInForm";
 
 const UNLOCK_KEY = "unlock:energiescan";
+const STATE_KEY = "state:energiescan";
+
+type SavedScan = { answers: number[]; completedAt: string };
+
+function loadSavedScan(): SavedScan | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.localStorage.getItem(STATE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as SavedScan;
+    if (
+      Array.isArray(parsed.answers) &&
+      parsed.answers.length === statements.length &&
+      parsed.answers.every((v) => typeof v === "number" && v >= 1 && v <= 4)
+    ) {
+      return parsed;
+    }
+  } catch {
+    // ignore
+  }
+  return null;
+}
 
 export const Route = createFileRoute("/energiescan")({
   head: () => ({
@@ -42,6 +64,16 @@ function EnergiescanPage() {
   const [answers, setAnswers] = useState<(number | undefined)[]>(
     () => Array(statements.length).fill(undefined),
   );
+
+  // On first mount, restore a completed scan if one exists
+  useEffect(() => {
+    const saved = loadSavedScan();
+    if (saved) {
+      setAnswers(saved.answers);
+      setStage("results");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const totalCount = statements.length;
   const current = statements[index];
@@ -74,6 +106,20 @@ function EnergiescanPage() {
     setAnswers((prev) => {
       const next = [...prev];
       next[index] = v;
+      // If this completes the scan, persist it
+      if (next.every((a) => typeof a === "number")) {
+        try {
+          window.localStorage.setItem(
+            STATE_KEY,
+            JSON.stringify({
+              answers: next as number[],
+              completedAt: new Date().toISOString(),
+            }),
+          );
+        } catch {
+          // storage disabled — in-memory only
+        }
+      }
       return next;
     });
     // small delay so the visual feedback is visible before advancing
@@ -105,6 +151,12 @@ function EnergiescanPage() {
     setAnswers(Array(statements.length).fill(undefined));
     setIndex(0);
     setStage("intro");
+    try {
+      window.localStorage.removeItem(STATE_KEY);
+      window.localStorage.removeItem(UNLOCK_KEY);
+    } catch {
+      // ignore
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
