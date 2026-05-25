@@ -9,6 +9,7 @@ import {
   statements,
   type Interpretation,
 } from "@/lib/energiescan-data";
+import { OptInForm } from "@/components/OptInForm";
 
 export const Route = createFileRoute("/energiescan")({
   head: () => ({
@@ -404,6 +405,29 @@ function Results({
           >
             Bekijk het traject
           </Link>
+        </div>
+      </div>
+
+      <div className="mt-12">
+        <div className="rounded-3xl border border-foreground/8 bg-card p-7 lg:p-8">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+            Bewaar deze uitslag
+          </p>
+          <h3 className="display-lg mt-3 text-[1.4rem] sm:text-[1.6rem]">
+            Wil je deze scan in je inbox?
+          </h3>
+          <p className="mt-3 text-[15px] leading-relaxed text-foreground/75">
+            Dan kun je er later rustig op terugkomen, of 'm doorsturen naar iemand met
+            wie je het wil bespreken.
+          </p>
+          <div className="mt-5">
+            <OptInForm
+              tag="energiescan"
+              label="Je e-mailadres"
+              ctaLabel="Stuur me mijn uitslag"
+              help="Eén bevestigingsmail, en daarna hooguit een paar mails over hoe ik werk. Uitschrijven met één klik."
+            />
+          </div>
         </div>
       </div>
 

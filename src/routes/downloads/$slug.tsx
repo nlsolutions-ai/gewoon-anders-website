@@ -2,6 +2,17 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
+import { OptInForm } from "@/components/OptInForm";
+
+type AcTag = "prijzen-spiekbriefje" | "mijn-week-mijn-brein";
+const TAG_BY_SLUG: Record<string, AcTag | undefined> = {
+  "prijzen-spiekbriefje": "prijzen-spiekbriefje",
+  "mijn-week-mijn-brein": "mijn-week-mijn-brein",
+};
+const PDF_BY_SLUG: Record<string, string | undefined> = {
+  "prijzen-spiekbriefje": "/prijzen-spiekbriefje.pdf",
+  "mijn-week-mijn-brein": "/mijn-week-mijn-brein.pdf",
+};
 
 type Freebie = {
   title: string;
@@ -320,29 +331,42 @@ export const Route = createFileRoute("/downloads/$slug")({
 });
 
 function FreebiePage() {
-  const { freebie } = Route.useLoaderData();
+  const { freebie, slug } = Route.useLoaderData();
+  const tag = TAG_BY_SLUG[slug];
+  const pdfHref = PDF_BY_SLUG[slug];
+
   return (
     <>
       <PageHeader title={freebie.title} intro={freebie.intro} />
 
-      <section className="mx-auto max-w-3xl px-6 pb-8 lg:px-10">
-        <FadeIn>
-          <div className="rounded-2xl bg-highlight p-6">
-            <p className="text-[15px] leading-relaxed text-foreground/80">
-              Je leest hieronder de volledige inhoud. Wil je het werkblad als PDF in je
-              inbox?{" "}
-              <Link to="/contact" className="text-primary underline-offset-2 hover:underline">
-                Stuur me een mail met de naam van het werkblad
-              </Link>
-              . Een opt-in formulier hier op de site volgt zodra de e-maillijst staat.
-            </p>
-          </div>
-        </FadeIn>
-      </section>
+      {tag && (
+        <section className="mx-auto max-w-3xl px-6 pb-10 lg:px-10">
+          <FadeIn>
+            <div className="rounded-3xl border border-foreground/8 bg-highlight p-7 lg:p-8">
+              <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+                Stuur dit werkblad naar mijn inbox
+              </p>
+              <h2 className="display-lg mt-3 text-[1.6rem] sm:text-[1.8rem]">
+                Vul je e-mail in, ik mail het je toe.
+              </h2>
+              <p className="mt-3 text-[15px] leading-relaxed text-foreground/75">
+                Eén bevestigingsmail met het werkblad, en daarna hooguit een paar mails
+                over hoe ik werk. Uitschrijven kan met één klik.
+              </p>
+              <div className="mt-6">
+                <OptInForm tag={tag} pdfHref={pdfHref} />
+              </div>
+            </div>
+          </FadeIn>
+        </section>
+      )}
 
       <section className="mx-auto max-w-3xl px-6 pb-20 lg:px-10">
         <FadeIn>
-          <article className="prose-content text-foreground/80">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-foreground/55">
+            Of lees het hieronder
+          </p>
+          <article className="prose-content mt-4 text-foreground/80">
             <freebie.content />
           </article>
         </FadeIn>
