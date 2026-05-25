@@ -24,6 +24,21 @@
       "source": "/downloads/masking-check",
       "destination": "/masking-check",
       "permanent": true
+    },
+    {
+      "source": "/bedankt",
+      "destination": "/welkom",
+      "permanent": false
+    },
+    {
+      "source": "/success",
+      "destination": "/welkom",
+      "permanent": false
+    },
+    {
+      "source": "/thank-you",
+      "destination": "/welkom",
+      "permanent": false
     }
   ]
 }
