@@ -423,7 +423,7 @@ export const posts: Post[] = [
       },
       {
         kind: "p",
-        text: "De oorzaak ligt zelden in te veel uren. Hij ligt vaker in te lang in een vorm zitten die niet past. Een werkweek die niet rekent met je brein. Klantcontact dat te dicht op elkaar staat. Continue masking in werk en privé. Een aantal compromis die afzonderlijk te dragen zijn en gezamenlijk niet.",
+        text: "De oorzaak ligt zelden in te veel uren. Hij ligt vaker in te lang in een vorm zitten die niet past. Een werkweek die niet rekent met je brein. Klantcontact dat te dicht op elkaar staat. Voortdurende masking in werk en privé. Een aantal compromissen die afzonderlijk te dragen zijn, en samen niet.",
       },
       { kind: "h2", text: "Wat erbij hoort" },
       {
@@ -431,7 +431,7 @@ export const posts: Post[] = [
         items: [
           "Je executive functies vallen weg. Niet eens iets ingewikkelds: je weet niet meer welke t-shirt je aan moet trekken.",
           "Je masking valt weg. Je hebt geen energie meer om de sociale vorm op te houden. Mensen om je heen merken het, en dat geeft schaamte.",
-          "Sensorisch wordt alles luider. Geluid, licht, geur, smaak, beweging. Een wasmachine geluid kan onverdraaglijk worden.",
+          "Sensorisch wordt alles luider. Geluid, licht, geur, smaak, beweging. Het geluid van een wasmachine kan onverdraaglijk worden.",
           "Je herstelt niet door rust alleen. Slapen helpt iets, maar weken vrij voelen als drie dagen.",
           "Speciale interesses worden zwaar. Wat je vroeger als anker had, voelt nu te ingewikkeld om in te stappen.",
         ],
@@ -493,7 +493,7 @@ export const posts: Post[] = [
       },
       {
         kind: "p",
-        text: "AuDHD, een combinatie van ADHD en autisme, komt vaker voor dan gedacht. Voor onderstand wordt het niet altijd herkend, omdat de twee elkaar deels maskeren. Een autistisch brein dat in de buitenwereld goed functioneert wordt vaak alleen als ADHD gezien. In coaching maakt het verschil.",
+        text: "AuDHD, een combinatie van ADHD en autisme, komt vaker voor dan gedacht. Van buitenaf wordt het niet altijd herkend, omdat de twee elkaar deels maskeren. Een autistisch brein dat in de buitenwereld goed functioneert wordt vaak alleen als ADHD gezien. In coaching maakt dat verschil.",
       },
       { kind: "h2", text: "Wat ADHD-advies meestal zegt" },
       {
@@ -507,7 +507,7 @@ export const posts: Post[] = [
       { kind: "h2", text: "Hoe je AuDHD vaak herkent" },
       {
         kind: "p",
-        text: "Ik ben geen diagnostiek, maar in coaching zie ik patronen die vaak terugkomen bij mensen die later AuDHD blijken te hebben.",
+        text: "Ik doe geen diagnostiek, maar in coaching zie ik patronen die vaak terugkomen bij mensen die later AuDHD blijken te hebben.",
       },
       {
         kind: "ul",
@@ -591,7 +591,7 @@ export const posts: Post[] = [
       { kind: "h2", text: "Wat het met je bedrijf doet" },
       {
         kind: "p",
-        text: "Je bedrijf draait door. Klanten verwachten dat je gewoon bereikbaar blijft. Mail blijft komen. Tegelijk staat alles wat je over je werk dacht in een ander licht. Beslissingen die je had genomen vragen zich opnieuw aan. Klanten waar je toe zei terwijl je nee voelde, mogen die nog? De manier waarop je je website schreef, klopt die wel met wie je bent? Het traject van je bedrijf, was dat keuze of compensatie?",
+        text: "Je bedrijf draait door. Klanten verwachten dat je gewoon bereikbaar blijft. Mail blijft binnenkomen. Tegelijk staat alles wat je over je werk dacht in een ander licht. Beslissingen die je eerder nam, dienen zich opnieuw aan. Klanten waar je ja tegen zei terwijl je nee voelde, mogen die blijven? De manier waarop je je website schreef, klopt die met wie je bent? Het traject van je bedrijf, was dat een keuze of compensatie?",
       },
       {
         kind: "p",
@@ -618,7 +618,7 @@ export const posts: Post[] = [
       { kind: "h2", text: "Hoe ik dit ken" },
       {
         kind: "p",
-        text: "Mijn vrouw kreeg de diagnose AuDHD op latere leeftijd. Ik heb van dichtbij gezien wat dat met iemand doet, ook met onze relatie. Dat heeft mijn werk gevormd. Ik ga er niet vanuit dat een diagnose op die leeftijd schoonmaak is. Ik ga uit van wat er al staat en wat van daaruit kan.",
+        text: "Mijn vrouw kreeg de diagnose AuDHD op latere leeftijd. Ik heb van dichtbij gezien wat dat met iemand doet, ook met onze relatie. Dat heeft mijn werk gevormd. Ik ga er niet vanuit dat een diagnose op die leeftijd een schone lei betekent. Ik ga uit van wat er al staat, en wat van daaruit kan.",
       },
       {
         kind: "link-row",
@@ -833,7 +833,7 @@ export const posts: Post[] = [
         text: "Wat werkt is niet meer eisen toevoegen, maar de bestaande eisen onderbreken.",
       },
       { kind: "h2", text: "Wat in coaching vaak werkt" },
-      { kind: "h3", text: "Verklein de eis tot iets bijna laats" },
+      { kind: "h3", text: "Verklein de eis tot iets bijna lachwekkends" },
       {
         kind: "p",
         text: "Niet \"ik ga vandaag drie uur aan het aanbod werken\". Wel: \"ik open het bestand\". Dat is het hele commitment. Vaak ben je dan al binnen en doe je meer. Als je niet meer doet, ook prima. Het bestand was open. Morgen verder.",
@@ -1003,12 +1003,12 @@ export const posts: Post[] = [
       },
       {
         kind: "p",
-        text: "Het tweede is een echt voordeel van groepen dat niet helemaal te vervangen is. Wat ik er in een 1-op-1 voor doe: ik breng tussen sessies door voorbeelden van anderen, geanonimiseerd, op punten waar ik denk dat ze raken. Niet dezelfde leereffect als zelf horen, wel een gedeelte ervan.",
+        text: "Het tweede is een echt voordeel van groepen dat niet helemaal te vervangen is. Wat ik er in een 1-op-1 voor doe: ik breng tussen sessies door voorbeelden van anderen langs, geanonimiseerd, op punten waar ik denk dat ze raken. Niet hetzelfde leereffect als zelf horen, wel een gedeelte ervan.",
       },
       { kind: "h2", text: "Wanneer een groep wel werkt" },
       {
         kind: "p",
-        text: "Voor sommige mensen werkt een groep prima. Vaak zijn dat mensen die de sociale energie niet als kosten ervaren en die juist wat hebben aan andermans verhalen. Voor wie sociaal contact niet werk is, kan een groep een opener en sneller pad zijn.",
+        text: "Voor sommige mensen werkt een groep prima. Vaak zijn dat mensen die de sociale energie niet als kostenpost ervaren en die juist wat hebben aan andermans verhalen. Voor wie sociaal contact geen werk is, kan een groep een opener en sneller pad zijn.",
       },
       {
         kind: "p",

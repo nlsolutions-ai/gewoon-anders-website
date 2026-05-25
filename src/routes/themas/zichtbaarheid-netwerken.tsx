@@ -24,22 +24,22 @@ function ZichtbaarheidPage() {
     <>
       <PageHeader
         title="Zichtbaarheid en netwerken."
-        intro="Zichtbaar worden is voor veel ondernemers al een ding. Voor neurodivergente ondernemers komt er een laag bij. De gangbare manieren, netwerk-borrels, LinkedIn-energie, contentmolens, kosten je vaak meer dan ze opleveren. Dat hoeft niet."
+        intro="Zichtbaar worden is voor veel ondernemers al ingewikkeld. Voor neurodivergente ondernemers komt er een laag bij. De gangbare manieren, netwerkborrels, LinkedIn-posts op gevoel, eindeloos content blijven maken, kosten je vaak meer dan ze opleveren. Dat hoeft niet."
       />
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
           <h2 className="text-2xl font-semibold text-foreground">Waarom standaard netwerken vaak niet werkt</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            Een netwerk-event is een van de overprikkelendste settings die je kunt
+            Een netwerk-event is een van de meest overprikkelende settings die je kunt
             bedenken. Veel mensen, veel geluid, veel kort contact dat snel moet zijn.
             Voor een autistisch brein zit daar weinig in waar je iets aan hebt. Voor een
-            ADHD-brein is het te kort om ergens in te zakken. Voor een AuDHD-brein is het
+            ADHD-brein duurt het te kort om ergens in te zakken. Bij AuDHD speelt het
             allebei tegelijk.
           </p>
           <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
-            En dan toch ga je, want het hoort. Daarna ben je twee dagen onbruikbaar. En
-            de opdracht die eruit komt is meestal niet de moeite waard.
+            En toch ga je, want het hoort. Daarna ben je twee dagen nergens toe in staat.
+            En de opdracht die eruit komt is meestal niet de moeite waard.
           </p>
         </FadeIn>
       </section>
@@ -49,11 +49,11 @@ function ZichtbaarheidPage() {
           <FadeIn>
             <h2 className="text-2xl font-semibold text-foreground">Online speelt iets vergelijkbaars</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-              Veel ondernemers proberen LinkedIn of socials op een manier waarop het lijkt
-              alsof anderen het doen. Korte, vlotte, enthousiaste posts. Drie keer per
-              week. Reageren op andermans posts. Dat is een specifieke manier van
-              zichtbaar zijn die voor de meeste neurodivergente breinen niet werkt. Je
-              voelt je telkens nét niet jezelf, en je merkt dat je vermijdt te plaatsen.
+              Veel ondernemers proberen LinkedIn of socials op de manier waarop anderen
+              dat lijken te doen. Korte, vlotte posts, drie keer per week, reageren op
+              andermans berichten. Voor de meeste neurodivergente breinen werkt dat niet.
+              Je voelt je telkens nét niet jezelf, en je merkt dat je het uitstelt om iets
+              te plaatsen.
             </p>
           </FadeIn>
         </div>

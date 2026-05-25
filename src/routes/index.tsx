@@ -45,11 +45,11 @@ const reassure = [
   },
   {
     h: "Je weet vooraf wat het kost.",
-    p: "Heldere prijzen, geen verrassingen, geen verkooppraatjes.",
+    p: "Heldere prijzen. Geen verrassingen achteraf, geen verkooppraatje.",
   },
   {
     h: "Het gaat om wie jij bent.",
-    p: "Geen standaardprogramma dat voor iedereen hetzelfde is. We kijken naar wat neurodiversiteit voor jou betekent, en wat succes voor jou is. Dat is voor iedereen uniek, daar draait het programma om.",
+    p: "Geen standaardprogramma. We kijken samen wat neurodiversiteit voor jou betekent, en hoe succes er voor jou uitziet. Dat is voor iedereen anders. Daar bouwen we het traject omheen.",
   },
 ];
 
@@ -166,17 +166,18 @@ function HomePage() {
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-7 text-[17px] leading-relaxed text-foreground/75 lg:text-[18px]">
-                Voor veel autistische en AuDHD-ondernemers is masking de stille post die
-                elk klantgesprek, elke pitch, elke netwerkafspraak afroomt. Je bent niet
-                ineens iemand anders. Je past je toon iets aan, je houdt iets binnen, je
-                maakt oogcontact dat je niet zou maken. Voor je het weet ben je een dag
-                onbruikbaar na een gesprek dat goed ging.
+                Voor veel autistische en AuDHD-ondernemers is masking de stille post
+                die bij elk klantgesprek, elke pitch en elke netwerkafspraak iets van je
+                aftrekt. Je wordt niet ineens iemand anders. Je past je toon een beetje
+                aan, je houdt iets binnen, je maakt oogcontact dat je eigenlijk niet
+                zou maken. En voor je het weet ben je na een gesprek dat goed ging een
+                dag lang nergens meer toe in staat.
               </p>
             </Reveal>
             <Reveal delay={220}>
               <p className="mt-5 text-[17px] leading-relaxed text-foreground/75 lg:text-[18px]">
-                Het is geen reden om iemand anders te worden. Het is wel een goede reden
-                om je werk anders in te richten. Zodat je het minder hoeft.
+                Dat is geen reden om iemand anders te worden. Wel een goede reden om je
+                werk zo in te richten dat je het minder hoeft.
               </p>
             </Reveal>
             <Reveal delay={300}>
@@ -184,7 +185,7 @@ function HomePage() {
                 <CTALink to="/themas/masking" variant="primary" size="lg">
                   Lees over masking
                 </CTALink>
-                <CTALink to="/downloads" variant="secondary" size="lg">
+                <CTALink to="/masking-check" variant="secondary" size="lg">
                   Doe de Masking-check
                 </CTALink>
               </div>
@@ -208,8 +209,8 @@ function HomePage() {
                     Bij prijsgesprekken
                   </p>
                   <p className="mt-3 text-[17px] leading-relaxed text-foreground/85">
-                    Je voelt aarzeling van de ander en haalt liever je prijs naar
-                    beneden dan dat je het ongemak voelt.
+                    Je voelt de aarzeling bij de ander, en haalt liever je prijs naar
+                    beneden dan dat je dat ongemak laat staan.
                   </p>
                 </div>
                 <div className="rounded-3xl border border-foreground/8 bg-card p-7 transition-all duration-500 hover:-translate-y-0.5 hover:shadow-ambient">

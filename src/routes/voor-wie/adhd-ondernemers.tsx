@@ -30,14 +30,23 @@ function AdhdPage() {
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
           <h2 className="text-2xl font-semibold text-foreground">Wat ik vaak zie bij ADHD-ondernemers</h2>
-          <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            Veel ideeën, veel start, weinig afronden. Goed in een nieuwe klant aantrekken,
-            stug in het eindeloos opvolgen daarna. Hyperfocus die soms vier uur geweldig
-            is, en daarna twee dagen niet meer terugkomt. Een agenda die er strak uitziet
-            tot maandag, en die op woensdagmiddag in stukken ligt. Onderschatting van wat
-            simpele administratie kost. En als laatste, vaak: dat je zelf het hardst voor
-            jezelf bent.
-          </p>
+          <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+            <li>Veel ideeën, veel start, weinig afronden.</li>
+            <li>
+              Goed in een nieuwe klant binnenhalen, stroef in het eindeloos opvolgen
+              daarna.
+            </li>
+            <li>
+              Hyperfocus die soms vier uur fantastisch is, en daarna twee dagen niet meer
+              terugkomt.
+            </li>
+            <li>
+              Een agenda die er op maandag strak uitziet en op woensdagmiddag in stukken
+              ligt.
+            </li>
+            <li>Onderschatting van wat simpele administratie je kost.</li>
+            <li>En vaak, als laatste: dat je zelf het hardst voor jezelf bent.</li>
+          </ul>
         </FadeIn>
       </section>
 

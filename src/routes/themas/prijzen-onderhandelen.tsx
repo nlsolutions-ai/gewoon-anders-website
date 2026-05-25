@@ -52,11 +52,10 @@ function PrijzenPage() {
           <FadeIn>
             <h2 className="text-2xl font-semibold text-foreground">Hoe dit je bedrijf beïnvloedt</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-              Drie dingen die ik vaak terugzie. Je tarief zakt langzaam onder wat je werk
-              waard is, zonder dat je het bewust kiest. Je trekt klanten aan die wel
-              willen onderhandelen, omdat je signaal afgeeft dat dat kan. En je gaat
-              prijsgesprekken op den duur uit de weg, waardoor je liever wat lager
-              instuurt dan een gesprek in te gaan.
+              Wat ik vaak terugzie: je tarief zakt langzaam onder wat je werk waard is,
+              zonder dat je het bewust kiest. Je trekt klanten aan die graag onderhandelen,
+              omdat je signaal afgeeft dat dat kan. En je gaat prijsgesprekken op den duur
+              uit de weg, waardoor je liever wat lager instuurt dan dat gesprek in te gaan.
             </p>
           </FadeIn>
         </div>
@@ -66,22 +65,33 @@ function PrijzenPage() {
         <FadeIn>
           <h2 className="text-2xl font-semibold text-foreground">Wat helpt</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            Het belangrijkste: maak het gesprek minder een gesprek. Hoe minder live
-            verhandelt moet worden, hoe meer je brein ruimte heeft voor het inhoudelijke.
+            Het belangrijkste: maak het gesprek minder een gesprek. Hoe minder je ter
+            plekke moet onderhandelen, hoe meer je brein ruimte heeft voor de inhoud.
           </p>
-          <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
-            Een paar dingen die werken voor de mensen die ik begeleid. Zet je prijs
-            schriftelijk vóór het gesprek begint, niet erna. Werk met een vaste, korte
-            zinconstructie voor het noemen van je prijs zodat je niet op het moment iets
-            moet bedenken. Spreek vooraf met jezelf af dat je niet ter plekke een korting
-            geeft, ongeacht het ongemak. Korting kan ook morgen. Reken niet alleen
-            uurprijzen uit, maar ook hoeveel een onderhandeling jou aan energie kost. Een
-            klant die telkens wil afdingen kost vaak meer dan hij oplevert. Bied minder
-            opties aan. Drie pakketten waarvan een duidelijk de beste keuze is, helpt jou
-            net zo goed als de klant.
-          </p>
-          <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
-            Voor concrete zinnen die in zo'n gesprek bruikbaar zijn, heb ik een kort
+          <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+            <li>
+              Zet je prijs op papier vóór het gesprek begint, niet erna.
+            </li>
+            <li>
+              Werk met een vaste, korte zin voor het noemen van je prijs, zodat je niet
+              ter plekke iets hoeft te bedenken.
+            </li>
+            <li>
+              Spreek met jezelf af dat je niet op het moment zelf korting geeft, ongeacht
+              hoe het ongemak voelt. Korting kan ook morgen.
+            </li>
+            <li>
+              Reken niet alleen uurprijzen uit, maar ook wat een onderhandeling je aan
+              energie kost. Een klant die telkens wil afdingen kost vaak meer dan hij
+              oplevert.
+            </li>
+            <li>
+              Bied minder opties aan. Drie pakketten waarvan er één duidelijk de beste
+              keuze is, helpt jou net zo goed als de klant.
+            </li>
+          </ul>
+          <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
+            Voor concrete zinnen die in zo'n gesprek bruikbaar zijn, is er een kort
             werkblad:{" "}
             <Link to="/downloads" className="text-primary underline-offset-2 hover:underline">
               het Prijzen-spiekbriefje

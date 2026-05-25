@@ -197,9 +197,8 @@ function Intro({ onStart }: { onStart: () => void }) {
       <p className="mt-7 text-[18px] leading-relaxed text-foreground/75">
         Veel autistische en AuDHD-ondernemers maskeren zonder dat ze het doorhebben. Niet
         omdat ze willen liegen, maar omdat ze geleerd hebben dat het anders niet werkt.
-        Deze check legt twaalf werksituaties voor waar masking vaak zit. Per situatie
-        bekijk je hoe vaak het je in je werk overkomt. Aan het eind zie je waar het je
-        het meest kost.
+        Deze check loopt twaalf werksituaties langs waar masking vaak zit. Per situatie
+        kijk je hoe vaak het je overkomt. Aan het eind zie je waar het je het meest kost.
       </p>
 
       <div className="mt-10 rounded-2xl border border-foreground/8 bg-card p-7">
@@ -215,7 +214,7 @@ function Intro({ onStart }: { onStart: () => void }) {
             <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-semibold text-primary">
               2
             </span>
-            Per situatie kies je hoe vaak je je hierin herkent. Geen overdenken, eerste gevoel.
+            Per situatie kies je hoe vaak je je hierin herkent. Niet te lang overdenken, je eerste gevoel werkt het best.
           </li>
           <li className="flex gap-3">
             <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-semibold text-primary">
@@ -299,7 +298,7 @@ function Question({
           {situatieText}
         </h2>
         <p className="mt-4 text-[14px] uppercase tracking-[0.14em] text-foreground/55">
-          Hoe vaak overkomt jou dit?
+          Hoe vaak overkomt jou dit in je werk?
         </p>
 
         <ul className="mt-8 space-y-3">
@@ -522,10 +521,10 @@ function Results({
               ))}
             </ul>
             <p className="mt-6 text-[15px] leading-relaxed text-foreground/70">
-              Je hoeft niet meteen alles anders te doen. Vaak helpt het al om voor één van
-              deze posten een kleinere, eerlijker vorm te zoeken. Bijvoorbeeld een ander
-              kanaal kiezen, vooraf op papier zetten wat je wil zeggen, of een afspraak iets
-              korter inplannen.
+              Je hoeft niet meteen alles anders te doen. Vaak helpt het al om voor één
+              van deze posten een kleinere, eerlijker vorm te zoeken. Bijvoorbeeld een
+              ander kanaal kiezen, vooraf op papier zetten wat je wil zeggen, of een
+              afspraak iets korter inplannen.
             </p>
           </div>
         )}
@@ -556,9 +555,9 @@ function Results({
           Wil je samen kijken wat dit voor jouw bedrijf betekent?
         </h2>
         <p className="mt-5 text-[16px] leading-relaxed text-background/80">
-          Plan vrijblijvend een kennismaking van een half uur, op het kanaal dat jij wil.
-          Geen verkoopgesprek, geen verplichting. Een rustig gesprek waarin we kijken of
-          het klikt. Daarna beslis jij of je verder wil.
+          Plan een vrijblijvende kennismaking van een half uur op het kanaal dat jij
+          kiest. Geen verkoopgesprek, geen verplichting. Een rustig gesprek waarin we
+          kijken of het klikt. Daarna beslis jij of je verder wil.
         </p>
         <div className="mt-8 flex flex-wrap gap-3 no-print">
           <Link

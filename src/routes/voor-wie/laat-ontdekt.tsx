@@ -33,13 +33,13 @@ function LaatOntdektPage() {
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Veel ondernemers die ik begeleid zijn pas in de veertig of vijftig achter hun
             brein gekomen. Soms via een kind dat een diagnose kreeg. Soms via een
-            burn-out. Soms na een gesprek met iemand die zelf neurodivergent is en jou
-            iets liet zien dat je niet kon ontkennen.
+            burn-out. Soms na een gesprek met iemand die zelf neurodivergent is en je
+            iets liet zien dat je niet meer kon wegredeneren.
           </p>
           <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
             Wat erbij hoort: opluchting, woede, schaamte, verdriet om alle jaren ervoor,
-            en een soort moeheid omdat je nu pas mag stoppen met iets uitleggen aan
-            jezelf wat je nooit zelf bedacht had. Dat alles tegelijk. Het mag.
+            en een soort moeheid omdat je nu pas mag stoppen met iets aan jezelf
+            uitleggen wat je nooit zelf bedacht had. Dat allemaal door elkaar. Het mag.
           </p>
         </FadeIn>
       </section>

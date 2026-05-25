@@ -56,7 +56,7 @@ const groups: FaqGroup[] = [
       },
       {
         q: "Voor wie is dit traject niet bedoeld?",
-        a: "Niet voor wie op dit moment in een crisis zit, of voor wie eerst zorg nodig heeft. Niet voor wie alleen een tactisch marketingvraagstuk heeft zonder dat het brein een rol speelt. En niet voor wie op zoek is naar groei-coaching die je in een hoger tempo wil duwen. Bij een gratis kennismaking kijken we samen of het past.",
+        a: "Voor wie nu in een crisis zit of eerst zorg nodig heeft, is dit niet het juiste moment. Ook niet voor wie alleen een tactisch marketingvraagstuk heeft waar het brein geen rol in speelt. En niet voor wie zoekt naar een coach die je in een hoger tempo duwt. In een kennismaking kijken we samen of het past.",
       },
     ],
   },
@@ -69,7 +69,7 @@ const groups: FaqGroup[] = [
       },
       {
         q: "Hoe werkt een mailsessie precies?",
-        a: "Jij schrijft een uitgewerkte mail over je situatie en je vraag. Ik lees die rustig en stuur binnen drie werkdagen een uitgewerkte reactie terug, met inzichten en concrete stappen. Samen telt dat als een sessie. Het is geen heen-en-weer van korte berichtjes.",
+        a: "Jij schrijft een uitgewerkte mail over je situatie en je vraag. Ik lees 'm rustig en stuur binnen drie werkdagen een uitgewerkte reactie terug, met inzichten en concrete stappen. Samen telt dat als één sessie. Het is dus geen reeks korte berichtjes heen en weer.",
       },
       {
         q: "Kan ik elke sessie wisselen van kanaal?",
@@ -102,7 +102,7 @@ const groups: FaqGroup[] = [
       },
       {
         q: "Krijg ik huiswerk?",
-        a: "Soms. Per pijler is er een kort, rustig werkblad. Geen lange opdrachten. Als een werkblad op dat moment niet past, slaan we het over. Doelen halen is geen doel op zich.",
+        a: "Soms. Per pijler is er een kort, rustig werkblad. Geen lange opdrachten. Past een werkblad op dat moment niet, dan slaan we het over. Doelen halen is geen doel op zich.",
       },
     ],
   },
@@ -115,7 +115,7 @@ const groups: FaqGroup[] = [
       },
       {
         q: "Is de coaching aftrekbaar van de belasting?",
-        a: "Voor ondernemers is zakelijke coaching meestal aftrekbaar als bedrijfskosten. Vraag dit na bij je boekhouder voor jouw specifieke situatie. Geen belastingadvies van mij.",
+        a: "Voor ondernemers is zakelijke coaching meestal aftrekbaar als bedrijfskosten. Vraag het even na bij je boekhouder voor jouw situatie. Ik geef geen belastingadvies.",
       },
       {
         q: "Wat krijg ik voor die prijs?",

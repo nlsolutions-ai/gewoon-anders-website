@@ -31,18 +31,24 @@ function AutismePage() {
         <FadeIn>
           <h2 className="text-2xl font-semibold text-foreground">Wat ik vaak zie bij autistische ondernemers</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            Je bent ijzersterk in je vak. Je werkt scherp, grondig, eerlijk. Klanten
-            waarderen dat. En toch is het ondernemen eromheen vermoeiend op een manier die
-            je niet altijd uit kunt leggen. Klantgesprekken die goed gaan en je daarna
-            twee dagen kosten. Netwerken dat aanvoelt als acteren. Een aanbod
-            herschrijven omdat het nog niet helemaal klopt, en dan nog niet versturen.
-            Prijsgesprekken die je liever niet voert. Onverwachte vragen die je dag
-            uitschakelen.
+            Je bent ijzersterk in je vak. Je werkt scherp, grondig en eerlijk. Klanten
+            waarderen dat. En toch is het ondernemen eromheen vermoeiend op een manier
+            die je niet altijd kunt uitleggen. Een paar dingen die vaak terugkomen:
           </p>
-          <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
-            Niets van dit is een tekort. Het is wat er gebeurt als een brein dat heel
-            precies waarneemt en houdt van voorspelbaarheid een bedrijf moet runnen in
-            een omgeving die graag het tegenovergestelde wil.
+          <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+            <li>Klantgesprekken die goed gaan en je daarna twee dagen kosten.</li>
+            <li>Netwerken dat aanvoelt als acteren.</li>
+            <li>
+              Een aanbod dat je nog een keer wil herschrijven omdat het niet helemaal
+              klopt, en dat daardoor de deur niet uit gaat.
+            </li>
+            <li>Prijsgesprekken die je liever niet voert.</li>
+            <li>Onverwachte vragen die je dag platleggen.</li>
+          </ul>
+          <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
+            Niets hiervan is een tekort. Het is wat er gebeurt als een brein dat heel
+            precies waarneemt en houdt van voorspelbaarheid een bedrijf runt in een
+            omgeving die graag het tegenovergestelde wil.
           </p>
         </FadeIn>
       </section>

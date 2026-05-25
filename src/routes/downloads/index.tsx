@@ -92,7 +92,7 @@ function DownloadsPage() {
       <PageHeader
         eyebrow="Gratis werkbladen"
         title="Klein en concreet. Voor deze week."
-        intro="Vier korte werkbladen voor ondernemers met een ADHD-, autisme- of AuDHD-brein. Geen invuldreun, geen lange theorie. Stukken die je deze week kunt gebruiken. Gratis, in ruil voor je e-mailadres."
+        intro="Vier korte werkbladen voor ondernemers met een ADHD-, autisme- of AuDHD-brein. Geen invuldreun, geen lange theorie. Iets waarmee je deze week aan de slag kunt. Gratis, in ruil voor je e-mailadres."
       />
 
       <section className="mx-auto max-w-[1240px] px-6 pb-16 lg:px-10">
@@ -126,10 +126,11 @@ function DownloadsPage() {
                 Plan vrijblijvend een kennismaking.
               </h2>
               <p className="mt-4 text-[16px] leading-relaxed text-background/80">
-                Een werkblad is fijn voor zelf nadenken. Soms helpt het meer om iemand mee
-                te laten kijken. Een kennismaking duurt een half uur, op het kanaal dat jij
-                wil. Geen verkoopgesprek, geen verplichting. Je vertelt waar je tegenaan
-                loopt, ik vertel hoe ik werk, en je beslist daarna zelf wat je doet.
+                Een werkblad is fijn om zelf na te denken. Soms helpt het meer om iemand
+                mee te laten kijken. Een kennismaking duurt een half uur, op het kanaal
+                dat jij kiest. Geen verkoopgesprek, geen verplichting. Je vertelt waar
+                je tegenaan loopt, ik vertel hoe ik werk, en jij beslist daarna zelf wat
+                je wil.
               </p>
               <div className="mt-auto pt-7">
                 <Link

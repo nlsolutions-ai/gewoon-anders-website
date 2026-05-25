@@ -82,11 +82,11 @@ const freebies: Record<string, Freebie> = {
         <h2 className="mt-12 text-2xl font-semibold text-foreground">Hoe je je antwoorden leest</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Veel "klopt zelden" in pijler twee wijst meestal op een werkweek die nog niet
-          rekent met wat klantcontact je kost. Een paar "klopt vaak" in pijler drie en de
-          rest "klopt zelden" wijst op een planning die misschien goed leek toen je hem
-          maakte, maar die jouw brein niet draagt. Pijler vier "klopt zelden" zie ik het
-          vaakst terug. Daar zit vaak de combinatie van prijs te laag en klantcontact te
-          breed.
+          rekent met wat klantcontact je kost. Een paar "klopt vaak" in pijler drie en
+          de rest "klopt zelden" wijst op een planning die misschien goed leek toen je
+          hem maakte, maar die jouw brein niet draagt. Pijler vier "klopt zelden" zie ik
+          het vaakst terug. Daar zit vaak een combinatie van een te lage prijs en
+          klantcontact dat te breed is geworden.
         </p>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Wat je doet met je uitslag is aan jou. Voor sommigen is dit genoeg om zelf wat
@@ -111,9 +111,10 @@ const freebies: Record<string, Freebie> = {
       <>
         <h2 className="text-2xl font-semibold text-foreground">Waarom dit een spiekbriefje is</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
-          In een live gesprek met druk wil je brein vooral wegkomen. Zelf bedenken wat je
-          gaat zeggen kost dan meer dan je kunt missen. Een paar zinnen die er al staan,
-          waarvan je weet dat ze goed in jouw mond liggen, halen het zware werk eruit.
+          In een live gesprek onder druk wil je brein vooral wegkomen. Zelf bedenken wat
+          je gaat zeggen kost dan meer dan je kunt missen. Een paar zinnen die er al
+          staan, waarvan je weet dat ze goed in jouw mond liggen, halen het zware werk
+          eruit.
         </p>
 
         <h2 className="mt-10 text-2xl font-semibold text-foreground">Zin 1. Je prijs noemen</h2>
@@ -128,13 +129,13 @@ const freebies: Record<string, Freebie> = {
 
         <h2 className="mt-10 text-2xl font-semibold text-foreground">Zin 2. Je prijs verdedigen</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
-          "Dat tarief past bij hoe ik werk en wat dit type opdracht me kost. Daar onder
-          gaan zou betekenen dat ik er minder aandacht aan kan geven, en daar ben jij niet
+          "Dat tarief past bij hoe ik werk en wat dit type opdracht me kost. Eronder gaan
+          zou betekenen dat ik er minder aandacht aan kan geven, en daar ben jij niet
           mee geholpen."
         </p>
         <p className="mt-3 text-[15px] leading-relaxed text-foreground/70">
-          De zin maakt expliciet dat een lager tarief geen win is voor de klant, in plaats
-          van een verlies voor jou. Beweegt het gesprek weg van prijs naar inhoud.
+          De zin maakt expliciet dat een lager tarief geen winst is voor de klant, in
+          plaats van een verlies voor jou. Beweegt het gesprek weg van prijs naar inhoud.
         </p>
 
         <h2 className="mt-10 text-2xl font-semibold text-foreground">Zin 3. Geen korting geven, zonder gedoe</h2>
@@ -171,8 +172,8 @@ const freebies: Record<string, Freebie> = {
         <h2 className="mt-12 text-2xl font-semibold text-foreground">Tot slot</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Pas de zinnen aan tot ze klinken zoals jij praat. Oefen ze hardop. Dat klinkt
-          gek. Maar het maakt het verschil tussen "ik weet wat ik wil zeggen" en "ik krijg
-          het er ook uit als het moment er is".
+          gek, maar het maakt het verschil tussen "ik weet wat ik wil zeggen" en "ik
+          krijg het er ook uit als het moment er is".
         </p>
       </>
     ),
@@ -227,9 +228,9 @@ const freebies: Record<string, Freebie> = {
         <h2 className="mt-12 text-2xl font-semibold text-foreground">Wat je hierna kunt zien</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Als drie of meer van de twaalf situaties "vaak" en "leeg" of "moe" opleveren,
-          weet je waar de grootste energie wegloopt in je werk. Dat is geen oordeel. Het
-          is een kaart. Wat je ermee doet, is aan jou. Vaak is de eerste stap een kleinere
-          vorm vinden voor twee of drie situaties. Niet stoppen met maskeren. Wel iets
+          weet je waar de meeste energie wegloopt in je werk. Dat is geen oordeel, maar
+          een kaart. Wat je ermee doet is aan jou. Vaak is de eerste stap een kleinere
+          vorm vinden voor twee of drie situaties. Niet stoppen met maskeren, wel iets
           minder doen waar het te veel kost.
         </p>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
@@ -291,7 +292,7 @@ const freebies: Record<string, Freebie> = {
         <h2 className="mt-12 text-2xl font-semibold text-foreground">Tips</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Print het werkblad en hang het op een plek waar je het ziet. Een telefoon-app
-          kun je wegklikken, een vel niet. Vul het niet retro in, maar in het moment, ook
+          klik je weg, een vel niet. Vul het niet achteraf in, maar in het moment, ook
           al duurt het maar twee minuten. En houd je niet aan een idee van een goede
           week. Schrijf wat er is.
         </p>
@@ -300,8 +301,8 @@ const freebies: Record<string, Freebie> = {
           <Link to="/traject" className="text-primary underline-offset-2 hover:underline">
             Anders Ondernemen
           </Link>{" "}
-          is pijler twee hier helemaal aan gewijd. Wil je het zelf eerst proberen, dat
-          kan met dit werkblad.
+          is pijler twee hier helemaal aan gewijd. Wil je het zelf eerst proberen, dan
+          kan dat met dit werkblad.
         </p>
       </>
     ),

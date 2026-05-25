@@ -32,9 +32,9 @@ function DemandAvoidancePage() {
           <h2 className="text-2xl font-semibold text-foreground">Wat het is</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Demand avoidance is een sterke, vaak onbewuste weerstand tegen dingen die als
-            eis aanvoelen. Het is geen luiheid. Het is geen onwil. Het is een brein dat op
+            eis aanvoelen. Het is geen luiheid en geen onwil. Het is een brein dat op
             opdrachten reageert met een soort innerlijk slot. Hoe sterker de eis, hoe
-            steviger het slot. Ook eigen eisen tellen mee.
+            steviger het slot. Ook eisen die je jezelf oplegt tellen mee.
           </p>
           <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
             Veel mensen die dit ervaren weten dat heel goed van zichzelf. Anderen kennen
@@ -77,17 +77,29 @@ function DemandAvoidancePage() {
           <FadeIn>
             <h2 className="text-2xl font-semibold text-foreground">Wat in trajecten vaak werkt</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-              Een paar lijnen die ik vaak met mensen uitprobeer. Verklein de eis. Niet "ik
-              ga drie uur aan dat aanbod werken", wel "ik open het bestand". Maak meerdere
-              ingangen mogelijk. Vandaag schrijven, morgen stuk lezen, overmorgen lay-out.
-              Bouw vrijheid in. Een takenlijst van vier dingen waarvan je er twee mag
-              kiezen werkt vaak beter dan vier die alle vier moeten. Gebruik externe
-              structuur waar dat past en eigen rommel waar dat past. Niet alles hoeft
-              gestroomlijnd.
+              Geen recept. Wel een paar dingen die ik vaak met mensen uitprobeer.
             </p>
-            <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
+            <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+              <li>
+                Verklein de eis. Niet "ik ga drie uur aan dat aanbod werken", wel "ik open
+                het bestand".
+              </li>
+              <li>
+                Maak meerdere ingangen mogelijk. Vandaag schrijven, morgen een stuk lezen,
+                overmorgen aan de lay-out.
+              </li>
+              <li>
+                Bouw vrijheid in. Een takenlijst van vier dingen waarvan je er twee mag
+                kiezen werkt vaak beter dan vier die alle vier moeten.
+              </li>
+              <li>
+                Gebruik externe structuur waar dat past en eigen rommel waar dat past.
+                Niet alles hoeft gestroomlijnd.
+              </li>
+            </ul>
+            <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               En misschien wel het belangrijkste: stop met jezelf uitleggen dat het luiheid
-              is. Het is geen luiheid.
+              is. Dat is het niet.
             </p>
           </FadeIn>
         </div>

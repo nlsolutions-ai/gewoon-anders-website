@@ -31,16 +31,16 @@ function EnergieBurnoutPage() {
         <FadeIn>
           <h2 className="text-2xl font-semibold text-foreground">Waarom het anders zit</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            Bij neurotypische ondernemers gaat burn-out vaak over te lang te veel doen. De
-            werkdruk is te hoog, de structuur valt weg, de rust komt niet. Bij
-            neurodivergente ondernemers ligt het meestal niet aan een tekort aan rust. Het
-            ligt aan het feit dat veel dingen die voor anderen vanzelf gaan, voor jou een
-            taak zijn. Een rommelige inbox is voor iemand anders ongemak, voor jou een
-            ochtend werk om je niet te laten meeslepen. Een onverwacht telefoontje is voor
-            iemand anders een onderbreking, voor jou een halve dag.
+            Bij neurotypische ondernemers gaat burn-out vaak over te lang te veel doen:
+            te hoge werkdruk, te weinig rust. Bij neurodivergente ondernemers ligt het
+            zelden aan een tekort aan rust. Het ligt eraan dat veel dingen die voor
+            anderen vanzelf gaan, voor jou een taak zijn. Een rommelige inbox is voor
+            iemand anders ongemak, voor jou een halve ochtend werk om je er niet door
+            te laten meeslepen. Een onverwacht telefoontje is voor iemand anders een
+            onderbreking, voor jou een halve dag.
           </p>
           <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
-            Het verraderlijke is dat de buitenkant er ontspannen uit kan zien terwijl je
+            Wat het lastig maakt: de buitenkant kan er ontspannen uitzien, terwijl je
             van binnen rent. Je ziet er fit uit. Je werkt geen zeventig uur. Je hebt
             misschien een gezin, hobby's, sport. En toch wordt het minder.
           </p>
@@ -60,8 +60,8 @@ function EnergieBurnoutPage() {
               <li>Geluiden, licht, drukte: alles voelt scherper dan een jaar terug.</li>
             </ul>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-              Dit zijn geen rare signalen. Het zijn signalen dat het systeem dat je gebouwd
-              hebt om te werken niet meer past bij waar jouw brein nu staat.
+              Dit zijn geen rare signalen. Het zijn aanwijzingen dat het systeem dat je
+              gebouwd hebt om te werken niet meer past bij waar jouw brein nu staat.
             </p>
           </FadeIn>
         </div>
@@ -71,11 +71,11 @@ function EnergieBurnoutPage() {
         <FadeIn>
           <h2 className="text-2xl font-semibold text-foreground">Waar het meestal lekt</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            Vier plekken waar ik in trajecten energielekken vaak terugzie. Klantcontact,
-            omdat je er meer in stopt dan zichtbaar is. Administratie, omdat je executive
-            functies eraan trekken. Onduidelijke verwachtingen, omdat je brein dan een
-            scenario per mogelijkheid voorbereidt in plaats van afwacht. En masking, een
-            beetje overal.
+            Op vier plekken zie ik energielekken vaak terugkomen. Klantcontact, omdat je
+            er meer in stopt dan aan de buitenkant te zien is. Administratie, omdat je
+            executive functies eraan trekken. Onduidelijke verwachtingen, omdat je
+            brein dan voor elke mogelijke uitkomst een scenario voorbereidt. En
+            masking, een beetje overal.
           </p>
           <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
             Lees ook:{" "}
@@ -96,10 +96,10 @@ function EnergieBurnoutPage() {
           <FadeIn>
             <h2 className="text-2xl font-semibold text-foreground">Wat we doen in het traject</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-              In pijler twee houd je een week je werkenergie bij. Niet voor cijfers, voor
-              herkenning. Je ziet zelf welke taken iets opleveren en welke alles eraf
-              halen. Daarna kijken we wat je kunt anders inrichten in je week, in je
-              klantcontact, en in je aanbod, zodat het optellen klopt.
+              In pijler twee houd je een week je werkenergie bij. Niet voor cijfers,
+              voor herkenning. Je ziet zelf welke taken iets opleveren, en welke alles
+              eraf halen. Daarna kijken we wat je anders kunt inrichten in je week, je
+              klantcontact en je aanbod, zodat het aan het eind klopt.
             </p>
             <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
               Het is geen herstelplan. Bij echte uitval verwijs ik je naar zorg. Coaching

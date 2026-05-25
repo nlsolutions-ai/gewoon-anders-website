@@ -31,12 +31,12 @@ function AudhdPage() {
         <FadeIn>
           <h2 className="text-2xl font-semibold text-foreground">Wat AuDHD-ondernemers vaak herkennen</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            Je hebt veel ideeën, en tegelijk een sterke voorkeur voor systemen en
-            voorspelbaarheid. Je raakt enthousiast en uitgeput in hetzelfde uur. Een
-            klantgesprek loopt op natuurlijke energie en kost je toch een dag. Je houdt
-            van diepe focus en je verveelt je in herhaling. Je masking is vaak fijnzinnig
-            en goed, en dus ook duur. Mensen om je heen begrijpen niet hoe je tegelijk zo
-            druk kunt zijn en zo opraakt.
+            Je hebt veel ideeën én een sterke voorkeur voor systemen en voorspelbaarheid.
+            Je raakt enthousiast en uitgeput in hetzelfde uur. Een klantgesprek loopt op
+            natuurlijke energie en kost je toch een hele dag. Je houdt van diepe focus en
+            je verveelt je in herhaling. Je masking is meestal fijnzinnig en goed, en dus
+            ook duur. Mensen om je heen snappen niet hoe je tegelijk zo druk kunt zijn en
+            zo snel opraakt.
           </p>
         </FadeIn>
       </section>
@@ -46,13 +46,13 @@ function AudhdPage() {
           <FadeIn>
             <h2 className="text-2xl font-semibold text-foreground">Waarom de meeste coaching niet past</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-              Een ADHD-coach probeert je vaak los te maken en in beweging te krijgen.
-              Tijdelijk fijn, daarna leeg. Een autisme-coach helpt je structuur bouwen.
-              Tijdelijk fijn, en dan voelt het te krap. Wat AuDHD-ondernemers nodig
-              hebben is meestal allebei. Een werkweek met structuur waar dat past en met
-              vrijheid waar dat past. Een aanbod dat in een vaste vorm kan, maar waarin je
-              de afwijking ook kunt verwerken. Klantcontact op een manier waarop
-              voorspelbaarheid en variatie samen kunnen bestaan.
+              Een ADHD-coach probeert je los te maken en in beweging te krijgen. Even
+              fijn, daarna leeg. Een autisme-coach helpt je structuur bouwen. Even fijn,
+              en dan voelt het te krap. AuDHD-ondernemers hebben meestal allebei nodig.
+              Een werkweek met structuur waar dat past en met vrijheid waar dat past. Een
+              aanbod in een vaste vorm, maar waarin afwijking ook ruimte krijgt.
+              Klantcontact op een manier waarop voorspelbaarheid en variatie naast elkaar
+              kunnen bestaan.
             </p>
           </FadeIn>
         </div>

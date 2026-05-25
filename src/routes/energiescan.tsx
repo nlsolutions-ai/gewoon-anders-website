@@ -203,7 +203,7 @@ function Intro({ onStart }: { onStart: () => void }) {
       </h1>
       <p className="mt-7 text-[18px] leading-relaxed text-foreground/75">
         Veel ondernemers met een ADHD-, autisme- of AuDHD-brein werken keihard en snappen
-        niet waarom ze toch leeg raken. Deze scan helpt je zien waar je energie weglekt.
+        niet waarom ze toch leeg raken. Deze scan laat zien waar jouw energie weglekt.
         Niet om iets te repareren, maar om jezelf beter te begrijpen.
       </p>
 
@@ -220,7 +220,7 @@ function Intro({ onStart }: { onStart: () => void }) {
             <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-semibold text-primary">
               2
             </span>
-            Per stelling kies je hoe veel het voor jou klopt. Eerste gevoel werkt het best.
+            Per stelling kies je in hoeverre het voor jou klopt. Je eerste gevoel werkt het best.
           </li>
           <li className="flex gap-3">
             <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[11px] font-semibold text-primary">
@@ -307,7 +307,7 @@ function Question({
           {statement}
         </h2>
         <p className="mt-4 text-[14px] uppercase tracking-[0.14em] text-foreground/55">
-          Hoeverre klopt dit voor jou?
+          In hoeverre klopt dit voor jou?
         </p>
 
         <ul className="mt-8 space-y-3">
@@ -530,9 +530,9 @@ function Results({
           De vijf gebieden zijn niet toevallig gekozen.
         </h2>
         <p className="mt-4 text-[15px] leading-relaxed text-background/80">
-          Ze vormen samen Het Anders Fundament: de methodiek waarmee ik ondernemers
-          help hun bedrijf opnieuw af te stemmen op hun brein. Wil je samen rustig naar
-          jouw uitslag kijken? Plan vrijblijvend een kennismaking. Geen verkoopgesprek,
+          Ze vormen samen Het Anders Fundament, de manier waarop ik ondernemers help
+          hun bedrijf weer af te stemmen op hun brein. Wil je samen rustig naar jouw
+          uitslag kijken? Plan een vrijblijvende kennismaking. Geen verkoopgesprek,
           geen verplichting.
         </p>
         <div className="mt-7 flex flex-wrap gap-3 no-print">

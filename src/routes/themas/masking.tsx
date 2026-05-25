@@ -55,14 +55,14 @@ function MaskingPage() {
           <FadeIn>
             <h2 className="text-2xl font-semibold text-foreground">Hoe het zich uit in je bedrijf</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-              In je werk merk je het vaak pas achteraf. Tijdens een klantgesprek loopt het
-              soepel, je bent vriendelijk, je geeft antwoord, je krijgt de opdracht. Maar als
-              je het gesprek hangt is je hoofd leeg en je lichaam zwaar. Je had het gevoel
-              dat je gewoon jezelf was. En toch heeft het je meer gekost dan een
+              In je werk merk je het vaak pas achteraf. Tijdens een klantgesprek loopt
+              het soepel, je bent vriendelijk, je geeft antwoord, je krijgt de opdracht.
+              Maar zodra je ophangt is je hoofd leeg en je lichaam zwaar. Je had het
+              gevoel dat je gewoon jezelf was. En toch heeft het je meer gekost dan een
               ochtend hard werken.
             </p>
             <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
-              Een paar plekken waar masking bij ondernemers veel voorkomt:
+              Een paar plekken waar je het bij ondernemers vaak ziet terugkomen:
             </p>
             <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
               <li>
@@ -99,9 +99,9 @@ function MaskingPage() {
         <FadeIn>
           <h2 className="text-2xl font-semibold text-foreground">Wat het je kost</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            Mensen om je heen zien meestal niets. Dat is precies het probleem. Een goede
-            masker ziet er rustig uit. Je krijgt vaak te horen dat je het zo goed doet. En
-            ondertussen klopt iets niet, alleen kun je niet altijd uitleggen wat.
+            Mensen om je heen zien meestal niets. Dat is precies het probleem. Wie goed
+            maskeert oogt rustig. Je krijgt vaak te horen dat je het zo goed doet. En
+            ondertussen klopt er iets niet, alleen kun je niet altijd uitleggen wat.
           </p>
           <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
             De prijs zit op vier plekken die ik in mijn coaching steeds weer terugzie. Je
@@ -184,7 +184,7 @@ function MaskingPage() {
                 Plan een kennismaking
               </Link>
               <Link
-                to="/downloads"
+                to="/masking-check"
                 className="inline-flex items-center justify-center rounded-xl border border-foreground/15 bg-background px-6 py-3.5 text-base font-medium text-foreground hover:bg-secondary"
               >
                 Doe eerst de Masking-check

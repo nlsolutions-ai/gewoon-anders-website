@@ -54,10 +54,10 @@ function OverprikkelingPage() {
             </p>
             <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
               <li>Na een gesprek wil je niemand zien of horen. Geen telefoon, geen mail.</li>
-              <li>Je kunt geen taak meer aan die nadenken vraagt. Auto's op afstand, koffie, scrollen.</li>
-              <li>Je raakt geïrriteerd om kleine dingen. Geluid van de afwasmachine.</li>
+              <li>Je kunt geen taak meer aan die nadenken vraagt. Wel scrollen, koffie zetten, iets met je handen aanrommelen.</li>
+              <li>Je raakt geïrriteerd om kleine dingen. Het geluid van de afwasmachine, een vraag van iemand.</li>
               <li>Lichamelijk: hoofdpijn, druk op je borst, een onrustig gevoel onder je huid.</li>
-              <li>Het zit niet in een uur weg. Soms duurt het tot de volgende ochtend, of langer.</li>
+              <li>Het zakt niet binnen een uur. Soms duurt het tot de volgende ochtend, of langer.</li>
             </ul>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Veel mensen geloven niet dat het door dat ene gesprek komt, want dat gesprek
@@ -91,8 +91,8 @@ function OverprikkelingPage() {
           <FadeIn>
             <h2 className="text-2xl font-semibold text-foreground">Wat helpt</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-              Niets van dit is een trucje. Het zijn dingen die ondernemers die ik begeleid
-              hebben uitgeprobeerd en blijken te werken voor hun brein.
+              Dit zijn geen trucjes. Het zijn dingen die ondernemers die ik begeleid
+              hebben uitgeprobeerd, en die blijken te werken voor hun brein.
             </p>
             <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
               Een paar voorbeelden die vaak terugkomen. Plan niet twee zware gesprekken op
@@ -117,7 +117,7 @@ function OverprikkelingPage() {
               </Link>{" "}
               kijken we per pijler waar je energie naartoe gaat. Wil je eerst zelf
               meten waar het lekt?{" "}
-              <Link to="/downloads" className="text-primary underline-offset-2 hover:underline">
+              <Link to="/energiescan" className="text-primary underline-offset-2 hover:underline">
                 Doe de Ondernemers-energiescan
               </Link>
               .

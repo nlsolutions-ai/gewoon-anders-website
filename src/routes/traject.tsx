@@ -45,7 +45,7 @@ function TrajectPage() {
     <>
       <PageHeader
         title="Anders Ondernemen: het 1-op-1 traject."
-        intro="In acht sessies bouw je samen met mij een bedrijf dat werkt met jouw brein. Geen theorie voor de buhne, maar praktische begeleiding die past bij hoe jij denkt en werkt. Een op een, volledig online, in jouw tempo."
+        intro="In acht sessies bouwen we samen aan een bedrijf dat werkt met jouw brein. Geen vage theorie om indruk mee te maken. Wel praktische begeleiding die past bij hoe jij denkt en werkt. Een op een, volledig online, in jouw tempo."
       />
 
       {/* Sessies */}
@@ -55,9 +55,8 @@ function TrajectPage() {
             Hoe het traject is opgebouwd.
           </h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            Het traject bestaat uit acht sessies, verdeeld over ongeveer vier maanden.
-            Hieronder zie je precies wat er in elke sessie gebeurt, zodat je weet wat je
-            kunt verwachten.
+            Acht sessies, verdeeld over zo'n vier maanden. Wat er per sessie gebeurt
+            staat hieronder. Zo weet je waar je instapt.
           </p>
         </FadeIn>
         <ol className="mt-12 space-y-4">
@@ -97,10 +96,10 @@ function TrajectPage() {
               </h3>
               <p className="mt-4 text-[16px] leading-relaxed text-foreground/80">
                 Bij een mailsessie schrijf jij een uitgewerkte mail over je situatie en
-                je vraag. Ik lees die rustig en stuur binnen drie werkdagen een
-                uitgewerkte reactie terug, met inzichten en concrete stappen. Samen is
-                dat een volwaardige sessie. Het is geen eindeloze uitwisseling van korte
-                berichtjes, maar een doordachte heen-en-weer.
+                je vraag. Ik lees 'm rustig en stuur binnen drie werkdagen een
+                doordachte reactie terug, met inzichten en concrete stappen. Samen is
+                dat een volwaardige sessie. Geen losse berichtjes heen en weer, maar
+                één goede uitwisseling.
               </p>
             </div>
           </FadeIn>
@@ -145,14 +144,14 @@ function TrajectPage() {
               Wil je weten of dit traject bij je past?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-foreground/80">
-              Plan een gratis kennismaking. We kijken samen rustig of het klikt, en je
-              zit nergens aan vast.
+              Plan vrijblijvend een kennismaking. We kijken samen rustig of het klikt.
+              Je zit nergens aan vast.
             </p>
             <Link
               to="/contact"
               className="mt-10 inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground hover:bg-primary/90"
             >
-              Plan een gratis kennismaking
+              Plan een kennismaking
             </Link>
           </FadeIn>
         </div>

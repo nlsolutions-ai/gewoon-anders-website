@@ -77,20 +77,31 @@ function ExecFunctiesPage() {
         <FadeIn>
           <h2 className="text-2xl font-semibold text-foreground">Wat wel werkt</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
-            Geen recept. Een paar principes die in de trajecten die ik begeleid steeds
-            terugkomen.
+            Geen recept. Wel een paar principes die in trajecten steeds terugkomen.
           </p>
-          <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
-            Bouw je week om je energie, niet om de klok. Reken niet op vijf gelijke
-            werkdagen. Reken op een paar pieken en dalen, en plan je harde taken op de
-            pieken die je herkent. Maak starten makkelijker dan doorgaan. Niet een uur
-            werken, vijftien minuten. Hak niet alles in stukjes, maar wel het ding dat je
-            uitstelt. Zet niet meer dan drie dingen op een dag, en zet er één centraal.
-            Werk met een visueel anker als je werkgeheugen onbetrouwbaar is, een
-            whiteboard of vellen op je bureau, geen acht open tabs. Bewaar een buffer voor
-            de onverwachte dingen die altijd langskomen. Niet als noodgreep, als
-            standaard.
-          </p>
+          <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+            <li>
+              Bouw je week om je energie, niet om de klok. Reken niet op vijf gelijke
+              werkdagen, maar op een paar pieken en dalen. Plan je harde taken op de
+              pieken die je herkent.
+            </li>
+            <li>
+              Maak starten makkelijker dan doorgaan. Geen uur werken, maar vijftien
+              minuten. Het ding dat je uitstelt: hak juist dát in stukjes, de rest niet.
+            </li>
+            <li>
+              Zet niet meer dan drie dingen op een dag, en zet er één centraal. De rest
+              is bijvangst.
+            </li>
+            <li>
+              Werk met een visueel anker als je werkgeheugen onbetrouwbaar is. Een
+              whiteboard of een paar vellen op je bureau. Geen acht open tabs.
+            </li>
+            <li>
+              Bewaar een buffer voor de onverwachte dingen die toch altijd langskomen.
+              Niet als noodgreep, maar als standaard.
+            </li>
+          </ul>
         </FadeIn>
       </section>
 
