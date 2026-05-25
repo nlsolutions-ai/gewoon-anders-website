@@ -215,14 +215,14 @@ function CalendlyEmbed({ url }: { url: string }) {
   return (
     <div className="relative">
       {!loaded && (
-        <div className="flex h-[760px] items-center justify-center bg-card text-[14px] text-foreground/55">
+        <div className="flex h-[680px] sm:h-[760px] items-center justify-center bg-card text-[14px] text-foreground/55">
           Planner wordt geladen…
         </div>
       )}
       <iframe
         title="Plan een sessie"
         src={embedSrc}
-        className={loaded ? "block h-[760px] w-full" : "absolute inset-0 h-[760px] w-full opacity-0"}
+        className={loaded ? "block h-[680px] sm:h-[760px] w-full" : "absolute inset-0 h-[680px] sm:h-[760px] w-full opacity-0"}
         loading="lazy"
         onLoad={() => setLoaded(true)}
       />

@@ -1,4 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import mockupVolledig from "@/assets/mockup-volledig.png";
+import mockupKort from "@/assets/mockup-kort.png";
 import { FadeIn } from "@/components/FadeIn";
 import { ChannelCards } from "@/components/ChannelCards";
 import { PageHeader } from "@/components/PageHeader";
@@ -106,8 +108,81 @@ function TrajectPage() {
         </div>
       </section>
 
-      {/* Prijzen */}
+      {/* Twee varianten — visueel */}
       <section className="mx-auto max-w-5xl px-6 py-20 lg:px-10 lg:py-24">
+        <FadeIn>
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground">
+            Twee manieren om mee te doen.
+          </h2>
+          <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-foreground/80">
+            Het volledige traject voor wie ruim wil bouwen, of de korte
+            variant voor één afgebakende vraag. Wat je krijgt in beide
+            gevallen: 1-op-1 sessies, vrije kanaalkeuze, een werkboek en een
+            routekaart voor jouw bedrijf.
+          </p>
+        </FadeIn>
+
+        <div className="mt-12 grid gap-6 sm:gap-8 md:grid-cols-2">
+          <FadeIn>
+            <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 sm:p-7">
+              <div className="flex items-center justify-center">
+                <img
+                  src={mockupVolledig}
+                  alt="Gewoon Anders Ondernemen: acht sessies met werkboek en routekaart"
+                  className="w-full max-w-xs sm:max-w-sm"
+                  loading="lazy"
+                  width={1400}
+                  height={933}
+                />
+              </div>
+              <div className="mt-2">
+                <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-primary">
+                  Acht sessies · vier maanden
+                </p>
+                <h3 className="mt-2 text-xl font-semibold text-foreground">
+                  Gewoon Anders Ondernemen
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-foreground/75">
+                  Het volledige traject. Acht 1-op-1 sessies, een werkboek
+                  per pijler, en aan het eind je eigen routekaart voor de
+                  komende maanden.
+                </p>
+              </div>
+            </article>
+          </FadeIn>
+
+          <FadeIn delay={80}>
+            <article className="flex h-full flex-col rounded-2xl border border-border bg-card p-6 sm:p-7">
+              <div className="flex items-center justify-center">
+                <img
+                  src={mockupKort}
+                  alt="Gewoon Anders Ondernemen Kort: vier sessies met werkboek en routekaart"
+                  className="w-full max-w-xs sm:max-w-sm"
+                  loading="lazy"
+                  width={1400}
+                  height={933}
+                />
+              </div>
+              <div className="mt-2">
+                <p className="text-[12px] font-semibold uppercase tracking-[0.16em] text-primary">
+                  Vier sessies · twee maanden
+                </p>
+                <h3 className="mt-2 text-xl font-semibold text-foreground">
+                  Gewoon Anders Ondernemen Kort
+                </h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-foreground/75">
+                  De verkorte variant voor één afgebakende vraag. Vier
+                  1-op-1 sessies, een werkboek en een routekaart die je
+                  meteen kunt gebruiken.
+                </p>
+              </div>
+            </article>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* Prijzen */}
+      <section className="mx-auto max-w-5xl px-6 pb-20 lg:px-10 lg:pb-24">
         <FadeIn>
           <h2 className="text-3xl font-semibold tracking-tight text-foreground">
             Wat het kost.

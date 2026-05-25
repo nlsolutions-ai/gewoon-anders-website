@@ -133,7 +133,7 @@ export function SiteNav() {
                     {isOpen && (
                       <div
                         role="menu"
-                        className="absolute left-1/2 top-full z-50 mt-3 min-w-[360px] -translate-x-1/2 rounded-3xl border border-foreground/8 bg-background/95 p-2 shadow-ambient-lg backdrop-blur-xl"
+                        className="absolute left-1/2 top-full z-50 mt-3 w-[min(360px,calc(100vw-2rem))] -translate-x-1/2 rounded-3xl border border-foreground/8 bg-background/95 p-2 shadow-ambient-lg backdrop-blur-xl"
                       >
                         <ul className="flex flex-col gap-0.5">
                           {item.children.map((c) => (

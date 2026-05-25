@@ -54,8 +54,8 @@ export function SiteFooter() {
                     href="mailto:hallo@gewoonanders.nu"
                     className="inline-flex items-center gap-2 text-foreground/80 hover:text-foreground"
                   >
-                    <Mail size={14} strokeWidth={1.8} aria-hidden />
-                    <span className="link-underline">hallo@gewoonanders.nu</span>
+                    <Mail size={14} strokeWidth={1.8} aria-hidden className="shrink-0" />
+                    <span className="link-underline break-words">hallo@gewoonanders.nu</span>
                   </a>
                 </li>
                 <li>
@@ -66,7 +66,7 @@ export function SiteFooter() {
                     className="inline-flex items-center gap-2 text-foreground/80 hover:text-foreground"
                   >
                     <WhatsAppIcon size={14} />
-                    <span className="link-underline">WhatsApp +31 6 39 47 90 21</span>
+                    <span className="link-underline break-words">WhatsApp +31 6 39 47 90 21</span>
                   </a>
                 </li>
                 <li>
@@ -84,7 +84,7 @@ export function SiteFooter() {
             </div>
           </div>
 
-          <div className="lg:col-span-8 grid grid-cols-2 gap-10 sm:grid-cols-3">
+          <div className="lg:col-span-8 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-10">
             <FooterCol title="Verkennen" items={explore} />
             <FooterCol title="Voor wie" items={voorWie} />
             <FooterCol title="Thema's" items={themas} />

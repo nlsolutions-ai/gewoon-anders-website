@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
+import mockupVolledig from "@/assets/mockup-volledig.png";
 import { FadeIn } from "@/components/FadeIn";
-import { PageHeader } from "@/components/PageHeader";
+import { Reveal } from "@/components/Reveal";
 import { CalendlyChannelFlow, type CalendlyUrls } from "@/components/CalendlyChannelFlow";
 
 export const Route = createFileRoute("/welkom")({
@@ -22,9 +23,6 @@ export const Route = createFileRoute("/welkom")({
   component: WelkomPage,
 });
 
-// Voor de eerste sessie ("Kennismaking en je brein", 60 minuten) gebruiken we
-// dezelfde sessie-URLs als voor lopende klanten. Plug&Pay redirect stuurt
-// nieuwe klanten hierheen direct na betaling.
 const sessieUrls: CalendlyUrls = {
   video: "https://calendly.com/northernlights-info/gewoon-anders-videocall",
   bellen: "https://calendly.com/northernlights-info/gewoon-anders-telefonisch",
@@ -50,13 +48,49 @@ const watNu = [
 function WelkomPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Welkom · je bent ingestapt"
-        title="Mooi dat je er bent."
-        intro="Je hebt zojuist Gewoon Anders Ondernemen geboekt. Hieronder lees je rustig wat er nu gaat gebeuren, en kun je direct je eerste sessie inplannen op het kanaal dat voor jou werkt."
-      />
+      {/* Hero — editorial split met mockup */}
+      <section className="relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute -top-20 -right-32 h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute top-40 -left-24 h-[320px] w-[320px] rounded-full bg-highlight/40 blur-3xl" />
+        </div>
 
-      {/* Bevestiging - check-vinkjes */}
+        <div className="relative mx-auto grid max-w-[1240px] gap-10 px-6 pb-16 pt-12 lg:grid-cols-12 lg:gap-14 lg:px-10 lg:pb-24 lg:pt-20">
+          <div className="lg:col-span-7 lg:pr-4">
+            <Reveal>
+              <span className="eyebrow">Welkom · je bent ingestapt</span>
+            </Reveal>
+            <Reveal delay={60}>
+              <h1 className="display-xl mt-6 text-[2.2rem] sm:text-[2.8rem] lg:text-[3.6rem]">
+                Mooi dat je<br />
+                <span className="text-primary">er bent.</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={140}>
+              <p className="mt-7 max-w-xl text-[17px] leading-relaxed text-foreground/75 lg:text-[18px]">
+                Je hebt zojuist Gewoon Anders Ondernemen geboekt. Hieronder lees
+                je rustig wat er nu gaat gebeuren, en kun je direct je eerste
+                sessie inplannen op het kanaal dat voor jou werkt.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="lg:col-span-5">
+            <Reveal variant="right" delay={120}>
+              <img
+                src={mockupVolledig}
+                alt="Gewoon Anders Ondernemen: acht sessies, werkboek en routekaart"
+                className="mx-auto w-full max-w-md lg:max-w-none"
+                loading="eager"
+                width={1400}
+                height={933}
+              />
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Bevestigingscard */}
       <section className="mx-auto max-w-3xl px-6 pb-4 lg:px-10">
         <FadeIn>
           <div className="rounded-2xl border border-primary/15 bg-highlight p-6 lg:p-7">
@@ -147,7 +181,7 @@ function WelkomPage() {
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href="mailto:hallo@gewoonanders.nu"
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground hover:bg-primary/90"
+              className="inline-flex items-center justify-center break-all rounded-xl bg-primary px-6 py-3.5 text-center text-base font-medium text-primary-foreground hover:bg-primary/90"
             >
               Mail hallo@gewoonanders.nu
             </a>
