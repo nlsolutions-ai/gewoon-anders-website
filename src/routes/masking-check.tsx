@@ -343,6 +343,22 @@ function Results({
   const barColor =
     interp === "low" ? "bg-foreground/30" : interp === "mid" ? "bg-amber-500/70" : "bg-primary";
 
+  const [unlocked, setUnlocked] = useState(false);
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.localStorage.getItem(UNLOCK_KEY)) {
+      setUnlocked(true);
+    }
+  }, []);
+
+  function handleUnlock() {
+    setUnlocked(true);
+    try {
+      window.localStorage.setItem(UNLOCK_KEY, new Date().toISOString());
+    } catch {
+      // Storage disabled
+    }
+  }
+
   return (
     <section className="mx-auto max-w-3xl px-6 py-14 lg:px-10 lg:py-20">
       <span className="eyebrow">Je uitslag</span>
@@ -350,6 +366,7 @@ function Results({
         {result.title}.
       </h1>
 
+      {/* Top-line: totaalscore en bar altijd zichtbaar */}
       <div className="mt-8 flex items-baseline gap-3">
         <span className="display-lg text-[3rem] tabular-nums">{total}</span>
         <span className="text-[15px] text-foreground/55">van {situaties.length * 4}</span>
@@ -361,46 +378,119 @@ function Results({
         />
       </div>
 
-      <p className="mt-8 text-[17px] leading-relaxed text-foreground/80">{result.text}</p>
-
-      {top.length > 0 && (
-        <div className="mt-12">
-          <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
-            Je zwaarste posten
+      {/* Opt-in gate */}
+      {!unlocked && (
+        <div className="mt-10 no-print rounded-3xl border border-primary/20 bg-card p-7 lg:p-8">
+          <div className="flex items-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <Lock size={16} strokeWidth={1.8} aria-hidden />
+            </span>
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+              Bekijk je volledige uitslag
+            </p>
+          </div>
+          <h3 className="display-lg mt-4 text-[1.5rem] sm:text-[1.7rem]">
+            Vul je naam en e-mail in, dan ontgrendel je je volledige uitslag.
+          </h3>
+          <p className="mt-3 text-[15px] leading-relaxed text-foreground/75">
+            Je krijgt 'm ook in je inbox, zodat je er later rustig op terugkomt of 'm
+            kunt downloaden als PDF.
           </p>
-          <h2 className="display-lg mt-3 text-[1.6rem] sm:text-[1.8rem]">
-            {top.length === 1
-              ? "Dit is de plek waar masking nu het meest aan je trekt."
-              : `Dit zijn de ${top.length} plekken waar masking nu het meest aan je trekt.`}
-          </h2>
-          <ul className="mt-6 space-y-3">
-            {top.map(({ situatie, score }, i) => (
-              <li
-                key={situatie.id}
-                className="flex items-start gap-4 rounded-2xl border border-foreground/8 bg-card p-5"
-              >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[13px] font-semibold text-primary tabular-nums">
-                  {i + 1}
-                </span>
-                <div className="flex-1">
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-foreground/55">
-                    {situatie.context}
-                  </p>
-                  <p className="mt-1 text-[16px] leading-snug text-foreground">
-                    {situatie.text}
-                  </p>
+          <div className="mt-6">
+            <OptInForm
+              tag="masking-check"
+              askFirstName
+              ctaLabel="Ontgrendel mijn uitslag"
+              help="Eén bevestigingsmail, en daarna hooguit een paar mails over hoe ik werk. Uitschrijven met één klik."
+              onSuccess={handleUnlock}
+              successContent={
+                <div className="rounded-2xl border border-primary/20 bg-primary/5 p-5">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                      <Check size={16} strokeWidth={2.2} aria-hidden />
+                    </span>
+                    <div>
+                      <p className="text-[16px] font-semibold text-foreground">
+                        Ontgrendeld. Je uitslag staat hieronder.
+                      </p>
+                      <p className="mt-2 text-[14px] leading-relaxed text-foreground/75">
+                        Ik heb je ook een bevestigingsmail gestuurd. Check je inbox
+                        (of spam) als die niet binnen een paar minuten arriveert.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <span className="ml-2 inline-flex shrink-0 items-center rounded-full bg-foreground/5 px-3 py-1 text-[12px] font-mono text-foreground/70 tabular-nums">
-                  {score}/4
-                </span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-[15px] leading-relaxed text-foreground/70">
-            Je hoeft niet meteen alles anders te doen. Vaak helpt het al om voor één van
-            deze posten een kleinere, eerlijker vorm te zoeken. Bijvoorbeeld een ander
-            kanaal kiezen, vooraf op papier zetten wat je wil zeggen, of een afspraak iets
-            korter inplannen.
+              }
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Detail: interpretatie + top 3 zwaarste posten (geblurd tot unlock) */}
+      <div
+        className={`mt-10 transition-[filter] duration-700 ${
+          unlocked ? "print-unlock" : "select-none blur-[6px]"
+        }`}
+        aria-hidden={!unlocked}
+      >
+        <p className="text-[17px] leading-relaxed text-foreground/80">{result.text}</p>
+
+        {top.length > 0 && (
+          <div className="mt-12">
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+              Je zwaarste posten
+            </p>
+            <h2 className="display-lg mt-3 text-[1.6rem] sm:text-[1.8rem]">
+              {top.length === 1
+                ? "Dit is de plek waar masking nu het meest aan je trekt."
+                : `Dit zijn de ${top.length} plekken waar masking nu het meest aan je trekt.`}
+            </h2>
+            <ul className="mt-6 space-y-3">
+              {top.map(({ situatie, score }, i) => (
+                <li
+                  key={situatie.id}
+                  className="flex items-start gap-4 rounded-2xl border border-foreground/8 bg-card p-5"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[13px] font-semibold text-primary tabular-nums">
+                    {i + 1}
+                  </span>
+                  <div className="flex-1">
+                    <p className="text-[12px] font-semibold uppercase tracking-[0.14em] text-foreground/55">
+                      {situatie.context}
+                    </p>
+                    <p className="mt-1 text-[16px] leading-snug text-foreground">
+                      {situatie.text}
+                    </p>
+                  </div>
+                  <span className="ml-2 inline-flex shrink-0 items-center rounded-full bg-foreground/5 px-3 py-1 text-[12px] font-mono text-foreground/70 tabular-nums">
+                    {score}/4
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-[15px] leading-relaxed text-foreground/70">
+              Je hoeft niet meteen alles anders te doen. Vaak helpt het al om voor één van
+              deze posten een kleinere, eerlijker vorm te zoeken. Bijvoorbeeld een ander
+              kanaal kiezen, vooraf op papier zetten wat je wil zeggen, of een afspraak iets
+              korter inplannen.
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* PDF download (alleen na unlock) */}
+      {unlocked && (
+        <div className="no-print mt-8 flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => window.print()}
+            className="magnet group inline-flex items-center gap-2.5 rounded-full bg-foreground/[0.04] border border-foreground/10 px-5 py-2.5 text-[14px] font-medium text-foreground hover:bg-foreground/[0.06]"
+          >
+            <Download size={16} strokeWidth={1.8} aria-hidden />
+            <span>Download als PDF</span>
+          </button>
+          <p className="text-[13px] text-foreground/55">
+            Opent het print-venster van je browser. Kies daar 'Opslaan als PDF'.
           </p>
         </div>
       )}
@@ -417,7 +507,7 @@ function Results({
           Geen verkoopgesprek, geen verplichting. Een rustig gesprek waarin we kijken of
           het klikt. Daarna beslis jij of je verder wil.
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex flex-wrap gap-3 no-print">
           <Link
             to="/contact"
             className="magnet group inline-flex items-center gap-3 rounded-full bg-background pl-6 pr-2 py-2 text-[15px] font-medium text-foreground"
@@ -436,30 +526,7 @@ function Results({
         </div>
       </div>
 
-      <div className="mt-12">
-        <div className="rounded-3xl border border-foreground/8 bg-card p-7 lg:p-8">
-          <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
-            Bewaar deze uitslag
-          </p>
-          <h3 className="display-lg mt-3 text-[1.4rem] sm:text-[1.6rem]">
-            Wil je deze check in je inbox?
-          </h3>
-          <p className="mt-3 text-[15px] leading-relaxed text-foreground/75">
-            Dan kun je er later rustig op terugkomen, of 'm gebruiken om voor jezelf bij
-            te houden of het verandert.
-          </p>
-          <div className="mt-5">
-            <OptInForm
-              tag="masking-check"
-              label="Je e-mailadres"
-              ctaLabel="Stuur me mijn uitslag"
-              help="Eén bevestigingsmail, en daarna hooguit een paar mails over hoe ik werk. Uitschrijven met één klik."
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-10">
+      <div className="mt-10 no-print">
         <button
           type="button"
           onClick={onReset}

@@ -49,7 +49,7 @@ export default async function handler(req: Request) {
     return json({ error: "Method not allowed" }, 405);
   }
 
-  let payload: { email?: string; tag?: string };
+  let payload: { email?: string; tag?: string; firstName?: string };
   try {
     payload = await req.json();
   } catch {
@@ -58,6 +58,7 @@ export default async function handler(req: Request) {
 
   const email = (payload.email ?? "").trim().toLowerCase();
   const tag = (payload.tag ?? "").trim();
+  const firstName = (payload.firstName ?? "").trim().slice(0, 80);
 
   if (!email || !isValidEmail(email)) {
     return json({ error: "Geen geldig e-mailadres." }, 400);
@@ -90,10 +91,12 @@ export default async function handler(req: Request) {
   // 1. Create or update contact
   let contactId: string | undefined;
   try {
+    const contactBody: Record<string, string> = { email };
+    if (firstName) contactBody.firstName = firstName;
     const syncRes = await fetch(`${baseUrl}/api/3/contact/sync`, {
       method: "POST",
       headers: acHeaders,
-      body: JSON.stringify({ contact: { email } }),
+      body: JSON.stringify({ contact: contactBody }),
     });
     if (!syncRes.ok) {
       const text = await syncRes.text();

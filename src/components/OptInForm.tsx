@@ -10,24 +10,31 @@ type Props = {
     | "mijn-week-mijn-brein";
   /** Direct link to the PDF, shown after successful opt-in as a backup */
   pdfHref?: string;
-  /** Label shown above the input */
-  label?: string;
-  /** Helper text */
-  help?: string;
   /** Submit button label */
   ctaLabel?: string;
+  /** Helper text below the form */
+  help?: string;
+  /** Ask for first name in addition to email */
+  askFirstName?: boolean;
   /** Dark variant inverts colours for use on dark cards */
   variant?: "light" | "dark";
+  /** Called after a successful POST so the parent can unlock content */
+  onSuccess?: (data: { email: string; firstName: string }) => void;
+  /** Custom success state — if provided, replaces the default "Check je inbox" message */
+  successContent?: React.ReactNode;
 };
 
 export function OptInForm({
   tag,
   pdfHref,
-  label = "Je e-mailadres",
-  help = "Ik stuur je het werkblad. Eén bevestigingsmail, en daarna hooguit een paar mails over hoe ik werk. Geen spam, uitschrijven met één klik.",
   ctaLabel = "Stuur me het werkblad",
+  help = "Eén bevestigingsmail, en daarna hooguit een paar mails over hoe ik werk. Uitschrijven met één klik.",
+  askFirstName = false,
   variant = "light",
+  onSuccess,
+  successContent,
 }: Props) {
+  const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "loading" | "ok" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -37,13 +44,18 @@ export function OptInForm({
   async function submit(e: FormEvent) {
     e.preventDefault();
     if (!email.trim()) return;
+    if (askFirstName && !firstName.trim()) return;
     setState("loading");
     setErrorMsg("");
     try {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email.trim(), tag }),
+        body: JSON.stringify({
+          email: email.trim(),
+          firstName: firstName.trim(),
+          tag,
+        }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
@@ -52,6 +64,7 @@ export function OptInForm({
         );
       }
       setState("ok");
+      onSuccess?.({ email: email.trim(), firstName: firstName.trim() });
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : "Er ging iets mis.");
       setState("error");
@@ -59,6 +72,9 @@ export function OptInForm({
   }
 
   if (state === "ok") {
+    if (successContent) {
+      return <>{successContent}</>;
+    }
     return (
       <div
         className={`rounded-2xl border p-6 ${
@@ -82,8 +98,8 @@ export function OptInForm({
                 dark ? "text-background/75" : "text-foreground/75"
               }`}
             >
-              Ik heb je een mail gestuurd met het werkblad. Komt 'ie niet door
-              binnen een paar minuten? Kijk even in je spam-map.
+              Ik heb je een mail gestuurd. Komt 'ie niet door binnen een paar
+              minuten? Kijk even in je spam-map.
             </p>
             {pdfHref && (
               <p className="mt-3 text-[13px]">
@@ -116,35 +132,72 @@ export function OptInForm({
       }`}
       noValidate
     >
-      <label
-        htmlFor={`optin-${tag}`}
-        className={`block text-[14px] font-semibold ${
-          dark ? "text-background" : "text-foreground"
-        }`}
-      >
-        {label}
-      </label>
-      <div className="mt-3 flex flex-col gap-3 sm:flex-row">
-        <input
-          id={`optin-${tag}`}
-          type="email"
-          required
-          autoComplete="email"
-          inputMode="email"
-          maxLength={254}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="jij@voorbeeld.nl"
-          disabled={state === "loading"}
-          className={`flex-1 rounded-xl border px-4 py-3 text-[15px] outline-none transition-colors focus:ring-2 ${
-            dark
-              ? "border-background/20 bg-background/10 text-background placeholder:text-background/40 focus:border-background/40 focus:ring-background/20"
-              : "border-foreground/15 bg-background text-foreground placeholder:text-foreground/40 focus:border-primary focus:ring-primary/20"
-          }`}
-        />
+      <div className={`grid gap-4 ${askFirstName ? "sm:grid-cols-2" : ""}`}>
+        {askFirstName && (
+          <div>
+            <label
+              htmlFor={`optin-name-${tag}`}
+              className={`block text-[14px] font-semibold ${
+                dark ? "text-background" : "text-foreground"
+              }`}
+            >
+              Je voornaam
+            </label>
+            <input
+              id={`optin-name-${tag}`}
+              type="text"
+              required
+              autoComplete="given-name"
+              maxLength={80}
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              placeholder="Eva"
+              disabled={state === "loading"}
+              className={`mt-2 w-full rounded-xl border px-4 py-3 text-[15px] outline-none transition-colors focus:ring-2 ${
+                dark
+                  ? "border-background/20 bg-background/10 text-background placeholder:text-background/40 focus:border-background/40 focus:ring-background/20"
+                  : "border-foreground/15 bg-background text-foreground placeholder:text-foreground/40 focus:border-primary focus:ring-primary/20"
+              }`}
+            />
+          </div>
+        )}
+        <div>
+          <label
+            htmlFor={`optin-email-${tag}`}
+            className={`block text-[14px] font-semibold ${
+              dark ? "text-background" : "text-foreground"
+            }`}
+          >
+            Je e-mailadres
+          </label>
+          <input
+            id={`optin-email-${tag}`}
+            type="email"
+            required
+            autoComplete="email"
+            inputMode="email"
+            maxLength={254}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="jij@voorbeeld.nl"
+            disabled={state === "loading"}
+            className={`mt-2 w-full rounded-xl border px-4 py-3 text-[15px] outline-none transition-colors focus:ring-2 ${
+              dark
+                ? "border-background/20 bg-background/10 text-background placeholder:text-background/40 focus:border-background/40 focus:ring-background/20"
+                : "border-foreground/15 bg-background text-foreground placeholder:text-foreground/40 focus:border-primary focus:ring-primary/20"
+            }`}
+          />
+        </div>
+      </div>
+
+      <div className="mt-5 flex flex-wrap items-center gap-3">
         <button
           type="submit"
-          disabled={state === "loading" || !email.trim()}
+          disabled={
+            state === "loading" ||
+            !email.trim() ||
+            (askFirstName && !firstName.trim())
+          }
           className={`magnet group inline-flex items-center justify-center gap-2.5 rounded-xl px-5 py-3 text-[14px] font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${
             dark
               ? "bg-background text-foreground hover:bg-background/90"

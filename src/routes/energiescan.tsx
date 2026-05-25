@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpRight, Check, RotateCcw } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, Download, Lock, RotateCcw } from "lucide-react";
 import {
   answerOptions,
   gebieden,
@@ -10,6 +10,8 @@ import {
   type Interpretation,
 } from "@/lib/energiescan-data";
 import { OptInForm } from "@/components/OptInForm";
+
+const UNLOCK_KEY = "unlock:energiescan";
 
 export const Route = createFileRoute("/energiescan")({
   head: () => ({
@@ -345,19 +347,103 @@ function Results({
   const scores = useMemo(() => scoresByGebied(answers), [answers]);
   const totalEnergyLeaks = gebieden.filter((g) => interpret(g, scores[g.id]) === "high").length;
 
+  const [unlocked, setUnlocked] = useState(false);
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.localStorage.getItem(UNLOCK_KEY)) {
+      setUnlocked(true);
+    }
+  }, []);
+
+  function handleUnlock() {
+    setUnlocked(true);
+    try {
+      window.localStorage.setItem(UNLOCK_KEY, new Date().toISOString());
+    } catch {
+      // Storage disabled — unlocked state lives in memory for this session
+    }
+  }
+
+  const topLine =
+    totalEnergyLeaks === 0
+      ? "Geen acute energielekken. Mooi punt om vanuit te bouwen."
+      : totalEnergyLeaks === 1
+        ? "Eén gebied waar energie weglekt. Daar is winst te halen."
+        : `${totalEnergyLeaks} gebieden waar energie weglekt. Dat verklaart waarschijnlijk veel.`;
+
   return (
     <section className="mx-auto max-w-3xl px-6 py-14 lg:px-10 lg:py-20">
       <span className="eyebrow">Je uitslag</span>
       <h1 className="display-xl mt-6 text-[2rem] sm:text-[2.6rem] lg:text-[3rem]">
         Hier zit je energie nu.
       </h1>
-      <p className="mt-6 text-[17px] leading-relaxed text-foreground/75">
-        Vijf gebieden, vijf scores. Onder elk gebied lees je in gewone taal wat je
-        antwoorden waarschijnlijk betekenen. Een hoge score is geen verwijt. Het is een
-        plek waar verandering het meeste oplevert.
-      </p>
 
-      <div className="mt-10 space-y-4">
+      {/* Top-line: altijd zichtbaar */}
+      <div className="mt-8 rounded-3xl border border-foreground/8 bg-highlight p-7 lg:p-8">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+          Je samenvatting
+        </p>
+        <h2 className="display-lg mt-3 text-[1.6rem] sm:text-[1.8rem]">{topLine}</h2>
+        <p className="mt-4 text-[15px] leading-relaxed text-foreground/75">
+          De volledige uitslag bevat de score per gebied en in gewone taal wat je
+          antwoorden waarschijnlijk betekenen. Hieronder kun je die ontgrendelen.
+        </p>
+      </div>
+
+      {/* Opt-in gate (alleen zichtbaar als nog niet ontgrendeld) */}
+      {!unlocked && (
+        <div className="mt-8 no-print rounded-3xl border border-primary/20 bg-card p-7 lg:p-8">
+          <div className="flex items-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <Lock size={16} strokeWidth={1.8} aria-hidden />
+            </span>
+            <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+              Bekijk je volledige uitslag
+            </p>
+          </div>
+          <h3 className="display-lg mt-4 text-[1.5rem] sm:text-[1.7rem]">
+            Vul je naam en e-mail in, dan ontgrendel je je volledige uitslag.
+          </h3>
+          <p className="mt-3 text-[15px] leading-relaxed text-foreground/75">
+            Je krijgt 'm ook in je inbox, zodat je er later rustig op terugkomt of 'm
+            kunt downloaden als PDF.
+          </p>
+          <div className="mt-6">
+            <OptInForm
+              tag="energiescan"
+              askFirstName
+              ctaLabel="Ontgrendel mijn uitslag"
+              help="Eén bevestigingsmail, en daarna hooguit een paar mails over hoe ik werk. Uitschrijven met één klik."
+              onSuccess={handleUnlock}
+              successContent={
+                <div className="rounded-2xl border border-primary/20 bg-primary/5 p-5">
+                  <div className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                      <Check size={16} strokeWidth={2.2} aria-hidden />
+                    </span>
+                    <div>
+                      <p className="text-[16px] font-semibold text-foreground">
+                        Ontgrendeld. Je uitslag staat hieronder.
+                      </p>
+                      <p className="mt-2 text-[14px] leading-relaxed text-foreground/75">
+                        Ik heb je ook een bevestigingsmail gestuurd. Check je inbox
+                        (of spam) als die niet binnen een paar minuten arriveert.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              }
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Detail per gebied (geblurd tot unlock) */}
+      <div
+        className={`mt-10 space-y-4 transition-[filter] duration-700 ${
+          unlocked ? "print-unlock" : "select-none blur-[6px]"
+        }`}
+        aria-hidden={!unlocked}
+      >
         {gebieden.map((g) => {
           const score = scores[g.id];
           const total = g.count * 4;
@@ -366,72 +452,57 @@ function Results({
         })}
       </div>
 
+      {/* PDF download (alleen na unlock) */}
+      {unlocked && (
+        <div className="no-print mt-8 flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => window.print()}
+            className="magnet group inline-flex items-center gap-2.5 rounded-full bg-foreground/[0.04] border border-foreground/10 px-5 py-2.5 text-[14px] font-medium text-foreground hover:bg-foreground/[0.06]"
+          >
+            <Download size={16} strokeWidth={1.8} aria-hidden />
+            <span>Download als PDF</span>
+          </button>
+          <p className="text-[13px] text-foreground/55">
+            Opent het print-venster van je browser. Kies daar 'Opslaan als PDF'.
+          </p>
+        </div>
+      )}
+
       {/* Sluittekst */}
-      <div className="mt-14 rounded-3xl border border-foreground/8 bg-highlight p-8 lg:p-10">
-        <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
+      <div className="mt-14 rounded-3xl border border-foreground/8 bg-foreground p-8 text-background lg:p-10">
+        <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-background/60">
           En nu?
         </p>
-        <h2 className="display-lg mt-3 text-[1.8rem] sm:text-[2rem]">
-          {totalEnergyLeaks === 0
-            ? "Geen acute energielekken. Mooi punt om vanuit te bouwen."
-            : totalEnergyLeaks === 1
-              ? "Eén gebied waar energie weglekt. Daar is winst te halen."
-              : `${totalEnergyLeaks} gebieden waar energie weglekt. Dat verklaart waarschijnlijk veel.`}
+        <h2 className="display-lg mt-3 text-[1.6rem] sm:text-[1.8rem] text-background">
+          De vijf gebieden zijn niet toevallig gekozen.
         </h2>
-        <p className="mt-5 text-[16px] leading-relaxed text-foreground/80">
-          De vijf gebieden van deze scan zijn niet toevallig gekozen. Ze vormen samen Het
-          Anders Fundament: de methodiek waarmee ik ondernemers help hun bedrijf opnieuw
-          af te stemmen op hun brein.
+        <p className="mt-4 text-[15px] leading-relaxed text-background/80">
+          Ze vormen samen Het Anders Fundament: de methodiek waarmee ik ondernemers
+          help hun bedrijf opnieuw af te stemmen op hun brein. Wil je samen rustig naar
+          jouw uitslag kijken? Plan vrijblijvend een kennismaking. Geen verkoopgesprek,
+          geen verplichting.
         </p>
-        <p className="mt-4 text-[16px] leading-relaxed text-foreground/80">
-          Wil je samen rustig naar jouw uitslag kijken? Plan vrijblijvend een kennismaking
-          van een half uur, op het kanaal dat jij wil. Geen verkoopgesprek, geen
-          verplichting. Een rustig gesprek waarin we kijken of het klikt. Daarna beslis
-          jij of je verder wil.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-7 flex flex-wrap gap-3 no-print">
           <Link
             to="/contact"
-            className="magnet group inline-flex items-center gap-3 rounded-full bg-primary pl-6 pr-2 py-2 text-[15px] font-medium text-primary-foreground hover:bg-primary/95"
+            className="magnet group inline-flex items-center gap-3 rounded-full bg-background pl-5 pr-1.5 py-1.5 text-[14px] font-medium text-foreground"
           >
             <span>Plan vrijblijvend een kennismaking</span>
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/15 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[2px] group-hover:-translate-y-[1px]">
-              <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground/8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[2px] group-hover:-translate-y-[1px]">
+              <ArrowUpRight size={14} strokeWidth={1.8} aria-hidden />
             </span>
           </Link>
           <Link
             to="/traject"
-            className="magnet inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-background px-5 py-3 text-[15px] font-medium text-foreground hover:bg-secondary"
+            className="magnet inline-flex items-center gap-2 rounded-full border border-background/20 bg-background/5 px-4 py-2 text-[14px] font-medium text-background hover:bg-background/10"
           >
             Bekijk het traject
           </Link>
         </div>
       </div>
 
-      <div className="mt-12">
-        <div className="rounded-3xl border border-foreground/8 bg-card p-7 lg:p-8">
-          <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
-            Bewaar deze uitslag
-          </p>
-          <h3 className="display-lg mt-3 text-[1.4rem] sm:text-[1.6rem]">
-            Wil je deze scan in je inbox?
-          </h3>
-          <p className="mt-3 text-[15px] leading-relaxed text-foreground/75">
-            Dan kun je er later rustig op terugkomen, of 'm doorsturen naar iemand met
-            wie je het wil bespreken.
-          </p>
-          <div className="mt-5">
-            <OptInForm
-              tag="energiescan"
-              label="Je e-mailadres"
-              ctaLabel="Stuur me mijn uitslag"
-              help="Eén bevestigingsmail, en daarna hooguit een paar mails over hoe ik werk. Uitschrijven met één klik."
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="mt-10">
+      <div className="mt-10 no-print">
         <button
           type="button"
           onClick={onReset}
