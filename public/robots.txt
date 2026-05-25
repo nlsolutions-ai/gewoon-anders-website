@@ -1,2 +1,8 @@
 User-agent: *
 Allow: /
+
+# Voor bestaande klanten, niet voor publieke indexering
+Disallow: /sessie
+
+# Site map
+Sitemap: https://gewoonanders.nu/sitemap.xml
