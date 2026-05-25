@@ -7,7 +7,8 @@
  * Required environment variables (set in Vercel project settings):
  *   AC_API_URL                       — e.g. https://accountname.api-us1.com
  *   AC_API_KEY                       — Settings > Developer > API key
- *   AC_LIST_ID                       — numeric ID of the main list
+ *   AC_LIST_ID                       — numeric ID of the opt-in list (primary)
+ *   AC_LIST_ID_MASTER (optional)     — numeric ID of the master/CRM list
  *   AC_TAG_ENERGIESCAN               — numeric tag ID for energiescan freebie
  *   AC_TAG_MASKING_CHECK             — numeric tag ID for masking-check freebie
  *   AC_TAG_PRIJZEN_SPIEKBRIEFJE      — numeric tag ID for prijzen-spiekbriefje
@@ -107,18 +108,21 @@ export default async function handler(req: Request) {
     return json({ error: "Network error to AC (sync)", details: String(err) }, 502);
   }
 
-  // 2. Add to main list (status 1 = active subscribed)
-  try {
-    await fetch(`${baseUrl}/api/3/contactLists`, {
-      method: "POST",
-      headers: acHeaders,
-      body: JSON.stringify({
-        contactList: { list: listId, contact: contactId, status: 1 },
-      }),
-    });
-    // We don't fail the whole flow if list-add fails: tag is the primary signal.
-  } catch {
-    // Swallow — tag is still attempted below.
+  // 2. Add to opt-in list (and optional master list). Status 1 = subscribed.
+  const masterListId = process.env.AC_LIST_ID_MASTER;
+  const listsToJoin = [listId, masterListId].filter(Boolean) as string[];
+  for (const lid of listsToJoin) {
+    try {
+      await fetch(`${baseUrl}/api/3/contactLists`, {
+        method: "POST",
+        headers: acHeaders,
+        body: JSON.stringify({
+          contactList: { list: lid, contact: contactId, status: 1 },
+        }),
+      });
+    } catch {
+      // Swallow individual list errors. Tag below is the primary signal.
+    }
   }
 
   // 3. Add tag
