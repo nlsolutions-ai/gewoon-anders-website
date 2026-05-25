@@ -38,7 +38,7 @@ function ContactPage() {
         intro="Een kennismaking is een half uur, op het kanaal dat jij wil. Geen verkoopgesprek, geen verplichting. We kijken samen rustig of het klikt. Daarna beslis jij of je verder wil."
       />
 
-      <CalendlyChannelFlow urls={intakeUrls} />
+      <CalendlyChannelFlow urls={intakeUrls} duration="dertig" />
 
       <section className="mx-auto max-w-[1240px] px-6 pb-24 lg:px-10">
         <FadeIn>

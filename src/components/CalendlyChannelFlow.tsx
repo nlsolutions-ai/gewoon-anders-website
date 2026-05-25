@@ -20,36 +20,46 @@ type Kanaal = {
   icon: LucideIcon;
 };
 
-const KANALEN: Kanaal[] = [
-  {
-    id: "video",
-    label: "Videobellen",
-    short: "Gesprek met beeld. Zestig minuten.",
-    icon: Video,
-  },
-  {
-    id: "bellen",
-    label: "Bellen zonder beeld",
-    short: "Alleen je stem. Zestig minuten.",
-    icon: Phone,
-  },
-  {
-    id: "chat",
-    label: "Live chatten",
-    short: "Tekstgesprek in een tijdvak van zestig minuten.",
-    icon: MessageSquare,
-  },
-  {
-    id: "mail",
-    label: "Mailsessie",
-    short: "Jij schrijft uit, ik reageer uitgewerkt binnen drie werkdagen.",
-    icon: Mail,
-  },
-];
+type Duration = "dertig" | "zestig";
+
+function buildKanalen(duration: Duration): Kanaal[] {
+  return [
+    {
+      id: "video",
+      label: "Videobellen",
+      short: `Gesprek met beeld. ${capitalize(duration)} minuten.`,
+      icon: Video,
+    },
+    {
+      id: "bellen",
+      label: "Bellen zonder beeld",
+      short: `Alleen je stem. ${capitalize(duration)} minuten.`,
+      icon: Phone,
+    },
+    {
+      id: "chat",
+      label: "Live chatten",
+      short: `Tekstgesprek in een tijdvak van ${duration} minuten.`,
+      icon: MessageSquare,
+    },
+    {
+      id: "mail",
+      label: "Mailsessie",
+      short: "Jij schrijft uit, ik reageer uitgewerkt binnen drie werkdagen.",
+      icon: Mail,
+    },
+  ];
+}
+
+function capitalize(s: string) {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
 
 type Props = {
   /** Calendly URL per kanaal */
   urls: CalendlyUrls;
+  /** Duur in tekst-vorm, bepaalt de korte beschrijvingen onder elke kanaal-keuze */
+  duration?: Duration;
   /** Label boven stap 1, klein eyebrow */
   step1Eyebrow?: string;
   /** Heading boven kanaal-keuze */
@@ -64,6 +74,7 @@ type Props = {
 
 export function CalendlyChannelFlow({
   urls,
+  duration = "zestig",
   step1Eyebrow = "Stap 1",
   step1Heading = "Welk kanaal heeft jouw voorkeur?",
   step1Intro = "Allemaal gelijkwaardig. Geen voorkeur, geen verkeerd antwoord. Kies wat voor jou nu het minst kost.",
@@ -73,7 +84,8 @@ export function CalendlyChannelFlow({
   const [selected, setSelected] = useState<Channel | null>(null);
   const embedRef = useRef<HTMLDivElement | null>(null);
 
-  const active = KANALEN.find((k) => k.id === selected) ?? null;
+  const kanalen = buildKanalen(duration);
+  const active = kanalen.find((k) => k.id === selected) ?? null;
   const activeUrl = active ? urls[active.id] : null;
 
   function choose(id: Channel) {
@@ -97,7 +109,7 @@ export function CalendlyChannelFlow({
         </FadeIn>
 
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-          {KANALEN.map(({ icon: Icon, ...k }, i) => {
+          {kanalen.map(({ icon: Icon, ...k }, i) => {
             const isActive = selected === k.id;
             return (
               <FadeIn key={k.id} as="li" delay={i * 60}>
