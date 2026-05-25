@@ -47,18 +47,15 @@ export function SiteFooter() {
               Een op een, op het kanaal waarop jij het beste denkt.
             </p>
             <div className="mt-6 max-w-sm text-[13px] leading-relaxed text-foreground/60">
-              <p>Gewoon Anders is een onderdeel van NorthernLights Solutions.</p>
-              <p className="mt-1">
-                Ondernemingsnummer 1037.471.022 · BTW BE1037471022
-              </p>
+              <p>Ondernemingsnummer 1037.471.022 · BTW BE1037471022</p>
               <ul className="mt-3 space-y-2">
                 <li>
                   <a
-                    href="mailto:info@northernlights.solutions"
+                    href="mailto:hallo@gewoonanders.nu"
                     className="inline-flex items-center gap-2 text-foreground/80 hover:text-foreground"
                   >
                     <Mail size={14} strokeWidth={1.8} aria-hidden />
-                    <span className="link-underline">info@northernlights.solutions</span>
+                    <span className="link-underline">hallo@gewoonanders.nu</span>
                   </a>
                 </li>
                 <li>

@@ -150,7 +150,7 @@ function ContactPage() {
         <FadeIn>
           <div className="mt-10 grid gap-3 sm:grid-cols-2">
             <a
-              href="mailto:info@northernlights.solutions"
+              href="mailto:hallo@gewoonanders.nu"
               className="magnet group flex items-center gap-4 rounded-2xl border border-foreground/8 bg-card p-5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 hover:shadow-ambient"
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-foreground/5 text-foreground/70 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
@@ -175,7 +175,7 @@ function ContactPage() {
                   E-mail
                 </span>
                 <span className="mt-0.5 block truncate text-[15px] font-medium text-foreground">
-                  info@northernlights.solutions
+                  hallo@gewoonanders.nu
                 </span>
               </span>
             </a>

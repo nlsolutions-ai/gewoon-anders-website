@@ -35,9 +35,9 @@ function VoorwaardenPage() {
               BE1037471022. Contact via{" "}
               <a
                 className="text-primary link-underline"
-                href="mailto:info@northernlights.solutions"
+                href="mailto:hallo@gewoonanders.nu"
               >
-                info@northernlights.solutions
+                hallo@gewoonanders.nu
               </a>
               .
             </p>
@@ -236,9 +236,9 @@ function VoorwaardenPage() {
               Ben je ergens niet tevreden over, laat het me dan zo snel mogelijk weten via{" "}
               <a
                 className="text-primary link-underline"
-                href="mailto:info@northernlights.solutions"
+                href="mailto:hallo@gewoonanders.nu"
               >
-                info@northernlights.solutions
+                hallo@gewoonanders.nu
               </a>
               . Ik reageer binnen vijf werkdagen en zoek samen met jou naar een passende
               oplossing.

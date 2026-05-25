@@ -41,9 +41,9 @@ function PrivacyPage() {
               stellen via{" "}
               <a
                 className="text-primary link-underline"
-                href="mailto:info@northernlights.solutions"
+                href="mailto:hallo@gewoonanders.nu"
               >
-                info@northernlights.solutions
+                hallo@gewoonanders.nu
               </a>
               .
             </p>
@@ -214,9 +214,9 @@ function PrivacyPage() {
               Stuur je verzoek naar{" "}
               <a
                 className="text-primary link-underline"
-                href="mailto:info@northernlights.solutions"
+                href="mailto:hallo@gewoonanders.nu"
               >
-                info@northernlights.solutions
+                hallo@gewoonanders.nu
               </a>
               . Ik reageer binnen een maand. Ben je het niet eens met hoe ik je verzoek
               afhandel, dan kun je een klacht indienen bij de bevoegde

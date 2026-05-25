@@ -30,7 +30,7 @@ const items: NavItem[] = [
   { to: "/traject", label: "Het traject" },
   { to: "/werkwijze", label: "Werkwijze" },
   { to: "/verhalen", label: "Verhalen" },
-  { to: "/downloads", label: "Downloads" },
+  { to: "/downloads", label: "Gratis" },
   { to: "/informatie", label: "Informatie" },
 ];
 
