@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowLeft, ArrowUpRight, Check, RotateCcw } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Check, Download, Lock, RotateCcw } from "lucide-react";
+
+const UNLOCK_KEY = "unlock:masking-check";
 import {
   interpretTotal,
   maskingAnswerOptions,
