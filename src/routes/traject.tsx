@@ -38,44 +38,6 @@ const sessions = [
   { n: 8, t: "Je eigen plan", d: "Je rondt je persoonlijke plan af: hoe je verder bouwt na het traject." },
 ];
 
-type Price = {
-  t: string;
-  d: string;
-  p: string;
-  cta?: { label: string; href: string; internal?: boolean };
-};
-
-const prices: Price[] = [
-  {
-    t: "Gratis kennismaking",
-    d: "Een vrijblijvend gesprek van dertig minuten op het kanaal dat jij kiest.",
-    p: "Gratis",
-    cta: { label: "Plan kennismaking", href: "/contact", internal: true },
-  },
-  {
-    t: "Gewoon Anders Ondernemen, het volledige traject",
-    d: "Acht sessies over ongeveer vier maanden, met vrije kanaalkeuze en werkmateriaal.",
-    p: "1.450 euro",
-    cta: { label: "Boek nu", href: CHECKOUT_VOLLEDIG },
-  },
-  {
-    t: "Gespreid betalen",
-    d: "Hetzelfde traject, verspreid over vier maandelijkse termijnen. Kies je betaaloptie in de checkout.",
-    p: "Vier keer 395 euro",
-    cta: { label: "Boek nu", href: CHECKOUT_VOLLEDIG },
-  },
-  {
-    t: "Gewoon Anders Ondernemen Kort",
-    d: "Een verkorte variant van vier sessies, voor een afgebakende vraag.",
-    p: "795 euro",
-    cta: { label: "Boek nu", href: CHECKOUT_KORT },
-  },
-  {
-    t: "Losse vervolgsessie",
-    d: "Voor wie na het traject af en toe wil bijsturen. Beschikbaar voor oud-deelnemers.",
-    p: "175 euro per sessie",
-  },
-];
 
 function TrajectPage() {
   return (
@@ -260,54 +222,13 @@ function TrajectPage() {
             </article>
           </FadeIn>
         </div>
-      </section>
 
-      {/* Prijzen */}
-      <section className="mx-auto max-w-5xl px-6 pb-20 lg:px-10 lg:pb-24">
         <FadeIn>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground">
-            Wat het kost.
-          </h2>
-        </FadeIn>
-        <ul className="mt-10 space-y-4">
-          {prices.map((pr, i) => (
-            <FadeIn key={pr.t} as="li" delay={i * 50}>
-              <article className="grid gap-4 rounded-xl border border-border bg-card p-6 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-6 sm:p-7">
-                <div className="min-w-0">
-                  <h3 className="text-lg font-semibold text-foreground">{pr.t}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-foreground/75">
-                    {pr.d}
-                  </p>
-                </div>
-                <div className="flex flex-wrap items-center gap-4 sm:flex-col sm:items-end sm:gap-3">
-                  <p className="text-lg font-semibold text-primary">{pr.p}</p>
-                  {pr.cta && (
-                    pr.cta.internal ? (
-                      <Link
-                        to={pr.cta.href}
-                        className="inline-flex items-center gap-2 rounded-lg border border-foreground/15 bg-background px-4 py-2 text-[14px] font-medium text-foreground hover:bg-secondary"
-                      >
-                        {pr.cta.label}
-                      </Link>
-                    ) : (
-                      <a
-                        href={pr.cta.href}
-                        className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-[14px] font-medium text-primary-foreground hover:bg-primary/90"
-                      >
-                        {pr.cta.label}
-                        <ArrowUpRight size={14} strokeWidth={1.8} aria-hidden />
-                      </a>
-                    )
-                  )}
-                </div>
-              </article>
-            </FadeIn>
-          ))}
-        </ul>
-        <FadeIn>
-          <p className="mt-8 text-[15px] leading-relaxed text-foreground/75">
-            Alle bedragen zijn inclusief btw. Voor ondernemers is zakelijke coaching
-            meestal aftrekbaar als bedrijfskosten. Vraag dit na bij je boekhouder.
+          <p className="mt-12 max-w-3xl text-[15px] leading-relaxed text-foreground/70">
+            Na het traject kun je losse vervolgsessies bijboeken voor 175 euro
+            inclusief btw per sessie. Alle bedragen op deze pagina zijn inclusief
+            btw. Voor ondernemers is zakelijke coaching meestal aftrekbaar als
+            bedrijfskosten. Vraag dit na bij je boekhouder.
           </p>
         </FadeIn>
       </section>
