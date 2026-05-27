@@ -198,7 +198,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "Gewoon Anders",
           alternateName: "Gewoon Anders Business Coaching",
           description:
-            "Business coaching voor ondernemers met een ADHD-, autisme- of AuDHD-brein. Een op een, op het kanaal waarop jij het beste denkt.",
+            "Business coaching voor ondernemers met een ADHD-, autisme- of AuDHD-brein. Een op een, op het kanaal waarop jij het meest jezelf bent.",
           url: SITE_URL,
           logo: `${SITE_URL}/logo.png`,
           image: OG_IMAGE,

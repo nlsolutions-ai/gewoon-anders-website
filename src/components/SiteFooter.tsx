@@ -44,7 +44,7 @@ export function SiteFooter() {
             </Link>
             <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-foreground/70">
               Business coaching voor ondernemers met een ADHD-, autisme- of AuDHD-brein.
-              Een op een, op het kanaal waarop jij het beste denkt.
+              Een op een, op het kanaal waarop jij het meest jezelf bent.
             </p>
             <div className="mt-6 max-w-sm text-[13px] leading-relaxed text-foreground/60">
               <p>Ondernemingsnummer 1037.471.022 · BTW BE1037471022</p>

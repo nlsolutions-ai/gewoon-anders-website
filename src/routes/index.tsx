@@ -79,7 +79,7 @@ function HomePage() {
             <Reveal delay={160}>
               <p className="mt-7 max-w-xl text-[18px] leading-relaxed text-foreground/75 lg:text-[19px]">
                 Business coaching voor ondernemers met een ADHD-, autisme- of
-                AuDHD-brein. Een op een, op het kanaal waarop jij het beste denkt.
+                AuDHD-brein. Een op een, op het kanaal waarop jij het meest jezelf bent.
                 Of dat nu bellen, videobellen, chatten of mailen is.
               </p>
             </Reveal>
