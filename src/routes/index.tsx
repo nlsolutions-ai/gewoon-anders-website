@@ -1,7 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, ArrowUpRight } from "lucide-react";
+import { useRef } from "react";
+import { Check, ArrowUpRight, Video, Mail, MessageSquare, Phone } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import jurgenBank from "@/assets/jurgen-portret-bank.png";
 import jurgenMariska from "@/assets/jurgen-mariska.jpg";
+import jurgenBospad from "@/assets/jurgen-bospad.png";
+import mockupVolledig from "@/assets/mockup-volledig.png";
+import mockupKort from "@/assets/mockup-kort.png";
 import { Reveal } from "@/components/Reveal";
 import { ChannelCards } from "@/components/ChannelCards";
 import { BezelFrame } from "@/components/BezelCard";
@@ -11,9 +16,11 @@ import {
   StaggerGroup,
   StaggerItem,
   Magnetic,
-  TiltCard,
   Marquee,
-  Parallax,
+  Collage,
+  HoverExpandCard,
+  RevealImage,
+  useReducedMotionSafe,
 } from "@/components/motion";
 
 export const Route = createFileRoute("/")({
@@ -65,19 +72,40 @@ const reassure = [
 const maskingCards = [
   {
     k: "In klantgesprekken",
-    p: "Je past je toon en snelheid aan op de ander. Soms zo precies dat je de jouwe even kwijt bent.",
+    title: "Je toon schuift mee met de ander.",
+    detail:
+      "Je past je toon en snelheid aan op de ander. Soms zo precies dat je de jouwe even kwijt bent.",
   },
   {
     k: "Bij prijsgesprekken",
-    p: "Je voelt de aarzeling bij de ander, en haalt liever je prijs naar beneden dan dat je dat ongemak laat staan.",
+    title: "Je prijs zakt om het ongemak weg te nemen.",
+    detail:
+      "Je voelt de aarzeling bij de ander, en haalt liever je prijs naar beneden dan dat je dat ongemak laat staan.",
   },
   {
     k: "Op netwerk-events",
-    p: "Je doet alsof je het leuk vindt, op pure wilskracht. Daarna ben je twee dagen onbruikbaar.",
+    title: "Je doet mee op pure wilskracht.",
+    detail:
+      "Je doet alsof je het leuk vindt, op pure wilskracht. Daarna ben je twee dagen onbruikbaar.",
   },
 ];
 
-/** Small magazine-style section header: index numeral + eyebrow kicker. */
+const collageTiles = [
+  { src: jurgenBank, alt: "Jurgen op de bank", gridX: 2, gridY: 6, w: 30, fromX: -65, fromY: 30, rot: -12, depth: 40, z: 3 },
+  { src: jurgenMariska, alt: "Jurgen en Mariska aan zee", gridX: 37, gridY: 2, w: 27, fromX: 5, fromY: -75, rot: 9, depth: -50, z: 4 },
+  { src: jurgenBospad, alt: "Jurgen op een bospad", gridX: 69, gridY: 9, w: 28, fromX: 72, fromY: 28, rot: 13, depth: 30, z: 2 },
+  { src: mockupVolledig, alt: "Gewoon Anders Ondernemen pakket", gridX: 28, gridY: 50, w: 31, fromX: -45, fromY: 85, rot: -9, depth: -30, z: 5 },
+  { src: mockupKort, alt: "Gewoon Anders Ondernemen Kort pakket", gridX: 65, gridY: 55, w: 27, fromX: 62, fromY: 78, rot: 11, depth: 45, z: 1 },
+];
+
+const channelChips = [
+  { icon: Video, label: "Videobellen", x: "-14%", y: "-8%", delay: 0.5, drift: -90 },
+  { icon: Phone, label: "Bellen", x: "-22%", y: "62%", delay: 0.62, drift: 70 },
+  { icon: MessageSquare, label: "Chatten", x: "82%", y: "10%", delay: 0.74, drift: -60 },
+  { icon: Mail, label: "Mailsessie", x: "78%", y: "70%", delay: 0.86, drift: 100 },
+];
+
+/** Magazine-style section header: index numeral + eyebrow kicker. */
 function SectionKicker({ index, label, light }: { index: string; label: string; light?: boolean }) {
   return (
     <div className="flex items-center gap-4">
@@ -87,82 +115,141 @@ function SectionKicker({ index, label, light }: { index: string; label: string; 
   );
 }
 
+/* ---------- Hero with scroll choreography ---------- */
+
+function Hero() {
+  const reduced = useReducedMotionSafe();
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  // Portrait drifts up + scales as you scroll past the hero.
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const portraitScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const portraitRotate = useTransform(scrollYProgress, [0, 1], [0.6, -1.2]);
+
+  return (
+    <section ref={ref} className="relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-20 -right-32 h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl float-gentle" />
+        <div className="absolute top-40 -left-24 h-[320px] w-[320px] rounded-full bg-highlight/40 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto grid max-w-[1240px] items-center gap-12 px-6 pb-20 pt-14 lg:grid-cols-12 lg:gap-12 lg:px-10 lg:pb-32 lg:pt-20">
+        <div className="lg:col-span-7 lg:pr-6 xl:pr-12">
+          <Reveal>
+            <span className="eyebrow">1-op-1 business coaching</span>
+          </Reveal>
+          <h1 className="display-xl mt-7 text-[2.8rem] leading-[0.98] sm:text-[3.6rem] lg:text-[4.8rem] xl:text-[5.4rem]">
+            <MaskReveal as="span" text="Onderneem met" className="block" onView={false} />
+            <MaskReveal as="span" text="je brein," className="block" onView={false} delay={0.08} />
+            <MaskReveal
+              as="span"
+              text="niet ertegen."
+              className="block italic text-primary"
+              onView={false}
+              delay={0.16}
+            />
+          </h1>
+          <Reveal delay={320}>
+            <p className="mt-8 max-w-xl text-[18px] leading-relaxed text-foreground/75 lg:text-[19px]">
+              Business coaching voor ondernemers met een ADHD-, autisme- of
+              AuDHD-brein. Een op een, op het kanaal waarop jij het beste denkt.
+              Of dat nu bellen, videobellen, chatten of mailen is.
+            </p>
+          </Reveal>
+          <Reveal delay={400}>
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <Magnetic>
+                <CTALink to="/over-mij" variant="secondary" size="lg">
+                  Lees mijn verhaal
+                </CTALink>
+              </Magnetic>
+              <CTALink to="/traject" variant="ghost" size="lg" showArrow={false}>
+                Bekijk het traject
+              </CTALink>
+            </div>
+          </Reveal>
+        </div>
+
+        <div className="lg:col-span-5">
+          <div className="relative">
+            <motion.div
+              style={reduced ? undefined : { y: portraitY, scale: portraitScale, rotate: portraitRotate }}
+            >
+              <Reveal variant="right" delay={160}>
+                <BezelFrame>
+                  <div className="overflow-hidden bezel-inner">
+                    <img
+                      src={jurgenBank}
+                      alt="Jurgen, oprichter van Gewoon Anders, zit ontspannen op een bank in een lichte huiselijke kamer."
+                      className="h-full w-full object-cover"
+                      loading="eager"
+                    />
+                  </div>
+                </BezelFrame>
+              </Reveal>
+            </motion.div>
+
+            {/* Floating channel chips that drift on scroll */}
+            {!reduced &&
+              channelChips.map((chip) => (
+                <FloatingChip key={chip.label} chip={chip} progress={scrollYProgress} />
+              ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Marquee band */}
+      <div className="relative border-y border-foreground/10 bg-background/60 py-5">
+        <Marquee
+          items={["Videobellen", "Bellen zonder beeld", "Live chatten", "Mailsessies"]}
+          duration={28}
+          className="font-display text-[1.4rem] italic text-foreground/70 sm:text-[1.7rem]"
+        />
+      </div>
+    </section>
+  );
+}
+
+function FloatingChip({
+  chip,
+  progress,
+}: {
+  chip: (typeof channelChips)[number];
+  progress: ReturnType<typeof useScroll>["scrollYProgress"];
+}) {
+  const y = useTransform(progress, [0, 1], [0, chip.drift]);
+  const opacity = useTransform(progress, [0, 0.6], [1, 0]);
+  const Icon = chip.icon;
+  return (
+    <motion.div
+      className="absolute z-10 hidden lg:block"
+      style={{ left: chip.x, top: chip.y, y, opacity, willChange: "transform, opacity" }}
+      initial={{ opacity: 0, scale: 0.6, y: 14 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ delay: chip.delay, type: "spring", stiffness: 240, damping: 18 }}
+    >
+      <div className="flex items-center gap-2 rounded-full border border-foreground/10 bg-card/90 px-4 py-2.5 shadow-ambient backdrop-blur-md">
+        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <Icon size={15} strokeWidth={1.8} aria-hidden />
+        </span>
+        <span className="text-[14px] font-medium text-foreground">{chip.label}</span>
+      </div>
+    </motion.div>
+  );
+}
+
 function HomePage() {
   return (
     <>
-      {/* 01 — Hero, editorial split */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-20 -right-32 h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl float-gentle" />
-          <div className="absolute top-40 -left-24 h-[320px] w-[320px] rounded-full bg-highlight/40 blur-3xl" />
-        </div>
+      {/* 01 — Hero */}
+      <Hero />
 
-        <div className="relative mx-auto grid max-w-[1240px] items-center gap-12 px-6 pb-20 pt-14 lg:grid-cols-12 lg:gap-12 lg:px-10 lg:pb-32 lg:pt-20">
-          <div className="lg:col-span-7 lg:pr-6 xl:pr-12">
-            <Reveal>
-              <span className="eyebrow">1-op-1 business coaching</span>
-            </Reveal>
-            <h1 className="display-xl mt-7 text-[2.8rem] leading-[0.98] sm:text-[3.6rem] lg:text-[4.8rem] xl:text-[5.4rem]">
-              <MaskReveal as="span" text="Onderneem met" className="block" onView={false} />
-              <MaskReveal as="span" text="je brein," className="block" onView={false} delay={0.08} />
-              <MaskReveal
-                as="span"
-                text="niet ertegen."
-                className="block italic text-primary"
-                onView={false}
-                delay={0.16}
-              />
-            </h1>
-            <Reveal delay={320}>
-              <p className="mt-8 max-w-xl text-[18px] leading-relaxed text-foreground/75 lg:text-[19px]">
-                Business coaching voor ondernemers met een ADHD-, autisme- of
-                AuDHD-brein. Een op een, op het kanaal waarop jij het beste denkt.
-                Of dat nu bellen, videobellen, chatten of mailen is.
-              </p>
-            </Reveal>
-            <Reveal delay={400}>
-              <div className="mt-10 flex flex-wrap items-center gap-3">
-                <Magnetic>
-                  <CTALink to="/over-mij" variant="secondary" size="lg">
-                    Lees mijn verhaal
-                  </CTALink>
-                </Magnetic>
-                <CTALink to="/traject" variant="ghost" size="lg" showArrow={false}>
-                  Bekijk het traject
-                </CTALink>
-              </div>
-            </Reveal>
-          </div>
-
-          <div className="lg:col-span-5">
-            <Reveal variant="right" delay={160}>
-              <Parallax offset={48}>
-                <TiltCard>
-                  <BezelFrame className="rotate-[0.6deg]">
-                    <div className="overflow-hidden bezel-inner">
-                      <img
-                        src={jurgenBank}
-                        alt="Jurgen, oprichter van Gewoon Anders, zit ontspannen op een bank in een lichte huiselijke kamer."
-                        className="h-full w-full object-cover"
-                        loading="eager"
-                      />
-                    </div>
-                  </BezelFrame>
-                </TiltCard>
-              </Parallax>
-            </Reveal>
-          </div>
-        </div>
-
-        {/* Marquee band */}
-        <div className="relative border-y border-foreground/10 bg-background/60 py-5">
-          <Marquee
-            items={["Videobellen", "Bellen zonder beeld", "Live chatten", "Mailsessies"]}
-            duration={28}
-            className="font-display text-[1.4rem] italic text-foreground/70 sm:text-[1.7rem]"
-          />
-        </div>
-      </section>
+      {/* Visual interlude — pinned converging collage (decoratief, geen nieuwe copy) */}
+      <Collage tiles={collageTiles} kicker="Gewoon Anders" />
 
       {/* 02 — Herkenning */}
       <section className="relative bg-secondary">
@@ -187,8 +274,8 @@ function HomePage() {
             <StaggerGroup as="ul" className="space-y-4 lg:col-span-7">
               {recognise.map((line, i) => (
                 <StaggerItem key={i} as="li">
-                  <div className="group relative flex gap-5 rounded-2xl bg-background/70 p-6 ring-1 ring-foreground/5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-background hover:shadow-ambient">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110">
+                  <div className="group relative flex gap-5 rounded-2xl bg-background/70 p-6 ring-1 ring-foreground/5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-background hover:shadow-ambient hover:ring-primary/20">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[-6deg]">
                       <Check size={18} strokeWidth={2} aria-hidden />
                     </span>
                     <p className="text-[17px] leading-relaxed text-foreground/85">{line}</p>
@@ -200,7 +287,7 @@ function HomePage() {
         </div>
       </section>
 
-      {/* 03 — Masking, the dark "ink" editorial section */}
+      {/* 03 — Masking, dark ink section with hover-expand cards */}
       <section className="noise relative overflow-hidden bg-ink text-ink-foreground">
         <div className="pointer-events-none absolute -right-32 top-1/2 h-[480px] w-[480px] -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
         <div className="relative mx-auto grid max-w-[1240px] gap-14 px-6 py-28 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-36">
@@ -250,19 +337,22 @@ function HomePage() {
             <StaggerGroup className="space-y-4">
               {maskingCards.map((card, i) => (
                 <StaggerItem key={card.k}>
-                  <div
-                    className={`rounded-3xl border border-background/12 bg-background/[0.06] p-7 backdrop-blur-sm transition-all duration-500 hover:-translate-y-0.5 hover:bg-background/[0.1] ${i === 1 ? "lg:ml-10" : ""}`}
-                  >
-                    <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
-                      {card.k}
-                    </p>
-                    <p className="mt-3 text-[17px] leading-relaxed text-background/85">
-                      {card.p}
-                    </p>
+                  <div className={i === 1 ? "lg:ml-10" : ""}>
+                    <HoverExpandCard
+                      kicker={card.k}
+                      title={card.title}
+                      detail={card.detail}
+                      className="!bg-background/[0.06] !border-background/12 backdrop-blur-sm [&_p]:!text-background/85 [&_p:first-of-type]:!text-primary"
+                    />
                   </div>
                 </StaggerItem>
               ))}
             </StaggerGroup>
+            <Reveal delay={200}>
+              <p className="mt-4 text-center text-[13px] text-background/45">
+                Beweeg over een kaart om meer te zien
+              </p>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -271,19 +361,12 @@ function HomePage() {
       <section className="relative bg-secondary">
         <div className="mx-auto grid max-w-[1240px] items-center gap-14 px-6 py-24 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-32">
           <div className="lg:col-span-5">
-            <Reveal>
-              <Parallax offset={40}>
-                <TiltCard max={6}>
-                  <BezelFrame>
-                    <img
-                      src={jurgenMariska}
-                      alt="Jurgen en zijn vrouw Mariska samen bij zonsondergang aan zee."
-                      className="h-full w-full object-cover"
-                    />
-                  </BezelFrame>
-                </TiltCard>
-              </Parallax>
-            </Reveal>
+            <RevealImage
+              src={jurgenMariska}
+              alt="Jurgen en zijn vrouw Mariska samen bij zonsondergang aan zee."
+              from="left"
+              className="bezel-inner aspect-[4/5] rounded-2xl shadow-ambient-lg ring-1 ring-foreground/10"
+            />
           </div>
           <div className="lg:col-span-7">
             <Reveal>
@@ -409,15 +492,14 @@ function HomePage() {
           <StaggerGroup as="ul" className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {reassure.map((r, i) => (
               <StaggerItem key={r.h} as="li">
-                <TiltCard max={5}>
-                  <article className="group relative h-full rounded-3xl border border-foreground/8 bg-card p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-ambient-lg">
-                    <span className="section-index absolute right-7 top-7">0{i + 1}</span>
-                    <h3 className="text-lg font-semibold text-foreground">{r.h}</h3>
-                    <p className="mt-3 text-[15px] leading-relaxed text-foreground/70">
-                      {r.p}
-                    </p>
-                  </article>
-                </TiltCard>
+                <article className="group relative h-full overflow-hidden rounded-3xl border border-foreground/8 bg-card p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-ambient-lg hover:border-primary/20">
+                  <span className="section-index absolute right-7 top-7">0{i + 1}</span>
+                  <span className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
+                  <h3 className="text-lg font-semibold text-foreground">{r.h}</h3>
+                  <p className="mt-3 text-[15px] leading-relaxed text-foreground/70">
+                    {r.p}
+                  </p>
+                </article>
               </StaggerItem>
             ))}
           </StaggerGroup>
