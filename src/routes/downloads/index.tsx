@@ -1,10 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Check } from "lucide-react";
+import { type ReactNode } from "react";
+import { createFileRoute } from "@tanstack/react-router";
+import { Check } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
 import { SectionKicker } from "@/components/SectionKicker";
-import { CTALink, CTAAnchor } from "@/components/CTAButton";
-import { MaskReveal, Magnetic, RevealImage } from "@/components/motion";
+import { CTALink } from "@/components/CTAButton";
+import { MaskReveal, Magnetic } from "@/components/motion";
 
 export const Route = createFileRoute("/downloads/")({
   head: () => ({
@@ -34,64 +35,76 @@ type ScanPreview = {
   active: number;
 };
 
-function ScanCard({ preview, tone }: { preview: ScanPreview; tone: "primary" | "highlight" }) {
+/** Polaroid frame: white border, thicker bottom strip with a caption, a playful
+ *  tilt that straightens on hover. Wraps the scan photos and the PDF covers so
+ *  each preview reads clearly as a "snapshot" separate from the page text. */
+function Polaroid({
+  children,
+  caption,
+  rotate,
+}: {
+  children: ReactNode;
+  caption: string;
+  rotate: string;
+}) {
   return (
-    <div className="relative">
-      <div
-        className={`pointer-events-none absolute -inset-4 -z-10 rounded-[2rem] blur-2xl ${
-          tone === "primary" ? "bg-primary/10" : "bg-highlight/50"
-        }`}
-      />
-      <div className="overflow-hidden rounded-[1.6rem] border border-foreground/10 bg-card shadow-ambient-lg">
-        {/* faux browser bar */}
-        <div className="flex items-center gap-1.5 border-b border-foreground/8 bg-foreground/[0.02] px-4 py-3">
-          <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
-          <span className="ml-3 h-4 flex-1 rounded-full bg-foreground/[0.04]" />
-        </div>
-        <div className="px-6 py-7 sm:px-8 sm:py-8">
-          <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-[0.14em] text-foreground/50">
-            <span>{preview.meterLabel}</span>
-            <span>{preview.pillar}</span>
-          </div>
-          <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-foreground/8">
-            <div className="h-full rounded-full bg-primary" style={{ width: `${preview.progress}%` }} />
-          </div>
-          <p className="display-lg mt-6 text-[1.5rem] leading-tight sm:text-[1.7rem]">
-            {preview.question}
-          </p>
-          <ul className="mt-6 space-y-2.5">
-            {preview.options.map((opt, i) => {
-              const active = i === preview.active;
-              return (
-                <li
-                  key={opt}
-                  className={`flex items-center justify-between rounded-2xl border px-5 py-3.5 text-[15px] ${
+    <div
+      className={`mx-auto w-full max-w-sm bg-white p-3 shadow-[0_28px_60px_-18px_rgba(20,24,28,0.4)] ring-1 ring-foreground/5 transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] hover:rotate-0 ${rotate}`}
+    >
+      <div className="overflow-hidden rounded-[2px] bg-card">{children}</div>
+      <p
+        className="px-2 pb-2 pt-4 text-center text-[15px] italic text-foreground/60"
+        style={{ fontFamily: "var(--font-display)" }}
+      >
+        {caption}
+      </p>
+    </div>
+  );
+}
+
+/** The scan "photo": progress bar, question and answer chips (one highlighted). */
+function ScanPhoto({ preview }: { preview: ScanPreview }) {
+  return (
+    <div className="px-5 py-6 sm:px-6">
+      <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-[0.14em] text-foreground/50">
+        <span>{preview.meterLabel}</span>
+        <span>{preview.pillar}</span>
+      </div>
+      <div className="mt-2.5 h-1 w-full overflow-hidden rounded-full bg-foreground/8">
+        <div className="h-full rounded-full bg-primary" style={{ width: `${preview.progress}%` }} />
+      </div>
+      <p className="display-lg mt-5 text-[1.35rem] leading-tight sm:text-[1.55rem]">
+        {preview.question}
+      </p>
+      <ul className="mt-5 space-y-2.5">
+        {preview.options.map((opt, i) => {
+          const active = i === preview.active;
+          return (
+            <li
+              key={opt}
+              className={`flex items-center justify-between rounded-xl border px-4 py-3 text-[14px] ${
+                active
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-foreground/10 bg-background text-foreground"
+              }`}
+            >
+              <span className="flex items-center gap-3">
+                <span
+                  className={`flex h-6 w-6 items-center justify-center rounded-md font-mono text-[11px] ${
                     active
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-foreground/10 bg-card text-foreground"
+                      ? "bg-primary-foreground/15 text-primary-foreground"
+                      : "border border-foreground/10 bg-foreground/5 text-foreground/55"
                   }`}
                 >
-                  <span className="flex items-center gap-3">
-                    <span
-                      className={`flex h-6 w-6 items-center justify-center rounded-md font-mono text-[11px] ${
-                        active
-                          ? "bg-primary-foreground/15 text-primary-foreground"
-                          : "border border-foreground/10 bg-foreground/5 text-foreground/55"
-                      }`}
-                    >
-                      {i + 1}
-                    </span>
-                    <span className="font-medium">{opt}</span>
-                  </span>
-                  {active && <Check size={18} strokeWidth={2.2} aria-hidden />}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
+                  {i + 1}
+                </span>
+                <span className="font-medium">{opt}</span>
+              </span>
+              {active && <Check size={16} strokeWidth={2.2} aria-hidden />}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
@@ -225,7 +238,9 @@ function DownloadsPage() {
                 variant={i % 2 === 0 ? "left" : "right"}
                 className={i % 2 === 0 ? "" : "lg:order-2"}
               >
-                <ScanCard preview={s.preview} tone={s.tone} />
+                <Polaroid caption={s.title} rotate={i % 2 === 0 ? "rotate-[-2.5deg]" : "rotate-[2.5deg]"}>
+                  <ScanPhoto preview={s.preview} />
+                </Polaroid>
               </Reveal>
               <div className={i % 2 === 0 ? "" : "lg:order-1"}>
                 <Reveal>
@@ -271,17 +286,19 @@ function DownloadsPage() {
         <div className="mt-14 space-y-20 lg:space-y-28">
           {sheets.map((s, i) => (
             <div key={s.slug} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-              <div className={i % 2 === 0 ? "" : "lg:order-2"}>
-                <div className="relative mx-auto max-w-sm">
-                  <div className="pointer-events-none absolute -inset-5 -z-10 rounded-[2rem] bg-highlight/40 blur-2xl" />
-                  <RevealImage
+              <Reveal
+                variant={i % 2 === 0 ? "left" : "right"}
+                className={i % 2 === 0 ? "" : "lg:order-2"}
+              >
+                <Polaroid caption={s.title} rotate={i % 2 === 0 ? "rotate-[2deg]" : "rotate-[-2deg]"}>
+                  <img
                     src={s.image}
                     alt={`Voorpagina van ${s.title}`}
-                    from={i % 2 === 0 ? "left" : "right"}
-                    className="rotate-[-1.4deg] rounded-2xl shadow-ambient-lg ring-1 ring-foreground/10"
+                    loading="lazy"
+                    className="block w-full"
                   />
-                </div>
-              </div>
+                </Polaroid>
+              </Reveal>
               <div className={i % 2 === 0 ? "" : "lg:order-1"}>
                 <Reveal>
                   <span className="eyebrow">Gratis werkblad</span>
