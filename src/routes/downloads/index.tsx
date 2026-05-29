@@ -1,7 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
+import { SectionKicker } from "@/components/SectionKicker";
+import { CTALink, CTAAnchor } from "@/components/CTAButton";
+import { MaskReveal, Magnetic, RevealImage } from "@/components/motion";
 
 export const Route = createFileRoute("/downloads/")({
   head: () => ({
@@ -10,7 +13,7 @@ export const Route = createFileRoute("/downloads/")({
       {
         name: "description",
         content:
-          "Vier korte, bruikbare werkbladen voor ondernemers met ADHD, autisme of AuDHD. Energie, prijzen, masking en een weekoverzicht voor je brein.",
+          "Twee gratis scans en twee werkbladen voor ondernemers met ADHD, autisme of AuDHD. Energie, masking, prijzen en een weekoverzicht voor je brein.",
       },
       { property: "og:title", content: "Gratis downloads voor neurodivergente ondernemers" },
       { property: "og:url", content: "/downloads" },
@@ -20,48 +23,141 @@ export const Route = createFileRoute("/downloads/")({
   component: DownloadsPage,
 });
 
-type Download = {
-  slug: string;
+/* ---------- Scan preview (styled device card, not a screenshot) ---------- */
+
+type ScanPreview = {
+  meterLabel: string;
+  pillar: string;
+  progress: number; // 0–100
+  question: string;
+  options: string[];
+  active: number;
+};
+
+function ScanCard({ preview, tone }: { preview: ScanPreview; tone: "primary" | "highlight" }) {
+  return (
+    <div className="relative">
+      <div
+        className={`pointer-events-none absolute -inset-4 -z-10 rounded-[2rem] blur-2xl ${
+          tone === "primary" ? "bg-primary/10" : "bg-highlight/50"
+        }`}
+      />
+      <div className="overflow-hidden rounded-[1.6rem] border border-foreground/10 bg-card shadow-ambient-lg">
+        {/* faux browser bar */}
+        <div className="flex items-center gap-1.5 border-b border-foreground/8 bg-foreground/[0.02] px-4 py-3">
+          <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-foreground/15" />
+          <span className="ml-3 h-4 flex-1 rounded-full bg-foreground/[0.04]" />
+        </div>
+        <div className="px-6 py-7 sm:px-8 sm:py-8">
+          <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-[0.14em] text-foreground/50">
+            <span>{preview.meterLabel}</span>
+            <span>{preview.pillar}</span>
+          </div>
+          <div className="mt-3 h-1 w-full overflow-hidden rounded-full bg-foreground/8">
+            <div className="h-full rounded-full bg-primary" style={{ width: `${preview.progress}%` }} />
+          </div>
+          <p className="display-lg mt-6 text-[1.5rem] leading-tight sm:text-[1.7rem]">
+            {preview.question}
+          </p>
+          <ul className="mt-6 space-y-2.5">
+            {preview.options.map((opt, i) => {
+              const active = i === preview.active;
+              return (
+                <li
+                  key={opt}
+                  className={`flex items-center justify-between rounded-2xl border px-5 py-3.5 text-[15px] ${
+                    active
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-foreground/10 bg-card text-foreground"
+                  }`}
+                >
+                  <span className="flex items-center gap-3">
+                    <span
+                      className={`flex h-6 w-6 items-center justify-center rounded-md font-mono text-[11px] ${
+                        active
+                          ? "bg-primary-foreground/15 text-primary-foreground"
+                          : "border border-foreground/10 bg-foreground/5 text-foreground/55"
+                      }`}
+                    >
+                      {i + 1}
+                    </span>
+                    <span className="font-medium">{opt}</span>
+                  </span>
+                  {active && <Check size={18} strokeWidth={2.2} aria-hidden />}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ---------- Data ---------- */
+
+type Scan = {
   title: string;
   short: string;
   nut: string;
   bestFor: string;
-  number: string;
-  size: "wide" | "tall" | "regular";
-  accent: "primary" | "highlight" | "secondary";
-  /** Optional override: link to a custom route instead of /downloads/[slug] */
-  to?: string;
-  /** Optional override: alternative CTA label */
-  ctaLabel?: string;
+  to: string;
+  cta: string;
+  tone: "primary" | "highlight";
+  preview: ScanPreview;
 };
 
-const downloads: Download[] = [
+const scans: Scan[] = [
   {
-    slug: "energiescan",
     title: "De Ondernemers-energiescan",
     short:
       "In tien minuten weet je waar in je bedrijf de energie weglekt en waar je kracht zit. Achttien stellingen, vijf gebieden, een rustige uitslag.",
     nut: "Direct online te doen. Geen e-mail nodig. Uitslag per gebied in gewone taal.",
     bestFor: "Wie voelt dat er iets niet klopt en wil zien waar precies.",
-    number: "01",
-    size: "wide",
-    accent: "primary",
     to: "/energiescan",
-    ctaLabel: "Doe de scan",
+    cta: "Doe de scan",
+    tone: "primary",
+    preview: {
+      meterLabel: "Stelling 3 van 18",
+      pillar: "Energie",
+      progress: 28,
+      question: "Ik weet wat ik moet doen, maar beginnen lukt vaak niet.",
+      options: ["Klopt niet", "Klopt soms", "Klopt vaak", "Klopt helemaal"],
+      active: 2,
+    },
   },
   {
-    slug: "masking-check",
     title: "De Masking-check",
     short:
       "Twaalf herkenbare situaties uit het ondernemen. Per situatie kies je hoe vaak je je hierin herkent. Aan het eind zie je waar het je het meest kost.",
     nut: "Direct online te doen. Geen e-mail nodig. Top 3 zwaarste posten in beeld.",
     bestFor: "Wie vermoedt dat veel kleine dingen samen te veel kosten.",
-    number: "02",
-    size: "tall",
-    accent: "highlight",
     to: "/masking-check",
-    ctaLabel: "Doe de check",
+    cta: "Doe de check",
+    tone: "highlight",
+    preview: {
+      meterLabel: "Situatie 5 van 12",
+      pillar: "Klantgesprek",
+      progress: 42,
+      question: "Ik pas mijn toon aan zodat het gesprek soepel loopt.",
+      options: ["Nooit", "Soms", "Vaak", "Bijna altijd"],
+      active: 2,
+    },
   },
+];
+
+type Sheet = {
+  slug: string;
+  title: string;
+  short: string;
+  nut: string;
+  bestFor: string;
+  image: string;
+};
+
+const sheets: Sheet[] = [
   {
     slug: "prijzen-spiekbriefje",
     title: "Het Prijzen-spiekbriefje",
@@ -69,9 +165,7 @@ const downloads: Download[] = [
       "Vijf concrete zinnen om je prijs te noemen, te verdedigen en nee te zeggen, zonder dat je het op het moment moet bedenken.",
     nut: "Sluit een prijsgesprek af zonder dat je achteraf het gevoel hebt te laag te zijn ingestoken.",
     bestFor: "Wie prijsgesprekken zwaar vindt.",
-    number: "03",
-    size: "regular",
-    accent: "secondary",
+    image: "/previews/prijzen-spiekbriefje.png",
   },
   {
     slug: "mijn-week-mijn-brein",
@@ -80,158 +174,186 @@ const downloads: Download[] = [
       "Een printbaar weekoverzicht waarmee je een week lang je energie, focus en overprikkeling in kaart brengt.",
     nut: "Je ziet zelf waar de pieken en dalen liggen. Daarna kun je daar iets mee.",
     bestFor: "Wie wel doorheeft dat het schuurt, maar niet weet wanneer precies.",
-    number: "04",
-    size: "regular",
-    accent: "secondary",
+    image: "/previews/mijn-week-mijn-brein.png",
   },
 ];
+
+/* ---------- Shared detail rows ---------- */
+
+function MetaRows({ nut, bestFor }: { nut: string; bestFor: string }) {
+  return (
+    <dl className="mt-6 space-y-3 border-t border-foreground/10 pt-5 text-[14px] leading-relaxed">
+      <div>
+        <dt className="font-semibold text-foreground/80">Wat het je geeft</dt>
+        <dd className="mt-1 text-foreground/65">{nut}</dd>
+      </div>
+      <div>
+        <dt className="font-semibold text-foreground/80">Voor wie</dt>
+        <dd className="mt-1 text-foreground/65">{bestFor}</dd>
+      </div>
+    </dl>
+  );
+}
 
 function DownloadsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Gratis werkbladen"
+        eyebrow="Gratis"
         title="Klein en concreet. Voor deze week."
-        intro="Vier korte werkbladen voor ondernemers met een ADHD-, autisme- of AuDHD-brein. Geen invuldreun, geen lange theorie. Iets waarmee je deze week aan de slag kunt. Gratis, in ruil voor je e-mailadres."
+        intro="Twee scans die je meteen online doet en twee werkbladen om te downloaden. Geen invuldreun, geen lange theorie. Iets waarmee je deze week aan de slag kunt."
       />
 
-      <section className="mx-auto max-w-[1240px] px-6 pb-16 lg:px-10">
-        <div className="grid auto-rows-[minmax(0,1fr)] gap-5 sm:grid-cols-6 lg:gap-6">
-          {downloads.map((d, i) => (
-            <Reveal
-              key={d.slug}
-              delay={i * 80}
-              className={
-                d.size === "wide"
-                  ? "sm:col-span-6 lg:col-span-4"
-                  : d.size === "tall"
-                    ? "sm:col-span-3 lg:col-span-2"
-                    : "sm:col-span-3"
-              }
+      {/* Scans */}
+      <section className="mx-auto max-w-[1240px] px-6 pb-8 lg:px-10">
+        <Reveal>
+          <SectionKicker index="01" label="Doe een scan · direct online" />
+        </Reveal>
+        <MaskReveal
+          as="h2"
+          text="In een paar minuten zie je waar het zit."
+          className="display-lg mt-5 max-w-2xl text-[1.9rem] text-foreground sm:text-[2.3rem]"
+        />
+
+        <div className="mt-14 space-y-20 lg:space-y-28">
+          {scans.map((s, i) => (
+            <div
+              key={s.to}
+              className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
             >
-              <DownloadCard d={d} />
-            </Reveal>
+              <Reveal
+                variant={i % 2 === 0 ? "left" : "right"}
+                className={i % 2 === 0 ? "" : "lg:order-2"}
+              >
+                <ScanCard preview={s.preview} tone={s.tone} />
+              </Reveal>
+              <div className={i % 2 === 0 ? "" : "lg:order-1"}>
+                <Reveal>
+                  <span className="eyebrow">Gratis scan</span>
+                </Reveal>
+                <MaskReveal
+                  as="h3"
+                  text={s.title}
+                  className="display-lg mt-4 text-[1.7rem] text-foreground sm:text-[2rem]"
+                />
+                <Reveal delay={120}>
+                  <p className="mt-4 text-[17px] leading-relaxed text-foreground/75">{s.short}</p>
+                </Reveal>
+                <Reveal delay={180}>
+                  <MetaRows nut={s.nut} bestFor={s.bestFor} />
+                </Reveal>
+                <Reveal delay={240}>
+                  <div className="mt-7">
+                    <Magnetic>
+                      <CTALink to={s.to} variant="primary" size="lg">
+                        {s.cta}
+                      </CTALink>
+                    </Magnetic>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1240px] px-6 pb-24 lg:px-10">
-        <div className="grid gap-5 lg:grid-cols-5 lg:gap-6">
-          <Reveal className="lg:col-span-3">
-            <div className="flex h-full flex-col rounded-3xl bg-foreground p-8 text-background lg:p-10">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-background/60">
-                Liever direct sparring
-              </p>
-              <h2 className="display-lg mt-3 text-[1.8rem] sm:text-[2rem]">
-                Plan vrijblijvend een kennismaking.
-              </h2>
-              <p className="mt-4 text-[16px] leading-relaxed text-background/80">
-                Een werkblad is fijn om zelf na te denken. Soms helpt het meer om iemand
-                mee te laten kijken. Een kennismaking duurt een half uur, op het kanaal
-                dat jij kiest. Geen verkoopgesprek, geen verplichting. Je vertelt waar
-                je tegenaan loopt, ik vertel hoe ik werk, en jij beslist daarna zelf wat
-                je wil.
-              </p>
-              <div className="mt-auto pt-7">
-                <Link
-                  to="/contact"
-                  className="magnet group inline-flex items-center gap-3 rounded-full bg-background pl-6 pr-2 py-2 text-[15px] font-medium text-foreground"
-                >
-                  <span>Plan een kennismaking</span>
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-foreground/8 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[2px] group-hover:-translate-y-[1px]">
-                    <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
-                  </span>
-                </Link>
+      {/* Werkbladen */}
+      <section className="mx-auto max-w-[1240px] px-6 py-20 lg:px-10 lg:py-28">
+        <Reveal>
+          <SectionKicker index="02" label="Download een werkblad · pdf" />
+        </Reveal>
+        <MaskReveal
+          as="h2"
+          text="Iets op papier om mee te werken."
+          className="display-lg mt-5 max-w-2xl text-[1.9rem] text-foreground sm:text-[2.3rem]"
+        />
+
+        <div className="mt-14 space-y-20 lg:space-y-28">
+          {sheets.map((s, i) => (
+            <div key={s.slug} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+              <div className={i % 2 === 0 ? "" : "lg:order-2"}>
+                <div className="relative mx-auto max-w-sm">
+                  <div className="pointer-events-none absolute -inset-5 -z-10 rounded-[2rem] bg-highlight/40 blur-2xl" />
+                  <RevealImage
+                    src={s.image}
+                    alt={`Voorpagina van ${s.title}`}
+                    from={i % 2 === 0 ? "left" : "right"}
+                    className="rotate-[-1.4deg] rounded-2xl shadow-ambient-lg ring-1 ring-foreground/10"
+                  />
+                </div>
+              </div>
+              <div className={i % 2 === 0 ? "" : "lg:order-1"}>
+                <Reveal>
+                  <span className="eyebrow">Gratis werkblad</span>
+                </Reveal>
+                <MaskReveal
+                  as="h3"
+                  text={s.title}
+                  className="display-lg mt-4 text-[1.7rem] text-foreground sm:text-[2rem]"
+                />
+                <Reveal delay={120}>
+                  <p className="mt-4 text-[17px] leading-relaxed text-foreground/75">{s.short}</p>
+                </Reveal>
+                <Reveal delay={180}>
+                  <MetaRows nut={s.nut} bestFor={s.bestFor} />
+                </Reveal>
+                <Reveal delay={240}>
+                  <div className="mt-7">
+                    <Magnetic>
+                      <CTALink
+                        to="/downloads/$slug"
+                        params={{ slug: s.slug } as never}
+                        variant="primary"
+                        size="lg"
+                      >
+                        Bekijk en download
+                      </CTALink>
+                    </Magnetic>
+                  </div>
+                </Reveal>
               </div>
             </div>
-          </Reveal>
+          ))}
+        </div>
+      </section>
 
-          <Reveal className="lg:col-span-2" delay={80}>
-            <div className="flex h-full flex-col rounded-3xl border border-foreground/8 bg-highlight p-8 lg:p-10">
-              <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
-                Over je e-mailadres
-              </p>
-              <p className="mt-4 text-[15px] leading-relaxed text-foreground/80">
-                Je krijgt het werkblad in je inbox. Daarna hooguit een paar mails over hoe
-                ik werk. Niet meer. Uitschrijven met één klik. Ik verkoop niets door.
-              </p>
+      {/* Slot — ink CTA */}
+      <section className="noise relative overflow-hidden bg-ink text-ink-foreground">
+        <div className="pointer-events-none absolute -top-24 -right-24 h-[320px] w-[320px] rounded-full bg-primary/25 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-16 h-[280px] w-[280px] rounded-full bg-primary/15 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
+          <Reveal>
+            <span className="eyebrow !text-background/90">Liever direct sparren</span>
+          </Reveal>
+          <MaskReveal
+            as="h2"
+            text="Plan vrijblijvend een kennismaking."
+            className="display-lg mt-5 text-[2rem] text-background sm:text-[2.5rem]"
+          />
+          <Reveal delay={140}>
+            <p className="mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-background/80">
+              Een werkblad is fijn om zelf na te denken. Soms helpt het meer om iemand
+              mee te laten kijken. Een kennismaking duurt een half uur, op het kanaal dat
+              jij kiest. Geen verkoopgesprek, geen verplichting.
+            </p>
+          </Reveal>
+          <Reveal delay={220}>
+            <div className="mt-9 flex justify-center">
+              <Magnetic>
+                <CTALink to="/contact" variant="primary" size="lg">
+                  Plan een kennismaking
+                </CTALink>
+              </Magnetic>
             </div>
+          </Reveal>
+          <Reveal delay={280}>
+            <p className="mx-auto mt-8 max-w-md text-[13px] leading-relaxed text-background/55">
+              Werkbladen krijg je in je inbox. Daarna hooguit een paar mails over hoe ik
+              werk. Uitschrijven met één klik. Ik verkoop niets door.
+            </p>
           </Reveal>
         </div>
       </section>
     </>
-  );
-}
-
-function DownloadCard({ d }: { d: Download }) {
-  const bgClass =
-    d.accent === "primary"
-      ? "bg-foreground text-background"
-      : d.accent === "highlight"
-        ? "bg-highlight"
-        : "bg-card";
-  const eyebrowClass = d.accent === "primary" ? "text-background/60" : "text-primary";
-  const textClass = d.accent === "primary" ? "text-background/80" : "text-foreground/75";
-  const dividerClass = d.accent === "primary" ? "border-background/15" : "border-foreground/10";
-  const mutedTextClass = d.accent === "primary" ? "text-background/60" : "text-foreground/60";
-  const iconBg = d.accent === "primary" ? "bg-background/10" : "bg-foreground/5";
-
-  const linkProps = d.to
-    ? { to: d.to }
-    : { to: "/downloads/$slug" as const, params: { slug: d.slug } };
-
-  return (
-    <Link
-      {...(linkProps as any)}
-      className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border border-foreground/8 p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-ambient-lg ${bgClass}`}
-    >
-      {d.accent === "primary" && (
-        <>
-          <div className="pointer-events-none absolute -top-24 -right-24 h-[280px] w-[280px] rounded-full bg-primary/30 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-32 -left-12 h-[260px] w-[260px] rounded-full bg-primary/20 blur-3xl" />
-        </>
-      )}
-      <div className="relative flex items-start justify-between">
-        <span className={`text-[12px] font-semibold uppercase tracking-[0.18em] ${eyebrowClass}`}>
-          {d.to ? `Scan ${d.number}` : `Werkblad ${d.number}`}
-        </span>
-        <span
-          className={`flex h-9 w-9 items-center justify-center rounded-full ${iconBg} transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[2px] group-hover:-translate-y-[1px]`}
-        >
-          <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
-        </span>
-      </div>
-      <h2
-        className={`display-lg relative mt-6 text-2xl sm:text-[26px] lg:text-[28px] ${
-          d.accent === "primary" ? "text-background" : "text-foreground"
-        }`}
-      >
-        {d.title}
-      </h2>
-      <p className={`relative mt-4 text-[15px] leading-relaxed ${textClass}`}>{d.short}</p>
-      <div className={`relative mt-auto space-y-3 border-t pt-5 text-[13px] leading-relaxed ${dividerClass}`}>
-        <div>
-          <p className={`font-semibold ${d.accent === "primary" ? "text-background/85" : "text-foreground/80"}`}>
-            Wat het je geeft
-          </p>
-          <p className={`mt-1 ${mutedTextClass}`}>{d.nut}</p>
-        </div>
-        <div>
-          <p className={`font-semibold ${d.accent === "primary" ? "text-background/85" : "text-foreground/80"}`}>
-            Voor wie
-          </p>
-          <p className={`mt-1 ${mutedTextClass}`}>{d.bestFor}</p>
-        </div>
-        {d.ctaLabel && (
-          <p
-            className={`pt-1 text-[13px] font-semibold ${
-              d.accent === "primary" ? "text-background" : "text-primary"
-            }`}
-          >
-            {d.ctaLabel} →
-          </p>
-        )}
-      </div>
-    </Link>
   );
 }
