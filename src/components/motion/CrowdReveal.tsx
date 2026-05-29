@@ -144,8 +144,8 @@ export function CrowdReveal({ heading, headingAccent }: CrowdRevealProps) {
           {grid}
         </motion.div>
 
-        {/* Heading pops in along the bottom over a soft glow */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-[7%] flex justify-center px-6">
+        {/* Heading pops in centred over the whole field of portraits */}
+        <div className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center px-6">
           <CrowdHeading progress={scrollYProgress} heading={heading} headingAccent={headingAccent} />
         </div>
       </div>
@@ -163,8 +163,8 @@ function Marble({ cell, progress }: { cell: Cell; progress: MotionValue<number> 
       className="aspect-square"
     >
       <div
-        className={`h-full w-full overflow-hidden rounded-full ${cell.host ? "shadow-ambient" : ""}`}
-        style={{ border: `3px solid ${cell.border}` }}
+        className={`h-full w-full overflow-hidden rounded-full border-2 border-solid sm:border-[3px] ${cell.host ? "shadow-ambient" : ""}`}
+        style={{ borderColor: cell.border }}
       >
         <img
           src={cell.src}
@@ -195,10 +195,10 @@ function CrowdHeading({
   const y = useTransform(progress, [0.82, 0.92], [22, 0]);
   return (
     <motion.div style={{ opacity }} className="relative flex justify-center">
-      <div className="pointer-events-none absolute -inset-x-32 -inset-y-12 rounded-[50%] bg-[radial-gradient(ellipse_at_center,var(--color-background)_0%,color-mix(in_oklch,var(--color-background)_80%,transparent)_55%,transparent_78%)]" />
+      <div className="pointer-events-none absolute -inset-x-[55vw] -inset-y-[40vh] bg-[radial-gradient(ellipse_at_center,var(--color-background)_0%,color-mix(in_oklch,var(--color-background)_88%,transparent)_42%,color-mix(in_oklch,var(--color-background)_55%,transparent)_62%,transparent_80%)]" />
       <motion.h2
         style={{ scale, y }}
-        className="display-xl relative max-w-[20ch] text-center text-[2.2rem] leading-[1.0] sm:text-[3rem] lg:text-[3.8rem]"
+        className="display-xl relative max-w-[20ch] text-center text-[2.4rem] leading-[1.0] sm:text-[3.4rem] lg:text-[4.4rem]"
       >
         {heading}{" "}
         {headingAccent && <span className="italic text-primary">{headingAccent}</span>}
