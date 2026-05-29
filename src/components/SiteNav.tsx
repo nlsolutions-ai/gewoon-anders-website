@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ArrowUpRight } from "lucide-react";
+import { Magnetic } from "@/components/motion";
 
 type SubLink = { to: string; label: string; desc?: string };
 type NavItem =
@@ -184,15 +185,19 @@ export function SiteNav() {
           </ul>
 
           <div className="flex items-center gap-1.5">
-            <Link
-              to="/contact"
-              className="magnet group hidden items-center gap-2.5 rounded-full bg-primary pl-5 pr-1.5 py-1.5 text-[14px] font-medium text-primary-foreground transition-colors hover:bg-primary/95 lg:inline-flex"
-            >
-              <span>Plan kennismaking</span>
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground/15 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[2px] group-hover:-translate-y-[1px]">
-                <ArrowUpRight size={14} strokeWidth={2} aria-hidden />
-              </span>
-            </Link>
+            <div className="hidden lg:block">
+              <Magnetic>
+                <Link
+                  to="/contact"
+                  className="magnet group inline-flex items-center gap-2.5 rounded-full bg-primary pl-5 pr-1.5 py-1.5 text-[14px] font-medium text-primary-foreground transition-colors hover:bg-primary/95"
+                >
+                  <span>Plan kennismaking</span>
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-foreground/15 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[2px] group-hover:-translate-y-[1px]">
+                    <ArrowUpRight size={14} strokeWidth={2} aria-hidden />
+                  </span>
+                </Link>
+              </Magnetic>
+            </div>
 
             <button
               type="button"
