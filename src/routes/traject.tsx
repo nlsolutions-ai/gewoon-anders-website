@@ -5,6 +5,7 @@ import mockupKort from "@/assets/mockup-kort.png";
 import { FadeIn } from "@/components/FadeIn";
 import { ChannelCards } from "@/components/ChannelCards";
 import { PageHeader } from "@/components/PageHeader";
+import { MaskReveal } from "@/components/motion";
 
 const CHECKOUT_VOLLEDIG = "https://checkout.northernlights.solutions/checkout/gewoon-anders-ondernemen";
 const CHECKOUT_KORT = "https://checkout.northernlights.solutions/checkout/gewoon-anders-ondernemen-kort";
@@ -50,9 +51,7 @@ function TrajectPage() {
       {/* Sessies */}
       <section className="mx-auto max-w-4xl px-6 py-16 lg:px-10 lg:py-20">
         <FadeIn>
-          <h2 className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground">
-            Hoe het traject is opgebouwd.
-          </h2>
+          <MaskReveal as="h2" text="Hoe het traject is opgebouwd." className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground" />
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Acht sessies, verdeeld over zo'n vier maanden. Wat er per sessie gebeurt
             staat hieronder. Zo weet je waar je instapt.
@@ -81,9 +80,7 @@ function TrajectPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10 lg:py-24">
           <FadeIn>
-            <h2 className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground">
-              Je kiest per sessie hoe we contact hebben.
-            </h2>
+            <MaskReveal as="h2" text="Je kiest per sessie hoe we contact hebben." className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground" />
           </FadeIn>
           <div className="mt-10">
             <ChannelCards />
@@ -108,9 +105,7 @@ function TrajectPage() {
       {/* Twee varianten — visueel */}
       <section className="mx-auto max-w-5xl px-6 py-20 lg:px-10 lg:py-24">
         <FadeIn>
-          <h2 className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground">
-            Twee manieren om mee te doen.
-          </h2>
+          <MaskReveal as="h2" text="Twee manieren om mee te doen." className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground" />
           <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-foreground/80">
             Het volledige traject voor wie ruim wil bouwen, of de korte
             variant voor één afgebakende vraag. Wat je krijgt in beide
@@ -241,9 +236,7 @@ function TrajectPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <FadeIn>
-            <h2 className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground">
-              Klaar om te beginnen?
-            </h2>
+            <MaskReveal as="h2" text="Klaar om te beginnen?" className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground" />
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-foreground/80">
               Boek het traject direct als je weet dat dit bij je past. Of plan eerst
               een vrijblijvende kennismaking als je nog wil voelen of het klikt. Beide

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
+import { MaskReveal } from "@/components/motion";
 
 export const Route = createFileRoute("/themas/demand-avoidance")({
   head: () => ({
@@ -29,7 +30,7 @@ function DemandAvoidancePage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat het is</h2>
+          <MaskReveal as="h2" text="Wat het is" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Demand avoidance is een sterke, vaak onbewuste weerstand tegen dingen die als
             eis aanvoelen. Het is geen luiheid en geen onwil. Het is een brein dat op
@@ -48,7 +49,7 @@ function DemandAvoidancePage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Hoe het zich uit in je werk</h2>
+            <MaskReveal as="h2" text="Hoe het zich uit in je werk" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
             <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
               <li>Het werk dat je leuk vindt blijft liggen zodra je het op je takenlijst zet.</li>
               <li>Een aanbod dat klaar moet, herschrijf je in plaats van te versturen.</li>
@@ -62,7 +63,7 @@ function DemandAvoidancePage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wanneer het niet alleen demand avoidance is</h2>
+          <MaskReveal as="h2" text="Wanneer het niet alleen demand avoidance is" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Soms ligt er nog iets anders onder. Je hebt iets klaar. Een aanbod, een
             website, een lancering, een eerste video. Soms al weken of maanden. Je
@@ -97,7 +98,7 @@ function DemandAvoidancePage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waarom standaard advies dit erger maakt</h2>
+            <MaskReveal as="h2" text="Waarom standaard advies dit erger maakt" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               "Maak een planning en houd je eraan" werkt averechts. "Beloof het iemand,
               dan moet je wel" werkt soms een keer, en daarna nooit meer. "Tweak je
@@ -111,7 +112,7 @@ function DemandAvoidancePage() {
       <section className="bg-highlight">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat in trajecten vaak werkt</h2>
+            <MaskReveal as="h2" text="Wat in trajecten vaak werkt" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Geen recept. Wel een paar dingen die ik vaak met mensen uitprobeer.
             </p>

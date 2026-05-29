@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
+import { MaskReveal } from "@/components/motion";
 
 export const Route = createFileRoute("/themas/masking")({
   head: () => ({
@@ -33,7 +34,7 @@ function MaskingPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat masking is, in mijn woorden</h2>
+          <MaskReveal as="h2" text="Wat masking is, in mijn woorden" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Masking is het wegstoppen van wat je echt voelt of nodig hebt, en daarvoor in de
             plaats laten zien wat je denkt dat de ander wil zien. Voor een autistisch of
@@ -53,7 +54,7 @@ function MaskingPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Hoe het zich uit in je bedrijf</h2>
+            <MaskReveal as="h2" text="Hoe het zich uit in je bedrijf" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               In je werk merk je het vaak pas achteraf. Tijdens een klantgesprek loopt
               het soepel, je bent vriendelijk, je geeft antwoord, je krijgt de opdracht.
@@ -97,7 +98,7 @@ function MaskingPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat het je kost</h2>
+          <MaskReveal as="h2" text="Wat het je kost" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Mensen om je heen zien meestal niets. Dat is precies het probleem. Wie goed
             maskeert oogt rustig. Je krijgt vaak te horen dat je het zo goed doet. En
@@ -123,7 +124,7 @@ function MaskingPage() {
       <section className="bg-highlight">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Hoe ik dit van twee kanten ken</h2>
+            <MaskReveal as="h2" text="Hoe ik dit van twee kanten ken" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Ik ben zelf neurodivergent. Ik heb het ook gedaan, jaren. Voor een deel doe ik
               het nog. Je leert het niet zomaar af.
@@ -145,7 +146,7 @@ function MaskingPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat we hiermee doen in het traject</h2>
+          <MaskReveal as="h2" text="Wat we hiermee doen in het traject" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Stoppen met maskeren is geen schakelaar. Bij een paar dingen kan het wel, bij
             andere is dat onhandig of onveilig. In het traject Gewoon Anders Ondernemen kijken we
@@ -169,9 +170,7 @@ function MaskingPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
           <FadeIn>
-            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">
-              Herken je dit en wil je het eens rustig bespreken?
-            </h2>
+            <MaskReveal as="h2" text="Herken je dit en wil je het eens rustig bespreken?" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
             <p className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-foreground/80">
               Plan een gratis kennismaking van een half uur op het kanaal dat jij wil. Je
               hoeft niets voor te bereiden, ook geen verhaal. Je hoeft alleen te beginnen.

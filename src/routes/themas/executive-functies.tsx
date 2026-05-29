@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
+import { MaskReveal } from "@/components/motion";
 
 export const Route = createFileRoute("/themas/executive-functies")({
   head: () => ({
@@ -29,7 +30,7 @@ function ExecFunctiesPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat executive functies zijn</h2>
+          <MaskReveal as="h2" text="Wat executive functies zijn" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Executive functies is de verzamelnaam voor de denkstappen die het mogelijk
             maken een taak te beginnen, vol te houden, te switchen, en op tijd af te
@@ -51,7 +52,7 @@ function ExecFunctiesPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waarom standaard planning vaak niet werkt</h2>
+            <MaskReveal as="h2" text="Waarom standaard planning vaak niet werkt" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               De meeste planningsmethodes vragen om consistente uren, vaste blokken,
               herhaalbare ritmes. Dat past goed bij een brein dat in een rechte lijn werkt.
@@ -79,7 +80,7 @@ function ExecFunctiesPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat wel werkt</h2>
+          <MaskReveal as="h2" text="Wat wel werkt" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Geen recept. Wel een paar principes die in trajecten steeds terugkomen.
           </p>

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
+import { MaskReveal } from "@/components/motion";
 
 export const Route = createFileRoute("/voor-wie/audhd-ondernemers")({
   head: () => ({
@@ -29,7 +30,7 @@ function AudhdPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat AuDHD-ondernemers vaak herkennen</h2>
+          <MaskReveal as="h2" text="Wat AuDHD-ondernemers vaak herkennen" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Je hebt veel ideeën én een sterke voorkeur voor systemen en voorspelbaarheid.
             Je raakt enthousiast en uitgeput in hetzelfde uur. Een klantgesprek loopt op
@@ -44,7 +45,7 @@ function AudhdPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waarom de meeste coaching niet past</h2>
+            <MaskReveal as="h2" text="Waarom de meeste coaching niet past" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Een ADHD-coach probeert je los te maken en in beweging te krijgen. Even
               fijn, daarna leeg. Een autisme-coach helpt je structuur bouwen. Even fijn,
@@ -60,7 +61,7 @@ function AudhdPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waar we het over hebben</h2>
+          <MaskReveal as="h2" text="Waar we het over hebben" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             De grootste thema's die in een AuDHD-traject vaak terugkomen:{" "}
             <Link to="/themas/masking" className="text-primary underline-offset-2 hover:underline">

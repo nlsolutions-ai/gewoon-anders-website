@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FadeIn } from "@/components/FadeIn";
+import { Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
+import { MaskReveal } from "@/components/motion";
 import {
   Accordion,
   AccordionContent,
@@ -171,29 +172,43 @@ function FaqPage() {
         title="Veelgestelde vragen."
         intro="Hieronder beantwoord ik de vragen die mensen het vaakst stellen. Geordend per onderwerp. Staat jouw vraag er niet bij, stuur me dan een mail of stel hem in een gratis kennismaking."
       />
-      <section className="mx-auto max-w-3xl px-6 pb-24 lg:px-10">
+      <section className="mx-auto max-w-[1240px] px-6 pb-28 lg:px-10">
         {groups.map((group, gi) => (
-          <FadeIn key={group.group} delay={gi * 80}>
-            <div className="mt-10 first:mt-0">
-              <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">{group.group}</h2>
-              <Accordion type="single" collapsible className="mt-4 w-full">
+          <div
+            key={group.group}
+            className="grid gap-8 border-t border-foreground/10 py-14 first:border-t-0 first:pt-2 lg:grid-cols-12 lg:gap-12 lg:py-20"
+          >
+            <div className="lg:col-span-4 lg:sticky lg:top-32 lg:self-start">
+              <Reveal>
+                <span className="section-index">{String(gi + 1).padStart(2, "0")}</span>
+              </Reveal>
+              <MaskReveal
+                as="h2"
+                text={group.group}
+                className="display-lg mt-3 text-[1.7rem] text-foreground sm:text-[2rem]"
+              />
+            </div>
+
+            <div className="lg:col-span-8">
+              <Accordion type="single" collapsible className="w-full">
                 {group.items.map((f, i) => (
-                  <AccordionItem
-                    key={i}
-                    value={`item-${gi}-${i}`}
-                    className="border-b border-border"
-                  >
-                    <AccordionTrigger className="py-5 text-left text-[17px] font-semibold text-foreground hover:no-underline">
-                      {f.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="pb-5 text-[16px] leading-relaxed text-foreground/80">
-                      {f.a}
-                    </AccordionContent>
-                  </AccordionItem>
+                  <Reveal key={i} delay={i * 50}>
+                    <AccordionItem
+                      value={`item-${gi}-${i}`}
+                      className="border-b border-foreground/10"
+                    >
+                      <AccordionTrigger className="gap-4 py-6 text-left text-[17px] font-semibold text-foreground hover:text-primary hover:no-underline lg:text-[18px]">
+                        {f.q}
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-6 text-[16px] leading-relaxed text-foreground/80 lg:text-[17px]">
+                        {f.a}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Reveal>
                 ))}
               </Accordion>
             </div>
-          </FadeIn>
+          </div>
         ))}
       </section>
     </>
