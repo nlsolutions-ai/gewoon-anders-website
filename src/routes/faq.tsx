@@ -175,7 +175,7 @@ function FaqPage() {
         {groups.map((group, gi) => (
           <FadeIn key={group.group} delay={gi * 80}>
             <div className="mt-10 first:mt-0">
-              <h2 className="text-2xl font-semibold text-foreground">{group.group}</h2>
+              <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">{group.group}</h2>
               <Accordion type="single" collapsible className="mt-4 w-full">
                 {group.items.map((f, i) => (
                   <AccordionItem

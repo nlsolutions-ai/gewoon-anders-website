@@ -29,7 +29,7 @@ function AutismePage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Wat ik vaak zie bij autistische ondernemers</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat ik vaak zie bij autistische ondernemers</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Je bent ijzersterk in je vak. Je werkt scherp, grondig en eerlijk. Klanten
             waarderen dat. En toch is het ondernemen eromheen vermoeiend op een manier
@@ -56,7 +56,7 @@ function AutismePage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Waar het traject op aanstuurt</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waar het traject op aanstuurt</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               We bouwen een manier van ondernemen die je inhoudelijke kracht beschermt,
               in plaats van die langzaam op te eten. Klantcontact op het kanaal waarop je
@@ -85,7 +85,7 @@ function AutismePage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Waarom 1-op-1 vaak beter past dan een groep</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waarom 1-op-1 vaak beter past dan een groep</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Een livegroep van zes andere ondernemers vraagt veel sociaal werk dat los staat
             van het bedrijf waar je heen wil. In een 1-op-1 traject hoef je dat niet te

@@ -29,7 +29,7 @@ function OverprikkelingPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Wat overprikkeling eigenlijk is</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat overprikkeling eigenlijk is</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Overprikkeling is wat er gebeurt als je brein meer informatie binnenkrijgt dan
             het kan verwerken op de snelheid waarop het binnenkomt. Bij autistische
@@ -47,7 +47,7 @@ function OverprikkelingPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Hoe je het bij jezelf herkent</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Hoe je het bij jezelf herkent</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Veel ondernemers die ik begeleid herkennen het pas als ze het opschrijven.
               Een paar signalen die vaak terugkomen:
@@ -70,7 +70,7 @@ function OverprikkelingPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Wat erbij hoort</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat erbij hoort</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Hier zit vaak een tweede laag. Masking. Tijdens een klantgesprek werk je niet
             alleen aan de inhoud, je doet ook moeite om er rustig en sociaal vlot uit te
@@ -89,7 +89,7 @@ function OverprikkelingPage() {
       <section className="bg-highlight">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Wat helpt</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat helpt</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Dit zijn geen trucjes. Het zijn dingen die ondernemers die ik begeleid
               hebben uitgeprobeerd, en die blijken te werken voor hun brein.

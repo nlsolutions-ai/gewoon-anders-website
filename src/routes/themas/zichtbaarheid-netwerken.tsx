@@ -29,7 +29,7 @@ function ZichtbaarheidPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Waarom standaard netwerken vaak niet werkt</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waarom standaard netwerken vaak niet werkt</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Een netwerk-event is een van de meest overprikkelende settings die je kunt
             bedenken. Veel mensen, veel geluid, veel kort contact dat snel moet zijn.
@@ -47,7 +47,7 @@ function ZichtbaarheidPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Online speelt iets vergelijkbaars</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Online speelt iets vergelijkbaars</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Veel ondernemers proberen LinkedIn of socials op de manier waarop anderen
               dat lijken te doen. Korte, vlotte posts, drie keer per week, reageren op
@@ -61,7 +61,7 @@ function ZichtbaarheidPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Wat wel werkt</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat wel werkt</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Begin bij vorm. Wat is een vorm waar jouw brein zich goed in voelt? Voor
             sommigen is dat lange teksten op een eigen website. Voor anderen is het een

@@ -29,7 +29,7 @@ function AudhdPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Wat AuDHD-ondernemers vaak herkennen</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat AuDHD-ondernemers vaak herkennen</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Je hebt veel ideeën én een sterke voorkeur voor systemen en voorspelbaarheid.
             Je raakt enthousiast en uitgeput in hetzelfde uur. Een klantgesprek loopt op
@@ -44,7 +44,7 @@ function AudhdPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Waarom de meeste coaching niet past</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waarom de meeste coaching niet past</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Een ADHD-coach probeert je los te maken en in beweging te krijgen. Even
               fijn, daarna leeg. Een autisme-coach helpt je structuur bouwen. Even fijn,
@@ -60,7 +60,7 @@ function AudhdPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Waar we het over hebben</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waar we het over hebben</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             De grootste thema's die in een AuDHD-traject vaak terugkomen:{" "}
             <Link to="/themas/masking" className="text-primary underline-offset-2 hover:underline">

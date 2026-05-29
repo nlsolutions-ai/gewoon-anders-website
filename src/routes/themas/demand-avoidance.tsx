@@ -29,7 +29,7 @@ function DemandAvoidancePage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Wat het is</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat het is</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Demand avoidance is een sterke, vaak onbewuste weerstand tegen dingen die als
             eis aanvoelen. Het is geen luiheid en geen onwil. Het is een brein dat op
@@ -48,7 +48,7 @@ function DemandAvoidancePage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Hoe het zich uit in je werk</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Hoe het zich uit in je werk</h2>
             <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
               <li>Het werk dat je leuk vindt blijft liggen zodra je het op je takenlijst zet.</li>
               <li>Een aanbod dat klaar moet, herschrijf je in plaats van te versturen.</li>
@@ -62,7 +62,7 @@ function DemandAvoidancePage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Wanneer het niet alleen demand avoidance is</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wanneer het niet alleen demand avoidance is</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Soms ligt er nog iets anders onder. Je hebt iets klaar. Een aanbod, een
             website, een lancering, een eerste video. Soms al weken of maanden. Je
@@ -97,7 +97,7 @@ function DemandAvoidancePage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Waarom standaard advies dit erger maakt</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waarom standaard advies dit erger maakt</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               "Maak een planning en houd je eraan" werkt averechts. "Beloof het iemand,
               dan moet je wel" werkt soms een keer, en daarna nooit meer. "Tweak je
@@ -111,7 +111,7 @@ function DemandAvoidancePage() {
       <section className="bg-highlight">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Wat in trajecten vaak werkt</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat in trajecten vaak werkt</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Geen recept. Wel een paar dingen die ik vaak met mensen uitprobeer.
             </p>

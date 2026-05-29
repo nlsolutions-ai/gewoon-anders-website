@@ -29,7 +29,7 @@ function LaatOntdektPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Wat een late ontdekking met je doet</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat een late ontdekking met je doet</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Veel ondernemers die ik begeleid zijn pas in de veertig of vijftig achter hun
             brein gekomen. Soms via een kind dat een diagnose kreeg. Soms via een
@@ -47,7 +47,7 @@ function LaatOntdektPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Wat anders is bij coaching dan eerder in je carrière</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat anders is bij coaching dan eerder in je carrière</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Je hebt al van alles uitgeprobeerd. Veel daarvan werkt voor een deel. Je
               hebt je eigen workarounds. Dat is winst, niet iets om af te leren. We
@@ -65,7 +65,7 @@ function LaatOntdektPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Ik ken dit ook van mijn vrouw</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Ik ken dit ook van mijn vrouw</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Mijn vrouw is op latere leeftijd gediagnosticeerd met AuDHD. Ik heb van
             dichtbij gezien wat dat met iemand doet, ook met onze relatie. Dat heeft de

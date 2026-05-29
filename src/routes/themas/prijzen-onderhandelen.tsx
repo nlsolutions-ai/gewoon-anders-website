@@ -29,7 +29,7 @@ function PrijzenPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Waarom dit zo schuurt</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waarom dit zo schuurt</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Een prijsgesprek is een gesprek met druk. Iemand wil iets, er staat geld
             tussen, je voelt de toon, je merkt of er ruimte is. Voor breinen die heel
@@ -50,7 +50,7 @@ function PrijzenPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Hoe dit je bedrijf beïnvloedt</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Hoe dit je bedrijf beïnvloedt</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Wat ik vaak terugzie: je tarief zakt langzaam onder wat je werk waard is,
               zonder dat je het bewust kiest. Je trekt klanten aan die graag onderhandelen,
@@ -63,7 +63,7 @@ function PrijzenPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Wat helpt</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat helpt</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Het belangrijkste: maak het gesprek minder een gesprek. Hoe minder je ter
             plekke moet onderhandelen, hoe meer je brein ruimte heeft voor de inhoud.

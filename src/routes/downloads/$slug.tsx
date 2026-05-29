@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
@@ -19,7 +20,7 @@ type Freebie = {
   intro: string;
   meta: string;
   metaDesc: string;
-  content: () => JSX.Element;
+  content: () => ReactNode;
 };
 
 const freebies: Record<string, Freebie> = {
@@ -32,7 +33,7 @@ const freebies: Record<string, Freebie> = {
       "In tien minuten weet je waar in je bedrijf je energie wegloopt en waar je kracht zit. Gratis werkblad voor ADHD-, autisme- en AuDHD-ondernemers.",
     content: () => (
       <>
-        <h2 className="text-2xl font-semibold text-foreground">Hoe het werkt</h2>
+        <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Hoe het werkt</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Per pijler lees je drie tot vier stellingen. Bij elke stelling vink je een van
           drie antwoorden aan: klopt vaak, klopt soms, klopt zelden. Daarna lees je per
@@ -79,7 +80,7 @@ const freebies: Record<string, Freebie> = {
           <li>Mijn klanten zijn klanten die bij me passen, niet alleen klanten die opdracht geven.</li>
         </ol>
 
-        <h2 className="mt-12 text-2xl font-semibold text-foreground">Hoe je je antwoorden leest</h2>
+        <h2 className="display-lg mt-12 text-[1.6rem] sm:text-[1.8rem] text-foreground">Hoe je je antwoorden leest</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Veel "klopt zelden" in pijler twee wijst meestal op een werkweek die nog niet
           rekent met wat klantcontact je kost. Een paar "klopt vaak" in pijler drie en
@@ -109,7 +110,7 @@ const freebies: Record<string, Freebie> = {
       "Vijf concrete zinnen om je prijs te noemen, te verdedigen en nee te zeggen. Gratis werkblad voor neurodivergente ondernemers.",
     content: () => (
       <>
-        <h2 className="text-2xl font-semibold text-foreground">Waarom dit een spiekbriefje is</h2>
+        <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waarom dit een spiekbriefje is</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           In een live gesprek onder druk wil je brein vooral wegkomen. Zelf bedenken wat
           je gaat zeggen kost dan meer dan je kunt missen. Een paar zinnen die er al
@@ -117,7 +118,7 @@ const freebies: Record<string, Freebie> = {
           eruit.
         </p>
 
-        <h2 className="mt-10 text-2xl font-semibold text-foreground">Zin 1. Je prijs noemen</h2>
+        <h2 className="display-lg mt-10 text-[1.6rem] sm:text-[1.8rem] text-foreground">Zin 1. Je prijs noemen</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           "Mijn tarief voor dit type opdracht is X euro per [uur, dagdeel, traject].
           Daar zit Y in. Klopt dat met wat je voor ogen had?"
@@ -127,7 +128,7 @@ const freebies: Record<string, Freebie> = {
           twijfel, het is een open ruimte voor de ander om iets te zeggen.
         </p>
 
-        <h2 className="mt-10 text-2xl font-semibold text-foreground">Zin 2. Je prijs verdedigen</h2>
+        <h2 className="display-lg mt-10 text-[1.6rem] sm:text-[1.8rem] text-foreground">Zin 2. Je prijs verdedigen</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           "Dat tarief past bij hoe ik werk en wat dit type opdracht me kost. Eronder gaan
           zou betekenen dat ik er minder aandacht aan kan geven, en daar ben jij niet
@@ -138,7 +139,7 @@ const freebies: Record<string, Freebie> = {
           plaats van een verlies voor jou. Beweegt het gesprek weg van prijs naar inhoud.
         </p>
 
-        <h2 className="mt-10 text-2xl font-semibold text-foreground">Zin 3. Geen korting geven, zonder gedoe</h2>
+        <h2 className="display-lg mt-10 text-[1.6rem] sm:text-[1.8rem] text-foreground">Zin 3. Geen korting geven, zonder gedoe</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           "Ik werk niet met korting. Wel kan ik kijken of we de opdracht kleiner kunnen
           maken. Dan blijft het tarief gelijk en wordt de totale prijs lager."
@@ -148,7 +149,7 @@ const freebies: Record<string, Freebie> = {
           meestal ook.
         </p>
 
-        <h2 className="mt-10 text-2xl font-semibold text-foreground">Zin 4. Niet ter plekke beslissen</h2>
+        <h2 className="display-lg mt-10 text-[1.6rem] sm:text-[1.8rem] text-foreground">Zin 4. Niet ter plekke beslissen</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           "Goede vraag. Ik wil daar even rustig op terugkomen. Ik laat je morgen wat ik
           ervan vind."
@@ -158,7 +159,7 @@ const freebies: Record<string, Freebie> = {
           Eerlijk, beknopt, en je hebt tijd gewonnen.
         </p>
 
-        <h2 className="mt-10 text-2xl font-semibold text-foreground">Zin 5. Nee zeggen op een opdracht</h2>
+        <h2 className="display-lg mt-10 text-[1.6rem] sm:text-[1.8rem] text-foreground">Zin 5. Nee zeggen op een opdracht</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           "Ik denk dat ik niet de juiste persoon ben voor dit. Inhoudelijk zit het buiten
           mijn beste werk, en daar wil ik eerlijk in zijn. Als je wil, denk ik mee over
@@ -169,7 +170,7 @@ const freebies: Record<string, Freebie> = {
           warm zonder dat je iets aanneemt wat niet past.
         </p>
 
-        <h2 className="mt-12 text-2xl font-semibold text-foreground">Tot slot</h2>
+        <h2 className="display-lg mt-12 text-[1.6rem] sm:text-[1.8rem] text-foreground">Tot slot</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Pas de zinnen aan tot ze klinken zoals jij praat. Oefen ze hardop. Dat klinkt
           gek, maar het maakt het verschil tussen "ik weet wat ik wil zeggen" en "ik
@@ -188,7 +189,7 @@ const freebies: Record<string, Freebie> = {
       "Twaalf situaties die laten zien waar je in je bedrijf nog maskeert en wat het kost. Gratis werkblad voor autistische en AuDHD-ondernemers.",
     content: () => (
       <>
-        <h2 className="text-2xl font-semibold text-foreground">Wat dit werkblad doet</h2>
+        <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat dit werkblad doet</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Voor veel autistische en AuDHD-ondernemers gebeurt masking onbewust. Je merkt
           niet dat je het doet, je merkt alleen dat je leeg bent. Dit werkblad maakt het
@@ -198,7 +199,7 @@ const freebies: Record<string, Freebie> = {
           zitten.
         </p>
 
-        <h2 className="mt-10 text-2xl font-semibold text-foreground">De twaalf situaties</h2>
+        <h2 className="display-lg mt-10 text-[1.6rem] sm:text-[1.8rem] text-foreground">De twaalf situaties</h2>
         <ol className="mt-4 list-decimal space-y-3 pl-6 text-[16px] leading-relaxed text-foreground/80">
           <li>Een eerste klantgesprek waarin je je toon en tempo aanpast.</li>
           <li>Een lopend klantgesprek dat langer duurt dan afgesproken, zonder dat je het kunt stoppen.</li>
@@ -214,7 +215,7 @@ const freebies: Record<string, Freebie> = {
           <li>Een afspraak die je nakomt terwijl je systeem schreeuwt dat je niet kunt.</li>
         </ol>
 
-        <h2 className="mt-12 text-2xl font-semibold text-foreground">Per situatie</h2>
+        <h2 className="display-lg mt-12 text-[1.6rem] sm:text-[1.8rem] text-foreground">Per situatie</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Noteer voor jezelf:
         </p>
@@ -225,7 +226,7 @@ const freebies: Record<string, Freebie> = {
           <li>Wat zou een kleinere, eerlijke vorm zijn van wat ik nu doe?</li>
         </ul>
 
-        <h2 className="mt-12 text-2xl font-semibold text-foreground">Wat je hierna kunt zien</h2>
+        <h2 className="display-lg mt-12 text-[1.6rem] sm:text-[1.8rem] text-foreground">Wat je hierna kunt zien</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Als drie of meer van de twaalf situaties "vaak" en "leeg" of "moe" opleveren,
           weet je waar de meeste energie wegloopt in je werk. Dat is geen oordeel, maar
@@ -257,13 +258,13 @@ const freebies: Record<string, Freebie> = {
       "Houd een week lang bij waar je energie en focus heen gaan. Gratis printbaar werkblad voor neurodivergente ondernemers.",
     content: () => (
       <>
-        <h2 className="text-2xl font-semibold text-foreground">Wat je doet</h2>
+        <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat je doet</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Eén week lang, drie keer per dag een aantekening van twee minuten. Ochtend,
           middag, eind van de dag. Daarna kijk je terug en zie je je patroon.
         </p>
 
-        <h2 className="mt-10 text-2xl font-semibold text-foreground">Per moment noteer je</h2>
+        <h2 className="display-lg mt-10 text-[1.6rem] sm:text-[1.8rem] text-foreground">Per moment noteer je</h2>
         <ul className="mt-4 list-disc space-y-2 pl-6 text-[16px] leading-relaxed text-foreground/80">
           <li>Hoe vol mijn hoofd is op een schaal van laag, midden, hoog.</li>
           <li>Hoe scherp mijn focus is op een schaal van laag, midden, hoog.</li>
@@ -272,14 +273,14 @@ const freebies: Record<string, Freebie> = {
           <li>Of die taak iets opleverde of vooral kostte.</li>
         </ul>
 
-        <h2 className="mt-10 text-2xl font-semibold text-foreground">Per dag noteer je</h2>
+        <h2 className="display-lg mt-10 text-[1.6rem] sm:text-[1.8rem] text-foreground">Per dag noteer je</h2>
         <ul className="mt-4 list-disc space-y-2 pl-6 text-[16px] leading-relaxed text-foreground/80">
           <li>Wanneer ik vandaag het scherpst was.</li>
           <li>Welke taak het meeste kostte.</li>
           <li>Welke kleine keuze ik morgen anders kan maken.</li>
         </ul>
 
-        <h2 className="mt-10 text-2xl font-semibold text-foreground">Aan het eind van de week</h2>
+        <h2 className="display-lg mt-10 text-[1.6rem] sm:text-[1.8rem] text-foreground">Aan het eind van de week</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Lees je hele vel terug en beantwoord drie vragen.
         </p>
@@ -289,7 +290,7 @@ const freebies: Record<string, Freebie> = {
           <li>Wat zou ik volgende week één klein anders willen plannen, op basis hiervan?</li>
         </ol>
 
-        <h2 className="mt-12 text-2xl font-semibold text-foreground">Tips</h2>
+        <h2 className="display-lg mt-12 text-[1.6rem] sm:text-[1.8rem] text-foreground">Tips</h2>
         <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
           Print het werkblad en hang het op een plek waar je het ziet. Een telefoon-app
           klik je weg, een vel niet. Vul het niet achteraf in, maar in het moment, ook

@@ -29,7 +29,7 @@ function EnergieBurnoutPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Waarom het anders zit</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waarom het anders zit</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Bij neurotypische ondernemers gaat burn-out vaak over te lang te veel doen:
             te hoge werkdruk, te weinig rust. Bij neurodivergente ondernemers ligt het
@@ -50,7 +50,7 @@ function EnergieBurnoutPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Vroege signalen</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Vroege signalen</h2>
             <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
               <li>Dingen die je twee jaar geleden makkelijk deed, kosten nu drie keer zoveel moeite.</li>
               <li>Je werkdagen worden steeds korter zonder dat je het zo gepland hebt.</li>
@@ -69,7 +69,7 @@ function EnergieBurnoutPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Waar het meestal lekt</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waar het meestal lekt</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Op vier plekken zie ik energielekken vaak terugkomen. Klantcontact, omdat je
             er meer in stopt dan aan de buitenkant te zien is. Administratie, omdat je
@@ -94,7 +94,7 @@ function EnergieBurnoutPage() {
       <section className="bg-highlight">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Wat we doen in het traject</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat we doen in het traject</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               In pijler twee houd je een week je werkenergie bij. Niet voor cijfers,
               voor herkenning. Je ziet zelf welke taken iets opleveren, en welke alles

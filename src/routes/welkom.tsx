@@ -171,7 +171,7 @@ function WelkomPage() {
       {/* Iets vragen */}
       <section className="mx-auto max-w-3xl px-6 py-16 text-center lg:px-10 lg:py-20">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground sm:text-[1.8rem]">
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">
             Loop je ergens tegenaan voor de eerste sessie?
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-foreground/75">

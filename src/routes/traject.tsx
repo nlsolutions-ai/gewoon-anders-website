@@ -50,7 +50,7 @@ function TrajectPage() {
       {/* Sessies */}
       <section className="mx-auto max-w-4xl px-6 py-16 lg:px-10 lg:py-20">
         <FadeIn>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground">
+          <h2 className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground">
             Hoe het traject is opgebouwd.
           </h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
@@ -81,7 +81,7 @@ function TrajectPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10 lg:py-24">
           <FadeIn>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground">
+            <h2 className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground">
               Je kiest per sessie hoe we contact hebben.
             </h2>
           </FadeIn>
@@ -108,7 +108,7 @@ function TrajectPage() {
       {/* Twee varianten — visueel */}
       <section className="mx-auto max-w-5xl px-6 py-20 lg:px-10 lg:py-24">
         <FadeIn>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground">
+          <h2 className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground">
             Twee manieren om mee te doen.
           </h2>
           <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-foreground/80">
@@ -241,7 +241,7 @@ function TrajectPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <FadeIn>
-            <h2 className="text-3xl font-semibold tracking-tight text-foreground">
+            <h2 className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground">
               Klaar om te beginnen?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-foreground/80">

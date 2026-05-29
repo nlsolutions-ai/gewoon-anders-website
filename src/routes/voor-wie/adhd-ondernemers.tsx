@@ -29,7 +29,7 @@ function AdhdPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-12 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Wat ik vaak zie bij ADHD-ondernemers</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Wat ik vaak zie bij ADHD-ondernemers</h2>
           <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
             <li>Veel ideeën, veel start, weinig afronden.</li>
             <li>
@@ -53,7 +53,7 @@ function AdhdPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
-            <h2 className="text-2xl font-semibold text-foreground">Waar het traject op aanstuurt</h2>
+            <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Waar het traject op aanstuurt</h2>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Geen vlakke discipline. Een werkweek die in pieken en dalen werkt. Een
               manier van klantcontact die niet je hele dag opslokt. Een aanbod waarin je
@@ -73,7 +73,7 @@ function AdhdPage() {
 
       <section className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
         <FadeIn>
-          <h2 className="text-2xl font-semibold text-foreground">Verschil met AuDHD</h2>
+          <h2 className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground">Verschil met AuDHD</h2>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Veel mensen met ADHD blijken na een paar jaar zoeken een AuDHD-brein te
             hebben. Dat verandert het beeld. Als je je niet helemaal herkent in het ADHD-
