@@ -25,6 +25,8 @@ type CollageProps = {
   /** Center overlay heading (decorative). */
   kicker?: string;
   heading?: string;
+  /** Second line of the heading, rendered as a warm accent. */
+  headingAccent?: string;
 };
 
 /**
@@ -35,7 +37,7 @@ type CollageProps = {
  *
  * Under reduced motion: renders a plain static grid of the tiles.
  */
-export function Collage({ tiles, kicker, heading }: CollageProps) {
+export function Collage({ tiles, kicker, heading, headingAccent }: CollageProps) {
   const reduced = useReducedMotionSafe();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -71,7 +73,12 @@ export function Collage({ tiles, kicker, heading }: CollageProps) {
           ))}
 
           {/* Center heading fades in as tiles lock into place */}
-          <CenterHeading progress={scrollYProgress} kicker={kicker} heading={heading} />
+          <CenterHeading
+            progress={scrollYProgress}
+            kicker={kicker}
+            heading={heading}
+            headingAccent={headingAccent}
+          />
         </div>
       </div>
     </div>
@@ -130,24 +137,34 @@ function CenterHeading({
   progress,
   kicker,
   heading,
+  headingAccent,
 }: {
   progress: MotionValue<number>;
   kicker?: string;
   heading?: string;
+  headingAccent?: string;
 }) {
-  const opacity = useTransform(progress, [0.45, 0.62, 0.92, 1], [0, 1, 1, 0]);
-  const y = useTransform(progress, [0.45, 0.62], [24, 0]);
+  const opacity = useTransform(progress, [0.42, 0.6, 0.92, 1], [0, 1, 1, 0]);
+  const y = useTransform(progress, [0.42, 0.6], [28, 0]);
   if (!kicker && !heading) return null;
   return (
     <motion.div
       style={{ opacity, y }}
-      className="pointer-events-none absolute inset-0 z-30 flex flex-col items-center justify-center text-center"
+      className="pointer-events-none absolute inset-0 z-30 flex flex-col items-center justify-center px-6 text-center"
     >
-      {kicker && <span className="eyebrow mb-4">{kicker}</span>}
+      {/* soft legibility glow so the heading reads over any tile */}
+      <div className="pointer-events-none absolute h-[60%] w-[80%] max-w-[820px] rounded-full bg-[radial-gradient(ellipse_at_center,var(--color-background)_0%,transparent_70%)] opacity-80" />
+      {kicker && <span className="eyebrow relative mb-5">{kicker}</span>}
       {heading && (
-        <p className="display-xl max-w-[16ch] text-[2.4rem] leading-[0.98] sm:text-[3.4rem] lg:text-[4.4rem]">
+        <h2 className="display-xl relative max-w-[18ch] text-[2.4rem] leading-[0.98] sm:text-[3.6rem] lg:text-[5rem]">
           {heading}
-        </p>
+          {headingAccent && (
+            <>
+              {" "}
+              <span className="italic text-primary">{headingAccent}</span>
+            </>
+          )}
+        </h2>
       )}
     </motion.div>
   );

@@ -248,8 +248,12 @@ function HomePage() {
       {/* 01 — Hero */}
       <Hero />
 
-      {/* Visual interlude — pinned converging collage (decoratief, geen nieuwe copy) */}
-      <Collage tiles={collageTiles} kicker="Gewoon Anders" />
+      {/* Visual interlude — pinned converging collage met storyline-payoff */}
+      <Collage
+        tiles={collageTiles}
+        heading="Wij zijn gewoon anders…"
+        headingAccent="En dat is prima."
+      />
 
       {/* 02 — Herkenning */}
       <section className="relative bg-secondary">
