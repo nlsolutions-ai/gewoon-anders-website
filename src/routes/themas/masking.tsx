@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
-import { MaskReveal, Magnetic } from "@/components/motion";
+import { MaskReveal, Magnetic, StaggerGroup, StaggerItem } from "@/components/motion";
 import { CTALink } from "@/components/CTAButton";
 
 export const Route = createFileRoute("/themas/masking")({
@@ -66,33 +66,33 @@ function MaskingPage() {
             <p className="mt-4 text-[17px] leading-relaxed text-foreground/80">
               Een paar plekken waar je het bij ondernemers vaak ziet terugkomen:
             </p>
-            <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
-              <li>
+            <StaggerGroup as="ul" className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+              <StaggerItem as="li">
                 <strong className="font-semibold text-foreground">In klantgesprekken.</strong>{" "}
                 Je past je toon, snelheid en woordkeus aan op de ander. Soms zo precies dat je
                 de jouwe even kwijt bent.
-              </li>
-              <li>
+              </StaggerItem>
+              <StaggerItem as="li">
                 <strong className="font-semibold text-foreground">Bij prijsgesprekken.</strong>{" "}
                 Je voelt aarzeling van de ander en haalt liever je prijs naar beneden dan dat
                 je het ongemak voelt. Je noemt het pragmatisch. Het is vaak masking.
-              </li>
-              <li>
+              </StaggerItem>
+              <StaggerItem as="li">
                 <strong className="font-semibold text-foreground">Op netwerk-events.</strong>{" "}
                 Je doet alsof je het leuk vindt, terwijl je het bijhoudt op pure
                 wilskracht. Daarna ben je twee dagen onbruikbaar.
-              </li>
-              <li>
+              </StaggerItem>
+              <StaggerItem as="li">
                 <strong className="font-semibold text-foreground">In e-mails.</strong>{" "}
                 Je herschrijft een mail drie keer om te zorgen dat je toon precies goed valt.
                 Een minuutje wordt twintig.
-              </li>
-              <li>
+              </StaggerItem>
+              <StaggerItem as="li">
                 <strong className="font-semibold text-foreground">Op je website en LinkedIn.</strong>{" "}
                 Je tekst klinkt als iemand anders, want je hebt opgeschreven wat je dacht dat
                 "ondernemers schrijven". De klanten die je trekt passen vaak niet bij jou.
-              </li>
-            </ul>
+              </StaggerItem>
+            </StaggerGroup>
           </FadeIn>
         </div>
       </section>
@@ -168,23 +168,24 @@ function MaskingPage() {
         </FadeIn>
       </section>
 
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+      <section className="noise relative overflow-hidden bg-ink text-ink-foreground">
+        <div className="pointer-events-none absolute -right-24 top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <FadeIn>
-            <MaskReveal as="h2" text="Herken je dit en wil je het eens rustig bespreken?" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
-            <p className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-foreground/80">
+            <MaskReveal as="h2" text="Herken je dit en wil je het eens rustig bespreken?" className="display-lg text-[1.9rem] sm:text-[2.3rem] text-background" />
+            <p className="mx-auto mt-5 max-w-xl text-[17px] leading-relaxed text-background/80">
               Plan een gratis kennismaking van een half uur op het kanaal dat jij wil. Je
               hoeft niets voor te bereiden, ook geen verhaal. Je hoeft alleen te beginnen.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Magnetic>
-              <CTALink to="/contact" variant="primary" size="lg">
-                Plan een kennismaking
-              </CTALink>
-            </Magnetic>
+                <CTALink to="/contact" variant="primary" size="lg">
+                  Plan een kennismaking
+                </CTALink>
+              </Magnetic>
               <Link
                 to="/masking-check"
-                className="inline-flex items-center justify-center rounded-xl border border-foreground/15 bg-background px-6 py-3.5 text-base font-medium text-foreground hover:bg-secondary"
+                className="inline-flex items-center justify-center rounded-xl border border-background/20 bg-background/10 px-6 py-3.5 text-base font-medium text-background hover:bg-background/15"
               >
                 Doe eerst de Masking-check
               </Link>

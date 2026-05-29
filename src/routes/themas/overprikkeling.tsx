@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
-import { MaskReveal, Magnetic } from "@/components/motion";
+import { MaskReveal, Magnetic, StaggerGroup, StaggerItem } from "@/components/motion";
 import { CTALink } from "@/components/CTAButton";
 
 export const Route = createFileRoute("/themas/overprikkeling")({
@@ -54,13 +54,13 @@ function OverprikkelingPage() {
               Veel ondernemers die ik begeleid herkennen het pas als ze het opschrijven.
               Een paar signalen die vaak terugkomen:
             </p>
-            <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
-              <li>Na een gesprek wil je niemand zien of horen. Geen telefoon, geen mail.</li>
-              <li>Je kunt geen taak meer aan die nadenken vraagt. Wel scrollen, koffie zetten, iets met je handen aanrommelen.</li>
-              <li>Je raakt geïrriteerd om kleine dingen. Het geluid van de afwasmachine, een vraag van iemand.</li>
-              <li>Lichamelijk: hoofdpijn, druk op je borst, een onrustig gevoel onder je huid.</li>
-              <li>Het zakt niet binnen een uur. Soms duurt het tot de volgende ochtend, of langer.</li>
-            </ul>
+            <StaggerGroup as="ul" className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+              <StaggerItem as="li">Na een gesprek wil je niemand zien of horen. Geen telefoon, geen mail.</StaggerItem>
+              <StaggerItem as="li">Je kunt geen taak meer aan die nadenken vraagt. Wel scrollen, koffie zetten, iets met je handen aanrommelen.</StaggerItem>
+              <StaggerItem as="li">Je raakt geïrriteerd om kleine dingen. Het geluid van de afwasmachine, een vraag van iemand.</StaggerItem>
+              <StaggerItem as="li">Lichamelijk: hoofdpijn, druk op je borst, een onrustig gevoel onder je huid.</StaggerItem>
+              <StaggerItem as="li">Het zakt niet binnen een uur. Soms duurt het tot de volgende ochtend, of langer.</StaggerItem>
+            </StaggerGroup>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Veel mensen geloven niet dat het door dat ene gesprek komt, want dat gesprek
               ging goed. Daar zit de denkfout. Het gaat niet om of het goed ging. Het gaat
@@ -109,10 +109,11 @@ function OverprikkelingPage() {
         </div>
       </section>
 
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+      <section className="noise relative overflow-hidden bg-ink text-ink-foreground">
+        <div className="pointer-events-none absolute -right-24 top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <FadeIn>
-            <p className="text-[17px] leading-relaxed text-foreground/80">
+            <p className="text-[17px] leading-relaxed text-background/80">
               In het traject{" "}
               <Link to="/traject" className="text-primary underline-offset-2 hover:underline">
                 Gewoon Anders Ondernemen

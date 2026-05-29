@@ -3,6 +3,7 @@ import jurgenBank from "@/assets/jurgen-portret-bank.png";
 import jurgenBos from "@/assets/jurgen-bospad.png";
 import jurgenMariska from "@/assets/jurgen-mariska.jpg";
 import { FadeIn } from "@/components/FadeIn";
+import { RevealImage } from "@/components/motion";
 
 export const Route = createFileRoute("/over-mij")({
   head: () => ({
@@ -115,15 +116,13 @@ function OverMijPage() {
             </FadeIn>
           </div>
           <div className="lg:col-span-5">
-            <FadeIn delay={120}>
-              <div className="overflow-hidden rounded-3xl bg-secondary shadow-ambient-lg">
-                <img
-                  src={jurgenBank}
-                  alt="Jurgen zit ontspannen op een bank in een lichte huiselijke kamer."
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </FadeIn>
+            <RevealImage
+              src={jurgenBank}
+              alt="Jurgen zit ontspannen op een bank in een lichte huiselijke kamer."
+              from="right"
+              eager
+              className="rounded-3xl bg-secondary shadow-ambient-lg"
+            />
           </div>
         </div>
       </section>
@@ -141,30 +140,24 @@ function OverMijPage() {
 
       {/* Sfeerbeeld bospad */}
       <section className="mx-auto max-w-5xl px-6 py-12 lg:px-10">
-        <FadeIn>
-          <div className="overflow-hidden rounded-3xl shadow-ambient-lg">
-            <img
-              src={jurgenBos}
-              alt="Jurgen staat rustig op een bospad in zacht licht."
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </FadeIn>
+        <RevealImage
+          src={jurgenBos}
+          alt="Jurgen staat rustig op een bospad in zacht licht."
+          from="bottom"
+          className="rounded-3xl shadow-ambient-lg"
+        />
       </section>
 
       {/* Mariska — eigen sectie met foto */}
       <section className="bg-secondary">
         <div className="mx-auto grid max-w-[1240px] items-center gap-14 px-6 py-20 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-24">
           <div className="lg:col-span-5">
-            <FadeIn>
-              <div className="overflow-hidden rounded-3xl shadow-ambient-lg">
-                <img
-                  src={jurgenMariska}
-                  alt="Jurgen en zijn vrouw Mariska samen bij zonsondergang aan zee."
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </FadeIn>
+            <RevealImage
+              src={jurgenMariska}
+              alt="Jurgen en zijn vrouw Mariska samen bij zonsondergang aan zee."
+              from="left"
+              className="rounded-3xl shadow-ambient-lg"
+            />
           </div>
           <div className="lg:col-span-7">
             <FadeIn>

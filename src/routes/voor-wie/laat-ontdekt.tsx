@@ -91,14 +91,23 @@ function LaatOntdektPage() {
         </div>
       </section>
 
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+      <section className="noise relative overflow-hidden bg-ink text-ink-foreground">
+        <div className="pointer-events-none absolute -right-24 top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <FadeIn>
-            <Magnetic>
-              <CTALink to="/contact" variant="primary" size="lg">
-                Plan een kennismaking
-              </CTALink>
-            </Magnetic>
+            <h2 className="display-lg text-[1.9rem] text-background sm:text-[2.3rem]">
+              Wil je hier eens rustig over praten?
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-background/80">
+              Plan een gratis kennismaking van een half uur, op het kanaal dat jij kiest. Geen verplichting.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <Magnetic>
+                <CTALink to="/contact" variant="primary" size="lg">
+                  Plan een kennismaking
+                </CTALink>
+              </Magnetic>
+            </div>
           </FadeIn>
         </div>
       </section>

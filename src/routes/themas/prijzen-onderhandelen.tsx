@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
-import { MaskReveal, Magnetic } from "@/components/motion";
+import { MaskReveal, Magnetic, StaggerGroup, StaggerItem } from "@/components/motion";
 import { CTALink } from "@/components/CTAButton";
 
 export const Route = createFileRoute("/themas/prijzen-onderhandelen")({
@@ -70,28 +70,28 @@ function PrijzenPage() {
             Het belangrijkste: maak het gesprek minder een gesprek. Hoe minder je ter
             plekke moet onderhandelen, hoe meer je brein ruimte heeft voor de inhoud.
           </p>
-          <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
-            <li>
+          <StaggerGroup as="ul" className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+            <StaggerItem as="li">
               Zet je prijs op papier vóór het gesprek begint, niet erna.
-            </li>
-            <li>
+            </StaggerItem>
+            <StaggerItem as="li">
               Werk met een vaste, korte zin voor het noemen van je prijs, zodat je niet
               ter plekke iets hoeft te bedenken.
-            </li>
-            <li>
+            </StaggerItem>
+            <StaggerItem as="li">
               Spreek met jezelf af dat je niet op het moment zelf korting geeft, ongeacht
               hoe het ongemak voelt. Korting kan ook morgen.
-            </li>
-            <li>
+            </StaggerItem>
+            <StaggerItem as="li">
               Reken niet alleen uurprijzen uit, maar ook wat een onderhandeling je aan
               energie kost. Een klant die telkens wil afdingen kost vaak meer dan hij
               oplevert.
-            </li>
-            <li>
+            </StaggerItem>
+            <StaggerItem as="li">
               Bied minder opties aan. Drie pakketten waarvan er één duidelijk de beste
               keuze is, helpt jou net zo goed als de klant.
-            </li>
-          </ul>
+            </StaggerItem>
+          </StaggerGroup>
           <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
             Voor concrete zinnen die in zo'n gesprek bruikbaar zijn, is er een kort
             werkblad:{" "}
@@ -116,14 +116,23 @@ function PrijzenPage() {
         </div>
       </section>
 
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+      <section className="noise relative overflow-hidden bg-ink text-ink-foreground">
+        <div className="pointer-events-none absolute -right-24 top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <FadeIn>
-            <Magnetic>
-              <CTALink to="/contact" variant="primary" size="lg">
-                Plan een kennismaking
-              </CTALink>
-            </Magnetic>
+            <h2 className="display-lg text-[1.9rem] text-background sm:text-[2.3rem]">
+              Wil je hier eens rustig over praten?
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-background/80">
+              Plan een gratis kennismaking van een half uur, op het kanaal dat jij kiest. Geen verplichting.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <Magnetic>
+                <CTALink to="/contact" variant="primary" size="lg">
+                  Plan een kennismaking
+                </CTALink>
+              </Magnetic>
+            </div>
           </FadeIn>
         </div>
       </section>

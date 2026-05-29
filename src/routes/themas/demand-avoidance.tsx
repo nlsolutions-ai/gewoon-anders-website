@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
-import { MaskReveal, Magnetic } from "@/components/motion";
+import { MaskReveal, Magnetic, StaggerGroup, StaggerItem } from "@/components/motion";
 import { CTALink } from "@/components/CTAButton";
 
 export const Route = createFileRoute("/themas/demand-avoidance")({
@@ -51,13 +51,13 @@ function DemandAvoidancePage() {
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
             <MaskReveal as="h2" text="Hoe het zich uit in je werk" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
-            <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
-              <li>Het werk dat je leuk vindt blijft liggen zodra je het op je takenlijst zet.</li>
-              <li>Een aanbod dat klaar moet, herschrijf je in plaats van te versturen.</li>
-              <li>Je website is nooit af, omdat afronden voelt als een eis.</li>
-              <li>Eigen routines slijten snel. Wat in week één lukte, voelt in week drie als dwang.</li>
-              <li>Op een drukke dag krijg je veel gedaan, op een rustige dag bijna niets.</li>
-            </ul>
+            <StaggerGroup as="ul" className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+              <StaggerItem as="li">Het werk dat je leuk vindt blijft liggen zodra je het op je takenlijst zet.</StaggerItem>
+              <StaggerItem as="li">Een aanbod dat klaar moet, herschrijf je in plaats van te versturen.</StaggerItem>
+              <StaggerItem as="li">Je website is nooit af, omdat afronden voelt als een eis.</StaggerItem>
+              <StaggerItem as="li">Eigen routines slijten snel. Wat in week één lukte, voelt in week drie als dwang.</StaggerItem>
+              <StaggerItem as="li">Op een drukke dag krijg je veel gedaan, op een rustige dag bijna niets.</StaggerItem>
+            </StaggerGroup>
           </FadeIn>
         </div>
       </section>
@@ -117,24 +117,24 @@ function DemandAvoidancePage() {
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Geen recept. Wel een paar dingen die ik vaak met mensen uitprobeer.
             </p>
-            <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
-              <li>
+            <StaggerGroup as="ul" className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+              <StaggerItem as="li">
                 Verklein de eis. Niet "ik ga drie uur aan dat aanbod werken", wel "ik open
                 het bestand".
-              </li>
-              <li>
+              </StaggerItem>
+              <StaggerItem as="li">
                 Maak meerdere ingangen mogelijk. Vandaag schrijven, morgen een stuk lezen,
                 overmorgen aan de lay-out.
-              </li>
-              <li>
+              </StaggerItem>
+              <StaggerItem as="li">
                 Bouw vrijheid in. Een takenlijst van vier dingen waarvan je er twee mag
                 kiezen werkt vaak beter dan vier die alle vier moeten.
-              </li>
-              <li>
+              </StaggerItem>
+              <StaggerItem as="li">
                 Gebruik externe structuur waar dat past en eigen rommel waar dat past.
                 Niet alles hoeft gestroomlijnd.
-              </li>
-            </ul>
+              </StaggerItem>
+            </StaggerGroup>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               En misschien wel het belangrijkste: stop met jezelf uitleggen dat het luiheid
               is. Dat is het niet.
@@ -143,14 +143,23 @@ function DemandAvoidancePage() {
         </div>
       </section>
 
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+      <section className="noise relative overflow-hidden bg-ink text-ink-foreground">
+        <div className="pointer-events-none absolute -right-24 top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <FadeIn>
-            <Magnetic>
-              <CTALink to="/contact" variant="primary" size="lg">
-                Plan een kennismaking
-              </CTALink>
-            </Magnetic>
+            <h2 className="display-lg text-[1.9rem] text-background sm:text-[2.3rem]">
+              Wil je hier eens rustig over praten?
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-background/80">
+              Plan een gratis kennismaking van een half uur, op het kanaal dat jij kiest. Geen verplichting.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <Magnetic>
+                <CTALink to="/contact" variant="primary" size="lg">
+                  Plan een kennismaking
+                </CTALink>
+              </Magnetic>
+            </div>
           </FadeIn>
         </div>
       </section>

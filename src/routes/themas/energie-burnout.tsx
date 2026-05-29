@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
-import { MaskReveal, Magnetic } from "@/components/motion";
+import { MaskReveal, Magnetic, StaggerGroup, StaggerItem } from "@/components/motion";
 import { CTALink } from "@/components/CTAButton";
 
 export const Route = createFileRoute("/themas/energie-burnout")({
@@ -53,14 +53,14 @@ function EnergieBurnoutPage() {
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <FadeIn>
             <MaskReveal as="h2" text="Vroege signalen" className="display-lg text-[1.7rem] sm:text-[1.9rem] text-foreground" />
-            <ul className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
-              <li>Dingen die je twee jaar geleden makkelijk deed, kosten nu drie keer zoveel moeite.</li>
-              <li>Je werkdagen worden steeds korter zonder dat je het zo gepland hebt.</li>
-              <li>Je stelt mail uit, ook simpele. Het opent niet meer in je hoofd.</li>
-              <li>Je hyperfocus, als die er was, lukt niet meer. Of duurt veel korter.</li>
-              <li>Weekenden geven niet meer terug wat ze vroeger gaven.</li>
-              <li>Geluiden, licht, drukte: alles voelt scherper dan een jaar terug.</li>
-            </ul>
+            <StaggerGroup as="ul" className="mt-5 space-y-3 text-[17px] leading-relaxed text-foreground/80">
+              <StaggerItem as="li">Dingen die je twee jaar geleden makkelijk deed, kosten nu drie keer zoveel moeite.</StaggerItem>
+              <StaggerItem as="li">Je werkdagen worden steeds korter zonder dat je het zo gepland hebt.</StaggerItem>
+              <StaggerItem as="li">Je stelt mail uit, ook simpele. Het opent niet meer in je hoofd.</StaggerItem>
+              <StaggerItem as="li">Je hyperfocus, als die er was, lukt niet meer. Of duurt veel korter.</StaggerItem>
+              <StaggerItem as="li">Weekenden geven niet meer terug wat ze vroeger gaven.</StaggerItem>
+              <StaggerItem as="li">Geluiden, licht, drukte: alles voelt scherper dan een jaar terug.</StaggerItem>
+            </StaggerGroup>
             <p className="mt-5 text-[17px] leading-relaxed text-foreground/80">
               Dit zijn geen rare signalen. Het zijn aanwijzingen dat het systeem dat je
               gebouwd hebt om te werken niet meer past bij waar jouw brein nu staat.
@@ -112,14 +112,23 @@ function EnergieBurnoutPage() {
         </div>
       </section>
 
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+      <section className="noise relative overflow-hidden bg-ink text-ink-foreground">
+        <div className="pointer-events-none absolute -right-24 top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <FadeIn>
-            <Magnetic>
-              <CTALink to="/contact" variant="primary" size="lg">
-                Plan een kennismaking
-              </CTALink>
-            </Magnetic>
+            <h2 className="display-lg text-[1.9rem] text-background sm:text-[2.3rem]">
+              Wil je hier eens rustig over praten?
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-background/80">
+              Plan een gratis kennismaking van een half uur, op het kanaal dat jij kiest. Geen verplichting.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <Magnetic>
+                <CTALink to="/contact" variant="primary" size="lg">
+                  Plan een kennismaking
+                </CTALink>
+              </Magnetic>
+            </div>
           </FadeIn>
         </div>
       </section>
