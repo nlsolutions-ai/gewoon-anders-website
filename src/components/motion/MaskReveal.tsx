@@ -61,6 +61,8 @@ export function MaskReveal({
             display: "inline-block",
             overflow: "hidden",
             verticalAlign: "top",
+            maxWidth: "100%",
+            overflowWrap: "break-word",
             paddingBottom: "0.28em",
             marginBottom: "-0.28em",
             paddingTop: "0.08em",

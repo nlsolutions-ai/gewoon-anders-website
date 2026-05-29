@@ -36,7 +36,7 @@ function InformatieIndex() {
   return (
     <>
       <PageHeader
-        eyebrow="15 artikelen"
+        eyebrow="17 artikelen"
         title="Over ondernemen met een ander brein."
         intro="Geen losse tips. Wel wat ik in coaching steeds terugzie en waarvan ik denk dat het je kan helpen om jezelf of je werk anders te zien."
       />

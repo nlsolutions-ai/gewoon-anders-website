@@ -8,6 +8,7 @@ import { Reveal } from "@/components/Reveal";
 import { ChannelCards } from "@/components/ChannelCards";
 import { BezelFrame } from "@/components/BezelCard";
 import { CTALink } from "@/components/CTAButton";
+import { SectionKicker } from "@/components/SectionKicker";
 import {
   MaskReveal,
   StaggerGroup,
@@ -93,16 +94,6 @@ const channelChips = [
   { icon: MessageSquare, label: "Chatten", x: "82%", y: "10%", delay: 0.74, drift: -60 },
   { icon: Mail, label: "Mailsessie", x: "78%", y: "70%", delay: 0.86, drift: 100 },
 ];
-
-/** Magazine-style section header: index numeral + eyebrow kicker. */
-function SectionKicker({ index, label, light }: { index: string; label: string; light?: boolean }) {
-  return (
-    <div className="flex items-center gap-4">
-      <span className={`section-index ${light ? "!text-background/50" : ""}`}>{index}</span>
-      <span className={`eyebrow ${light ? "!text-background/90" : ""}`}>{label}</span>
-    </div>
-  );
-}
 
 /* ---------- Hero with scroll choreography ---------- */
 
