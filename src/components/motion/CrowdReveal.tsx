@@ -87,7 +87,7 @@ function buildCells(): Cell[] {
       src,
       host,
       border,
-      threshold: 0.04 + (r / CELLS) * 0.72,
+      threshold: 0.03 + (r / CELLS) * 0.52,
     };
   });
 }
@@ -106,7 +106,7 @@ export function CrowdReveal({ heading, headingAccent }: CrowdRevealProps) {
     offset: ["start start", "end end"],
   });
 
-  const fieldScale = useTransform(scrollYProgress, [0, 0.8], [1.45, 1]);
+  const fieldScale = useTransform(scrollYProgress, [0, 0.62], [1.45, 1]);
 
   const grid = (
     <div
@@ -132,7 +132,7 @@ export function CrowdReveal({ heading, headingAccent }: CrowdRevealProps) {
   }
 
   return (
-    <section ref={ref} className="relative h-[460vh]">
+    <section ref={ref} className="relative h-[280vh]">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden bg-secondary/40">
         <div className="pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl float-gentle" />
         <div className="pointer-events-none absolute -right-24 bottom-1/4 h-[360px] w-[360px] rounded-full bg-highlight/40 blur-3xl" />
@@ -163,7 +163,7 @@ function Marble({ cell, progress }: { cell: Cell; progress: MotionValue<number> 
       className="aspect-square"
     >
       <div
-        className={`h-full w-full overflow-hidden rounded-full border-2 border-solid sm:border-[3px] ${cell.host ? "shadow-ambient" : ""}`}
+        className={`h-full w-full overflow-hidden rounded-full border border-solid sm:border-[3px] ${cell.host ? "shadow-ambient" : ""}`}
         style={{ borderColor: cell.border }}
       >
         <img
@@ -190,9 +190,9 @@ function CrowdHeading({
   heading: string;
   headingAccent?: string;
 }) {
-  const opacity = useTransform(progress, [0.82, 0.92], [0, 1]);
-  const scale = useTransform(progress, [0.82, 0.98], [0.92, 1]);
-  const y = useTransform(progress, [0.82, 0.92], [22, 0]);
+  const opacity = useTransform(progress, [0.66, 0.78], [0, 1]);
+  const scale = useTransform(progress, [0.66, 0.9], [0.92, 1]);
+  const y = useTransform(progress, [0.66, 0.78], [22, 0]);
   return (
     <motion.div style={{ opacity }} className="relative flex justify-center">
       <div className="pointer-events-none absolute -inset-x-[55vw] -inset-y-[40vh] bg-[radial-gradient(ellipse_at_center,var(--color-background)_0%,color-mix(in_oklch,var(--color-background)_88%,transparent)_42%,color-mix(in_oklch,var(--color-background)_55%,transparent)_62%,transparent_80%)]" />
