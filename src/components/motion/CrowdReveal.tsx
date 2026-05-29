@@ -1,33 +1,29 @@
 import { useMemo, useRef } from "react";
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { User } from "lucide-react";
 import { useReducedMotionSafe } from "./useReducedMotionSafe";
 
 /**
- * Scroll-driven "growing crowd": as you scroll, avatars pop in from the centre
- * outward while the whole field zooms out, so a handful of large faces becomes a
- * screen full of ~88 small ones — the feeling of a whole community arriving.
- * Then the heading pops in over the (dimmed) crowd.
+ * Scroll-driven "growing crowd": as you scroll, faces pop in from the centre
+ * outward while the whole field zooms out, so a couple of large faces (Jurgen +
+ * Mariska) become a screen full of ~88 small ones — the feeling of a whole
+ * community arriving. Then the heading pops in over the (dimmed) crowd.
  *
- * Avatars are stylised profile circles in varied brand tints (no stock photos).
- * Swap the inner glyph for <img> tiles later if real portraits are supplied.
+ * Faces: Jurgen + Mariska (real) at the two centre slots, the rest AI-generated
+ * portraits from thispersondoesnotexist.com, served from /public/crowd.
  */
 
 const COLS = 11;
 const ROWS = 8;
 const COUNT = COLS * ROWS; // 88
 
-// Brand-tinted palette so the crowd reads as diverse but on-brand.
-const TINTS = [
-  { bg: "#246724", fg: "#EAF3EA" }, // forest green
-  { bg: "#3E8E5A", fg: "#F0F7F1" }, // lighter green
-  { bg: "#1F3A52", fg: "#E7EEF4" }, // ink blue-grey
-  { bg: "#5FA8A0", fg: "#F1F8F7" }, // teal
-  { bg: "#C9A23F", fg: "#2A2410" }, // warm ochre
-  { bg: "#8FB36A", fg: "#22300F" }, // sage
-  { bg: "#2F5E7A", fg: "#EAF2F7" }, // steel blue
-  { bg: "#B9763E", fg: "#FBF1E8" }, // terracotta
-];
+// Number of AI faces available in /public/crowd as face-NN.jpg.
+const AI_FACE_COUNT = 40;
+
+const HOST_FACES = ["/crowd/jurgen.jpg", "/crowd/mariska.jpg"];
+const AI_FACES = Array.from(
+  { length: AI_FACE_COUNT },
+  (_, i) => `/crowd/face-${String(i + 1).padStart(2, "0")}.jpg`,
+);
 
 /** Deterministic pseudo-random in [0,1) so SSR and client match. */
 function pseudo(n: number): number {
@@ -39,12 +35,13 @@ type Avatar = {
   x: number;
   y: number;
   size: number;
-  tint: number;
+  src: string;
+  host: boolean;
   threshold: number;
 };
 
 function buildAvatars(): Avatar[] {
-  const items: Array<Avatar & { dist: number }> = [];
+  const cells: Array<{ x: number; y: number; size: number; dist: number; idx: number }> = [];
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
       const idx = r * COLS + c;
@@ -54,15 +51,34 @@ function buildAvatars(): Avatar[] {
       const y = ((r + 0.5) / ROWS) * 100 + jy;
       const size = 6 + pseudo(idx + 7) * 3.4;
       const dist = Math.hypot(x - 50, (y - 50) * 1.15);
-      items.push({ x, y, size, tint: idx % TINTS.length, threshold: 0, dist });
+      cells.push({ x, y, size, dist, idx });
     }
   }
   // Appear from the centre outward.
-  items.sort((a, b) => a.dist - b.dist);
-  items.forEach((it, i) => {
-    it.threshold = (i / COUNT) * 0.62;
+  cells.sort((a, b) => a.dist - b.dist);
+
+  return cells.map((cell, order) => {
+    let src: string;
+    let host = false;
+    if (order === 0) {
+      src = HOST_FACES[0]; // Jurgen — dead centre
+      host = true;
+    } else if (order === 1) {
+      src = HOST_FACES[1]; // Mariska — next to him
+      host = true;
+    } else {
+      // Spread AI faces so repeats land in different distance-rings (never adjacent).
+      src = AI_FACES[(order * 7) % AI_FACE_COUNT];
+    }
+    return {
+      x: cell.x,
+      y: cell.y,
+      size: host ? cell.size * 1.35 : cell.size,
+      src,
+      host,
+      threshold: (order / COUNT) * 0.72,
+    };
   });
-  return items;
 }
 
 type CrowdRevealProps = {
@@ -79,8 +95,8 @@ export function CrowdReveal({ heading, headingAccent }: CrowdRevealProps) {
     offset: ["start start", "end end"],
   });
 
-  const fieldScale = useTransform(scrollYProgress, [0, 0.72], [2.5, 1]);
-  const fieldOpacity = useTransform(scrollYProgress, [0.72, 0.84], [1, 0.5]);
+  const fieldScale = useTransform(scrollYProgress, [0, 0.8], [2.6, 1]);
+  const fieldOpacity = useTransform(scrollYProgress, [0.8, 0.9], [1, 0.45]);
 
   if (reduced) {
     return (
@@ -101,7 +117,7 @@ export function CrowdReveal({ heading, headingAccent }: CrowdRevealProps) {
   }
 
   return (
-    <section ref={ref} className="relative h-[360vh]">
+    <section ref={ref} className="relative h-[480vh]">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden bg-secondary/40">
         <div className="pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl float-gentle" />
         <div className="pointer-events-none absolute -right-24 bottom-1/4 h-[360px] w-[360px] rounded-full bg-highlight/40 blur-3xl" />
@@ -133,6 +149,7 @@ function CrowdAvatar({ a, progress }: { a: Avatar; progress: MotionValue<number>
         width: `${a.size}%`,
         opacity,
         scale,
+        zIndex: a.host ? 20 : 1,
         willChange: "transform, opacity",
       }}
     >
@@ -142,17 +159,18 @@ function CrowdAvatar({ a, progress }: { a: Avatar; progress: MotionValue<number>
 }
 
 function AvatarDot({ a }: { a: Avatar }) {
-  const tint = TINTS[a.tint];
   return (
     <div
-      className="flex aspect-square items-center justify-center rounded-full shadow-sm ring-1 ring-black/5"
-      style={{ background: tint.bg }}
+      className={`aspect-square overflow-hidden rounded-full shadow-sm ${
+        a.host ? "ring-2 ring-primary/70" : "ring-1 ring-black/10"
+      }`}
     >
-      <User
-        strokeWidth={2}
-        className="h-1/2 w-1/2"
-        style={{ color: tint.fg }}
+      <img
+        src={a.src}
+        alt=""
         aria-hidden
+        loading="lazy"
+        className="h-full w-full object-cover"
       />
     </div>
   );
@@ -167,15 +185,15 @@ function CrowdHeading({
   heading: string;
   headingAccent?: string;
 }) {
-  const opacity = useTransform(progress, [0.74, 0.84], [0, 1]);
-  const scale = useTransform(progress, [0.74, 0.9], [0.92, 1]);
-  const y = useTransform(progress, [0.74, 0.84], [26, 0]);
+  const opacity = useTransform(progress, [0.82, 0.92], [0, 1]);
+  const scale = useTransform(progress, [0.82, 0.98], [0.92, 1]);
+  const y = useTransform(progress, [0.82, 0.92], [26, 0]);
   return (
     <motion.div
       style={{ opacity }}
       className="pointer-events-none absolute inset-0 z-30 flex flex-col items-center justify-center px-6 text-center"
     >
-      <div className="pointer-events-none absolute h-[55%] w-[78%] max-w-[820px] rounded-full bg-[radial-gradient(ellipse_at_center,var(--color-background)_0%,color-mix(in_oklch,var(--color-background)_70%,transparent)_55%,transparent_75%)]" />
+      <div className="pointer-events-none absolute h-[55%] w-[78%] max-w-[820px] rounded-full bg-[radial-gradient(ellipse_at_center,var(--color-background)_0%,color-mix(in_oklch,var(--color-background)_72%,transparent)_55%,transparent_75%)]" />
       <motion.h2
         style={{ scale, y }}
         className="display-xl relative max-w-[18ch] text-[2.6rem] leading-[1.0] sm:text-[3.8rem] lg:text-[5.2rem]"
