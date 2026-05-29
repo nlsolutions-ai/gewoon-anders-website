@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
+import { Magnetic } from "@/components/motion";
+import { CTALink } from "@/components/CTAButton";
 
 export const Route = createFileRoute("/werkwijze")({
   head: () => ({
@@ -76,12 +78,11 @@ function WerkwijzePage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
           <FadeIn>
-            <Link
-              to="/traject"
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground hover:bg-primary/90"
-            >
-              Bekijk het traject
-            </Link>
+            <Magnetic>
+              <CTALink to="/traject" variant="primary" size="lg">
+                Bekijk het traject
+              </CTALink>
+            </Magnetic>
           </FadeIn>
         </div>
       </section>

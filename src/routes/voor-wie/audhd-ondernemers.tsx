@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
-import { MaskReveal } from "@/components/motion";
+import { MaskReveal, Magnetic } from "@/components/motion";
+import { CTALink } from "@/components/CTAButton";
 
 export const Route = createFileRoute("/voor-wie/audhd-ondernemers")({
   head: () => ({
@@ -102,12 +103,11 @@ function AudhdPage() {
       <section className="bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
           <FadeIn>
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground hover:bg-primary/90"
-            >
-              Plan een kennismaking
-            </Link>
+            <Magnetic>
+              <CTALink to="/contact" variant="primary" size="lg">
+                Plan een kennismaking
+              </CTALink>
+            </Magnetic>
           </FadeIn>
         </div>
       </section>

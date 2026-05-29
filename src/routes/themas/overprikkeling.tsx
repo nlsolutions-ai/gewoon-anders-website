@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
-import { MaskReveal } from "@/components/motion";
+import { MaskReveal, Magnetic } from "@/components/motion";
+import { CTALink } from "@/components/CTAButton";
 
 export const Route = createFileRoute("/themas/overprikkeling")({
   head: () => ({
@@ -123,12 +124,13 @@ function OverprikkelingPage() {
               </Link>
               .
             </p>
-            <Link
-              to="/contact"
-              className="mt-8 inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground hover:bg-primary/90"
-            >
-              Plan een kennismaking
-            </Link>
+            <div className="mt-8">
+              <Magnetic>
+                <CTALink to="/contact" variant="primary" size="lg">
+                  Plan een kennismaking
+                </CTALink>
+              </Magnetic>
+            </div>
           </FadeIn>
         </div>
       </section>

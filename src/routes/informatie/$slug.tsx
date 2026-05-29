@@ -2,6 +2,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { FadeIn } from "@/components/FadeIn";
 import { PageHeader } from "@/components/PageHeader";
+import { Magnetic } from "@/components/motion";
+import { CTALink } from "@/components/CTAButton";
 import { SectionKicker } from "@/components/SectionKicker";
 import { getPost, posts, type Block } from "@/lib/blog-data";
 
@@ -181,12 +183,11 @@ function InformatiePostPage() {
               zit nergens aan vast.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground hover:bg-primary/90"
-              >
+              <Magnetic>
+              <CTALink to="/contact" variant="primary" size="lg">
                 Plan een kennismaking
-              </Link>
+              </CTALink>
+            </Magnetic>
               <Link
                 to="/informatie"
                 className="inline-flex items-center justify-center rounded-xl border border-background/20 bg-background/10 px-6 py-3.5 text-base font-medium text-background hover:bg-background/15"
