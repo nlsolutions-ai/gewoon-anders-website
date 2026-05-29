@@ -57,11 +57,21 @@ export function MaskReveal({
         <span
           key={`${word}-${i}`}
           aria-hidden
-          style={{ display: "inline-block", overflow: "hidden", verticalAlign: "top" }}
+          style={{
+            display: "inline-block",
+            overflow: "hidden",
+            verticalAlign: "top",
+            paddingBottom: "0.28em",
+            marginBottom: "-0.28em",
+            paddingTop: "0.08em",
+            marginTop: "-0.08em",
+            paddingInline: "0.06em",
+            marginInline: "-0.06em",
+          }}
         >
           <motion.span
             style={{ display: "inline-block", willChange: "transform" }}
-            variants={{ hidden: { y: "110%" }, visible: { y: "0%" } }}
+            variants={{ hidden: { y: "120%" }, visible: { y: "0%" } }}
             transition={{ duration: 0.7, ease: EASE }}
           >
             {word}
