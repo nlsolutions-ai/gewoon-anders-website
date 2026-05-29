@@ -8,6 +8,7 @@ export { CountUp } from "./CountUp";
 export { Parallax } from "./Parallax";
 export { PageTransition } from "./PageTransition";
 export { Collage } from "./Collage";
+export { CrowdReveal } from "./CrowdReveal";
 export { HoverExpandCard } from "./HoverExpandCard";
 export { RevealImage } from "./RevealImage";
 export { useReducedMotionSafe } from "./useReducedMotionSafe";

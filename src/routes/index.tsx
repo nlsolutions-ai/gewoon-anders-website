@@ -4,9 +4,6 @@ import { Check, ArrowUpRight, Video, Mail, MessageSquare, Phone } from "lucide-r
 import { motion, useScroll, useTransform } from "framer-motion";
 import jurgenBank from "@/assets/jurgen-portret-bank.png";
 import jurgenMariska from "@/assets/jurgen-mariska.jpg";
-import jurgenBospad from "@/assets/jurgen-bospad.png";
-import mockupVolledig from "@/assets/mockup-volledig.png";
-import mockupKort from "@/assets/mockup-kort.png";
 import { Reveal } from "@/components/Reveal";
 import { ChannelCards } from "@/components/ChannelCards";
 import { BezelFrame } from "@/components/BezelCard";
@@ -17,7 +14,7 @@ import {
   StaggerItem,
   Magnetic,
   Marquee,
-  Collage,
+  CrowdReveal,
   HoverExpandCard,
   RevealImage,
   useReducedMotionSafe,
@@ -88,14 +85,6 @@ const maskingCards = [
     detail:
       "Je doet alsof je het leuk vindt, op pure wilskracht. Daarna ben je twee dagen onbruikbaar.",
   },
-];
-
-const collageTiles = [
-  { src: jurgenBank, alt: "Jurgen op de bank", gridX: 2, gridY: 6, w: 30, fromX: -65, fromY: 30, rot: -12, depth: 40, z: 3 },
-  { src: jurgenMariska, alt: "Jurgen en Mariska aan zee", gridX: 37, gridY: 2, w: 27, fromX: 5, fromY: -75, rot: 9, depth: -50, z: 4 },
-  { src: jurgenBospad, alt: "Jurgen op een bospad", gridX: 69, gridY: 9, w: 28, fromX: 72, fromY: 28, rot: 13, depth: 30, z: 2 },
-  { src: mockupVolledig, alt: "Gewoon Anders Ondernemen pakket", gridX: 28, gridY: 50, w: 31, fromX: -45, fromY: 85, rot: -9, depth: -30, z: 5 },
-  { src: mockupKort, alt: "Gewoon Anders Ondernemen Kort pakket", gridX: 65, gridY: 55, w: 27, fromX: 62, fromY: 78, rot: 11, depth: 45, z: 1 },
 ];
 
 const channelChips = [
@@ -248,12 +237,8 @@ function HomePage() {
       {/* 01 — Hero */}
       <Hero />
 
-      {/* Visual interlude — pinned converging collage met storyline-payoff */}
-      <Collage
-        tiles={collageTiles}
-        heading="Wij zijn gewoon anders…"
-        headingAccent="En dat is prima."
-      />
+      {/* Visual interlude — groeiende menigte met storyline-payoff */}
+      <CrowdReveal heading="Wij zijn gewoon anders…" headingAccent="En dat is prima." />
 
       {/* 02 — Herkenning */}
       <section className="relative bg-secondary">
