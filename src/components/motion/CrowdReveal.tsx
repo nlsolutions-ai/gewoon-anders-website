@@ -106,7 +106,9 @@ export function CrowdReveal({ heading, headingAccent }: CrowdRevealProps) {
     offset: ["start start", "end end"],
   });
 
-  const fieldScale = useTransform(scrollYProgress, [0, 0.62], [1.45, 1]);
+  const fieldScale = useTransform(scrollYProgress, [0, 0.55], [1.45, 1]);
+  // Photos fade out completely once the heading is in, leaving only the text.
+  const fieldOpacity = useTransform(scrollYProgress, [0.62, 0.82], [1, 0]);
 
   const grid = (
     <div
@@ -132,13 +134,13 @@ export function CrowdReveal({ heading, headingAccent }: CrowdRevealProps) {
   }
 
   return (
-    <section ref={ref} className="relative h-[280vh]">
+    <section ref={ref} className="relative h-[360vh]">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden bg-secondary/40">
         <div className="pointer-events-none absolute -left-32 top-1/4 h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl float-gentle" />
         <div className="pointer-events-none absolute -right-24 bottom-1/4 h-[360px] w-[360px] rounded-full bg-highlight/40 blur-3xl" />
 
         <motion.div
-          style={{ scale: fieldScale, willChange: "transform" }}
+          style={{ scale: fieldScale, opacity: fieldOpacity, willChange: "transform, opacity" }}
           className="w-full px-6 lg:px-10"
         >
           {grid}
@@ -190,9 +192,11 @@ function CrowdHeading({
   heading: string;
   headingAccent?: string;
 }) {
-  const opacity = useTransform(progress, [0.66, 0.78], [0, 1]);
-  const scale = useTransform(progress, [0.66, 0.9], [0.92, 1]);
-  const y = useTransform(progress, [0.66, 0.78], [22, 0]);
+  // Appears just before the photos start fading, then holds at full opacity all
+  // the way to the end so the text stays clearly visible while you keep scrolling.
+  const opacity = useTransform(progress, [0.5, 0.6], [0, 1]);
+  const scale = useTransform(progress, [0.5, 0.72], [0.92, 1]);
+  const y = useTransform(progress, [0.5, 0.6], [22, 0]);
   return (
     <motion.div style={{ opacity }} className="relative flex justify-center">
       <div className="pointer-events-none absolute -inset-x-[55vw] -inset-y-[40vh] bg-[radial-gradient(ellipse_at_center,var(--color-background)_0%,color-mix(in_oklch,var(--color-background)_88%,transparent)_42%,color-mix(in_oklch,var(--color-background)_55%,transparent)_62%,transparent_80%)]" />
