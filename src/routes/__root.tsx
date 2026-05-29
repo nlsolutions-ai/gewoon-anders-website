@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -13,6 +14,7 @@ import appCss from "../styles.css?url";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { SmoothScroll, PageTransition } from "@/components/motion";
 
 function NotFoundComponent() {
   return (
@@ -348,6 +350,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -357,10 +360,13 @@ function RootComponent() {
       >
         Naar inhoud
       </a>
+      <SmoothScroll />
       <ScrollProgress />
       <SiteNav />
       <main id="main">
-        <Outlet />
+        <PageTransition key={pathname}>
+          <Outlet />
+        </PageTransition>
       </main>
       <SiteFooter />
       <Analytics />

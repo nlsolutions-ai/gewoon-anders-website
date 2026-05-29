@@ -2,13 +2,28 @@
 @source "../src";
 @import "tw-animate-css";
 
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Source+Sans+3:wght@400;500;600;700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
+/* Lenis smooth scroll (only active when JS initializes it) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 @theme inline {
   --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -30,6 +45,8 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-highlight: var(--highlight);
   --color-highlight-foreground: var(--highlight-foreground);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
   --color-sand: var(--sand);
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
@@ -61,6 +78,9 @@
   /* Light teal tint for highlight blocks ~ #DCE9E9 */
   --highlight: oklch(0.92 0.018 195);
   --highlight-foreground: oklch(0.32 0.045 245);
+  /* Deep editorial ink for high-contrast dark sections ~ #14181C */
+  --ink: oklch(0.2 0.015 250);
+  --ink-foreground: oklch(0.97 0.008 80);
   --sand: oklch(0.943 0.012 80);
   --destructive: oklch(0.55 0.18 27);
   --destructive-foreground: oklch(0.99 0.005 80);
@@ -90,12 +110,14 @@
     color: var(--color-foreground);
     font-family: var(--font-display);
     font-weight: 600;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    letter-spacing: -0.01em;
+    line-height: 1.08;
     text-wrap: balance;
+    font-optical-sizing: auto;
   }
   h1 {
-    letter-spacing: -0.035em;
+    letter-spacing: -0.02em;
+    font-weight: 500;
   }
   p {
     max-width: 70ch;
@@ -211,29 +233,65 @@
     background-size: 100% 1px;
   }
 
-  /* Eyebrow tag */
+  /* Eyebrow — editorial kicker with a leading hairline rule */
   .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.35rem 0.85rem;
-    border-radius: 999px;
-    border: 1px solid color-mix(in oklch, var(--color-primary) 24%, transparent);
-    background: color-mix(in oklch, var(--color-primary) 8%, transparent);
+    gap: 0.7rem;
     color: var(--color-primary);
+    font-family: var(--font-sans);
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     line-height: 1;
   }
   .eyebrow::before {
     content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 999px;
+    width: 2rem;
+    height: 1px;
     background: currentColor;
-    opacity: 0.8;
+    opacity: 0.55;
+  }
+
+  /* Hairline divider rule */
+  .rule {
+    height: 1px;
+    width: 100%;
+    background: color-mix(in oklch, var(--color-foreground) 14%, transparent);
+  }
+
+  /* Magazine-style section index numeral (01 / 02 / 03) */
+  .section-index {
+    font-family: var(--font-display);
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: color-mix(in oklch, var(--color-foreground) 45%, transparent);
+  }
+
+  /* Editorial drop cap on an opening paragraph */
+  .dropcap::first-letter {
+    font-family: var(--font-display);
+    font-weight: 500;
+    float: left;
+    font-size: 3.4em;
+    line-height: 0.72;
+    padding: 0.06em 0.12em 0 0;
+    color: var(--color-primary);
+  }
+
+  /* Pull quote — oversized serif statement */
+  .pullquote {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
   }
 
   /* Continuous gentle float for hero accents (respects reduced-motion below) */
@@ -250,18 +308,37 @@
     100% { background-position: 200% 0; }
   }
 
-  /* Display heading scale helpers */
+  /* Display heading scale helpers — serif, looser tracking, optical sizing */
   .display-xl {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.04em;
-    line-height: 0.98;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 0.96;
+    font-optical-sizing: auto;
   }
   .display-lg {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    line-height: 1.04;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+    font-optical-sizing: auto;
+  }
+
+  /* Infinite marquee / ticker band */
+  @keyframes marquee-x {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .marquee-track {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    animation: marquee-x var(--marquee-duration, 30s) linear infinite;
+    will-change: transform;
+  }
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
   }
 
   /* Subtle noise overlay for "expensive paper" feel */
@@ -325,6 +402,10 @@
     }
     .float-gentle {
       animation: none;
+    }
+    .marquee-track {
+      animation: none;
+      transform: none;
     }
     html {
       scroll-behavior: auto;

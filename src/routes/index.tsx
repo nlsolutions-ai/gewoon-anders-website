@@ -1,12 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, ArrowUpRight } from "lucide-react";
+import { useRef } from "react";
+import { Check, ArrowUpRight, Video, Mail, MessageSquare, Phone } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import jurgenBank from "@/assets/jurgen-portret-bank.png";
 import jurgenMariska from "@/assets/jurgen-mariska.jpg";
 import { Reveal } from "@/components/Reveal";
-import { Parallax } from "@/components/Parallax";
 import { ChannelCards } from "@/components/ChannelCards";
 import { BezelFrame } from "@/components/BezelCard";
 import { CTALink } from "@/components/CTAButton";
+import {
+  MaskReveal,
+  StaggerGroup,
+  StaggerItem,
+  Magnetic,
+  Marquee,
+  CrowdReveal,
+  HoverExpandCard,
+  RevealImage,
+  useReducedMotionSafe,
+} from "@/components/motion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -54,79 +66,191 @@ const reassure = [
   },
 ];
 
-function HomePage() {
-  return (
-    <>
-      {/* Hero — Editorial split */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0">
-          <div className="absolute -top-20 -right-32 h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl float-gentle" />
-          <div className="absolute top-40 -left-24 h-[320px] w-[320px] rounded-full bg-highlight/40 blur-3xl" />
-        </div>
+const maskingCards = [
+  {
+    k: "In klantgesprekken",
+    title: "Je toon schuift mee met de ander.",
+    detail:
+      "Je past je toon en snelheid aan op de ander. Soms zo precies dat je de jouwe even kwijt bent.",
+  },
+  {
+    k: "Bij prijsgesprekken",
+    title: "Je prijs zakt om het ongemak weg te nemen.",
+    detail:
+      "Je voelt de aarzeling bij de ander, en haalt liever je prijs naar beneden dan dat je dat ongemak laat staan.",
+  },
+  {
+    k: "Op netwerk-events",
+    title: "Je doet mee op pure wilskracht.",
+    detail:
+      "Je doet alsof je het leuk vindt, op pure wilskracht. Daarna ben je twee dagen onbruikbaar.",
+  },
+];
 
-        <div className="relative mx-auto grid max-w-[1240px] gap-12 px-6 pb-24 pt-14 lg:grid-cols-12 lg:gap-12 lg:px-10 lg:pb-32 lg:pt-20">
-          <div className="lg:col-span-7 lg:pr-6 xl:pr-12">
-            <Reveal>
-              <span className="eyebrow">1-op-1 business coaching</span>
-            </Reveal>
-            <Reveal delay={80}>
-              <h1 className="display-xl mt-6 text-[2.6rem] sm:text-[3.2rem] lg:text-[4.4rem] xl:text-[5rem]">
-                Onderneem met<br />
-                je brein,<br />
-                <span className="text-primary">niet ertegen.</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="mt-7 max-w-xl text-[18px] leading-relaxed text-foreground/75 lg:text-[19px]">
-                Business coaching voor ondernemers met een ADHD-, autisme- of
-                AuDHD-brein. Een op een, op het kanaal waarop jij het meest jezelf bent.
-                Of dat nu bellen, videobellen, chatten of mailen is.
-              </p>
-            </Reveal>
-            <Reveal delay={240}>
-              <div className="mt-10 flex flex-wrap items-center gap-3">
+const channelChips = [
+  { icon: Video, label: "Videobellen", x: "-14%", y: "-8%", delay: 0.5, drift: -90 },
+  { icon: Phone, label: "Bellen", x: "-22%", y: "62%", delay: 0.62, drift: 70 },
+  { icon: MessageSquare, label: "Chatten", x: "82%", y: "10%", delay: 0.74, drift: -60 },
+  { icon: Mail, label: "Mailsessie", x: "78%", y: "70%", delay: 0.86, drift: 100 },
+];
+
+/** Magazine-style section header: index numeral + eyebrow kicker. */
+function SectionKicker({ index, label, light }: { index: string; label: string; light?: boolean }) {
+  return (
+    <div className="flex items-center gap-4">
+      <span className={`section-index ${light ? "!text-background/50" : ""}`}>{index}</span>
+      <span className={`eyebrow ${light ? "!text-background/90" : ""}`}>{label}</span>
+    </div>
+  );
+}
+
+/* ---------- Hero with scroll choreography ---------- */
+
+function Hero() {
+  const reduced = useReducedMotionSafe();
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  // Portrait drifts up + scales as you scroll past the hero.
+  const portraitY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const portraitScale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const portraitRotate = useTransform(scrollYProgress, [0, 1], [0.6, -1.2]);
+
+  return (
+    <section ref={ref} className="relative overflow-hidden">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-20 -right-32 h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl float-gentle" />
+        <div className="absolute top-40 -left-24 h-[320px] w-[320px] rounded-full bg-highlight/40 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto grid max-w-[1240px] items-center gap-12 px-6 pb-20 pt-14 lg:grid-cols-12 lg:gap-12 lg:px-10 lg:pb-32 lg:pt-20">
+        <div className="lg:col-span-7 lg:pr-6 xl:pr-12">
+          <Reveal>
+            <span className="eyebrow">1-op-1 business coaching</span>
+          </Reveal>
+          <h1 className="display-xl mt-7 text-[2.8rem] leading-[0.98] sm:text-[3.6rem] lg:text-[4.8rem] xl:text-[5.4rem]">
+            <MaskReveal as="span" text="Onderneem met" className="block" onView={false} />
+            <MaskReveal as="span" text="je brein," className="block" onView={false} delay={0.08} />
+            <MaskReveal
+              as="span"
+              text="niet ertegen."
+              className="block italic text-primary"
+              onView={false}
+              delay={0.16}
+            />
+          </h1>
+          <Reveal delay={320}>
+            <p className="mt-8 max-w-xl text-[18px] leading-relaxed text-foreground/75 lg:text-[19px]">
+              Business coaching voor ondernemers met een ADHD-, autisme- of
+              AuDHD-brein. Een op een, op het kanaal waarop jij het meest jezelf bent.
+              Of dat nu bellen, videobellen, chatten of mailen is.
+            </p>
+          </Reveal>
+          <Reveal delay={400}>
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <Magnetic>
                 <CTALink to="/over-mij" variant="secondary" size="lg">
                   Lees mijn verhaal
                 </CTALink>
-                <CTALink to="/traject" variant="ghost" size="lg" showArrow={false}>
-                  Bekijk het traject
-                </CTALink>
-              </div>
-            </Reveal>
-          </div>
+              </Magnetic>
+              <CTALink to="/traject" variant="ghost" size="lg" showArrow={false}>
+                Bekijk het traject
+              </CTALink>
+            </div>
+          </Reveal>
+        </div>
 
-          <div className="lg:col-span-5">
-            <Reveal variant="right" delay={120}>
-              <Parallax speed={0.12}>
-                <BezelFrame className="rotate-[0.6deg]">
+        <div className="lg:col-span-5">
+          <div className="relative">
+            <motion.div
+              style={reduced ? undefined : { y: portraitY, scale: portraitScale, rotate: portraitRotate }}
+            >
+              <Reveal variant="right" delay={160}>
+                <BezelFrame>
                   <div className="overflow-hidden bezel-inner">
                     <img
                       src={jurgenBank}
                       alt="Jurgen, oprichter van Gewoon Anders, zit ontspannen op een bank in een lichte huiselijke kamer."
-                      className="h-full w-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02]"
+                      className="h-full w-full object-cover"
                       loading="eager"
                     />
                   </div>
                 </BezelFrame>
-              </Parallax>
-            </Reveal>
+              </Reveal>
+            </motion.div>
+
+            {/* Floating channel chips that drift on scroll */}
+            {!reduced &&
+              channelChips.map((chip) => (
+                <FloatingChip key={chip.label} chip={chip} progress={scrollYProgress} />
+              ))}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Herkenning */}
+      {/* Marquee band */}
+      <div className="relative border-y border-foreground/10 bg-background/60 py-5">
+        <Marquee
+          items={["Videobellen", "Bellen zonder beeld", "Live chatten", "Mailsessies"]}
+          duration={28}
+          className="font-display text-[1.4rem] italic text-foreground/70 sm:text-[1.7rem]"
+        />
+      </div>
+    </section>
+  );
+}
+
+function FloatingChip({
+  chip,
+  progress,
+}: {
+  chip: (typeof channelChips)[number];
+  progress: ReturnType<typeof useScroll>["scrollYProgress"];
+}) {
+  const y = useTransform(progress, [0, 1], [0, chip.drift]);
+  const opacity = useTransform(progress, [0, 0.6], [1, 0]);
+  const Icon = chip.icon;
+  return (
+    <motion.div
+      className="absolute z-10 hidden lg:block"
+      style={{ left: chip.x, top: chip.y, y, opacity, willChange: "transform, opacity" }}
+      initial={{ opacity: 0, scale: 0.6, y: 14 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ delay: chip.delay, type: "spring", stiffness: 240, damping: 18 }}
+    >
+      <div className="flex items-center gap-2 rounded-full border border-foreground/10 bg-card/90 px-4 py-2.5 shadow-ambient backdrop-blur-md">
+        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <Icon size={15} strokeWidth={1.8} aria-hidden />
+        </span>
+        <span className="text-[14px] font-medium text-foreground">{chip.label}</span>
+      </div>
+    </motion.div>
+  );
+}
+
+function HomePage() {
+  return (
+    <>
+      {/* 01 — Hero */}
+      <Hero />
+
+      {/* Visual interlude — groeiende menigte met storyline-payoff */}
+      <CrowdReveal heading="Wij zijn gewoon anders…" headingAccent="En dat is prima." />
+
+      {/* 02 — Herkenning */}
       <section className="relative bg-secondary">
         <div className="mx-auto max-w-[1240px] px-6 py-24 lg:px-10 lg:py-32">
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
               <Reveal>
-                <span className="eyebrow">Herkenning</span>
+                <SectionKicker index="02" label="Herkenning" />
               </Reveal>
-              <Reveal delay={60}>
-                <h2 className="display-lg mt-5 text-3xl sm:text-4xl lg:text-[2.6rem]">
-                  Misschien herken je dit als ondernemer.
-                </h2>
-              </Reveal>
+              <h2 className="display-lg mt-6 text-[2rem] sm:text-4xl lg:text-[2.8rem]">
+                <MaskReveal as="span" text="Misschien herken je dit als ondernemer." />
+              </h2>
               <Reveal delay={140}>
                 <p className="mt-6 text-[17px] leading-relaxed text-foreground/75">
                   Dit ligt niet aan jou en niet aan een gebrek aan discipline. Het ligt
@@ -136,37 +260,35 @@ function HomePage() {
                 </p>
               </Reveal>
             </div>
-            <ul className="space-y-4 lg:col-span-7">
+            <StaggerGroup as="ul" className="space-y-4 lg:col-span-7">
               {recognise.map((line, i) => (
-                <Reveal key={i} as="li" delay={i * 70}>
-                  <div className="group relative flex gap-5 rounded-2xl bg-background/70 p-6 ring-1 ring-foreground/5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-background hover:shadow-ambient">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110">
+                <StaggerItem key={i} as="li">
+                  <div className="group relative flex gap-5 rounded-2xl bg-background/70 p-6 ring-1 ring-foreground/5 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-background hover:shadow-ambient hover:ring-primary/20">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[-6deg]">
                       <Check size={18} strokeWidth={2} aria-hidden />
                     </span>
                     <p className="text-[17px] leading-relaxed text-foreground/85">{line}</p>
                   </div>
-                </Reveal>
+                </StaggerItem>
               ))}
-            </ul>
+            </StaggerGroup>
           </div>
         </div>
       </section>
 
-      {/* Masking — kern */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute -right-32 top-1/2 h-[480px] w-[480px] -translate-y-1/2 rounded-full bg-primary/8 blur-3xl" />
+      {/* 03 — Masking, dark ink section with hover-expand cards */}
+      <section className="noise relative overflow-hidden bg-ink text-ink-foreground">
+        <div className="pointer-events-none absolute -right-32 top-1/2 h-[480px] w-[480px] -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
         <div className="relative mx-auto grid max-w-[1240px] gap-14 px-6 py-28 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-36">
           <div className="lg:col-span-7">
             <Reveal>
-              <span className="eyebrow">Het stuk dat vaak onbenoemd blijft</span>
+              <SectionKicker index="03" label="Het stuk dat vaak onbenoemd blijft" light />
             </Reveal>
-            <Reveal delay={80}>
-              <h2 className="display-lg mt-6 text-3xl sm:text-4xl lg:text-[2.8rem]">
-                Masking kost je waarschijnlijk meer dan je denkt.
-              </h2>
-            </Reveal>
+            <h2 className="display-lg mt-6 text-[2.1rem] text-background sm:text-4xl lg:text-[3rem]">
+              <MaskReveal as="span" text="Masking kost je waarschijnlijk meer dan je denkt." />
+            </h2>
             <Reveal delay={160}>
-              <p className="mt-7 text-[17px] leading-relaxed text-foreground/75 lg:text-[18px]">
+              <p className="mt-8 text-[17px] leading-relaxed text-background/80 lg:text-[18px]">
                 Voor veel autistische en AuDHD-ondernemers is masking de stille post
                 die bij elk klantgesprek, elke pitch en elke netwerkafspraak iets van je
                 aftrekt. Je wordt niet ineens iemand anders. Je past je toon een beetje
@@ -176,17 +298,24 @@ function HomePage() {
               </p>
             </Reveal>
             <Reveal delay={220}>
-              <p className="mt-5 text-[17px] leading-relaxed text-foreground/75 lg:text-[18px]">
+              <p className="mt-5 text-[17px] leading-relaxed text-background/80 lg:text-[18px]">
                 Dat is geen reden om iemand anders te worden. Wel een goede reden om je
                 werk zo in te richten dat je het minder hoeft.
               </p>
             </Reveal>
             <Reveal delay={300}>
               <div className="mt-10 flex flex-wrap gap-3">
-                <CTALink to="/themas/masking" variant="primary" size="lg">
-                  Lees over masking
-                </CTALink>
-                <CTALink to="/masking-check" variant="secondary" size="lg">
+                <Magnetic>
+                  <CTALink to="/themas/masking" variant="primary" size="lg">
+                    Lees over masking
+                  </CTALink>
+                </Magnetic>
+                <CTALink
+                  to="/masking-check"
+                  variant="secondary"
+                  size="lg"
+                  className="!border-background/20 !bg-background/10 !text-background hover:!bg-background/15"
+                >
                   Doe de Masking-check
                 </CTALink>
               </div>
@@ -194,68 +323,49 @@ function HomePage() {
           </div>
 
           <div className="lg:col-span-5">
-            <Reveal variant="right" delay={120}>
-              <div className="space-y-4">
-                <div className="rounded-3xl border border-foreground/8 bg-card p-7 transition-all duration-500 hover:-translate-y-0.5 hover:shadow-ambient">
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
-                    In klantgesprekken
-                  </p>
-                  <p className="mt-3 text-[17px] leading-relaxed text-foreground/85">
-                    Je past je toon en snelheid aan op de ander. Soms zo precies dat je
-                    de jouwe even kwijt bent.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-foreground/8 bg-card p-7 transition-all duration-500 hover:-translate-y-0.5 hover:shadow-ambient lg:ml-10">
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
-                    Bij prijsgesprekken
-                  </p>
-                  <p className="mt-3 text-[17px] leading-relaxed text-foreground/85">
-                    Je voelt de aarzeling bij de ander, en haalt liever je prijs naar
-                    beneden dan dat je dat ongemak laat staan.
-                  </p>
-                </div>
-                <div className="rounded-3xl border border-foreground/8 bg-card p-7 transition-all duration-500 hover:-translate-y-0.5 hover:shadow-ambient">
-                  <p className="text-[12px] font-semibold uppercase tracking-[0.18em] text-primary">
-                    Op netwerk-events
-                  </p>
-                  <p className="mt-3 text-[17px] leading-relaxed text-foreground/85">
-                    Je doet alsof je het leuk vindt, op pure wilskracht. Daarna ben je
-                    twee dagen onbruikbaar.
-                  </p>
-                </div>
-              </div>
+            <StaggerGroup className="space-y-4">
+              {maskingCards.map((card, i) => (
+                <StaggerItem key={card.k}>
+                  <div className={i === 1 ? "lg:ml-10" : ""}>
+                    <HoverExpandCard
+                      kicker={card.k}
+                      title={card.title}
+                      detail={card.detail}
+                      className="!bg-background/[0.06] !border-background/12 backdrop-blur-sm [&_p]:!text-background/85 [&_p:first-of-type]:!text-primary"
+                    />
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerGroup>
+            <Reveal delay={200}>
+              <p className="mt-4 text-center text-[13px] text-background/45">
+                Beweeg over een kaart om meer te zien
+              </p>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Tweezijdig verhaal */}
+      {/* 04 — Tweezijdig verhaal */}
       <section className="relative bg-secondary">
         <div className="mx-auto grid max-w-[1240px] items-center gap-14 px-6 py-24 lg:grid-cols-12 lg:gap-16 lg:px-10 lg:py-32">
           <div className="lg:col-span-5">
-            <Reveal>
-              <Parallax speed={0.1}>
-                <BezelFrame>
-                  <img
-                    src={jurgenMariska}
-                    alt="Jurgen en zijn vrouw Mariska samen bij zonsondergang aan zee."
-                    className="h-full w-full object-cover"
-                  />
-                </BezelFrame>
-              </Parallax>
-            </Reveal>
+            <RevealImage
+              src={jurgenMariska}
+              alt="Jurgen en zijn vrouw Mariska samen bij zonsondergang aan zee."
+              from="left"
+              className="bezel-inner aspect-[4/5] rounded-2xl shadow-ambient-lg ring-1 ring-foreground/10"
+            />
           </div>
           <div className="lg:col-span-7">
             <Reveal>
-              <span className="eyebrow">Twee kanten van neurodivergentie</span>
+              <SectionKicker index="04" label="Twee kanten van neurodivergentie" />
             </Reveal>
-            <Reveal delay={80}>
-              <h2 className="display-lg mt-6 text-3xl sm:text-4xl lg:text-[2.6rem]">
-                Ik ken dit van twee kanten.
-              </h2>
-            </Reveal>
+            <h2 className="display-lg mt-6 text-[2rem] sm:text-4xl lg:text-[2.8rem]">
+              <MaskReveal as="span" text="Ik ken dit van twee kanten." />
+            </h2>
             <Reveal delay={160}>
-              <p className="mt-7 text-[17px] leading-relaxed text-foreground/75">
+              <p className="mt-8 text-[17px] leading-relaxed text-foreground/75">
                 Ik ben zelf neurodivergent, en ik run al jaren meerdere bedrijven. Maar
                 ik ken neurodivergentie ook van heel dichtbij op een andere manier. Ik
                 ben al ruim achttien jaar samen met mijn vrouw, die pas op latere
@@ -284,21 +394,19 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Kanaal */}
+      {/* 05 — Kanaal */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-[1240px] px-6 py-28 lg:px-10 lg:py-36">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
             <div className="lg:col-span-5">
               <Reveal>
-                <span className="eyebrow">Vier kanalen, gelijkwaardig</span>
+                <SectionKicker index="05" label="Vier kanalen, gelijkwaardig" />
               </Reveal>
-              <Reveal delay={80}>
-                <h2 className="display-lg mt-6 text-3xl sm:text-4xl lg:text-[2.6rem]">
-                  Jij kiest hoe we praten.
-                </h2>
-              </Reveal>
+              <h2 className="display-lg mt-6 text-[2rem] sm:text-4xl lg:text-[2.8rem]">
+                <MaskReveal as="span" text="Jij kiest hoe we praten." />
+              </h2>
               <Reveal delay={160}>
-                <p className="mt-7 text-[17px] leading-relaxed text-foreground/75">
+                <p className="mt-8 text-[17px] leading-relaxed text-foreground/75">
                   Niet iedereen denkt het beste in een videocall. Sommige mensen denken
                   scherper zonder beeld, of in geschreven tekst, of als ze de tijd
                   krijgen om hun gedachten te ordenen. Daarom kies je bij Gewoon Anders
@@ -321,25 +429,21 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Traject korte uitleg */}
+      {/* 06 — Traject teaser */}
       <section className="relative">
         <div className="mx-auto max-w-[1240px] px-6 lg:px-10">
-          <div className="relative overflow-hidden rounded-[2rem] bg-foreground p-10 sm:p-14 lg:p-20">
-            <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-primary/20 blur-3xl" />
+          <div className="noise relative overflow-hidden rounded-[2rem] bg-ink p-10 text-ink-foreground sm:p-14 lg:p-20">
+            <div className="pointer-events-none absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-primary/25 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-32 -left-24 h-[360px] w-[360px] rounded-full bg-primary/15 blur-3xl" />
             <div className="relative max-w-3xl">
               <Reveal>
-                <span className="eyebrow border-background/20 bg-background/10 text-background/90">
-                  Het traject
-                </span>
+                <SectionKicker index="06" label="Het traject" light />
               </Reveal>
-              <Reveal delay={80}>
-                <h2 className="display-lg mt-6 text-3xl text-background sm:text-4xl lg:text-[2.6rem]">
-                  Gewoon Anders Ondernemen.
-                </h2>
-              </Reveal>
+              <h2 className="display-lg mt-6 text-[2.2rem] text-background sm:text-4xl lg:text-[3rem]">
+                <MaskReveal as="span" text="Gewoon Anders Ondernemen." />
+              </h2>
               <Reveal delay={140}>
-                <p className="mt-6 text-[17px] leading-relaxed text-background/80 lg:text-[18px]">
+                <p className="mt-7 text-[17px] leading-relaxed text-background/80 lg:text-[18px]">
                   In acht sessies bouw je een bedrijf dat werkt met jouw brein. We kijken
                   naar hoe je werkt, waar je energie heen gaat, welke structuur bij je
                   past, hoe je grenzen stelt naar klanten, en welke richting echt van
@@ -348,9 +452,16 @@ function HomePage() {
               </Reveal>
               <Reveal delay={220}>
                 <div className="mt-10">
-                  <CTALink to="/traject" variant="secondary" size="lg" className="!bg-background/10 !border-background/20 !text-background hover:!bg-background/15">
-                    Bekijk het hele traject
-                  </CTALink>
+                  <Magnetic>
+                    <CTALink
+                      to="/traject"
+                      variant="secondary"
+                      size="lg"
+                      className="!bg-background/10 !border-background/20 !text-background hover:!bg-background/15"
+                    >
+                      Bekijk het hele traject
+                    </CTALink>
+                  </Magnetic>
                 </div>
               </Reveal>
             </div>
@@ -358,43 +469,38 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Geruststelling */}
+      {/* 07 — Geruststelling */}
       <section className="relative">
         <div className="mx-auto max-w-[1240px] px-6 py-28 lg:px-10 lg:py-36">
           <Reveal>
-            <span className="eyebrow">Wat je van tevoren mag weten</span>
+            <SectionKicker index="07" label="Wat je van tevoren mag weten" />
           </Reveal>
-          <Reveal delay={80}>
-            <h2 className="display-lg mt-6 max-w-2xl text-3xl sm:text-4xl lg:text-[2.4rem]">
-              Vier dingen die ik vooraf wil zeggen.
-            </h2>
-          </Reveal>
-          <ul className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <h2 className="display-lg mt-6 max-w-2xl text-[2rem] sm:text-4xl lg:text-[2.6rem]">
+            <MaskReveal as="span" text="Vier dingen die ik vooraf wil zeggen." />
+          </h2>
+          <StaggerGroup as="ul" className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {reassure.map((r, i) => (
-              <Reveal key={r.h} as="li" delay={i * 90}>
-                <article className="group relative h-full rounded-3xl border border-foreground/8 bg-card p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-ambient-lg">
-                  <span className="absolute right-7 top-7 text-[12px] font-mono text-foreground/30">
-                    0{i + 1}
-                  </span>
+              <StaggerItem key={r.h} as="li">
+                <article className="group relative h-full overflow-hidden rounded-3xl border border-foreground/8 bg-card p-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:shadow-ambient-lg hover:border-primary/20">
+                  <span className="section-index absolute right-7 top-7">0{i + 1}</span>
+                  <span className="pointer-events-none absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-primary transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100" />
                   <h3 className="text-lg font-semibold text-foreground">{r.h}</h3>
                   <p className="mt-3 text-[15px] leading-relaxed text-foreground/70">
                     {r.p}
                   </p>
                 </article>
-              </Reveal>
+              </StaggerItem>
             ))}
-          </ul>
+          </StaggerGroup>
         </div>
       </section>
 
-      {/* Slot */}
+      {/* 08 — Slot */}
       <section className="relative bg-secondary">
         <div className="mx-auto max-w-3xl px-6 py-28 text-center lg:px-10">
-          <Reveal>
-            <h2 className="display-lg text-3xl sm:text-4xl lg:text-[2.6rem]">
-              Benieuwd of dit bij je past?
-            </h2>
-          </Reveal>
+          <h2 className="display-lg text-[2.2rem] sm:text-4xl lg:text-[3rem]">
+            <MaskReveal as="span" text="Benieuwd of dit bij je past?" />
+          </h2>
           <Reveal delay={100}>
             <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-foreground/75">
               Plan een gratis kennismaking van een half uur. Op het kanaal dat jij wil.
@@ -403,9 +509,11 @@ function HomePage() {
           </Reveal>
           <Reveal delay={180}>
             <div className="mt-10 flex justify-center">
-              <CTALink to="/contact" variant="primary" size="lg">
-                Plan een kennismaking
-              </CTALink>
+              <Magnetic>
+                <CTALink to="/contact" variant="primary" size="lg">
+                  Plan een kennismaking
+                </CTALink>
+              </Magnetic>
             </div>
           </Reveal>
         </div>
