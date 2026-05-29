@@ -5,7 +5,8 @@ import mockupKort from "@/assets/mockup-kort.png";
 import { FadeIn } from "@/components/FadeIn";
 import { ChannelCards } from "@/components/ChannelCards";
 import { PageHeader } from "@/components/PageHeader";
-import { MaskReveal } from "@/components/motion";
+import { MaskReveal, Magnetic } from "@/components/motion";
+import { CTAAnchor } from "@/components/CTAButton";
 
 const CHECKOUT_VOLLEDIG = "https://checkout.northernlights.solutions/checkout/gewoon-anders-ondernemen";
 const CHECKOUT_KORT = "https://checkout.northernlights.solutions/checkout/gewoon-anders-ondernemen-kort";
@@ -148,15 +149,16 @@ function TrajectPage() {
                   </span>
                 </div>
                 <div className="mt-5 flex flex-wrap items-center gap-3">
-                  <a
-                    href={CHECKOUT_VOLLEDIG}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-[15px] font-medium text-primary-foreground hover:bg-primary/90"
-                  >
-                    Direct boeken
-                    <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
-                  </a>
+                  <Magnetic>
+                    <CTAAnchor
+                      href={CHECKOUT_VOLLEDIG}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="primary"
+                    >
+                      Direct boeken
+                    </CTAAnchor>
+                  </Magnetic>
                   <Link
                     to="/contact"
                     className="text-[14px] font-medium text-primary link-underline"
@@ -201,15 +203,16 @@ function TrajectPage() {
                   </span>
                 </div>
                 <div className="mt-5 flex flex-wrap items-center gap-3">
-                  <a
-                    href={CHECKOUT_KORT}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-2.5 text-[15px] font-medium text-primary-foreground hover:bg-primary/90"
-                  >
-                    Direct boeken
-                    <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
-                  </a>
+                  <Magnetic>
+                    <CTAAnchor
+                      href={CHECKOUT_KORT}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      variant="primary"
+                    >
+                      Direct boeken
+                    </CTAAnchor>
+                  </Magnetic>
                   <Link
                     to="/contact"
                     className="text-[14px] font-medium text-primary link-underline"
@@ -233,28 +236,31 @@ function TrajectPage() {
       </section>
 
       {/* Slot */}
-      <section className="bg-secondary">
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
+      <section className="noise relative overflow-hidden bg-ink text-ink-foreground">
+        <div className="pointer-events-none absolute -right-24 top-1/2 h-[360px] w-[360px] -translate-y-1/2 rounded-full bg-primary/20 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <FadeIn>
-            <MaskReveal as="h2" text="Klaar om te beginnen?" className="display-lg text-[1.9rem] sm:text-[2.2rem] text-foreground" />
-            <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-foreground/80">
+            <MaskReveal as="h2" text="Klaar om te beginnen?" className="display-lg text-[1.9rem] sm:text-[2.3rem] text-background" />
+            <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-background/80">
               Boek het traject direct als je weet dat dit bij je past. Of plan eerst
               een vrijblijvende kennismaking als je nog wil voelen of het klikt. Beide
               kan, beide is goed.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              <a
-                href={CHECKOUT_VOLLEDIG}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-medium text-primary-foreground hover:bg-primary/90"
-              >
-                Boek het volledige traject
-                <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
-              </a>
+              <Magnetic>
+                <CTAAnchor
+                  href={CHECKOUT_VOLLEDIG}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="primary"
+                  size="lg"
+                >
+                  Boek het volledige traject
+                </CTAAnchor>
+              </Magnetic>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center rounded-xl border border-foreground/15 bg-background px-6 py-3.5 text-base font-medium text-foreground hover:bg-background/80"
+                className="inline-flex items-center justify-center rounded-xl border border-background/20 bg-background/10 px-6 py-3.5 text-base font-medium text-background hover:bg-background/15"
               >
                 Plan een kennismaking
               </Link>
