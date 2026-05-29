@@ -1,7 +1,8 @@
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import {
   motion,
   motionValue,
+  useMotionValueEvent,
   useScroll,
   useTransform,
   type MotionValue,
@@ -108,7 +109,16 @@ export function CrowdReveal({ heading, headingAccent }: CrowdRevealProps) {
 
   const fieldScale = useTransform(scrollYProgress, [0, 0.55], [1.45, 1]);
   // Photos fade out completely once the heading is in, leaving only the text.
-  const fieldOpacity = useTransform(scrollYProgress, [0.62, 0.82], [1, 0]);
+  const fieldOpacityMV = useTransform(scrollYProgress, [0.62, 0.82], [1, 0]);
+  // Once the photos have fully faded they stay gone (hysteresis: only restore
+  // when you scroll well back up), so the field can never flicker back in while
+  // the tall sticky section keeps scrolling.
+  const [fieldGone, setFieldGone] = useState(false);
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (v >= 0.82) setFieldGone(true);
+    else if (v < 0.6) setFieldGone(false);
+  });
+  const fieldOpacity = fieldGone ? 0 : fieldOpacityMV;
 
   const grid = (
     <div
@@ -192,11 +202,21 @@ function CrowdHeading({
   heading: string;
   headingAccent?: string;
 }) {
-  // Appears just before the photos start fading, then holds at full opacity all
-  // the way to the end so the text stays clearly visible while you keep scrolling.
-  const opacity = useTransform(progress, [0.5, 0.6], [0, 1]);
-  const scale = useTransform(progress, [0.5, 0.72], [0.92, 1]);
-  const y = useTransform(progress, [0.5, 0.6], [22, 0]);
+  // The heading fades in once, then LOCKS at full opacity and stays put. The
+  // lock has hysteresis (only releases when you scroll well back up past the
+  // fade-in zone), so the text can never fade back out while the tall sticky
+  // section keeps scrolling — it just stays clearly in view.
+  const opacityMV = useTransform(progress, [0.5, 0.6], [0, 1]);
+  const scaleMV = useTransform(progress, [0.5, 0.6], [0.92, 1]);
+  const yMV = useTransform(progress, [0.5, 0.6], [22, 0]);
+  const [locked, setLocked] = useState(false);
+  useMotionValueEvent(progress, "change", (v) => {
+    if (v >= 0.6) setLocked(true);
+    else if (v < 0.48) setLocked(false);
+  });
+  const opacity = locked ? 1 : opacityMV;
+  const scale = locked ? 1 : scaleMV;
+  const y = locked ? 0 : yMV;
   return (
     <motion.div style={{ opacity }} className="relative flex justify-center">
       <div className="pointer-events-none absolute -inset-x-[55vw] -inset-y-[40vh] bg-[radial-gradient(ellipse_at_center,var(--color-background)_0%,color-mix(in_oklch,var(--color-background)_88%,transparent)_42%,color-mix(in_oklch,var(--color-background)_55%,transparent)_62%,transparent_80%)]" />
