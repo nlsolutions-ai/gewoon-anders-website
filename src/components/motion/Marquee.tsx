@@ -12,7 +12,11 @@ type MarqueeProps = {
 /**
  * Infinite horizontal ticker. Pure CSS animation (see .marquee-track in
  * styles.css) so it costs almost nothing and auto-stops under reduced motion.
- * The item list is duplicated once so the -50% translate loops seamlessly.
+ *
+ * The track is two identical halves and the CSS translates by -50%, so the loop
+ * is seamless ONLY when one half is at least as wide as the viewport. With a
+ * short item list a single pass would leave a gap on the right, so we repeat the
+ * items enough times per half to comfortably overflow any screen width.
  */
 export function Marquee({
   items,
@@ -20,7 +24,9 @@ export function Marquee({
   duration = 32,
   separator = "·",
 }: MarqueeProps) {
-  const sequence = [...items, ...items];
+  const reps = Math.max(3, Math.ceil(16 / Math.max(1, items.length)));
+  const half = Array.from({ length: reps }, () => items).flat();
+  const sequence = [...half, ...half];
   return (
     <div className={`marquee-mask overflow-hidden ${className ?? ""}`}>
       <div
