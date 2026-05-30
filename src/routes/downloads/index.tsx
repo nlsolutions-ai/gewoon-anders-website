@@ -222,27 +222,15 @@ function DownloadsPage() {
         <Reveal>
           <SectionKicker index="01" label="Doe een scan · direct online" />
         </Reveal>
-        <MaskReveal
-          as="h2"
-          text="In een paar minuten zie je waar het zit."
-          className="display-lg mt-5 max-w-2xl text-[1.9rem] text-foreground sm:text-[2.3rem]"
-        />
 
-        <div className="mt-14 space-y-20 lg:space-y-28">
+        <div className="mt-12 space-y-20 lg:space-y-28">
           {scans.map((s, i) => (
             <div
               key={s.to}
-              className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16"
+              className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16"
             >
-              <Reveal
-                variant={i % 2 === 0 ? "left" : "right"}
-                className={i % 2 === 0 ? "" : "lg:order-2"}
-              >
-                <Polaroid caption={s.title} rotate={i % 2 === 0 ? "rotate-[-2.5deg]" : "rotate-[2.5deg]"}>
-                  <ScanPhoto preview={s.preview} />
-                </Polaroid>
-              </Reveal>
-              <div className={i % 2 === 0 ? "" : "lg:order-1"}>
+              {/* Tekst eerst: kop, uitleg en CTA — daaronder pas de screenshot (mobile). */}
+              <div className={i % 2 === 0 ? "" : "lg:order-2"}>
                 <Reveal>
                   <span className="eyebrow">Gratis scan</span>
                 </Reveal>
@@ -267,6 +255,14 @@ function DownloadsPage() {
                   </div>
                 </Reveal>
               </div>
+              <Reveal
+                variant={i % 2 === 0 ? "right" : "left"}
+                className={i % 2 === 0 ? "" : "lg:order-1"}
+              >
+                <Polaroid caption={s.title} rotate={i % 2 === 0 ? "rotate-[-2.5deg]" : "rotate-[2.5deg]"}>
+                  <ScanPhoto preview={s.preview} />
+                </Polaroid>
+              </Reveal>
             </div>
           ))}
         </div>
@@ -277,29 +273,12 @@ function DownloadsPage() {
         <Reveal>
           <SectionKicker index="02" label="Download een werkblad · pdf" />
         </Reveal>
-        <MaskReveal
-          as="h2"
-          text="Iets op papier om mee te werken."
-          className="display-lg mt-5 max-w-2xl text-[1.9rem] text-foreground sm:text-[2.3rem]"
-        />
 
-        <div className="mt-14 space-y-20 lg:space-y-28">
+        <div className="mt-12 space-y-20 lg:space-y-28">
           {sheets.map((s, i) => (
-            <div key={s.slug} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-              <Reveal
-                variant={i % 2 === 0 ? "left" : "right"}
-                className={i % 2 === 0 ? "" : "lg:order-2"}
-              >
-                <Polaroid caption={s.title} rotate={i % 2 === 0 ? "rotate-[2deg]" : "rotate-[-2deg]"}>
-                  <img
-                    src={s.image}
-                    alt={`Voorpagina van ${s.title}`}
-                    loading="lazy"
-                    className="block w-full"
-                  />
-                </Polaroid>
-              </Reveal>
-              <div className={i % 2 === 0 ? "" : "lg:order-1"}>
+            <div key={s.slug} className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
+              {/* Tekst eerst: kop, uitleg en CTA — daaronder pas de screenshot (mobile). */}
+              <div className={i % 2 === 0 ? "" : "lg:order-2"}>
                 <Reveal>
                   <span className="eyebrow">Gratis werkblad</span>
                 </Reveal>
@@ -329,6 +308,19 @@ function DownloadsPage() {
                   </div>
                 </Reveal>
               </div>
+              <Reveal
+                variant={i % 2 === 0 ? "right" : "left"}
+                className={i % 2 === 0 ? "" : "lg:order-1"}
+              >
+                <Polaroid caption={s.title} rotate={i % 2 === 0 ? "rotate-[2deg]" : "rotate-[-2deg]"}>
+                  <img
+                    src={s.image}
+                    alt={`Voorpagina van ${s.title}`}
+                    loading="lazy"
+                    className="block w-full"
+                  />
+                </Polaroid>
+              </Reveal>
             </div>
           ))}
         </div>
