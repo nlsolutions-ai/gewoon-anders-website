@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { PageHeader } from "@/components/PageHeader";
-import { SectionKicker } from "@/components/SectionKicker";
 import { CTALink } from "@/components/CTAButton";
 import { MaskReveal, Magnetic } from "@/components/motion";
 
@@ -219,11 +218,7 @@ function DownloadsPage() {
 
       {/* Scans */}
       <section className="mx-auto max-w-[1240px] px-6 pb-8 lg:px-10">
-        <Reveal>
-          <SectionKicker index="01" label="Doe een scan · direct online" />
-        </Reveal>
-
-        <div className="mt-12 space-y-20 lg:space-y-28">
+        <div className="space-y-20 lg:space-y-28">
           {scans.map((s, i) => (
             <div
               key={s.to}
@@ -269,12 +264,8 @@ function DownloadsPage() {
       </section>
 
       {/* Werkbladen */}
-      <section className="mx-auto max-w-[1240px] px-6 py-20 lg:px-10 lg:py-28">
-        <Reveal>
-          <SectionKicker index="02" label="Download een werkblad · pdf" />
-        </Reveal>
-
-        <div className="mt-12 space-y-20 lg:space-y-28">
+      <section className="mx-auto max-w-[1240px] px-6 py-16 lg:px-10 lg:py-24">
+        <div className="space-y-20 lg:space-y-28">
           {sheets.map((s, i) => (
             <div key={s.slug} className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
               {/* Tekst eerst: kop, uitleg en CTA — daaronder pas de screenshot (mobile). */}
