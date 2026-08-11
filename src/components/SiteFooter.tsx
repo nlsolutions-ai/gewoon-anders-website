@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Instagram } from "lucide-react";
+import { Mail, Instagram, ArrowUpRight } from "lucide-react";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 
 const explore = [
@@ -97,6 +97,13 @@ export function SiteFooter() {
               &copy; {new Date().getFullYear()} Gewoon Anders
             </p>
             <div className="flex flex-wrap items-center gap-5">
+              <a
+                href="https://app.gewoonanders.nu"
+                className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground/75 hover:text-foreground link-underline"
+              >
+                <ArrowUpRight size={13} strokeWidth={1.8} aria-hidden />
+                Inloggen (voor klanten)
+              </a>
               <Link to="/privacy" className="text-[13px] text-foreground/65 hover:text-foreground link-underline">
                 Privacy
               </Link>

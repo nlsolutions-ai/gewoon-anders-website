@@ -185,6 +185,13 @@ export function SiteNav() {
           </ul>
 
           <div className="flex items-center gap-1.5">
+            <a
+              href="https://app.gewoonanders.nu"
+              className="hidden items-center gap-1.5 rounded-full px-3 py-2 text-[14px] font-medium text-foreground/75 transition-colors hover:bg-foreground/5 hover:text-foreground lg:inline-flex"
+            >
+              Inloggen
+              <ArrowUpRight size={14} strokeWidth={1.8} aria-hidden />
+            </a>
             <div className="hidden lg:block">
               <Magnetic>
                 <Link
@@ -307,6 +314,23 @@ export function SiteNav() {
                 <span>Plan een kennismaking</span>
                 <ArrowUpRight size={18} strokeWidth={1.8} aria-hidden />
               </Link>
+            </li>
+            <li
+              className="pt-2"
+              style={{
+                opacity: open ? 1 : 0,
+                transform: open ? "translateY(0)" : "translateY(16px)",
+                transition: "opacity 700ms cubic-bezier(0.16,1,0.3,1), transform 700ms cubic-bezier(0.16,1,0.3,1)",
+                transitionDelay: open ? `${100 + (items.length + 1) * 60}ms` : "0ms",
+              }}
+            >
+              <a
+                href="https://app.gewoonanders.nu"
+                className="flex items-center justify-center gap-2 rounded-2xl border border-foreground/10 px-5 py-4 text-[15px] font-medium text-foreground/80 hover:bg-foreground/5"
+              >
+                <span>Inloggen bij je coach</span>
+                <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden />
+              </a>
             </li>
           </ul>
         </div>
