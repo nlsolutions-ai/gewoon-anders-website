@@ -15,9 +15,9 @@ export const Route = createFileRoute("/werkwijze")({
       },
       { property: "og:title", content: "Werkwijze - Gewoon Anders" },
       { property: "og:description", content: "Het Anders Fundament in vijf pijlers." },
-      { property: "og:url", content: "/werkwijze" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/werkwijze" },
     ],
-    links: [{ rel: "canonical", href: "/werkwijze" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/werkwijze" }],
   }),
   component: WerkwijzePage,
 });

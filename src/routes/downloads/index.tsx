@@ -16,9 +16,9 @@ export const Route = createFileRoute("/downloads/")({
           "Twee gratis scans en twee werkbladen voor ondernemers met ADHD, autisme of AuDHD. Energie, masking, prijzen en een weekoverzicht voor je brein.",
       },
       { property: "og:title", content: "Gratis downloads voor neurodivergente ondernemers" },
-      { property: "og:url", content: "/downloads" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/downloads" },
     ],
-    links: [{ rel: "canonical", href: "/downloads" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/downloads" }],
   }),
   component: DownloadsPage,
 });

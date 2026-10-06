@@ -14,9 +14,9 @@ export const Route = createFileRoute("/themas/zichtbaarheid-netwerken")({
           "Hoe je zichtbaar wordt als ondernemer zonder netwerk-events die je dagen kosten, en zonder een online persona die niet bij je past.",
       },
       { property: "og:title", content: "Zichtbaarheid en netwerken" },
-      { property: "og:url", content: "/themas/zichtbaarheid-netwerken" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/themas/zichtbaarheid-netwerken" },
     ],
-    links: [{ rel: "canonical", href: "/themas/zichtbaarheid-netwerken" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/themas/zichtbaarheid-netwerken" }],
   }),
   component: ZichtbaarheidPage,
 });

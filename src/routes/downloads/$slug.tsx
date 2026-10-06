@@ -326,7 +326,7 @@ export const Route = createFileRoute("/downloads/$slug")({
         { property: "og:description", content: loaderData.freebie.metaDesc },
         { property: "og:url", content: `/downloads/${loaderData.slug}` },
       ],
-      links: [{ rel: "canonical", href: `/downloads/${loaderData.slug}` }],
+      links: [{ rel: "canonical", href: `https://www.gewoonanders.nu/downloads/${loaderData.slug}` }],
     };
   },
   component: FreebiePage,

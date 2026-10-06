@@ -48,9 +48,9 @@ export const Route = createFileRoute("/masking-check")({
         property: "og:description",
         content: "Zie in vijf minuten waar masking je werk afroomt.",
       },
-      { property: "og:url", content: "/masking-check" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/masking-check" },
     ],
-    links: [{ rel: "canonical", href: "/masking-check" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/masking-check" }],
   }),
   component: MaskingCheckPage,
 });

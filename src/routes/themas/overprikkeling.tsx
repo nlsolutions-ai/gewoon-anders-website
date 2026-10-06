@@ -14,9 +14,9 @@ export const Route = createFileRoute("/themas/overprikkeling")({
           "Waarom je na een goed verlopen klantgesprek soms uren of dagen nodig hebt om te herstellen, hoe je dat herkent, en wat eraan te doen is.",
       },
       { property: "og:title", content: "Overprikkeling na klantcontact" },
-      { property: "og:url", content: "/themas/overprikkeling" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/themas/overprikkeling" },
     ],
-    links: [{ rel: "canonical", href: "/themas/overprikkeling" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/themas/overprikkeling" }],
   }),
   component: OverprikkelingPage,
 });

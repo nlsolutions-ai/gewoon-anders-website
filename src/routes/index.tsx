@@ -32,9 +32,9 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:title", content: "Gewoon Anders" },
       { property: "og:description", content: "Onderneem met je brein, niet ertegen." },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/" }],
   }),
   component: HomePage,
 });

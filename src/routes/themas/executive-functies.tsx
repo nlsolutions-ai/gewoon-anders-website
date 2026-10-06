@@ -14,9 +14,9 @@ export const Route = createFileRoute("/themas/executive-functies")({
           "Waarom plannen, starten en taakwisselen zo veel moeite kosten als je brein anders werkt, en hoe je een werkweek bouwt die wel past.",
       },
       { property: "og:title", content: "Executive functies en planning" },
-      { property: "og:url", content: "/themas/executive-functies" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/themas/executive-functies" },
     ],
-    links: [{ rel: "canonical", href: "/themas/executive-functies" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/themas/executive-functies" }],
   }),
   component: ExecFunctiesPage,
 });

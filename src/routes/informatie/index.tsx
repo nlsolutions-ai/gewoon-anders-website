@@ -14,9 +14,9 @@ export const Route = createFileRoute("/informatie/")({
           "Artikelen over ondernemen met een neurodivergent brein. Over masking, overprikkeling, energie, executive functies, prijzen, grenzen en werkwijze.",
       },
       { property: "og:title", content: "Informatie - Gewoon Anders" },
-      { property: "og:url", content: "/informatie" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/informatie" },
     ],
-    links: [{ rel: "canonical", href: "/informatie" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/informatie" }],
   }),
   component: InformatieIndex,
 });

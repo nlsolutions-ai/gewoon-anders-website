@@ -10,9 +10,9 @@ export const Route = createFileRoute("/voorwaarden")({
         content:
           "De algemene voorwaarden voor coaching bij Gewoon Anders. Helder over wat we wel en niet doen, prijzen, annulering en aansprakelijkheid.",
       },
-      { property: "og:url", content: "/voorwaarden" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/voorwaarden" },
     ],
-    links: [{ rel: "canonical", href: "/voorwaarden" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/voorwaarden" }],
   }),
   component: VoorwaardenPage,
 });

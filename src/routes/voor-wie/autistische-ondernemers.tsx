@@ -14,9 +14,9 @@ export const Route = createFileRoute("/voor-wie/autistische-ondernemers")({
           "Business coaching voor autistische ondernemers. Voor wie het werk goed kan, maar voor wie het ondernemen eromheen veel meer kost dan zichtbaar is.",
       },
       { property: "og:title", content: "Coaching voor autistische ondernemers" },
-      { property: "og:url", content: "/voor-wie/autistische-ondernemers" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/voor-wie/autistische-ondernemers" },
     ],
-    links: [{ rel: "canonical", href: "/voor-wie/autistische-ondernemers" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/voor-wie/autistische-ondernemers" }],
   }),
   component: AutismePage,
 });

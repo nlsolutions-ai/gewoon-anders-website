@@ -14,9 +14,9 @@ export const Route = createFileRoute("/themas/prijzen-onderhandelen")({
           "Waarom prijsgesprekken voor veel neurodivergente ondernemers uitputtend zijn, hoe je een eerlijke prijs vraagt zonder dat het je dagen kost, en wat je in de tussentijd kunt doen.",
       },
       { property: "og:title", content: "Prijzen en onderhandelen" },
-      { property: "og:url", content: "/themas/prijzen-onderhandelen" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/themas/prijzen-onderhandelen" },
     ],
-    links: [{ rel: "canonical", href: "/themas/prijzen-onderhandelen" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/themas/prijzen-onderhandelen" }],
   }),
   component: PrijzenPage,
 });

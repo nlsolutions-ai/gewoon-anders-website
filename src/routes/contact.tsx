@@ -15,9 +15,9 @@ export const Route = createFileRoute("/contact")({
       },
       { property: "og:title", content: "Contact - Gewoon Anders" },
       { property: "og:description", content: "Plan een gratis kennismaking." },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/contact" }],
   }),
   component: ContactPage,
 });

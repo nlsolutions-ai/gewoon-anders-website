@@ -14,9 +14,9 @@ export const Route = createFileRoute("/voor-wie/audhd-ondernemers")({
           "Business coaching voor ondernemers met AuDHD. Voor wie zowel pieken en dalen kent als overprikkeling en behoefte aan voorspelbaarheid. Een traject dat met die spanning werkt, niet er tegenin.",
       },
       { property: "og:title", content: "Coaching voor AuDHD-ondernemers" },
-      { property: "og:url", content: "/voor-wie/audhd-ondernemers" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/voor-wie/audhd-ondernemers" },
     ],
-    links: [{ rel: "canonical", href: "/voor-wie/audhd-ondernemers" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/voor-wie/audhd-ondernemers" }],
   }),
   component: AudhdPage,
 });

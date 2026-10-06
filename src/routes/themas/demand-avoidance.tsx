@@ -14,9 +14,9 @@ export const Route = createFileRoute("/themas/demand-avoidance")({
           "Waarom de dingen die je het meest wil doen soms juist het lastigst beginnen, hoe je dat patroon herkent, en wat je ermee kunt in je werk.",
       },
       { property: "og:title", content: "Demand avoidance bij ondernemers" },
-      { property: "og:url", content: "/themas/demand-avoidance" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/themas/demand-avoidance" },
     ],
-    links: [{ rel: "canonical", href: "/themas/demand-avoidance" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/themas/demand-avoidance" }],
   }),
   component: DemandAvoidancePage,
 });

@@ -14,9 +14,9 @@ export const Route = createFileRoute("/voor-wie/laat-ontdekt")({
           "Coaching voor ondernemers die pas later in hun leven ontdekten dat ze neurodivergent zijn. Er ligt jarenlang werk achter je. We kijken vooruit, met respect voor wat al is.",
       },
       { property: "og:title", content: "Laat ontdekt of laat gediagnosticeerd" },
-      { property: "og:url", content: "/voor-wie/laat-ontdekt" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/voor-wie/laat-ontdekt" },
     ],
-    links: [{ rel: "canonical", href: "/voor-wie/laat-ontdekt" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/voor-wie/laat-ontdekt" }],
   }),
   component: LaatOntdektPage,
 });

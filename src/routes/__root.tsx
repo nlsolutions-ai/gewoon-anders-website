@@ -141,7 +141,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
-const SITE_URL = "https://gewoonanders.nu";
+const SITE_URL = "https://www.gewoonanders.nu";
 const OG_IMAGE = `${SITE_URL}/og.png`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({

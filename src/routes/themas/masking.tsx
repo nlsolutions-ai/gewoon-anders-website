@@ -18,9 +18,9 @@ export const Route = createFileRoute("/themas/masking")({
         property: "og:description",
         content: "Hoe masking je energie, prijs en richting in je bedrijf onzichtbaar afpakt.",
       },
-      { property: "og:url", content: "/themas/masking" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/themas/masking" },
     ],
-    links: [{ rel: "canonical", href: "/themas/masking" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/themas/masking" }],
   }),
   component: MaskingPage,
 });

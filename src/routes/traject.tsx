@@ -22,9 +22,9 @@ export const Route = createFileRoute("/traject")({
       },
       { property: "og:title", content: "Het traject Gewoon Anders Ondernemen" },
       { property: "og:description", content: "Acht 1-op-1 sessies, vrije kanaalkeuze." },
-      { property: "og:url", content: "/traject" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/traject" },
     ],
-    links: [{ rel: "canonical", href: "/traject" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/traject" }],
   }),
   component: TrajectPage,
 });

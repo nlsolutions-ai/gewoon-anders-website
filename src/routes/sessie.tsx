@@ -13,9 +13,9 @@ export const Route = createFileRoute("/sessie")({
       },
       { name: "robots", content: "noindex,nofollow" },
       { property: "og:title", content: "Plan je volgende sessie" },
-      { property: "og:url", content: "/sessie" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/sessie" },
     ],
-    links: [{ rel: "canonical", href: "/sessie" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/sessie" }],
   }),
   component: SessiePage,
 });

@@ -12,9 +12,9 @@ export const Route = createFileRoute("/verhalen")({
           "Vijf onderneemsters vertellen hoe het traject Gewoon Anders Ondernemen hun werk veranderde. Geen mooie woorden, wel eerlijke verhalen over wat anders werd.",
       },
       { property: "og:title", content: "Verhalen van deelnemers" },
-      { property: "og:url", content: "/verhalen" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/verhalen" },
     ],
-    links: [{ rel: "canonical", href: "/verhalen" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/verhalen" }],
   }),
   component: VerhalenPage,
 });

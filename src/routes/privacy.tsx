@@ -10,9 +10,9 @@ export const Route = createFileRoute("/privacy")({
         content:
           "Hoe Gewoon Anders met je gegevens omgaat. Welke gegevens, waarom, hoe lang, en welke rechten je hebt.",
       },
-      { property: "og:url", content: "/privacy" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/privacy" },
     ],
-    links: [{ rel: "canonical", href: "/privacy" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/privacy" }],
   }),
   component: PrivacyPage,
 });

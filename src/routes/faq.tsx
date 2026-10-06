@@ -19,9 +19,9 @@ export const Route = createFileRoute("/faq")({
           "Antwoorden op de meestgestelde vragen over coaching voor neurodivergente ondernemers: diagnose, kanalen, prijs, werkwijze, en wat we doen als het schuurt.",
       },
       { property: "og:title", content: "Veelgestelde vragen - Gewoon Anders" },
-      { property: "og:url", content: "/faq" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/faq" },
     ],
-    links: [{ rel: "canonical", href: "/faq" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/faq" }],
     scripts: [
       {
         type: "application/ld+json",

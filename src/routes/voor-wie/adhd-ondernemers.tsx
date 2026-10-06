@@ -14,9 +14,9 @@ export const Route = createFileRoute("/voor-wie/adhd-ondernemers")({
           "Business coaching voor ondernemers met ADHD. Voor wie een werkweek wil die past bij pieken en dalen, in plaats van ertegen te vechten.",
       },
       { property: "og:title", content: "Coaching voor ADHD-ondernemers" },
-      { property: "og:url", content: "/voor-wie/adhd-ondernemers" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/voor-wie/adhd-ondernemers" },
     ],
-    links: [{ rel: "canonical", href: "/voor-wie/adhd-ondernemers" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/voor-wie/adhd-ondernemers" }],
   }),
   component: AdhdPage,
 });

@@ -16,9 +16,9 @@ export const Route = createFileRoute("/over-mij")({
       },
       { property: "og:title", content: "Over mij - Gewoon Anders" },
       { property: "og:description", content: "Neurodivergentie ken ik van twee kanten." },
-      { property: "og:url", content: "/over-mij" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/over-mij" },
     ],
-    links: [{ rel: "canonical", href: "/over-mij" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/over-mij" }],
   }),
   component: OverMijPage,
 });

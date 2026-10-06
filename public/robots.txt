@@ -3,6 +3,7 @@ Allow: /
 
 # Voor bestaande klanten, niet voor publieke indexering
 Disallow: /sessie
+Disallow: /welkom
+Disallow: /welkom-kort
 
-# Site map
-Sitemap: https://gewoonanders.nu/sitemap.xml
+Sitemap: https://www.gewoonanders.nu/sitemap.xml

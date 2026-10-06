@@ -16,9 +16,9 @@ export const Route = createFileRoute("/welkom")({
       },
       { name: "robots", content: "noindex,nofollow" },
       { property: "og:title", content: "Welkom bij Gewoon Anders Ondernemen" },
-      { property: "og:url", content: "/welkom" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/welkom" },
     ],
-    links: [{ rel: "canonical", href: "/welkom" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/welkom" }],
   }),
   component: WelkomPage,
 });

@@ -14,9 +14,9 @@ export const Route = createFileRoute("/themas/energie-burnout")({
           "Waarom burn-out bij ADHD-, autisme- en AuDHD-ondernemers vaak een andere oorzaak heeft, hoe je het vroeg herkent, en hoe je je werk er omheen bouwt zonder te crashen.",
       },
       { property: "og:title", content: "Energie en burn-out" },
-      { property: "og:url", content: "/themas/energie-burnout" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/themas/energie-burnout" },
     ],
-    links: [{ rel: "canonical", href: "/themas/energie-burnout" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/themas/energie-burnout" }],
   }),
   component: EnergieBurnoutPage,
 });

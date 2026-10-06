@@ -49,9 +49,9 @@ export const Route = createFileRoute("/energiescan")({
         property: "og:description",
         content: "In tien minuten weet je waar je energie wegloopt en waar je kracht zit.",
       },
-      { property: "og:url", content: "/energiescan" },
+      { property: "og:url", content: "https://www.gewoonanders.nu/energiescan" },
     ],
-    links: [{ rel: "canonical", href: "/energiescan" }],
+    links: [{ rel: "canonical", href: "https://www.gewoonanders.nu/energiescan" }],
   }),
   component: EnergiescanPage,
 });

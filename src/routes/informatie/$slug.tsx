@@ -26,7 +26,7 @@ export const Route = createFileRoute("/informatie/$slug")({
         { property: "og:url", content: `/informatie/${p.slug}` },
         { property: "article:section", content: p.category },
       ],
-      links: [{ rel: "canonical", href: `/informatie/${p.slug}` }],
+      links: [{ rel: "canonical", href: `https://www.gewoonanders.nu/informatie/${p.slug}` }],
       scripts: [
         {
           type: "application/ld+json",
