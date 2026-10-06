@@ -9,106 +9,41 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as WerkwijzeRouteImport } from './routes/werkwijze'
-import { Route as WelkomKortRouteImport } from './routes/welkom-kort'
-import { Route as WelkomRouteImport } from './routes/welkom'
-import { Route as VoorwaardenRouteImport } from './routes/voorwaarden'
-import { Route as VerhalenRouteImport } from './routes/verhalen'
-import { Route as TrajectRouteImport } from './routes/traject'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as SessieRouteImport } from './routes/sessie'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as OverMijRouteImport } from './routes/over-mij'
-import { Route as MaskingCheckRouteImport } from './routes/masking-check'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as EnergiescanRouteImport } from './routes/energiescan'
-import { Route as DownloadsRouteImport } from './routes/downloads'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as InformatieIndexRouteImport } from './routes/informatie/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DownloadsRouteImport } from './routes/downloads'
+import { Route as EnergiescanRouteImport } from './routes/energiescan'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as MaskingCheckRouteImport } from './routes/masking-check'
+import { Route as OverMijRouteImport } from './routes/over-mij'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SessieRouteImport } from './routes/sessie'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as TrajectRouteImport } from './routes/traject'
+import { Route as VerhalenRouteImport } from './routes/verhalen'
+import { Route as VoorwaardenRouteImport } from './routes/voorwaarden'
+import { Route as WelkomRouteImport } from './routes/welkom'
+import { Route as WelkomKortRouteImport } from './routes/welkom-kort'
+import { Route as WerkwijzeRouteImport } from './routes/werkwijze'
 import { Route as DownloadsIndexRouteImport } from './routes/downloads/index'
-import { Route as VoorWieLaatOntdektRouteImport } from './routes/voor-wie/laat-ontdekt'
-import { Route as VoorWieAutistischeOndernemersRouteImport } from './routes/voor-wie/autistische-ondernemers'
-import { Route as VoorWieAudhdOndernemersRouteImport } from './routes/voor-wie/audhd-ondernemers'
-import { Route as VoorWieAdhdOndernemersRouteImport } from './routes/voor-wie/adhd-ondernemers'
-import { Route as ThemasZichtbaarheidNetwerkenRouteImport } from './routes/themas/zichtbaarheid-netwerken'
-import { Route as ThemasPrijzenOnderhandelenRouteImport } from './routes/themas/prijzen-onderhandelen'
-import { Route as ThemasOverprikkelingRouteImport } from './routes/themas/overprikkeling'
-import { Route as ThemasMaskingRouteImport } from './routes/themas/masking'
-import { Route as ThemasExecutiveFunctiesRouteImport } from './routes/themas/executive-functies'
-import { Route as ThemasEnergieBurnoutRouteImport } from './routes/themas/energie-burnout'
-import { Route as ThemasDemandAvoidanceRouteImport } from './routes/themas/demand-avoidance'
-import { Route as InformatieSlugRouteImport } from './routes/informatie/$slug'
 import { Route as DownloadsSlugRouteImport } from './routes/downloads/$slug'
+import { Route as InformatieIndexRouteImport } from './routes/informatie/index'
+import { Route as InformatieSlugRouteImport } from './routes/informatie/$slug'
+import { Route as ThemasDemandAvoidanceRouteImport } from './routes/themas/demand-avoidance'
+import { Route as ThemasEnergieBurnoutRouteImport } from './routes/themas/energie-burnout'
+import { Route as ThemasExecutiveFunctiesRouteImport } from './routes/themas/executive-functies'
+import { Route as ThemasMaskingRouteImport } from './routes/themas/masking'
+import { Route as ThemasOverprikkelingRouteImport } from './routes/themas/overprikkeling'
+import { Route as ThemasPrijzenOnderhandelenRouteImport } from './routes/themas/prijzen-onderhandelen'
+import { Route as ThemasZichtbaarheidNetwerkenRouteImport } from './routes/themas/zichtbaarheid-netwerken'
+import { Route as VoorWieAdhdOndernemersRouteImport } from './routes/voor-wie/adhd-ondernemers'
+import { Route as VoorWieAudhdOndernemersRouteImport } from './routes/voor-wie/audhd-ondernemers'
+import { Route as VoorWieAutistischeOndernemersRouteImport } from './routes/voor-wie/autistische-ondernemers'
+import { Route as VoorWieLaatOntdektRouteImport } from './routes/voor-wie/laat-ontdekt'
 
-const WerkwijzeRoute = WerkwijzeRouteImport.update({
-  id: '/werkwijze',
-  path: '/werkwijze',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WelkomKortRoute = WelkomKortRouteImport.update({
-  id: '/welkom-kort',
-  path: '/welkom-kort',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WelkomRoute = WelkomRouteImport.update({
-  id: '/welkom',
-  path: '/welkom',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const VoorwaardenRoute = VoorwaardenRouteImport.update({
-  id: '/voorwaarden',
-  path: '/voorwaarden',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const VerhalenRoute = VerhalenRouteImport.update({
-  id: '/verhalen',
-  path: '/verhalen',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TrajectRoute = TrajectRouteImport.update({
-  id: '/traject',
-  path: '/traject',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SessieRoute = SessieRouteImport.update({
-  id: '/sessie',
-  path: '/sessie',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const OverMijRoute = OverMijRouteImport.update({
-  id: '/over-mij',
-  path: '/over-mij',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MaskingCheckRoute = MaskingCheckRouteImport.update({
-  id: '/masking-check',
-  path: '/masking-check',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EnergiescanRoute = EnergiescanRouteImport.update({
-  id: '/energiescan',
-  path: '/energiescan',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DownloadsRoute = DownloadsRouteImport.update({
-  id: '/downloads',
-  path: '/downloads',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -116,14 +51,74 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
   getParentRoute: () => rootRouteImport,
 } as any)
-const InformatieIndexRoute = InformatieIndexRouteImport.update({
-  id: '/informatie/',
-  path: '/informatie/',
+const EnergiescanRoute = EnergiescanRouteImport.update({
+  id: '/energiescan',
+  path: '/energiescan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaskingCheckRoute = MaskingCheckRouteImport.update({
+  id: '/masking-check',
+  path: '/masking-check',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OverMijRoute = OverMijRouteImport.update({
+  id: '/over-mij',
+  path: '/over-mij',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SessieRoute = SessieRouteImport.update({
+  id: '/sessie',
+  path: '/sessie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrajectRoute = TrajectRouteImport.update({
+  id: '/traject',
+  path: '/traject',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VerhalenRoute = VerhalenRouteImport.update({
+  id: '/verhalen',
+  path: '/verhalen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoorwaardenRoute = VoorwaardenRouteImport.update({
+  id: '/voorwaarden',
+  path: '/voorwaarden',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelkomRoute = WelkomRouteImport.update({
+  id: '/welkom',
+  path: '/welkom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WelkomKortRoute = WelkomKortRouteImport.update({
+  id: '/welkom-kort',
+  path: '/welkom-kort',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WerkwijzeRoute = WerkwijzeRouteImport.update({
+  id: '/werkwijze',
+  path: '/werkwijze',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DownloadsIndexRoute = DownloadsIndexRouteImport.update({
@@ -131,9 +126,66 @@ const DownloadsIndexRoute = DownloadsIndexRouteImport.update({
   path: '/',
   getParentRoute: () => DownloadsRoute,
 } as any)
-const VoorWieLaatOntdektRoute = VoorWieLaatOntdektRouteImport.update({
-  id: '/voor-wie/laat-ontdekt',
-  path: '/voor-wie/laat-ontdekt',
+const DownloadsSlugRoute = DownloadsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => DownloadsRoute,
+} as any)
+const InformatieIndexRoute = InformatieIndexRouteImport.update({
+  id: '/informatie/',
+  path: '/informatie/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InformatieSlugRoute = InformatieSlugRouteImport.update({
+  id: '/informatie/$slug',
+  path: '/informatie/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasDemandAvoidanceRoute = ThemasDemandAvoidanceRouteImport.update({
+  id: '/themas/demand-avoidance',
+  path: '/themas/demand-avoidance',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasEnergieBurnoutRoute = ThemasEnergieBurnoutRouteImport.update({
+  id: '/themas/energie-burnout',
+  path: '/themas/energie-burnout',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasExecutiveFunctiesRoute = ThemasExecutiveFunctiesRouteImport.update({
+  id: '/themas/executive-functies',
+  path: '/themas/executive-functies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasMaskingRoute = ThemasMaskingRouteImport.update({
+  id: '/themas/masking',
+  path: '/themas/masking',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasOverprikkelingRoute = ThemasOverprikkelingRouteImport.update({
+  id: '/themas/overprikkeling',
+  path: '/themas/overprikkeling',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThemasPrijzenOnderhandelenRoute =
+  ThemasPrijzenOnderhandelenRouteImport.update({
+    id: '/themas/prijzen-onderhandelen',
+    path: '/themas/prijzen-onderhandelen',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ThemasZichtbaarheidNetwerkenRoute =
+  ThemasZichtbaarheidNetwerkenRouteImport.update({
+    id: '/themas/zichtbaarheid-netwerken',
+    path: '/themas/zichtbaarheid-netwerken',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const VoorWieAdhdOndernemersRoute = VoorWieAdhdOndernemersRouteImport.update({
+  id: '/voor-wie/adhd-ondernemers',
+  path: '/voor-wie/adhd-ondernemers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoorWieAudhdOndernemersRoute = VoorWieAudhdOndernemersRouteImport.update({
+  id: '/voor-wie/audhd-ondernemers',
+  path: '/voor-wie/audhd-ondernemers',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VoorWieAutistischeOndernemersRoute =
@@ -142,62 +194,10 @@ const VoorWieAutistischeOndernemersRoute =
     path: '/voor-wie/autistische-ondernemers',
     getParentRoute: () => rootRouteImport,
   } as any)
-const VoorWieAudhdOndernemersRoute = VoorWieAudhdOndernemersRouteImport.update({
-  id: '/voor-wie/audhd-ondernemers',
-  path: '/voor-wie/audhd-ondernemers',
+const VoorWieLaatOntdektRoute = VoorWieLaatOntdektRouteImport.update({
+  id: '/voor-wie/laat-ontdekt',
+  path: '/voor-wie/laat-ontdekt',
   getParentRoute: () => rootRouteImport,
-} as any)
-const VoorWieAdhdOndernemersRoute = VoorWieAdhdOndernemersRouteImport.update({
-  id: '/voor-wie/adhd-ondernemers',
-  path: '/voor-wie/adhd-ondernemers',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThemasZichtbaarheidNetwerkenRoute =
-  ThemasZichtbaarheidNetwerkenRouteImport.update({
-    id: '/themas/zichtbaarheid-netwerken',
-    path: '/themas/zichtbaarheid-netwerken',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ThemasPrijzenOnderhandelenRoute =
-  ThemasPrijzenOnderhandelenRouteImport.update({
-    id: '/themas/prijzen-onderhandelen',
-    path: '/themas/prijzen-onderhandelen',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ThemasOverprikkelingRoute = ThemasOverprikkelingRouteImport.update({
-  id: '/themas/overprikkeling',
-  path: '/themas/overprikkeling',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThemasMaskingRoute = ThemasMaskingRouteImport.update({
-  id: '/themas/masking',
-  path: '/themas/masking',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThemasExecutiveFunctiesRoute = ThemasExecutiveFunctiesRouteImport.update({
-  id: '/themas/executive-functies',
-  path: '/themas/executive-functies',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThemasEnergieBurnoutRoute = ThemasEnergieBurnoutRouteImport.update({
-  id: '/themas/energie-burnout',
-  path: '/themas/energie-burnout',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ThemasDemandAvoidanceRoute = ThemasDemandAvoidanceRouteImport.update({
-  id: '/themas/demand-avoidance',
-  path: '/themas/demand-avoidance',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const InformatieSlugRoute = InformatieSlugRouteImport.update({
-  id: '/informatie/$slug',
-  path: '/informatie/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DownloadsSlugRoute = DownloadsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => DownloadsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -434,102 +434,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/werkwijze': {
-      id: '/werkwijze'
-      path: '/werkwijze'
-      fullPath: '/werkwijze'
-      preLoaderRoute: typeof WerkwijzeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/welkom-kort': {
-      id: '/welkom-kort'
-      path: '/welkom-kort'
-      fullPath: '/welkom-kort'
-      preLoaderRoute: typeof WelkomKortRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/welkom': {
-      id: '/welkom'
-      path: '/welkom'
-      fullPath: '/welkom'
-      preLoaderRoute: typeof WelkomRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/voorwaarden': {
-      id: '/voorwaarden'
-      path: '/voorwaarden'
-      fullPath: '/voorwaarden'
-      preLoaderRoute: typeof VoorwaardenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/verhalen': {
-      id: '/verhalen'
-      path: '/verhalen'
-      fullPath: '/verhalen'
-      preLoaderRoute: typeof VerhalenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/traject': {
-      id: '/traject'
-      path: '/traject'
-      fullPath: '/traject'
-      preLoaderRoute: typeof TrajectRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sessie': {
-      id: '/sessie'
-      path: '/sessie'
-      fullPath: '/sessie'
-      preLoaderRoute: typeof SessieRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/over-mij': {
-      id: '/over-mij'
-      path: '/over-mij'
-      fullPath: '/over-mij'
-      preLoaderRoute: typeof OverMijRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/masking-check': {
-      id: '/masking-check'
-      path: '/masking-check'
-      fullPath: '/masking-check'
-      preLoaderRoute: typeof MaskingCheckRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/energiescan': {
-      id: '/energiescan'
-      path: '/energiescan'
-      fullPath: '/energiescan'
-      preLoaderRoute: typeof EnergiescanRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/downloads': {
-      id: '/downloads'
-      path: '/downloads'
-      fullPath: '/downloads'
-      preLoaderRoute: typeof DownloadsRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -539,18 +448,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/informatie/': {
-      id: '/informatie/'
-      path: '/informatie'
-      fullPath: '/informatie/'
-      preLoaderRoute: typeof InformatieIndexRouteImport
+    '/energiescan': {
+      id: '/energiescan'
+      path: '/energiescan'
+      fullPath: '/energiescan'
+      preLoaderRoute: typeof EnergiescanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/masking-check': {
+      id: '/masking-check'
+      path: '/masking-check'
+      fullPath: '/masking-check'
+      preLoaderRoute: typeof MaskingCheckRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/over-mij': {
+      id: '/over-mij'
+      path: '/over-mij'
+      fullPath: '/over-mij'
+      preLoaderRoute: typeof OverMijRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sessie': {
+      id: '/sessie'
+      path: '/sessie'
+      fullPath: '/sessie'
+      preLoaderRoute: typeof SessieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/traject': {
+      id: '/traject'
+      path: '/traject'
+      fullPath: '/traject'
+      preLoaderRoute: typeof TrajectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/verhalen': {
+      id: '/verhalen'
+      path: '/verhalen'
+      fullPath: '/verhalen'
+      preLoaderRoute: typeof VerhalenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voorwaarden': {
+      id: '/voorwaarden'
+      path: '/voorwaarden'
+      fullPath: '/voorwaarden'
+      preLoaderRoute: typeof VoorwaardenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welkom': {
+      id: '/welkom'
+      path: '/welkom'
+      fullPath: '/welkom'
+      preLoaderRoute: typeof WelkomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/welkom-kort': {
+      id: '/welkom-kort'
+      path: '/welkom-kort'
+      fullPath: '/welkom-kort'
+      preLoaderRoute: typeof WelkomKortRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/werkwijze': {
+      id: '/werkwijze'
+      path: '/werkwijze'
+      fullPath: '/werkwijze'
+      preLoaderRoute: typeof WerkwijzeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/downloads/': {
@@ -560,81 +553,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DownloadsIndexRouteImport
       parentRoute: typeof DownloadsRoute
     }
-    '/voor-wie/laat-ontdekt': {
-      id: '/voor-wie/laat-ontdekt'
-      path: '/voor-wie/laat-ontdekt'
-      fullPath: '/voor-wie/laat-ontdekt'
-      preLoaderRoute: typeof VoorWieLaatOntdektRouteImport
-      parentRoute: typeof rootRouteImport
+    '/downloads/$slug': {
+      id: '/downloads/$slug'
+      path: '/$slug'
+      fullPath: '/downloads/$slug'
+      preLoaderRoute: typeof DownloadsSlugRouteImport
+      parentRoute: typeof DownloadsRoute
     }
-    '/voor-wie/autistische-ondernemers': {
-      id: '/voor-wie/autistische-ondernemers'
-      path: '/voor-wie/autistische-ondernemers'
-      fullPath: '/voor-wie/autistische-ondernemers'
-      preLoaderRoute: typeof VoorWieAutistischeOndernemersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/voor-wie/audhd-ondernemers': {
-      id: '/voor-wie/audhd-ondernemers'
-      path: '/voor-wie/audhd-ondernemers'
-      fullPath: '/voor-wie/audhd-ondernemers'
-      preLoaderRoute: typeof VoorWieAudhdOndernemersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/voor-wie/adhd-ondernemers': {
-      id: '/voor-wie/adhd-ondernemers'
-      path: '/voor-wie/adhd-ondernemers'
-      fullPath: '/voor-wie/adhd-ondernemers'
-      preLoaderRoute: typeof VoorWieAdhdOndernemersRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/themas/zichtbaarheid-netwerken': {
-      id: '/themas/zichtbaarheid-netwerken'
-      path: '/themas/zichtbaarheid-netwerken'
-      fullPath: '/themas/zichtbaarheid-netwerken'
-      preLoaderRoute: typeof ThemasZichtbaarheidNetwerkenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/themas/prijzen-onderhandelen': {
-      id: '/themas/prijzen-onderhandelen'
-      path: '/themas/prijzen-onderhandelen'
-      fullPath: '/themas/prijzen-onderhandelen'
-      preLoaderRoute: typeof ThemasPrijzenOnderhandelenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/themas/overprikkeling': {
-      id: '/themas/overprikkeling'
-      path: '/themas/overprikkeling'
-      fullPath: '/themas/overprikkeling'
-      preLoaderRoute: typeof ThemasOverprikkelingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/themas/masking': {
-      id: '/themas/masking'
-      path: '/themas/masking'
-      fullPath: '/themas/masking'
-      preLoaderRoute: typeof ThemasMaskingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/themas/executive-functies': {
-      id: '/themas/executive-functies'
-      path: '/themas/executive-functies'
-      fullPath: '/themas/executive-functies'
-      preLoaderRoute: typeof ThemasExecutiveFunctiesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/themas/energie-burnout': {
-      id: '/themas/energie-burnout'
-      path: '/themas/energie-burnout'
-      fullPath: '/themas/energie-burnout'
-      preLoaderRoute: typeof ThemasEnergieBurnoutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/themas/demand-avoidance': {
-      id: '/themas/demand-avoidance'
-      path: '/themas/demand-avoidance'
-      fullPath: '/themas/demand-avoidance'
-      preLoaderRoute: typeof ThemasDemandAvoidanceRouteImport
+    '/informatie/': {
+      id: '/informatie/'
+      path: '/informatie'
+      fullPath: '/informatie/'
+      preLoaderRoute: typeof InformatieIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/informatie/$slug': {
@@ -644,12 +574,82 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InformatieSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/downloads/$slug': {
-      id: '/downloads/$slug'
-      path: '/$slug'
-      fullPath: '/downloads/$slug'
-      preLoaderRoute: typeof DownloadsSlugRouteImport
-      parentRoute: typeof DownloadsRoute
+    '/themas/demand-avoidance': {
+      id: '/themas/demand-avoidance'
+      path: '/themas/demand-avoidance'
+      fullPath: '/themas/demand-avoidance'
+      preLoaderRoute: typeof ThemasDemandAvoidanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/energie-burnout': {
+      id: '/themas/energie-burnout'
+      path: '/themas/energie-burnout'
+      fullPath: '/themas/energie-burnout'
+      preLoaderRoute: typeof ThemasEnergieBurnoutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/executive-functies': {
+      id: '/themas/executive-functies'
+      path: '/themas/executive-functies'
+      fullPath: '/themas/executive-functies'
+      preLoaderRoute: typeof ThemasExecutiveFunctiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/masking': {
+      id: '/themas/masking'
+      path: '/themas/masking'
+      fullPath: '/themas/masking'
+      preLoaderRoute: typeof ThemasMaskingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/overprikkeling': {
+      id: '/themas/overprikkeling'
+      path: '/themas/overprikkeling'
+      fullPath: '/themas/overprikkeling'
+      preLoaderRoute: typeof ThemasOverprikkelingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/prijzen-onderhandelen': {
+      id: '/themas/prijzen-onderhandelen'
+      path: '/themas/prijzen-onderhandelen'
+      fullPath: '/themas/prijzen-onderhandelen'
+      preLoaderRoute: typeof ThemasPrijzenOnderhandelenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/themas/zichtbaarheid-netwerken': {
+      id: '/themas/zichtbaarheid-netwerken'
+      path: '/themas/zichtbaarheid-netwerken'
+      fullPath: '/themas/zichtbaarheid-netwerken'
+      preLoaderRoute: typeof ThemasZichtbaarheidNetwerkenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voor-wie/adhd-ondernemers': {
+      id: '/voor-wie/adhd-ondernemers'
+      path: '/voor-wie/adhd-ondernemers'
+      fullPath: '/voor-wie/adhd-ondernemers'
+      preLoaderRoute: typeof VoorWieAdhdOndernemersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voor-wie/audhd-ondernemers': {
+      id: '/voor-wie/audhd-ondernemers'
+      path: '/voor-wie/audhd-ondernemers'
+      fullPath: '/voor-wie/audhd-ondernemers'
+      preLoaderRoute: typeof VoorWieAudhdOndernemersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voor-wie/autistische-ondernemers': {
+      id: '/voor-wie/autistische-ondernemers'
+      path: '/voor-wie/autistische-ondernemers'
+      fullPath: '/voor-wie/autistische-ondernemers'
+      preLoaderRoute: typeof VoorWieAutistischeOndernemersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voor-wie/laat-ontdekt': {
+      id: '/voor-wie/laat-ontdekt'
+      path: '/voor-wie/laat-ontdekt'
+      fullPath: '/voor-wie/laat-ontdekt'
+      preLoaderRoute: typeof VoorWieLaatOntdektRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }

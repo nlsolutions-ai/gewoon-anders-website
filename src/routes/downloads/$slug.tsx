@@ -311,29 +311,41 @@ const freebies: Record<string, Freebie> = {
 };
 
 export const Route = createFileRoute("/downloads/$slug")({
+  // Geef alleen de slug terug. Het freebie-object bevat een JSX-functie
+  // (`content`) en die is niet serialiseerbaar: teruggeven uit de loader laat
+  // het prerenderen klappen. De component zoekt het object zelf op.
   loader: ({ params }) => {
-    const freebie = freebies[params.slug];
-    if (!freebie) throw notFound();
-    return { freebie, slug: params.slug };
+    if (!freebies[params.slug]) throw notFound();
+    return { slug: params.slug };
   },
   head: ({ loaderData }) => {
-    if (!loaderData) return {};
+    const freebie = loaderData ? freebies[loaderData.slug] : undefined;
+    if (!loaderData || !freebie) return {};
     return {
       meta: [
-        { title: loaderData.freebie.meta },
-        { name: "description", content: loaderData.freebie.metaDesc },
-        { property: "og:title", content: loaderData.freebie.meta },
-        { property: "og:description", content: loaderData.freebie.metaDesc },
-        { property: "og:url", content: `/downloads/${loaderData.slug}` },
+        { title: freebie.meta },
+        { name: "description", content: freebie.metaDesc },
+        { property: "og:title", content: freebie.meta },
+        { property: "og:description", content: freebie.metaDesc },
+        {
+          property: "og:url",
+          content: `https://www.gewoonanders.nu/downloads/${loaderData.slug}`,
+        },
       ],
-      links: [{ rel: "canonical", href: `https://www.gewoonanders.nu/downloads/${loaderData.slug}` }],
+      links: [
+        {
+          rel: "canonical",
+          href: `https://www.gewoonanders.nu/downloads/${loaderData.slug}`,
+        },
+      ],
     };
   },
   component: FreebiePage,
 });
 
 function FreebiePage() {
-  const { freebie, slug } = Route.useLoaderData();
+  const { slug } = Route.useLoaderData();
+  const freebie = freebies[slug];
   const tag = TAG_BY_SLUG[slug];
   const pdfHref = PDF_BY_SLUG[slug];
 
