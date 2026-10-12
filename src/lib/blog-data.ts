@@ -167,7 +167,7 @@ export const posts: Post[] = [
       {
         kind: "link-row",
         text: "Werkblad om dit zichtbaar te maken: de Masking-check",
-        href: "/downloads/masking-check",
+        href: "/masking-check",
       },
     ],
   },
