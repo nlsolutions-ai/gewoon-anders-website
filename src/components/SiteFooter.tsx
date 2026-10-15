@@ -95,6 +95,20 @@ export function SiteFooter() {
           <div className="flex flex-wrap items-center justify-between gap-4">
             <p className="text-[13px] text-foreground/55">
               &copy; {new Date().getFullYear()} Gewoon Anders
+              <span aria-hidden className="px-2 opacity-50">
+                &middot;
+              </span>
+              Onderdeel van{" "}
+              {/* Bewust zonder noreferrer: zo ziet NorthernLights het verkeer
+                  vanaf deze site terug in de eigen statistieken. */}
+              <a
+                href="https://www.northernlights.solutions"
+                target="_blank"
+                rel="noopener"
+                className="link-underline text-foreground/75 hover:text-foreground"
+              >
+                NorthernLights Solutions
+              </a>
             </p>
             <div className="flex flex-wrap items-center gap-5">
               <a
